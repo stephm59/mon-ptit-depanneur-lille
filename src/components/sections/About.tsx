@@ -2,7 +2,7 @@ import { Wrench } from "lucide-react";
 
 const About = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="pt-32 pb-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-8 items-start max-w-6xl mx-auto">
           {/* Video Section - Plus petite */}
@@ -14,7 +14,8 @@ const About = () => {
                 controls
                 muted
                 playsInline
-                poster="/lovable-uploads/a82e6e39-9f6b-4329-be53-ae9f9d5c9bf6.png"
+                preload="metadata"
+                onError={(e) => console.error('Erreur vidéo:', e)}
               />
             </div>
           </div>
