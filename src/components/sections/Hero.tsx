@@ -34,7 +34,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-[60vh] flex items-center overflow-visible pt-28 pb-24">
+    <section className="relative min-h-[50vh] flex items-center overflow-visible pt-28 pb-20">
       {/* Background video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
