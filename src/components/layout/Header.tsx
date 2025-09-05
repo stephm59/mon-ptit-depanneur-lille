@@ -30,10 +30,6 @@ const Header = () => {
                 loading="eager"
                 decoding="async"
               />
-              <div className="ml-3 hidden sm:block">
-                <h1 className="text-xl font-bold">Mon p'tit Dépanneur</h1>
-                <p className="text-sm text-primary-foreground/80">Votre artisan de confiance à Lille</p>
-              </div>
             </div>
 
             {/* Desktop Navigation */}
