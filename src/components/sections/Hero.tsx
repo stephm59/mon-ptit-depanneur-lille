@@ -53,7 +53,7 @@ const Hero = () => {
           {/* Main headline */}
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white">
             Mon p'tit dépanneur, votre artisan de confiance 
-            <span className="block text-accent">depuis plus de 20 ans</span>
+            <span className="block text-rating">depuis plus de 20 ans</span>
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 text-white/90">
