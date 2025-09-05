@@ -12,14 +12,16 @@ import { useServiceCityPage } from "@/hooks/useServiceCityPage";
 import { Loading } from "@/components/ui/loading";
 
 export default function ServiceCity() {
-  const { serviceSlug, citySlug } = useParams<{
-    serviceSlug: string;
-    citySlug: string;
+  const { combinedSlug } = useParams<{
+    combinedSlug: string;
   }>();
 
+  // Parse combined slug (e.g., "plombier-lille" -> "plombier", "lille")
+  const [serviceSlug, citySlug] = combinedSlug?.split('-', 2) || ['', ''];
+
   const { data: page, isLoading, error } = useServiceCityPage(
-    serviceSlug || "",
-    citySlug || ""
+    serviceSlug,
+    citySlug
   );
 
   if (isLoading) return <Loading />;
@@ -47,7 +49,7 @@ export default function ServiceCity() {
         />
         <meta property="og:title" content={page.meta_title || `${page.services.name} à ${page.cities.name}`} />
         <meta property="og:description" content={page.meta_description || `Services de ${page.services.name} à ${page.cities.name}`} />
-        <link rel="canonical" href={`/${serviceSlug}/${citySlug}`} />
+        <link rel="canonical" href={`/${combinedSlug}`} />
       </Helmet>
 
       <div className="min-h-screen bg-background">
