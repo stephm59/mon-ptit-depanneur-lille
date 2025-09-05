@@ -48,7 +48,7 @@ const Header = () => {
             {/* CTA Buttons */}
             <div className="flex items-center gap-4">
               <div className="hidden sm:block">
-                <Button variant="outline" size="sm" className="bg-white text-primary border-white hover:bg-white/90">
+                <Button variant="outline" size="sm" className="bg-black text-white border-black hover:bg-black/90">
                   Devis gratuit
                 </Button>
               </div>
