@@ -46,6 +46,10 @@ const InsurancePartners = () => {
     {
       name: "MAIF",
       url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755070749/logo-maif_xztcel.webp"
+    },
+    {
+      name: "Matmut",
+      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755071877/logo-matmut_zytmyd.webp"
     }
   ];
 
