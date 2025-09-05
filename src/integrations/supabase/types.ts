@@ -14,7 +14,378 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      blog_posts: {
+        Row: {
+          content: string | null
+          cover_image_url: string | null
+          created_at: string
+          excerpt: string | null
+          id: string
+          published: boolean
+          published_at: string | null
+          service_id: string | null
+          slug: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          content?: string | null
+          cover_image_url?: string | null
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          published?: boolean
+          published_at?: string | null
+          service_id?: string | null
+          slug: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          content?: string | null
+          cover_image_url?: string | null
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          published?: boolean
+          published_at?: string | null
+          service_id?: string | null
+          slug?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blog_posts_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "services"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      cities: {
+        Row: {
+          created_at: string
+          department: string | null
+          id: string
+          name: string
+          published: boolean
+          region: string | null
+          slug: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          department?: string | null
+          id?: string
+          name: string
+          published?: boolean
+          region?: string | null
+          slug: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          department?: string | null
+          id?: string
+          name?: string
+          published?: boolean
+          region?: string | null
+          slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      service_city_faqs: {
+        Row: {
+          answer: string
+          city_id: string
+          created_at: string
+          id: string
+          position: number
+          published: boolean
+          question: string
+          service_id: string
+          updated_at: string
+        }
+        Insert: {
+          answer: string
+          city_id: string
+          created_at?: string
+          id?: string
+          position?: number
+          published?: boolean
+          question: string
+          service_id: string
+          updated_at?: string
+        }
+        Update: {
+          answer?: string
+          city_id?: string
+          created_at?: string
+          id?: string
+          position?: number
+          published?: boolean
+          question?: string
+          service_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "service_city_faqs_city_id_fkey"
+            columns: ["city_id"]
+            isOneToOne: false
+            referencedRelation: "cities"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "service_city_faqs_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "services"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      service_city_offers: {
+        Row: {
+          created_at: string
+          description: string
+          emoji: string | null
+          icon_name: string | null
+          id: string
+          page_id: string
+          position: number
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          emoji?: string | null
+          icon_name?: string | null
+          id?: string
+          page_id: string
+          position: number
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          emoji?: string | null
+          icon_name?: string | null
+          id?: string
+          page_id?: string
+          position?: number
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "service_city_offers_page_id_fkey"
+            columns: ["page_id"]
+            isOneToOne: false
+            referencedRelation: "service_city_pages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      service_city_pages: {
+        Row: {
+          city_id: string
+          created_at: string
+          cta_subtitle: string
+          cta_title: string | null
+          h1: string | null
+          h2_intro: string | null
+          id: string
+          intro_description: string | null
+          meta_description: string | null
+          meta_title: string | null
+          published: boolean
+          published_at: string | null
+          service_id: string
+          updated_at: string
+          zones_text: string | null
+        }
+        Insert: {
+          city_id: string
+          created_at?: string
+          cta_subtitle?: string
+          cta_title?: string | null
+          h1?: string | null
+          h2_intro?: string | null
+          id?: string
+          intro_description?: string | null
+          meta_description?: string | null
+          meta_title?: string | null
+          published?: boolean
+          published_at?: string | null
+          service_id: string
+          updated_at?: string
+          zones_text?: string | null
+        }
+        Update: {
+          city_id?: string
+          created_at?: string
+          cta_subtitle?: string
+          cta_title?: string | null
+          h1?: string | null
+          h2_intro?: string | null
+          id?: string
+          intro_description?: string | null
+          meta_description?: string | null
+          meta_title?: string | null
+          published?: boolean
+          published_at?: string | null
+          service_id?: string
+          updated_at?: string
+          zones_text?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "service_city_pages_city_id_fkey"
+            columns: ["city_id"]
+            isOneToOne: false
+            referencedRelation: "cities"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "service_city_pages_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "services"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      service_faqs_generic: {
+        Row: {
+          answer: string
+          created_at: string
+          id: string
+          position: number
+          published: boolean
+          question: string
+          service_id: string
+          updated_at: string
+        }
+        Insert: {
+          answer: string
+          created_at?: string
+          id?: string
+          position?: number
+          published?: boolean
+          question: string
+          service_id: string
+          updated_at?: string
+        }
+        Update: {
+          answer?: string
+          created_at?: string
+          id?: string
+          position?: number
+          published?: boolean
+          question?: string
+          service_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "service_faqs_generic_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "services"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      services: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          published: boolean
+          slug: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          published?: boolean
+          slug: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          published?: boolean
+          slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      testimonials: {
+        Row: {
+          author_name: string
+          city_id: string | null
+          content: string
+          created_at: string
+          id: string
+          location: string | null
+          published: boolean
+          rating: number
+          service_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          author_name: string
+          city_id?: string | null
+          content: string
+          created_at?: string
+          id?: string
+          location?: string | null
+          published?: boolean
+          rating: number
+          service_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          author_name?: string
+          city_id?: string | null
+          content?: string
+          created_at?: string
+          id?: string
+          location?: string | null
+          published?: boolean
+          rating?: number
+          service_id?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "testimonials_city_id_fkey"
+            columns: ["city_id"]
+            isOneToOne: false
+            referencedRelation: "cities"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "testimonials_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "services"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
