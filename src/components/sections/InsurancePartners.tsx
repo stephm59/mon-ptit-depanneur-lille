@@ -1,6 +1,5 @@
 import { Shield } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { useEffect, useState } from "react";
 
 const InsurancePartners = () => {
   const insuranceLogos = [
@@ -50,20 +49,8 @@ const InsurancePartners = () => {
     }
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Auto-play carousel with slow animation
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % insuranceLogos.length);
-    }, 3000); // 3 seconds per slide
-
-    return () => clearInterval(interval);
-  }, [insuranceLogos.length]);
-
-  // Create duplicated array for seamless loop
+  // Dupliquer les logos pour un défilement infini
   const duplicatedLogos = [...insuranceLogos, ...insuranceLogos];
-  const visibleLogos = 6; // Number of logos visible at once
 
   return (
     <section className="py-20 bg-background">
@@ -82,18 +69,12 @@ const InsurancePartners = () => {
           </p>
         </div>
 
-        {/* Carousel */}
+        {/* Carousel avec défilement continu */}
         <div className="mb-12">
           <div className="overflow-hidden">
-            <div 
-              className="flex gap-8 transition-transform duration-1000 ease-in-out"
-              style={{
-                transform: `translateX(-${(currentIndex * 100) / visibleLogos}%)`,
-                width: `${(duplicatedLogos.length * 100) / visibleLogos}%`
-              }}
-            >
+            <div className="flex gap-12 animate-scroll-continuous">
               {duplicatedLogos.map((logo, index) => (
-                <div key={`${logo.name}-${index}`} className="flex-shrink-0" style={{ width: `${100 / duplicatedLogos.length}%` }}>
+                <div key={`${logo.name}-${index}`} className="flex-shrink-0 w-32">
                   <div className="flex items-center justify-center h-20">
                     <img 
                       src={logo.url}
