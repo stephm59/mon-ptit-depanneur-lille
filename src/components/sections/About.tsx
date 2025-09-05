@@ -4,12 +4,12 @@ const About = () => {
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          {/* Video Section */}
-          <div className="flex justify-center lg:justify-start">
+        <div className="flex flex-col lg:flex-row gap-8 items-start max-w-6xl mx-auto">
+          {/* Video Section - Plus petite */}
+          <div className="flex-shrink-0">
             <div className="relative">
               <video
-                className="w-80 h-80 object-cover rounded-full border-4 border-primary shadow-elevated"
+                className="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-elevated"
                 src="https://res.cloudinary.com/dit7nfyiy/video/upload/v1755014760/video-david-home_vsocwu.mp4"
                 controls
                 muted
@@ -19,8 +19,8 @@ const About = () => {
             </div>
           </div>
 
-          {/* Content Section */}
-          <div>
+          {/* Content Section - Prend plus de place */}
+          <div className="flex-1">
             <div className="flex items-start mb-6">
               <Wrench className="w-8 h-8 text-primary mr-4 mt-1 flex-shrink-0" />
               <div>
