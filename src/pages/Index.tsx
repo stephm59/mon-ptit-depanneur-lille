@@ -7,6 +7,7 @@ import TeamProximity from "@/components/sections/TeamProximity";
 import InsurancePartners from "@/components/sections/InsurancePartners";
 import BeforeAfter from "@/components/sections/BeforeAfter";
 import QualityLabels from "@/components/sections/QualityLabels";
+import BrandPartners from "@/components/sections/BrandPartners";
 import Testimonials from "@/components/sections/Testimonials";
 import Footer from "@/components/layout/Footer";
 
@@ -23,6 +24,7 @@ const Index = () => {
         <InsurancePartners />
         <BeforeAfter />
         <QualityLabels />
+        <BrandPartners />
         <Testimonials />
       </main>
       <Footer />
