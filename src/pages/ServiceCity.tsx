@@ -3,10 +3,19 @@ import { Helmet } from "react-helmet";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { ServiceCityHero } from "@/components/sections/ServiceCityHero";
+import { ServiceCityIntro } from "@/components/sections/ServiceCityIntro";
 import { ServiceCityOffers } from "@/components/sections/ServiceCityOffers";
+import { CtaBlock } from "@/components/sections/CtaBlock";
+import MediaCoverage from "@/components/sections/MediaCoverage";
 import { ServiceCityTestimonials } from "@/components/sections/ServiceCityTestimonials";
+import WhyChooseUs from "@/components/sections/WhyChooseUs";
+import TeamProximity from "@/components/sections/TeamProximity";
+import InsurancePartners from "@/components/sections/InsurancePartners";
 import { ServiceCityFaqs } from "@/components/sections/ServiceCityFaqs";
 import { ServiceCityZones } from "@/components/sections/ServiceCityZones";
+import BeforeAfter from "@/components/sections/BeforeAfter";
+import QualityLabels from "@/components/sections/QualityLabels";
+import BrandPartners from "@/components/sections/BrandPartners";
 import { ServiceCityBlog } from "@/components/sections/ServiceCityBlog";
 import { useServiceCityPage } from "@/hooks/useServiceCityPage";
 import { Loading } from "@/components/ui/loading";
@@ -56,22 +65,69 @@ export default function ServiceCity() {
         <Header />
         
         <main>
+          {/* 1. Hero avec vidéo background + 4 blocs de réassurance */}
           <ServiceCityHero page={page} />
+          
+          {/* 2. Introduction personnalisée à Service + ville */}
+          <ServiceCityIntro page={page} />
+          
+          {/* 3. Nos prestations à Service + ville */}
           <ServiceCityOffers pageId={page.id} />
+          
+          {/* 4. Bloc avec CTA */}
+          <CtaBlock 
+            title="Besoin d'une intervention ?" 
+            subtitle="Contactez-nous pour un devis gratuit et sans engagement"
+          />
+          
+          {/* 5. AU JT de M6 */}
+          <MediaCoverage />
+          
+          {/* 6. Ce que disent nos clients */}
           <ServiceCityTestimonials 
             serviceId={page.service_id} 
             cityId={page.city_id} 
           />
+          
+          {/* 7. Pourquoi choisir Mon p'tit Dépanneur */}
+          <WhyChooseUs />
+          
+          {/* 8. Un service de proximité et de confiance */}
+          <TeamProximity />
+          
+          {/* 9. Nos partenaires assurances */}
+          <InsurancePartners />
+          
+          {/* 10. FAQ adaptée à Service + ville */}
           <ServiceCityFaqs 
             serviceId={page.service_id} 
             cityId={page.city_id} 
           />
+          
+          {/* 11. Bloc CTA */}
+          <CtaBlock 
+            title="Prêt à faire appel à nos services ?" 
+            subtitle="Demandez votre devis personnalisé dès maintenant"
+          />
+          
+          {/* 12. Zone d'intervention */}
           {page.zones_text && (
             <ServiceCityZones 
               zonesText={page.zones_text}
               cityName={page.cities.name}
             />
           )}
+          
+          {/* 13. Section Avant / Après */}
+          <BeforeAfter />
+          
+          {/* 14. Nos labels qualités */}
+          <QualityLabels />
+          
+          {/* 15. Nos marques partenaires */}
+          <BrandPartners />
+          
+          {/* 16. Les bons conseils de Mon p'tit Dépanneur */}
           <ServiceCityBlog serviceId={page.service_id} />
         </main>
 
