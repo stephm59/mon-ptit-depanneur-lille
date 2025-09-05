@@ -16,7 +16,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md text-white border-b border-white/5">
+    <header className="absolute top-0 inset-x-0 z-50 text-white">
       <div className="container mx-auto px-4">
         {/* Main navigation */}
         <div className="py-4">
