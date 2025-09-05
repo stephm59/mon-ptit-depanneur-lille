@@ -16,7 +16,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-black/30 backdrop-blur-md text-white border-b border-white/10">
+    <header className="fixed top-0 inset-x-0 z-50 bg-black/10 backdrop-blur-md text-white border-b border-white/5">
       <div className="container mx-auto px-4">
         {/* Main navigation */}
         <div className="py-4">
@@ -26,7 +26,7 @@ const Header = () => {
               <img 
                 src="https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/logo-mon-ptit-depanneur-contour-blanc_la7i2t.webp" 
                 alt="Mon p'tit Dépanneur" 
-                className="h-16 md:h-16 w-auto"
+                className="h-20 md:h-20 w-auto"
                 loading="eager"
                 decoding="async"
               />
@@ -48,16 +48,16 @@ const Header = () => {
             {/* CTA Buttons */}
             <div className="flex items-center gap-4">
               <div className="hidden sm:block">
-                <Button variant="outline" size="sm" className="border-white/40 text-white hover:bg-white/10">
+                <Button variant="outline" size="sm" className="bg-white text-primary border-white hover:bg-white/90">
                   Devis gratuit
                 </Button>
               </div>
               <a 
                 href="tel:0328634868" 
-                className="inline-flex items-center gap-2 font-semibold text-white hover:text-accent transition-colors"
+                className="inline-flex items-center gap-2 font-bold text-white bg-accent px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors shadow-lg"
                 aria-label="Appeler Mon p'tit Dépanneur"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-5 h-5" />
                 03 28 63 48 68
               </a>
 

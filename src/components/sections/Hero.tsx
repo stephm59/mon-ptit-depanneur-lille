@@ -34,7 +34,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-[80vh] flex items-center overflow-visible pt-28 pb-32">
+    <section className="relative min-h-[60vh] flex items-center overflow-visible pt-28 pb-24">
       {/* Background video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
@@ -96,7 +96,7 @@ const Hero = () => {
       </div>
 
       {/* Feature cards - overlapping at bottom */}
-      <div className="absolute left-1/2 -translate-x-1/2 bottom-[-72px] md:bottom-[-88px] w-full max-w-6xl px-4 z-20">
+      <div className="absolute left-1/2 -translate-x-1/2 bottom-[-60px] md:bottom-[-70px] w-full max-w-6xl px-4 z-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
             <Card key={index} className="p-6 bg-card/95 backdrop-blur-sm border-none shadow-card hover:shadow-elevated transition-all duration-300 transform hover:scale-105">
