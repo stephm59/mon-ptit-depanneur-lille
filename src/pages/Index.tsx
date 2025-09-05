@@ -6,6 +6,7 @@ import MediaCoverage from "@/components/sections/MediaCoverage";
 import TeamProximity from "@/components/sections/TeamProximity";
 import InsurancePartners from "@/components/sections/InsurancePartners";
 import BeforeAfter from "@/components/sections/BeforeAfter";
+import QualityLabels from "@/components/sections/QualityLabels";
 import Testimonials from "@/components/sections/Testimonials";
 import Footer from "@/components/layout/Footer";
 
@@ -21,6 +22,7 @@ const Index = () => {
         <TeamProximity />
         <InsurancePartners />
         <BeforeAfter />
+        <QualityLabels />
         <Testimonials />
       </main>
       <Footer />
