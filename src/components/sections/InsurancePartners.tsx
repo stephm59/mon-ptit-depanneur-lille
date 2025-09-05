@@ -74,12 +74,12 @@ const InsurancePartners = () => {
           <div className="overflow-hidden">
             <div className="flex gap-12 animate-scroll-continuous">
               {duplicatedLogos.map((logo, index) => (
-                <div key={`${logo.name}-${index}`} className="flex-shrink-0 w-32">
-                  <div className="flex items-center justify-center h-20">
+                <div key={`${logo.name}-${index}`} className="flex-shrink-0 w-40">
+                  <div className="flex items-center justify-center h-24">
                     <img 
                       src={logo.url}
                       alt={`Logo ${logo.name}`}
-                      className="max-h-16 max-w-32 object-contain filter grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                      className="max-h-20 max-w-40 object-contain transition-all duration-300 hover:scale-110"
                       loading="lazy"
                     />
                   </div>
