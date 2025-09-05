@@ -9,6 +9,7 @@ import BeforeAfter from "@/components/sections/BeforeAfter";
 import QualityLabels from "@/components/sections/QualityLabels";
 import BrandPartners from "@/components/sections/BrandPartners";
 import BlogAdvice from "@/components/sections/BlogAdvice";
+import ServiceAreas from "@/components/sections/ServiceAreas";
 import Testimonials from "@/components/sections/Testimonials";
 import Footer from "@/components/layout/Footer";
 
@@ -27,6 +28,7 @@ const Index = () => {
         <QualityLabels />
         <BrandPartners />
         <BlogAdvice />
+        <ServiceAreas />
         <Testimonials />
       </main>
       <Footer />
