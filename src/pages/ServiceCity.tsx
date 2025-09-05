@@ -68,67 +68,79 @@ export default function ServiceCity() {
           {/* 1. Hero avec vidéo background + 4 blocs de réassurance */}
           <ServiceCityHero page={page} />
           
-          {/* 2. Introduction personnalisée à Service + ville */}
+          {/* 2. Introduction personnalisée à Service + ville - BLANC */}
           <ServiceCityIntro page={page} />
           
-          {/* 3. Nos prestations à Service + ville */}
-          <ServiceCityOffers pageId={page.id} />
+          {/* 3. Nos prestations à Service + ville - GRIS */}
+          <div className="bg-muted/50">
+            <ServiceCityOffers pageId={page.id} />
+          </div>
           
-          {/* 4. Bloc avec CTA */}
+          {/* 4. Bloc avec CTA - GARDE SA COULEUR (BLEU) */}
           <CtaBlock 
             title="Besoin d'une intervention ?" 
             subtitle="Contactez-nous pour un devis gratuit et sans engagement"
           />
           
-          {/* 5. AU JT de M6 */}
+          {/* 5. AU JT de M6 - GARDE SA COULEUR (BLEU) */}
           <MediaCoverage />
           
-          {/* 6. Ce que disent nos clients */}
+          {/* 6. Ce que disent nos clients - BLANC */}
           <ServiceCityTestimonials 
             serviceId={page.service_id} 
             cityId={page.city_id} 
           />
           
-          {/* 7. Pourquoi choisir Mon p'tit Dépanneur */}
-          <WhyChooseUs />
+          {/* 7. Pourquoi choisir Mon p'tit Dépanneur - GRIS */}
+          <div className="bg-muted/50">
+            <WhyChooseUs />
+          </div>
           
-          {/* 8. Un service de proximité et de confiance */}
+          {/* 8. Un service de proximité et de confiance - BLANC */}
           <TeamProximity />
           
-          {/* 9. Nos partenaires assurances */}
-          <InsurancePartners />
+          {/* 9. Nos partenaires assurances - GRIS */}
+          <div className="bg-muted/50">
+            <InsurancePartners />
+          </div>
           
-          {/* 10. FAQ adaptée à Service + ville */}
+          {/* 10. FAQ adaptée à Service + ville - BLANC */}
           <ServiceCityFaqs 
             serviceId={page.service_id} 
             cityId={page.city_id} 
           />
           
-          {/* 11. Bloc CTA */}
+          {/* 11. Bloc CTA - GARDE SA COULEUR (BLEU) */}
           <CtaBlock 
             title="Prêt à faire appel à nos services ?" 
             subtitle="Demandez votre devis personnalisé dès maintenant"
           />
           
-          {/* 12. Zone d'intervention */}
+          {/* 12. Zone d'intervention - GRIS */}
           {page.zones_text && (
-            <ServiceCityZones 
-              zonesText={page.zones_text}
-              cityName={page.cities.name}
-            />
+            <div className="bg-muted/50">
+              <ServiceCityZones 
+                zonesText={page.zones_text}
+                cityName={page.cities.name}
+              />
+            </div>
           )}
           
-          {/* 13. Section Avant / Après */}
+          {/* 13. Section Avant / Après - BLANC */}
           <BeforeAfter />
           
-          {/* 14. Nos labels qualités */}
-          <QualityLabels />
+          {/* 14. Nos labels qualités - GRIS */}
+          <div className="bg-muted/50">
+            <QualityLabels />
+          </div>
           
-          {/* 15. Nos marques partenaires */}
+          {/* 15. Nos marques partenaires - BLANC */}
           <BrandPartners />
           
-          {/* 16. Les bons conseils de Mon p'tit Dépanneur */}
-          <ServiceCityBlog serviceId={page.service_id} />
+          {/* 16. Les bons conseils de Mon p'tit Dépanneur - GRIS */}
+          <div className="bg-muted/50">
+            <ServiceCityBlog serviceId={page.service_id} />
+          </div>
         </main>
 
         <Footer />
