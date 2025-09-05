@@ -20,16 +20,17 @@ const Index = () => {
       <main>
         <Hero />
         <About />
-        <WhyChooseUs />
+        <Testimonials />
         <MediaCoverage />
+        <WhyChooseUs />
         <TeamProximity />
+        <Testimonials />
         <InsurancePartners />
         <BeforeAfter />
         <QualityLabels />
         <BrandPartners />
         <BlogAdvice />
         <ServiceAreas />
-        <Testimonials />
       </main>
       <Footer />
     </div>

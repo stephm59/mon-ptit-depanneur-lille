@@ -2,7 +2,7 @@ import { MapPin } from "lucide-react";
 
 const ServiceAreas = () => {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 max-w-4xl mx-auto">

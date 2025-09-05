@@ -75,7 +75,7 @@ const BlogAdvice = () => {
   const visibleArticles = articles.slice(currentIndex, currentIndex + articlesPerView);
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 max-w-4xl mx-auto">
