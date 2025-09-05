@@ -5,6 +5,7 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import MediaCoverage from "@/components/sections/MediaCoverage";
 import TeamProximity from "@/components/sections/TeamProximity";
 import InsurancePartners from "@/components/sections/InsurancePartners";
+import BeforeAfter from "@/components/sections/BeforeAfter";
 import Testimonials from "@/components/sections/Testimonials";
 import Footer from "@/components/layout/Footer";
 
@@ -19,6 +20,7 @@ const Index = () => {
         <MediaCoverage />
         <TeamProximity />
         <InsurancePartners />
+        <BeforeAfter />
         <Testimonials />
       </main>
       <Footer />
