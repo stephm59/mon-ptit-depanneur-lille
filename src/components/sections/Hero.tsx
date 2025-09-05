@@ -79,12 +79,12 @@ const Hero = () => {
           <div className="flex items-center justify-center gap-2 mb-16">
             <div className="flex items-center">
               {[...Array(4)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                <Star key={i} className="w-5 h-5 fill-rating text-rating" />
               ))}
               <div className="relative w-5 h-5">
                 <Star className="absolute inset-0 w-5 h-5 text-white/40" />
                 <div className="overflow-hidden w-1/2 h-full">
-                  <Star className="w-5 h-5 fill-accent text-accent" />
+                  <Star className="w-5 h-5 fill-rating text-rating" />
                 </div>
               </div>
             </div>

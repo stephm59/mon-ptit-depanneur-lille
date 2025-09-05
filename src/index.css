@@ -31,9 +31,13 @@
     --urgent-hover: 20 91% 42%;
 
     /* Accent colors */
-    --accent: 45 93% 58%; /* Jaune logo/badges */
-    --accent-foreground: 220 26% 14%;
-    --accent-light: 45 93% 68%;
+    --accent: 4 87% 60%; /* Rouge coral pour boutons principaux */
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 4 87% 68%;
+    
+    /* Rating stars - keep original yellow */
+    --rating: 45 93% 58%; /* Jaune pour les étoiles d'avis */
+    --rating-foreground: 220 26% 14%;
 
     /* Status colors */
     --success: 142 76% 36%;
