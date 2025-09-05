@@ -147,118 +147,124 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Services Grid - 8 colonnes comme dans le modèle */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 mb-16">
-          {/* Plomberie */}
-          <div>
-            <h4 className="text-lg font-bold text-white mb-4">Plomberie</h4>
-            <ul className="space-y-2">
-              {services.plomberie.map((service, index) => (
-                <li key={index}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    {service}
-                  </a>
-                </li>
-              ))}
-            </ul>
+        {/* Services Grid - 2 lignes de 4 colonnes comme dans le modèle */}
+        <div className="space-y-12 mb-16">
+          {/* Première ligne : Plomberie, Chauffage, Pompe à chaleur, Climatisation */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Plomberie */}
+            <div>
+              <h4 className="text-lg font-bold text-white mb-4">Plomberie</h4>
+              <ul className="space-y-2">
+                {services.plomberie.map((service, index) => (
+                  <li key={index}>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {service}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Chauffage */}
+            <div>
+              <h4 className="text-lg font-bold text-white mb-4">Chauffage</h4>
+              <ul className="space-y-2">
+                {services.chauffage.map((service, index) => (
+                  <li key={index}>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {service}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Pompe à chaleur */}
+            <div>
+              <h4 className="text-lg font-bold text-white mb-4">Pompe à chaleur</h4>
+              <ul className="space-y-2">
+                {services.pompeAChaleur.map((service, index) => (
+                  <li key={index}>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {service}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Climatisation */}
+            <div>
+              <h4 className="text-lg font-bold text-white mb-4">Climatisation</h4>
+              <ul className="space-y-2">
+                {services.climatisation.map((service, index) => (
+                  <li key={index}>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {service}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          {/* Chauffage */}
-          <div>
-            <h4 className="text-lg font-bold text-white mb-4">Chauffage</h4>
-            <ul className="space-y-2">
-              {services.chauffage.map((service, index) => (
-                <li key={index}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    {service}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Deuxième ligne : Salle de bains, Électricité, Serrurier, Vitre */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Salle de bains */}
+            <div>
+              <h4 className="text-lg font-bold text-white mb-4">Salle de bains</h4>
+              <ul className="space-y-2">
+                {services.salleDeBains.map((service, index) => (
+                  <li key={index}>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {service}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Pompe à chaleur */}
-          <div>
-            <h4 className="text-lg font-bold text-white mb-4">Pompe à chaleur</h4>
-            <ul className="space-y-2">
-              {services.pompeAChaleur.map((service, index) => (
-                <li key={index}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    {service}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Électricité */}
+            <div>
+              <h4 className="text-lg font-bold text-white mb-4">Électricité</h4>
+              <ul className="space-y-2">
+                {services.electricite.map((service, index) => (
+                  <li key={index}>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {service}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Climatisation */}
-          <div>
-            <h4 className="text-lg font-bold text-white mb-4">Climatisation</h4>
-            <ul className="space-y-2">
-              {services.climatisation.map((service, index) => (
-                <li key={index}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    {service}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Serrurier */}
+            <div>
+              <h4 className="text-lg font-bold text-white mb-4">Serrurier</h4>
+              <ul className="space-y-2">
+                {services.serrurerie.map((service, index) => (
+                  <li key={index}>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {service}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Salle de bains */}
-          <div>
-            <h4 className="text-lg font-bold text-white mb-4">Salle de bains</h4>
-            <ul className="space-y-2">
-              {services.salleDeBains.map((service, index) => (
-                <li key={index}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    {service}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Électricité */}
-          <div>
-            <h4 className="text-lg font-bold text-white mb-4">Électricité</h4>
-            <ul className="space-y-2">
-              {services.electricite.map((service, index) => (
-                <li key={index}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    {service}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Serrurier */}
-          <div>
-            <h4 className="text-lg font-bold text-white mb-4">Serrurier</h4>
-            <ul className="space-y-2">
-              {services.serrurerie.map((service, index) => (
-                <li key={index}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    {service}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Vitre */}
-          <div>
-            <h4 className="text-lg font-bold text-white mb-4">Vitre</h4>
-            <ul className="space-y-2">
-              {services.vitrerie.map((service, index) => (
-                <li key={index}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    {service}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {/* Vitre */}
+            <div>
+              <h4 className="text-lg font-bold text-white mb-4">Vitre</h4>
+              <ul className="space-y-2">
+                {services.vitrerie.map((service, index) => (
+                  <li key={index}>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {service}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
