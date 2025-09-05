@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import heroBackground from "@/assets/hero-background.jpg";
 
+const VIDEO_URL = "https://res.cloudinary.com/dit7nfyiy/video/upload/v1754995491/video-hero-home_bx95k0.mp4";
+
 const Hero = () => {
   const features = [
     {
@@ -32,13 +34,21 @@ const Hero = () => {
   ];
 
   return (
-    <section 
-      className="relative min-h-[80vh] flex items-center bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.85)), url(${heroBackground})`
-      }}
-    >
-      <div className="container mx-auto px-4 py-20">
+    <section className="relative min-h-[80vh] flex items-center overflow-hidden">
+      {/* Background video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src={VIDEO_URL}
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster={heroBackground}
+        aria-hidden="true"
+      />
+      {/* Overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary-light/70" />
+      <div className="relative z-10 container mx-auto px-4 py-20">
         <div className="max-w-4xl mx-auto text-center text-primary-foreground">
           {/* Main headline */}
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
@@ -52,9 +62,11 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button variant="urgent" size="lg" className="text-lg font-bold">
-              <Phone className="w-6 h-6" />
-              Appel d'urgence
+            <Button asChild variant="urgent" size="lg" className="text-lg font-bold" aria-label="Appeler Mon p'tit Dépanneur">
+              <a href="tel:0328634868">
+                <Phone className="w-6 h-6" />
+                Appel d'urgence
+              </a>
             </Button>
             <Button variant="hero" size="lg" className="text-lg">
               Devis gratuit

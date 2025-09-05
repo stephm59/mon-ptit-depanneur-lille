@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo-mon-ptit-depanneur.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,29 +18,18 @@ const Header = () => {
   return (
     <header className="bg-primary text-primary-foreground shadow-elevated sticky top-0 z-50">
       <div className="container mx-auto px-4">
-        {/* Top bar with contact info */}
-        <div className="border-b border-primary-light/20 py-2 hidden md:block">
-          <div className="flex justify-between items-center text-sm">
-            <div className="flex items-center gap-4">
-              <span>Intervention rapide 24h/24</span>
-              <span>•</span>
-              <span>Devis gratuit</span>
-              <span>•</span>
-              <span>Garantie décennale</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4" />
-              <span className="font-medium">03 28 63 48 68</span>
-            </div>
-          </div>
-        </div>
-
         {/* Main navigation */}
         <div className="py-4">
           <div className="flex justify-between items-center">
             {/* Logo */}
             <div className="flex items-center">
-              <img src={logo} alt="Mon p'tit Dépanneur" className="h-12 w-auto" />
+              <img 
+                src="https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/logo-mon-ptit-depanneur-contour-blanc_la7i2t.webp" 
+                alt="Mon p'tit Dépanneur" 
+                className="h-12 w-auto"
+                loading="eager"
+                decoding="async"
+              />
               <div className="ml-3 hidden sm:block">
                 <h1 className="text-xl font-bold">Mon p'tit Dépanneur</h1>
                 <p className="text-sm text-primary-foreground/80">Votre artisan de confiance à Lille</p>
@@ -68,9 +56,11 @@ const Header = () => {
                   Devis gratuit
                 </Button>
               </div>
-              <Button variant="urgent" size="sm" className="font-bold">
-                <Phone className="w-4 h-4" />
-                Appel d'urgence
+              <Button asChild variant="urgent" size="sm" className="font-bold" aria-label="Appeler Mon p'tit Dépanneur">
+                <a href="tel:0328634868">
+                  <Phone className="w-4 h-4" />
+                  Appel d'urgence
+                </a>
               </Button>
 
               {/* Mobile menu button */}
