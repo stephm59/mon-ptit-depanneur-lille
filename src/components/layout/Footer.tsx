@@ -96,20 +96,18 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white py-16">
       <div className="container mx-auto px-4">
-        {/* Top Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+        {/* Top Section - 3 colonnes comme dans le modèle */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
           {/* Company Info */}
-          <div className="lg:col-span-4">
+          <div>
             <div className="flex items-center gap-4 mb-6">
               <img 
                 src="https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/logo-mon-ptit-depanneur-contour-blanc_la7i2t.webp" 
                 alt="Mon p'tit Dépanneur" 
                 className="h-16 w-auto"
               />
-              <div>
-                <h3 className="text-2xl font-bold text-white">Mon p'tit Dépanneur</h3>
-              </div>
             </div>
+            <h3 className="text-2xl font-bold text-white mb-4">Mon p'tit Dépanneur</h3>
             <p className="text-gray-300 leading-relaxed">
               Votre artisan de confiance à Lille et ses environs pour tous vos travaux de 
               chauffage, plomberie, serrurerie et vitrerie.
@@ -117,9 +115,9 @@ const Footer = () => {
           </div>
 
           {/* Quick Access */}
-          <div className="lg:col-span-4">
-            <h4 className="text-lg font-bold text-white mb-4">Accès rapide</h4>
-            <ul className="space-y-2">
+          <div>
+            <h4 className="text-xl font-bold text-white mb-6">Accès rapide</h4>
+            <ul className="space-y-3">
               <li><a href="/contact" className="text-gray-300 hover:text-white transition-colors">Nous écrire</a></li>
               <li><a href="/notre-societe" className="text-gray-300 hover:text-white transition-colors">Notre société</a></li>
               <li><a href="/mentions-legales" className="text-gray-300 hover:text-white transition-colors">Mentions légales</a></li>
@@ -127,9 +125,9 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="lg:col-span-4">
-            <h4 className="text-lg font-bold text-white mb-4">Contact</h4>
-            <div className="space-y-3">
+          <div>
+            <h4 className="text-xl font-bold text-white mb-6">Contact</h4>
+            <div className="space-y-4">
               <a href="tel:0328534868" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors">
                 <Phone className="w-5 h-5" />
                 03 28 53 48 68
@@ -149,8 +147,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8">
+        {/* Services Grid - 8 colonnes comme dans le modèle */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 mb-16">
           {/* Plomberie */}
           <div>
             <h4 className="text-lg font-bold text-white mb-4">Plomberie</h4>
@@ -265,7 +263,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Border */}
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center">
+        <div className="border-t border-gray-800 pt-8 text-center">
           <p className="text-gray-400 text-sm">
             © 2024 Mon p'tit Dépanneur - Tous droits réservés
           </p>
