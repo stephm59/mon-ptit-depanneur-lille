@@ -14,8 +14,8 @@ const About = () => {
                 controls
                 muted
                 playsInline
-                preload="metadata"
-                onError={(e) => console.error('Erreur vidéo:', e)}
+                preload="auto"
+                crossOrigin="anonymous"
               />
             </div>
           </div>
