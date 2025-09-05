@@ -16,7 +16,7 @@ export default function ServiceCity() {
     combinedSlug: string;
   }>();
 
-  // Parse combined slug (e.g., "plombier-lille" -> "plombier", "lille")
+  // Parse combined slug (e.g., "plombier-lille" -> "plombier" + "lille")
   const [serviceSlug, citySlug] = combinedSlug?.split('-', 2) || ['', ''];
 
   const { data: page, isLoading, error } = useServiceCityPage(
