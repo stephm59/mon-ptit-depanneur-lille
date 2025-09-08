@@ -9,7 +9,7 @@ const InsurancePartners = () => {
     },
     {
       name: "GAN",
-      url: "/insurance-logos/logo-gan.png"
+      url: "/lovable-uploads/65ca6d72-0b3a-4c6b-a32e-8c4f4afc3f3d.png"
     },
     {
       name: "MACIF",
