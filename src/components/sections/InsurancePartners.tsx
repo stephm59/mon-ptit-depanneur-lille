@@ -17,7 +17,7 @@ const InsurancePartners = () => {
     },
     {
       name: "Groupama",
-      url: "/insurance-logos/logo-groupama.png"
+      url: "/lovable-uploads/8a07e6ad-843e-4660-b254-036e01df515c.png"
     },
     {
       name: "MMA",
