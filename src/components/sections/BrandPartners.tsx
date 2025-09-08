@@ -8,7 +8,7 @@ const BrandPartners = () => {
     },
     {
       name: "ELM Leblanc",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755071373/logo-elm-leblanc_ue3vvd.webp"
+      url: "/lovable-uploads/600e2f3c-90d4-4d0d-b6f1-bc7fa6d0df43.png"
     },
     {
       name: "Viessmann",
