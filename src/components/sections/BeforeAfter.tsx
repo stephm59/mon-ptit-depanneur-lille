@@ -6,7 +6,7 @@ const BeforeAfter = () => {
 
   const transformations = [
     {
-      url: "/site-media/avant-apres-1.webp",
+      url: "/lovable-uploads/c89637b1-525a-4d28-b6ac-29d14f11caa1.png",
       alt: "Transformation salle de bain 1 - Avant/Après"
     },
     {
