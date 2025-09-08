@@ -22,7 +22,7 @@ const BeforeAfter = () => {
       alt: "Transformation salle de bain 4 - Avant/Après"
     },
     {
-      url: "/site-media/avant-apres-5.webp",
+      url: "/lovable-uploads/e5ff3c35-5e26-4d1c-9956-f788ccfe6793.png",
       alt: "Transformation salle de bain 5 - Avant/Après"
     },
     {
