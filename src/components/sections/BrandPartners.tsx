@@ -16,7 +16,7 @@ const BrandPartners = () => {
     },
     {
       name: "Atlantic",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755071375/logo-atlancic_lul6zx.webp"
+      url: "/lovable-uploads/e9fd0773-3ac7-4a67-b9a6-a3121ece566a.png"
     },
     {
       name: "Saunier Duval",
