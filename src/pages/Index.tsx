@@ -11,6 +11,7 @@ import BrandPartners from "@/components/sections/BrandPartners";
 import BlogAdvice from "@/components/sections/BlogAdvice";
 import ServiceAreas from "@/components/sections/ServiceAreas";
 import Testimonials from "@/components/sections/Testimonials";
+import { HomeServices } from "@/components/sections/HomeServices";
 import Footer from "@/components/layout/Footer";
 
 const Index = () => {
@@ -22,6 +23,7 @@ const Index = () => {
         <About />
         <MediaCoverage />
         <WhyChooseUs />
+        <HomeServices />
         <TeamProximity />
         <Testimonials />
         <InsurancePartners />
