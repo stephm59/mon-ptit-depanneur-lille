@@ -25,7 +25,7 @@ const BrandPartners = () => {
     },
     {
       name: "Frisquet",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755071378/logo-frisquet_mi9zho.webp"
+      url: "/lovable-uploads/c459f3f6-53a2-476f-911f-3503735afc7b.png"
     },
     {
       name: "De Dietrich",
