@@ -1,0 +1,13 @@
+-- Créer des FAQs spécifiques pour plombier à Vieux-Lille
+INSERT INTO public.service_city_faqs (service_id, city_id, question, answer, position, published) VALUES
+('cf03edcc-9452-44c2-a2f8-4eb0b2a2be8f', '7d96f406-7c7a-4673-b88b-c975cdcdcbd5', 'Quels sont les délais d''intervention pour un plombier à Vieux-Lille ?', 'Nos plombiers interviennent à Vieux-Lille en urgence 24h/24 et 7j/7. Pour une intervention d''urgence, nous nous déplaçons dans l''heure qui suit votre appel. Pour les rendez-vous programmés, nous proposons des créneaux dans les 48h.', 1, true),
+
+('cf03edcc-9452-44c2-a2f8-4eb0b2a2be8f', '7d96f406-7c7a-4673-b88b-c975cdcdcbd5', 'Combien coûte une intervention de plomberie à Vieux-Lille ?', 'Le coût dépend de la nature de l''intervention. Un débouchage simple coûte entre 80€ et 120€, une réparation de fuite entre 100€ et 200€. Nous établissons toujours un devis gratuit avant intervention à Vieux-Lille.', 2, true),
+
+('cf03edcc-9452-44c2-a2f8-4eb0b2a2be8f', '7d96f406-7c7a-4673-b88b-c975cdcdcbd5', 'Intervenez-vous dans tout le quartier de Vieux-Lille ?', 'Oui, nous couvrons l''ensemble du Vieux-Lille : rue de la Monnaie, Grand''Place, rue Esquermoise, rue de Béthune, etc. Nos plombiers connaissent parfaitement les spécificités des bâtiments anciens du centre historique.', 3, true),
+
+('cf03edcc-9452-44c2-a2f8-4eb0b2a2be8f', '7d96f406-7c7a-4673-b88b-c975cdcdcbd5', 'Êtes-vous spécialisés dans les immeubles anciens du Vieux-Lille ?', 'Absolument ! Nos plombiers ont une expertise particulière pour les bâtiments historiques du Vieux-Lille. Nous maîtrisons les canalisations en plomb, les systèmes anciens et respectons les contraintes architecturales du secteur sauvegardé.', 4, true),
+
+('cf03edcc-9452-44c2-a2f8-4eb0b2a2be8f', '7d96f406-7c7a-4673-b88b-c975cdcdcbd5', 'Proposez-vous un service de dépannage nocturne à Vieux-Lille ?', 'Oui, notre service d''urgence 24h/24 couvre Vieux-Lille. En cas de fuite majeure, de canalisation bouchée ou de panne de chaudière la nuit, nous intervenons rapidement avec un supplément raisonnable pour les heures tardives.', 5, true),
+
+('cf03edcc-9452-44c2-a2f8-4eb0b2a2be8f', '7d96f406-7c7a-4673-b88b-c975cdcdcbd5', 'Comment vous contacter pour une urgence plomberie à Vieux-Lille ?', 'Appelez-nous directement au numéro d''urgence ou utilisez notre formulaire en ligne. Précisez que vous êtes à Vieux-Lille pour que nous puissions dépêcher le plombier le plus proche de votre localisation dans le quartier.', 6, true);
