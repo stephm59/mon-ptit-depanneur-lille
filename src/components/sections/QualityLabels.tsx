@@ -4,17 +4,17 @@ const QualityLabels = () => {
   const certifications = [
     {
       name: "RGE – QUALIBAT-RGE",
-      logo: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755015245/logo-rge-1_ap9jsc.jpg",
+      logo: "/lovable-uploads/05858230-8cb9-41c4-ac57-7030103db388.png",
       alt: "Certification RGE QUALIBAT"
     },
     {
       name: "Professionnel du gaz", 
-      logo: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755015245/logo-professionnel-gaz-1_x4hijl.jpg",
+      logo: "/lovable-uploads/1e6bb0ad-0b6b-4587-8142-96ffc506adc6.png",
       alt: "Certification Professionnel du gaz"
     },
     {
       name: "Artisan",
-      logo: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755015245/logo-artisan-1_xfywd6.jpg",
+      logo: "/lovable-uploads/d1edd0f6-ab9a-4b14-95a7-a0bbe5f86f8a.png",
       alt: "Label Artisan"
     }
   ];
