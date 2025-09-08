@@ -44,7 +44,7 @@ const BrandPartners = () => {
     },
     {
       name: "Bricard",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755071682/logo-bricard_fa2qzz.webp"
+      url: "/lovable-uploads/8ffaf83d-5ea1-417e-b3cf-42f3d7d822b8.png"
     },
     {
       name: "JPM",
