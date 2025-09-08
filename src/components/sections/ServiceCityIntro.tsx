@@ -40,13 +40,15 @@ export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
               </div>
             </div>
 
-            {page.intro_description && (
-              <div className="prose prose-lg max-w-none">
-                <p className="text-muted-foreground leading-relaxed">
-                  {page.intro_description}
-                </p>
-              </div>
-            )}
+            <div className="prose prose-lg max-w-none">
+              <p className="text-muted-foreground leading-relaxed">
+                {page.intro_description || `Créée par David Vanmarcke il y a 20 ans, la société Mon p'tit Dépanneur emploie aujourd'hui 12 personnes et intervient dans les domaines suivants : Chauffage (installation de chaudière, réparation, entretien), serrurerie (porte bloquée, barillet à changer), plomberie (installation et entretien de cumulus, réparation de fuites) & vitrerie (remplacement de petites vitres cassées)...`}
+              </p>
+              
+              <p className="text-muted-foreground leading-relaxed mt-4">
+                Basée à Lille, Mon p'tit Dépanneur est agréée par une vingtaine de compagnies d'assurances (Macif, Maaf, Gan, Groupama...). Les équipes se déplacent chez vous, sur simple demande ou sur rendez-vous.
+              </p>
+            </div>
           </div>
         </div>
       </div>
