@@ -29,7 +29,7 @@ const InsurancePartners = () => {
     },
     {
       name: "AXA",
-      url: "/insurance-logos/logo-axa.png"
+      url: "/lovable-uploads/b4975621-639f-4629-84e5-023dce0f8ad6.png"
     },
     {
       name: "Generali",
