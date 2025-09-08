@@ -5,7 +5,7 @@ const BrandPartners = () => {
   const brandLogos = [
     {
       name: "Vaillant",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755071373/logo-vaillant_g0swcc.webp"
+      url: "/lovable-uploads/7c27558a-585e-487a-a65a-eb753569819a.png"
     },
     {
       name: "ELM Leblanc",
