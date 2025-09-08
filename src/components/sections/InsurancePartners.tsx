@@ -5,7 +5,7 @@ const InsurancePartners = () => {
   const insuranceLogos = [
     {
       name: "MAAF",
-      url: "/insurance-logos/logo-maaf.png"
+      url: "/lovable-uploads/28ae24a9-b5f4-4997-a612-e7ba2a0bff44.png"
     },
     {
       name: "GAN",
