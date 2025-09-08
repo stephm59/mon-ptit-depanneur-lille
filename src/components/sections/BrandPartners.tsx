@@ -21,7 +21,7 @@ const BrandPartners = () => {
     },
     {
       name: "Saunier Duval",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755071377/logo-saunier-duval_qnyqkk.webp"
+      url: "/lovable-uploads/5941c411-ff3d-466d-9f69-7dee22725955.png"
     },
     {
       name: "Frisquet",
