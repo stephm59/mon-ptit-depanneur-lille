@@ -13,7 +13,7 @@ export const CtaBlock = ({
   className = ""
 }: CtaBlockProps) => {
   return (
-    <section className={`py-16 bg-gradient-primary ${className}`}>
+    <section className={`py-12 bg-gradient-primary ${className}`}>
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
           {title}
@@ -27,7 +27,7 @@ export const CtaBlock = ({
           <Button size="lg" variant="secondary">
             Recevoir un devis gratuit
           </Button>
-          <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary">
+          <Button size="lg" variant="phone">
             <Phone className="mr-2 h-5 w-5" />
             03 28 63 48 68
           </Button>
