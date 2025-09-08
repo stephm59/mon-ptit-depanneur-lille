@@ -13,7 +13,7 @@ const InsurancePartners = () => {
     },
     {
       name: "MACIF",
-      url: "/insurance-logos/logo-macif.png"
+      url: "/lovable-uploads/7461c7f1-0ba7-4640-a674-74f63cf1cb23.png"
     },
     {
       name: "Groupama",
