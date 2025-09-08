@@ -28,7 +28,7 @@ const BrandPartners = () => {
     },
     {
       name: "De Dietrich",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755071379/logo-de-dietrich_nbtepf.webp"
+      url: "/lovable-uploads/1c91b80d-9472-4d96-8eec-6bdebb78562d.png"
     },
     {
       name: "Picard Serrures",
