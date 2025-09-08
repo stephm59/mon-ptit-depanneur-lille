@@ -20,9 +20,9 @@ const Header = () => {
       <div className="container mx-auto px-4">
         {/* Main navigation */}
         <div className="py-4">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-start">
             {/* Logo */}
-            <div className="flex items-center">
+            <div className="flex items-center pt-2">
               <img 
                 src="/lovable-uploads/0621fc5e-3a70-4916-89ce-f9d118ba89ca.png" 
                 alt="Mon p'tit Dépanneur" 
@@ -33,7 +33,7 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-6">
+            <nav className="hidden lg:flex items-start space-x-6 pt-4">
               {navigation.map((item) => (
                 <a
                   key={item.name}
@@ -46,15 +46,15 @@ const Header = () => {
             </nav>
 
             {/* CTA Buttons */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-start gap-4 pt-2">
               <div className="hidden sm:block">
-                <Button variant="outline" size="sm" className="bg-black text-white border-black hover:bg-black/90">
+                <Button variant="outline" className="bg-black text-white border-black hover:bg-black/90 h-12 px-4">
                   Devis gratuit
                 </Button>
               </div>
               <a 
                 href="tel:0328634868" 
-                className="inline-flex items-center gap-2 font-bold text-white bg-accent px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors shadow-lg"
+                className="inline-flex items-center gap-2 font-bold text-white bg-accent px-4 py-3 h-12 rounded-lg hover:bg-accent/90 transition-colors shadow-lg"
                 aria-label="Appeler Mon p'tit Dépanneur"
               >
                 <Phone className="w-5 h-5" />
@@ -63,7 +63,7 @@ const Header = () => {
 
               {/* Mobile menu button */}
               <button
-                className="lg:hidden p-2 text-white"
+                className="lg:hidden p-2 text-white mt-1"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 {isMenuOpen ? (
