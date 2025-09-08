@@ -5,51 +5,51 @@ const InsurancePartners = () => {
   const insuranceLogos = [
     {
       name: "MAAF",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755069971/logo-maaf_tenz9y.webp"
+      url: "/insurance-logos/logo-maaf.png"
     },
     {
       name: "GAN",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755070086/logo-gan_w2jjaj.webp"
+      url: "/insurance-logos/logo-gan.png"
     },
     {
       name: "MACIF",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755070156/logo-macif_mfohdq.webp"
+      url: "/insurance-logos/logo-macif.png"
     },
     {
       name: "Groupama",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755070241/logo-groupama_nljtsc.webp"
+      url: "/insurance-logos/logo-groupama.png"
     },
     {
       name: "MMA",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755070321/logo-mma_hy3dni.webp"
+      url: "/insurance-logos/logo-mma.png"
     },
     {
       name: "Allianz",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755070393/logo-allianz_hri1py.webp"
+      url: "/lovable-uploads/33d47f5d-ba2c-4f20-b9ca-d9baf196c0de.png"
     },
     {
       name: "AXA",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755070449/logo-axa_cafued.webp"
+      url: "/insurance-logos/logo-axa.png"
     },
     {
       name: "Generali",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755070550/logo-generali_kz3s9b.webp"
+      url: "/insurance-logos/logo-generali.png"
     },
     {
       name: "Aviva",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755070636/logo-aviva_rpr39j.webp"
+      url: "/insurance-logos/logo-aviva.png"
     },
     {
       name: "GMF",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755070685/logo-gmf_gkanrq.webp"
+      url: "/insurance-logos/logo-gmf.png"
     },
     {
       name: "MAIF",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755070749/logo-maif_xztcel.webp"
+      url: "/insurance-logos/logo-maif.png"
     },
     {
       name: "Matmut",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755071877/logo-matmut_zytmyd.webp"
+      url: "/insurance-logos/logo-matmut.png"
     }
   ];
 
