@@ -1,4 +1,5 @@
 import { Handshake } from "lucide-react";
+import { LogoImage } from "@/components/ui/logo-image";
 
 const BrandPartners = () => {
   const brandLogos = [
@@ -76,18 +77,18 @@ const BrandPartners = () => {
         <div className="mb-12">
           <div className="overflow-hidden">
             <div className="flex gap-12 animate-scroll-continuous">
-              {duplicatedLogos.map((logo, index) => (
-                <div key={`${logo.name}-${index}`} className="flex-shrink-0 w-56">
-                  <div className="flex items-center justify-center h-32">
-                    <img 
-                      src={logo.url}
-                      alt={`Logo ${logo.name}`}
-                      className="max-h-28 max-w-56 object-contain transition-all duration-300 hover:scale-110"
-                      loading="lazy"
-                    />
-                  </div>
+            {duplicatedLogos.map((logo, index) => (
+              <div key={`${logo.name}-${index}`} className="flex-shrink-0 w-56">
+                <div className="flex items-center justify-center h-32">
+                  <LogoImage 
+                    src={logo.url}
+                    alt={`Logo ${logo.name}`}
+                    className="max-h-28 max-w-56 object-contain"
+                    fallbackText={logo.name}
+                  />
                 </div>
-              ))}
+              </div>
+            ))}
             </div>
           </div>
         </div>

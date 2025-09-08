@@ -1,5 +1,6 @@
 import { Shield } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { LogoImage } from "@/components/ui/logo-image";
 
 const InsurancePartners = () => {
   const insuranceLogos = [
@@ -80,11 +81,11 @@ const InsurancePartners = () => {
               {duplicatedLogos.map((logo, index) => (
                 <div key={`${logo.name}-${index}`} className="flex-shrink-0 w-40">
                   <div className="flex items-center justify-center h-24">
-                    <img 
+                    <LogoImage 
                       src={logo.url}
                       alt={`Logo ${logo.name}`}
-                      className="max-h-20 max-w-40 object-contain transition-all duration-300 hover:scale-110"
-                      loading="lazy"
+                      className="max-h-20 max-w-40 object-contain"
+                      fallbackText={logo.name}
                     />
                   </div>
                 </div>
