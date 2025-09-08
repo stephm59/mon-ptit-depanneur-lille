@@ -13,7 +13,7 @@ const BrandPartners = () => {
     },
     {
       name: "Viessmann",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755071374/logo-viessmann_avki0y.webp"
+      url: "/lovable-uploads/f0a1c697-e1cf-4b87-8f91-955c7d296651.png"
     },
     {
       name: "Atlantic",
