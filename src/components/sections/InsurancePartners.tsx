@@ -21,7 +21,7 @@ const InsurancePartners = () => {
     },
     {
       name: "MMA",
-      url: "/insurance-logos/logo-mma.png"
+      url: "/lovable-uploads/76d744d1-b8eb-4306-86cd-c8061399fd55.png"
     },
     {
       name: "Allianz",
