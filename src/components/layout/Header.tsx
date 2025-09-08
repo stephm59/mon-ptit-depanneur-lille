@@ -24,7 +24,7 @@ const Header = () => {
             {/* Logo */}
             <div className="flex items-center">
               <img 
-                src="https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/logo-mon-ptit-depanneur-contour-blanc_la7i2t.webp" 
+                src="/lovable-uploads/0621fc5e-3a70-4916-89ce-f9d118ba89ca.png" 
                 alt="Mon p'tit Dépanneur" 
                 className="h-20 md:h-20 w-auto"
                 loading="eager"
