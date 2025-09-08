@@ -26,7 +26,7 @@ const Header = () => {
               <img 
                 src="/lovable-uploads/0621fc5e-3a70-4916-89ce-f9d118ba89ca.png" 
                 alt="Mon p'tit Dépanneur" 
-                className="h-20 md:h-20 w-auto"
+                className="h-40 md:h-40 w-auto"
                 loading="eager"
                 decoding="async"
               />
