@@ -41,7 +41,7 @@ const InsurancePartners = () => {
     },
     {
       name: "GMF",
-      url: "/insurance-logos/logo-gmf.png"
+      url: "/lovable-uploads/027311f7-9636-468c-8cb1-ff71ede5f2e2.png"
     },
     {
       name: "MAIF",
