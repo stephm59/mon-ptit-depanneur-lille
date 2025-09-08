@@ -37,7 +37,7 @@ const InsurancePartners = () => {
     },
     {
       name: "Aviva",
-      url: "/insurance-logos/logo-aviva.png"
+      url: "/lovable-uploads/542b1ee7-5410-4cc0-98e6-c34d63b35624.png"
     },
     {
       name: "GMF",
