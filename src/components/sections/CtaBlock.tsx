@@ -5,15 +5,17 @@ interface CtaBlockProps {
   title?: string;
   subtitle?: string;
   className?: string;
+  id?: string;
 }
 
 export const CtaBlock = ({ 
   title = "Besoin d'une intervention ?", 
   subtitle = "Contactez-nous pour un devis gratuit et sans engagement",
-  className = ""
+  className = "",
+  id
 }: CtaBlockProps) => {
   return (
-    <section className={`py-12 bg-gradient-primary ${className}`}>
+    <section id={id} className={`py-12 bg-gradient-primary ${className}`}>
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
           {title}

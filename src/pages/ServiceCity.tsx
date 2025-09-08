@@ -71,16 +71,17 @@ export default function ServiceCity() {
           {/* 2. Introduction personnalisée à Service + ville - BLANC */}
           <ServiceCityIntro page={page} />
           
-          {/* 3. Nos prestations à Service + ville - GRIS */}
-          <div className="bg-muted/50">
-            <ServiceCityOffers pageId={page.id} />
-          </div>
-          
-          {/* 4. Bloc avec CTA - GARDE SA COULEUR (BLEU) */}
+          {/* 3. Bloc avec CTA - GARDE SA COULEUR (BLEU) */}
           <CtaBlock 
+            id="devis"
             title="Besoin d'une intervention ?" 
             subtitle="Contactez-nous pour un devis gratuit et sans engagement"
           />
+          
+          {/* 4. Nos prestations à Service + ville - GRIS */}
+          <div className="bg-muted/50">
+            <ServiceCityOffers pageId={page.id} />
+          </div>
           
           {/* 5. AU JT de M6 - GARDE SA COULEUR (BLEU) */}
           <MediaCoverage />
