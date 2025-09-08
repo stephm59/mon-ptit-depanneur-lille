@@ -49,7 +49,7 @@ const BrandPartners = () => {
     },
     {
       name: "JPM",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755071683/logo-jpm_ncauva.webp"
+      url: "/lovable-uploads/b214e838-74f7-4d82-9bd9-f7438566255c.png"
     }
   ];
 
