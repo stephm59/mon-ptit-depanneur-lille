@@ -5,7 +5,7 @@ const TeamProximity = () => {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center max-w-6xl mx-auto">
           {/* Team Image */}
           <div className="order-2 lg:order-1">
             <div className="relative">
@@ -19,7 +19,7 @@ const TeamProximity = () => {
           </div>
 
           {/* Content */}
-          <div className="order-1 lg:order-2">
+          <div className="order-1 lg:order-2 lg:col-span-2">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               Un service de proximité et de confiance
             </h2>
