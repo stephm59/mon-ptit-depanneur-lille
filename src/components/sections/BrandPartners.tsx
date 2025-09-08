@@ -40,7 +40,7 @@ const BrandPartners = () => {
     },
     {
       name: "Fichet",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755071680/logo-fichet_pthgpr.webp"
+      url: "/lovable-uploads/d123f701-58fe-402f-9076-450f1d13ca4f.png"
     },
     {
       name: "Bricard",
