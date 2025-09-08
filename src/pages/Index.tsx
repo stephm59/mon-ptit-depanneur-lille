@@ -20,7 +20,6 @@ const Index = () => {
       <main>
         <Hero />
         <About />
-        <Testimonials />
         <MediaCoverage />
         <WhyChooseUs />
         <TeamProximity />
