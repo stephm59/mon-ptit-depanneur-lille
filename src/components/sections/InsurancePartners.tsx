@@ -49,7 +49,7 @@ const InsurancePartners = () => {
     },
     {
       name: "Matmut",
-      url: "/insurance-logos/logo-matmut.png"
+      url: "/lovable-uploads/c9471c83-2b5d-4ed2-93ec-ff12c79df400.png"
     }
   ];
 
