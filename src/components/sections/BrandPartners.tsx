@@ -33,7 +33,7 @@ const BrandPartners = () => {
     },
     {
       name: "Picard Serrures",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755071677/logo-picard-serrures_etqogr.webp"
+      url: "/lovable-uploads/9e84eab8-6740-44bb-ad2b-837f71e2c0d7.png"
     },
     {
       name: "Vachette",
