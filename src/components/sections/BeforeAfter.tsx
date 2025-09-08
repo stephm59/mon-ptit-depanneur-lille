@@ -6,28 +6,28 @@ const BeforeAfter = () => {
 
   const transformations = [
     {
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755069456/avant-apres-7_b4oq8w.webp",
-      alt: "Transformation salle de bain 7 - Avant/Après"
+      url: "/site-media/avant-apres-1.webp",
+      alt: "Transformation salle de bain 1 - Avant/Après"
     },
     {
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755068815/avant-apres-6_lfp4ij.webp", 
-      alt: "Transformation salle de bain 6 - Avant/Après"
+      url: "/site-media/avant-apres-2.webp", 
+      alt: "Transformation salle de bain 2 - Avant/Après"
     },
     {
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755068727/avant-apres-5_q500yy.webp",
-      alt: "Transformation salle de bain 5 - Avant/Après"
-    },
-    {
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755068656/avant-apres-4_ue3l39.webp",
-      alt: "Transformation salle de bain 4 - Avant/Après"
-    },
-    {
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755068554/avant-apres-3_teciad.webp",
+      url: "/site-media/avant-apres-3.webp",
       alt: "Transformation salle de bain 3 - Avant/Après"
     },
     {
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755068440/avant-apres-2_spbeyg.webp",
-      alt: "Transformation salle de bain 2 - Avant/Après"
+      url: "/site-media/avant-apres-4.webp",
+      alt: "Transformation salle de bain 4 - Avant/Après"
+    },
+    {
+      url: "/site-media/avant-apres-5.webp",
+      alt: "Transformation salle de bain 5 - Avant/Après"
+    },
+    {
+      url: "/site-media/avant-apres-6.webp",
+      alt: "Transformation salle de bain 6 - Avant/Après"
     }
   ];
 
