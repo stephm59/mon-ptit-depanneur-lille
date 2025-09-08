@@ -21,9 +21,9 @@ const Index = () => {
       <main>
         <Hero />
         <About />
-        <WhyChooseUs />
         <HomeServices />
         <MediaCoverage />
+        <WhyChooseUs />
         <TeamProximity />
         <Testimonials />
         <InsurancePartners />
