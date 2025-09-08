@@ -37,7 +37,7 @@ const BrandPartners = () => {
     },
     {
       name: "Vachette",
-      url: "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755071678/logo-vachette_onodjj.webp"
+      url: "/lovable-uploads/83044c8b-4928-4244-b395-3eec04874d6b.png"
     },
     {
       name: "Fichet",
