@@ -66,10 +66,13 @@ const BlogPost = () => {
     );
   }
 
-  const faqSchema = post.slug === "choisir-adoucisseur-eau" ? {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+  // Construire les schemas JSON-LD FAQ selon l'article
+  const getFaqSchema = (slug: string) => {
+    if (slug === "choisir-adoucisseur-eau") {
+      return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
       {
         "@type": "Question",
         "name": "Quelle est la dureté idéale de l'eau dans une maison ?",
@@ -135,7 +138,102 @@ const BlogPost = () => {
         }
       }
     ]
-  } : null;
+      };
+    }
+    
+    if (slug === "comment-reparer-fuites-eau") {
+      return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Comment savoir si j'ai une fuite d'eau invisible ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Coupez toute consommation d'eau 1 à 2 heures et observez le compteur : s'il tourne encore, une fuite est probable. Des traces d'humidité, moisissures ou un parquet gondolé sont aussi des signaux d'alerte."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est le coût moyen d'une réparation de fuite d'eau ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Selon l'accès et la gravité : 120 à 250 € pour une petite réparation (joint, siphon, raccord). La recherche de fuite encastrée ou le remplacement de canalisation peut coûter plus. Demandez un devis pour un montant précis."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qui paie la réparation d'une fuite : locataire ou propriétaire ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Les petites réparations d'entretien (joints, siphons) relèvent souvent du locataire. Les travaux liés à la vétusté, aux canalisations encastrées ou à la structure incombent généralement au propriétaire."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Une fuite d'eau est-elle couverte par l'assurance habitation ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La garantie Dégâts des eaux couvre la plupart des dommages consécutifs à une fuite. Selon le contrat, la réparation de la cause peut rester à votre charge. Déclarez le sinistre rapidement et conservez les justificatifs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Combien d'eau peut gaspiller une petite fuite ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Jusqu'à 120 L/jour pour un robinet qui goutte en continu, soit plus de 40 m³/an. Une chasse d'eau qui coule peut engendrer plusieurs centaines d'euros sur la facture."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelles sont les fuites les plus courantes et comment les réparer ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Chasse d'eau: remplacez le joint ou le flotteur. Sous évier: resserrez les raccords et changez les joints défectueux. En attendant un pro, un ruban de réparation peut limiter une microfuite."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quand faut-il faire appel à un professionnel ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Si la fuite est introuvable, encastrée ou récurrente, ou si un plafond/mur est touché. Un plombier utilise des méthodes non destructives (mise en épreuve, caméra, écoute, traceur) pour localiser et réparer durablement."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment éviter les fuites à l'avenir ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Entretenez joints et robinetterie, purgez régulièrement, faites contrôler vos installations, surveillez le compteur et envisagez un détecteur de fuite connecté pour les résidences secondaires ou logements loués."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Que faire en cas de fuite importante avant l'arrivée du plombier ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Coupez l'alimentation générale d'eau, protégez les zones à risque d'infiltration, coupez l'électricité si nécessaire sur le circuit concerné et ventilez. Contactez un professionnel pour une intervention rapide."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Intervenez-vous rapidement à Lille et alentours ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, Mon p'tit Dépanneur intervient rapidement à Lille et dans la métropole lilloise pour la recherche et la réparation de fuites. Pour une urgence, appelez le 03 28 53 48 68."
+            }
+          }
+        ]
+      };
+    }
+    
+    return null;
+  };
+
+  const faqSchema = getFaqSchema(post.slug);
 
   return (
     <>
@@ -157,7 +255,9 @@ const BlogPost = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ 
-            backgroundImage: `url(/lovable-uploads/aeb391ca-88a6-497a-8d2d-a2e4d62db2fd.png)`,
+            backgroundImage: post.slug === "comment-reparer-fuites-eau" 
+              ? `url(/lovable-uploads/c7f67f6e-6e2e-47ef-a61d-d2474e8fe449.png)` 
+              : `url(/lovable-uploads/aeb391ca-88a6-497a-8d2d-a2e4d62db2fd.png)`,
           }}
         />
         {/* Overlay gradient */}
@@ -165,7 +265,7 @@ const BlogPost = () => {
         
         <div className="relative z-10 container mx-auto px-6 text-center text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Comment choisir un adoucisseur d'eau (et améliorer la qualité de l'eau) ?
+            {post.title}
           </h1>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
