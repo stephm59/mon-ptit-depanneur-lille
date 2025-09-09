@@ -26,26 +26,28 @@ const UniversalRouter = () => {
 
   const parsed = slug ? parseSlug(slug) : null;
   
-  // First check if it's a service-city page
+  // If we detected a service-city pattern, check for service-city page first
   const { data: serviceCityPage, isLoading: isLoadingServiceCity } = useServiceCityPage(
     parsed?.serviceSlug || "", 
     parsed?.citySlug || ""
   );
   
-  // Then check if it's a blog post
-  const { data: blogPost, isLoading: isLoadingBlog } = useBlogPost(slug || "");
+  // Only check for blog post if it's not a service-city pattern
+  const { data: blogPost, isLoading: isLoadingBlog } = useBlogPost(
+    parsed ? "" : (slug || "")
+  );
 
   if (isLoadingServiceCity || isLoadingBlog) {
     return <Loading />;
   }
 
-  // If we found a service-city page, render it
-  if (serviceCityPage) {
+  // If we have a service-city pattern and found data, render it
+  if (parsed && serviceCityPage) {
     return <ServiceCity />;
   }
 
-  // If we found a blog post, render it
-  if (blogPost) {
+  // If we found a blog post and it's not a service-city pattern, render it
+  if (!parsed && blogPost) {
     return <BlogPost />;
   }
 
