@@ -15,7 +15,6 @@ import { Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { BlogPostFaqs } from "@/components/sections/BlogPostFaqs";
-import heroBackground from "@/assets/hero-background.jpg";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -153,12 +152,12 @@ const BlogPost = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center overflow-visible pt-28 pb-20">
+      <section className="relative min-h-screen flex items-center overflow-visible pt-28 pb-20">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ 
-            backgroundImage: `url(${heroBackground})`,
+            backgroundImage: `url(/lovable-uploads/aeb391ca-88a6-497a-8d2d-a2e4d62db2fd.png)`,
           }}
         />
         {/* Overlay gradient */}
