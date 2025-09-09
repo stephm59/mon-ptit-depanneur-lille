@@ -17,7 +17,7 @@ import BeforeAfter from "@/components/sections/BeforeAfter";
 import QualityLabels from "@/components/sections/QualityLabels";
 import BrandPartners from "@/components/sections/BrandPartners";
 import { ServiceCityBlog } from "@/components/sections/ServiceCityBlog";
-import { useServiceCityPage, useServiceCityOffers, useServiceCityFaqs } from "@/hooks/useServiceCityPage";
+import { useServiceCityPage, useServiceCityOffers, useServiceCityFaqs, useServiceCityTestimonials } from "@/hooks/useServiceCityPage";
 import { Loading } from "@/components/ui/loading";
 import { generateServiceCityJsonLd } from "@/utils/jsonld";
 
@@ -53,9 +53,10 @@ export default function ServiceCity() {
     citySlug
   );
 
-  // Fetch offers and FAQs for JSON-LD
+  // Fetch offers, FAQs, and testimonials for JSON-LD
   const { data: offers } = useServiceCityOffers(page?.id || '');
   const { data: faqs } = useServiceCityFaqs(page?.service_id || '', page?.city_id || '');
+  const { data: testimonials } = useServiceCityTestimonials(page?.service_id, page?.city_id);
 
   if (isLoading) return <Loading />;
 
@@ -83,17 +84,14 @@ export default function ServiceCity() {
     answer: faq.answer
   })) || [];
 
-  // Determine parent service for breadcrumb (hardcoded for now, could be dynamic)
-  let parentService;
-  if (page?.services.slug === 'pompe-a-chaleur' && page?.cities.slug === 'villeneuve-d-ascq') {
-    parentService = {
-      name: 'Pompe à chaleur',
-      slug: 'pompe-a-chaleur-lille',
-      cityName: 'Lille'
-    };
-  }
+  const testimonialsData = testimonials?.map(testimonial => ({
+    rating: testimonial.rating,
+    content: testimonial.content,
+    author_name: testimonial.author_name,
+    location: testimonial.location
+  })) || [];
 
-  const jsonLd = generateServiceCityJsonLd(page, offersData, faqsData, parentService);
+  const jsonLd = generateServiceCityJsonLd(page, offersData, faqsData, testimonialsData);
 
   return (
     <>

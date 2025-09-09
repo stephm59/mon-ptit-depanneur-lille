@@ -17,18 +17,61 @@ interface ServiceCityFaq {
   answer: string;
 }
 
+interface ServiceCityTestimonial {
+  rating: number;
+  content: string;
+  author_name: string;
+  location?: string | null;
+}
+
+// Lille metropolitan area cities for 3-level breadcrumbs
+const LILLE_METRO_CITIES = [
+  'villeneuve-d-ascq', 'roubaix', 'tourcoing', 'wattrelos', 'hem', 'croix',
+  'wasquehal', 'mouvaux', 'lys-lez-lannoy', 'bondues', 'marcq-en-baroeul',
+  'saint-andre-lez-lille', 'la-madeleine', 'lambersart', 'lomme', 'loos',
+  'haubourdin', 'wattignies', 'faches-thumesnil', 'lesquin', 'lezennes'
+];
+
+// Service-specific images
+const getServiceImage = (serviceSlug: string): string => {
+  const images = {
+    'pompe-a-chaleur': 'https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/pompe-chaleur-installation_service.webp',
+    'chauffagiste': 'https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/chauffage-maintenance_service.webp',
+    'plombier': 'https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/plomberie-depannage_service.webp'
+  };
+  return images[serviceSlug as keyof typeof images] || 'https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/logo-mon-ptit-depanneur-contour-blanc_la7i2t.webp';
+};
+
 export const generateServiceCityJsonLd = (
   page: ServiceCityPageData, 
   offers: ServiceCityOffer[] = [],
   faqs: ServiceCityFaq[] = [],
-  parentService?: { name: string; slug: string; cityName: string },
+  testimonials: ServiceCityTestimonial[] = [],
   baseUrl: string = "https://www.monptitdepanneur.fr"
 ) => {
   const pageUrl = `${baseUrl}/${page.services.slug}-${page.cities.slug}/`;
   const serviceName = page.services.name;
   const cityName = page.cities.name;
+  const serviceSlug = page.services.slug;
+  const citySlug = page.cities.slug;
 
-  // Generate offers from data
+  // Generate offers as Service items
+  const servicesList = offers.map((offer, index) => ({
+    "@type": "Service",
+    "@id": `${pageUrl}#service-${index}`,
+    "name": offer.title,
+    "description": offer.description,
+    "provider": {
+      "@type": "Organization",
+      "name": "Mon P'tit Dépanneur"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": cityName
+    }
+  }));
+
+  // Generate offers for catalog (keeping both for compatibility)
   const offersList = offers.map(offer => ({
     "@type": "Offer",
     "name": offer.title,
@@ -39,6 +82,36 @@ export const generateServiceCityJsonLd = (
     }
   }));
 
+  // Calculate aggregate rating from testimonials
+  const aggregateRating = testimonials.length > 0 ? {
+    "@type": "AggregateRating",
+    "ratingValue": (testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length).toFixed(1),
+    "reviewCount": testimonials.length,
+    "bestRating": 5,
+    "worstRating": 1
+  } : null;
+
+  // Generate reviews from testimonials
+  const reviews = testimonials.slice(0, 5).map((testimonial, index) => ({
+    "@type": "Review",
+    "@id": `${pageUrl}#review-${index}`,
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": testimonial.rating,
+      "bestRating": 5,
+      "worstRating": 1
+    },
+    "reviewBody": testimonial.content,
+    "author": {
+      "@type": "Person",
+      "name": testimonial.author_name,
+      ...(testimonial.location && { "address": testimonial.location })
+    }
+  }));
+
+  // Determine if 3-level breadcrumb should be used (Lille metro cities)
+  const isLilleMetro = LILLE_METRO_CITIES.includes(citySlug);
+  
   // Generate breadcrumb list - support 2 or 3 levels
   const breadcrumbItems = [
     {
@@ -49,13 +122,13 @@ export const generateServiceCityJsonLd = (
     }
   ];
 
-  if (parentService) {
-    // 3-level breadcrumb
+  if (isLilleMetro) {
+    // 3-level breadcrumb for Lille metropolitan cities
     breadcrumbItems.push({
       "@type": "ListItem", 
       "position": 2,
-      "name": `${parentService.name} ${parentService.cityName}`,
-      "item": `${baseUrl}/${parentService.slug}/`
+      "name": `${serviceName} Lille`,
+      "item": `${baseUrl}/${serviceSlug}-lille/`
     });
     breadcrumbItems.push({
       "@type": "ListItem",
@@ -64,7 +137,7 @@ export const generateServiceCityJsonLd = (
       "item": pageUrl
     });
   } else {
-    // 2-level breadcrumb
+    // 2-level breadcrumb for other cities
     breadcrumbItems.push({
       "@type": "ListItem",
       "position": 2, 
@@ -99,7 +172,7 @@ export const generateServiceCityJsonLd = (
         "about": { "@id": `${baseUrl}/#etablissement` },
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/logo-mon-ptit-depanneur-contour-blanc_la7i2t.webp"
+          "url": getServiceImage(serviceSlug)
         },
         "inLanguage": "fr",
         "description": page.meta_description || `${serviceName} à ${cityName} : ${page.cta_subtitle}`
@@ -137,12 +210,17 @@ export const generateServiceCityJsonLd = (
           }
         ],
         "serviceType": serviceName,
+        ...(aggregateRating && { "aggregateRating": aggregateRating }),
+        ...(reviews.length > 0 && { "review": reviews }),
         ...(offersList.length > 0 && {
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": `Services ${serviceName} à ${cityName}`,
             "itemListElement": offersList
           }
+        }),
+        ...(servicesList.length > 0 && {
+          "hasService": servicesList
         }),
         "openingHours": [
           "Mo-Fr 08:00-19:00",
