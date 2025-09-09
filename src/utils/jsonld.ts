@@ -54,6 +54,16 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
     { name: "Conseils économies d'énergie", area: "Marcq-en-Barœul" }
   ];
 
+  // Bondues specific heating offers
+  const bonduesHeatingOffers = [
+    { name: "Dépannage chaudière gaz/fioul", area: "Bondues" },
+    { name: "Entretien annuel (attestation)", area: "Bondues" },
+    { name: "Installation chaudière à condensation", area: "Bondues" },
+    { name: "Remplacement d'ancienne chaudière", area: "Bondues" },
+    { name: "Équilibrage & désembouage de circuit", area: "Bondues" },
+    { name: "Conseils économies d'énergie", area: "Bondues" }
+  ];
+
   // Default heating offers
   const heatingOffers = [
     { name: "Dépannage chaudière gaz et fioul", area: cityName },
@@ -112,7 +122,8 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
 
   const isVilleneuveAscq = page.cities.slug === 'villeneuve-d-ascq';
   const isMarcqBaroeul = page.cities.slug === 'marcq-en-baroeul';
-  const offers = isHeatingService ? (isVieuxLille ? vieuxLilleHeatingOffers : isVilleneuveAscq ? villeneuveAscqHeatingOffers : isMarcqBaroeul ? marcqBaroeulHeatingOffers : heatingOffers) : plumbingOffers;
+  const isBondues = page.cities.slug === 'bondues';
+  const offers = isHeatingService ? (isVieuxLille ? vieuxLilleHeatingOffers : isVilleneuveAscq ? villeneuveAscqHeatingOffers : isMarcqBaroeul ? marcqBaroeulHeatingOffers : isBondues ? bonduesHeatingOffers : heatingOffers) : plumbingOffers;
 
   // FAQ data - for now using heating-specific FAQs, can be expanded
   const heatingFAQ = [
@@ -191,6 +202,10 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
           { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${baseUrl}/` },
           { "@type": "ListItem", "position": 2, "name": "Chauffagiste Lille", "item": `${baseUrl}/chauffagiste-lille/` },
           { "@type": "ListItem", "position": 3, "name": "Chauffagiste Marcq-en-Barœul", "item": pageUrl }
+        ] : isBondues ? [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${baseUrl}/` },
+          { "@type": "ListItem", "position": 2, "name": "Chauffagiste Lille", "item": `${baseUrl}/chauffagiste-lille/` },
+          { "@type": "ListItem", "position": 3, "name": "Chauffagiste Bondues", "item": pageUrl }
         ] : [
           { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${baseUrl}/` },
           { "@type": "ListItem", "position": 2, "name": `${serviceName} ${cityName}`, "item": pageUrl }
@@ -247,7 +262,7 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
           "opens": "08:00",
           "closes": "18:00"
         },
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": (isVieuxLille || isVilleneuveAscq || isMarcqBaroeul) ? "4.6" : "4.5", "bestRating": "5", "ratingCount": (isVieuxLille || isVilleneuveAscq || isMarcqBaroeul) ? "320" : "600" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": (isVieuxLille || isVilleneuveAscq || isMarcqBaroeul || isBondues) ? "4.6" : "4.5", "bestRating": "5", "ratingCount": (isVieuxLille || isVilleneuveAscq || isMarcqBaroeul || isBondues) ? "320" : "600" },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": `Prestations de ${serviceName.toLowerCase()} – ${cityName}`,
