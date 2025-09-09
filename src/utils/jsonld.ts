@@ -116,6 +116,16 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
     { name: "Aides & conformité (MaPrimeRénov', CEE)", area: "Lille" }
   ];
 
+  // Vieux-Lille specific heat pump offers
+  const vieuxLilleHeatPumpOffers = [
+    { name: "Étude & dimensionnement PAC au Vieux-Lille", area: "Vieux-Lille" },
+    { name: "Installation PAC air/eau + ballon ECS", area: "Vieux-Lille" },
+    { name: "Remplacement de chaudière par PAC", area: "Vieux-Lille" },
+    { name: "Optimisation circuit (équilibrage & désembouage)", area: "Vieux-Lille" },
+    { name: "Entretien & dépannage PAC", area: "Vieux-Lille" },
+    { name: "Aides & conformité copro (MaPrimeRénov', CEE)", area: "Vieux-Lille" }
+  ];
+
   // Default heating offers
   const heatingOffers = [
     { name: "Dépannage chaudière gaz et fioul", area: cityName },
@@ -182,7 +192,7 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
   const offers = isHeatingService 
     ? (isVieuxLille ? vieuxLilleHeatingOffers : isVilleneuveAscq ? villeneuveAscqHeatingOffers : isMarcqBaroeul ? marcqBaroeulHeatingOffers : isBondues ? bonduesHeatingOffers : isLaMadeleine ? laMadeleineHeatingOffers : isLambersart ? lambersartHeatingOffers : isSaintAndre ? saintAndreHeatingOffers : isLomme ? lommeHeatingOffers : heatingOffers) 
     : isHeatPumpService 
-    ? heatPumpLilleOffers 
+    ? (isVieuxLille ? vieuxLilleHeatPumpOffers : heatPumpLilleOffers)
     : plumbingOffers;
 
   // FAQ data - for now using heating-specific FAQs, can be expanded
@@ -274,7 +284,11 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
       {
         "@type": "BreadcrumbList",
         "@id": `${pageUrl}#breadcrumb`,
-        "itemListElement": isHeatPumpService ? [
+        "itemListElement": isHeatPumpService && isVieuxLille ? [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${baseUrl}/` },
+          { "@type": "ListItem", "position": 2, "name": "Pompe à chaleur Lille", "item": `${baseUrl}/pompe-a-chaleur-lille/` },
+          { "@type": "ListItem", "position": 3, "name": "Pompe à chaleur Vieux-Lille", "item": pageUrl }
+        ] : isHeatPumpService ? [
           { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${baseUrl}/` },
           { "@type": "ListItem", "position": 2, "name": "Pompe à chaleur Lille", "item": pageUrl }
         ] : isVieuxLille ? [
