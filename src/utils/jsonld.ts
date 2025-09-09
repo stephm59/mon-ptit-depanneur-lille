@@ -12,11 +12,13 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
   const serviceName = page.services.name;
   const cityName = page.cities.name;
   const isHeatingService = page.services.slug === 'chauffagiste';
+  const isHeatPumpService = page.services.slug === 'pompe-a-chaleur';
   const isVieuxLille = page.cities.slug === 'vieux-lille';
   
   // Service-specific data
   const serviceTypeMap = {
     chauffagiste: "Chauffage – chaudières gaz (installation, entretien, dépannage)",
+    'pompe-a-chaleur': "Pompes à chaleur air/eau et air/air (installation, entretien, dépannage)",
     plombier: "Plomberie (dépannage, installation, entretien)",
     serrurier: "Serrurerie (dépannage, installation, sécurité)",
     vitrier: "Vitrerie (remplacement, réparation, sécurisation)"
@@ -104,6 +106,16 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
     { name: "Conseils économies d'énergie", area: "Lomme" }
   ];
 
+  // Heat pump specific offers for Lille
+  const heatPumpLilleOffers = [
+    { name: "Étude & dimensionnement PAC", area: "Lille" },
+    { name: "Installation PAC air/eau + ballon ECS", area: "Lille" },
+    { name: "Remplacement chaudière par PAC", area: "Lille" },
+    { name: "Optimisation circuit (équilibrage & désembouage)", area: "Lille" },
+    { name: "Entretien & dépannage PAC", area: "Lille" },
+    { name: "Aides & conformité (MaPrimeRénov', CEE)", area: "Lille" }
+  ];
+
   // Default heating offers
   const heatingOffers = [
     { name: "Dépannage chaudière gaz et fioul", area: cityName },
@@ -167,7 +179,11 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
   const isLambersart = page.cities.slug === 'lambersart';
   const isSaintAndre = page.cities.slug === 'saint-andre-lez-lille';
   const isLomme = page.cities.slug === 'lomme';
-  const offers = isHeatingService ? (isVieuxLille ? vieuxLilleHeatingOffers : isVilleneuveAscq ? villeneuveAscqHeatingOffers : isMarcqBaroeul ? marcqBaroeulHeatingOffers : isBondues ? bonduesHeatingOffers : isLaMadeleine ? laMadeleineHeatingOffers : isLambersart ? lambersartHeatingOffers : isSaintAndre ? saintAndreHeatingOffers : isLomme ? lommeHeatingOffers : heatingOffers) : plumbingOffers;
+  const offers = isHeatingService 
+    ? (isVieuxLille ? vieuxLilleHeatingOffers : isVilleneuveAscq ? villeneuveAscqHeatingOffers : isMarcqBaroeul ? marcqBaroeulHeatingOffers : isBondues ? bonduesHeatingOffers : isLaMadeleine ? laMadeleineHeatingOffers : isLambersart ? lambersartHeatingOffers : isSaintAndre ? saintAndreHeatingOffers : isLomme ? lommeHeatingOffers : heatingOffers) 
+    : isHeatPumpService 
+    ? heatPumpLilleOffers 
+    : plumbingOffers;
 
   // FAQ data - for now using heating-specific FAQs, can be expanded
   const heatingFAQ = [
@@ -212,7 +228,31 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
     }
   ];
 
-  const faqData = isHeatingService ? (isVieuxLille ? vieuxLilleFAQ : heatingFAQ) : plumbingFAQ;
+  // Heat pump FAQ
+  const heatPumpFAQ = [
+    {
+      question: `PAC air/eau ou air/air : laquelle choisir à ${cityName} ?`,
+      answer: "La PAC air/eau alimente radiateurs/plan cher et peut produire l'ECS : idéale en remplacement d'une chaudière. La PAC air/air chauffe via unités intérieures (pas d'ECS) et convient bien aux logements compacts ou en appoint."
+    },
+    {
+      question: `Une PAC fonctionne-t-elle bien l'hiver à ${cityName} ?`,
+      answer: "Oui si le dimensionnement et la loi d'eau sont bien réglés. On vise la basse température avec émetteurs adaptés. En pointe de froid, un appoint (électrique ou chaudière existante) peut prendre le relais."
+    },
+    {
+      question: `Ma copropriété impose des règles de bruit : est-ce compatible ?`,
+      answer: "Oui. Unités extérieures silencieuses, plots antivibratiles, cloisons acoustiques et respect des distances réglementaires. Dossier copropriété fourni avec fiches acoustiques si nécessaire."
+    },
+    {
+      question: `Puis-je garder mes radiateurs en fonte à ${cityName} ?`,
+      answer: "Souvent oui. Nous vérifions la température de départ requise, réalisons un désembouage et rééquilibrons les débits. Remplacement ponctuel par des émetteurs basse température si besoin."
+    },
+    {
+      question: `Quelles économies espérer avec une PAC ?`,
+      answer: "Selon isolation, émetteurs et usage. Objectif : SCOP élevé via dimensionnement précis et réglages fins, ce qui réduit la consommation par rapport au gaz/fioul. Nous fournissons une projection chiffrée après étude."
+    }
+  ];
+
+  const faqData = isHeatingService ? (isVieuxLille ? vieuxLilleFAQ : heatingFAQ) : isHeatPumpService ? heatPumpFAQ : plumbingFAQ;
 
   return {
     "@context": "https://schema.org",
@@ -234,7 +274,10 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
       {
         "@type": "BreadcrumbList",
         "@id": `${pageUrl}#breadcrumb`,
-        "itemListElement": isVieuxLille ? [
+        "itemListElement": isHeatPumpService ? [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${baseUrl}/` },
+          { "@type": "ListItem", "position": 2, "name": "Pompe à chaleur Lille", "item": pageUrl }
+        ] : isVieuxLille ? [
           { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${baseUrl}/` },
           { "@type": "ListItem", "position": 2, "name": "Chauffagiste Lille", "item": `${baseUrl}/chauffagiste-lille/` },
           { "@type": "ListItem", "position": 3, "name": "Chauffagiste Vieux-Lille", "item": pageUrl }
@@ -322,7 +365,7 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
           "opens": "08:00",
           "closes": "18:00"
         },
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": (isVieuxLille || isVilleneuveAscq || isMarcqBaroeul || isBondues || isLaMadeleine || isLambersart || isSaintAndre || isLomme) ? "4.6" : "4.5", "bestRating": "5", "ratingCount": (isVieuxLille || isVilleneuveAscq || isMarcqBaroeul || isBondues || isLaMadeleine || isLambersart || isSaintAndre || isLomme) ? "320" : "600" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": (isVieuxLille || isVilleneuveAscq || isMarcqBaroeul || isBondues || isLaMadeleine || isLambersart || isSaintAndre || isLomme || isHeatPumpService) ? "4.6" : "4.5", "bestRating": "5", "ratingCount": (isVieuxLille || isVilleneuveAscq || isMarcqBaroeul || isBondues || isLaMadeleine || isLambersart || isSaintAndre || isLomme || isHeatPumpService) ? "320" : "600" },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": `Prestations de ${serviceName.toLowerCase()} – ${cityName}`,
