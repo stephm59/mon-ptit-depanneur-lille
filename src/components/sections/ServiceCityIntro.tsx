@@ -32,7 +32,7 @@ export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
                   const target = e.currentTarget;
                   target.style.display = 'none';
                   const img = document.createElement('img');
-                  img.src = '/src/assets/hero-background.jpg';
+                  img.src = '/lovable-uploads/28ae24a9-b5f4-4997-a612-e7ba2a0bff44.png';
                   img.className = 'w-64 h-64 object-cover rounded-full border-4 border-primary shadow-elevated';
                   img.alt = 'Mon p\'tit Dépanneur';
                   target.parentNode?.appendChild(img);
