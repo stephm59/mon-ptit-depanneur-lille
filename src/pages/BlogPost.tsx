@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Star, Phone, Calendar, ArrowRight } from "lucide-react";
+import { Star, Phone, Calendar, ArrowRight, Clock, Shield, Wrench } from "lucide-react";
 import { useBlogPost, useRelatedBlogPosts } from "@/hooks/useBlog";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -15,11 +15,39 @@ import { Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { BlogPostFaqs } from "@/components/sections/BlogPostFaqs";
+import heroBackground from "@/assets/hero-background.jpg";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const { data: post, isLoading, error } = useBlogPost(slug || "");
   const { data: relatedPosts } = useRelatedBlogPosts(post?.service_id, slug, 3);
+
+  const features = [
+    {
+      icon: Clock,
+      title: "Intervention < 1h",
+      description: "Dans Lille et environs",
+      color: "text-accent"
+    },
+    {
+      icon: Shield,
+      title: "Garantie décennale",
+      description: "Travaux assurés",
+      color: "text-success"
+    },
+    {
+      icon: Wrench,
+      title: "Devis gratuit",
+      description: "Sans engagement",
+      color: "text-primary-light"
+    },
+    {
+      icon: Star,
+      title: "Artisan de confiance",
+      description: "Service de qualité",
+      color: "text-accent"
+    }
+  ];
 
   if (isLoading) return <Loading />;
   
@@ -125,15 +153,17 @@ const BlogPost = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center bg-gradient-primary pt-20">
-        {post.cover_image_url && (
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-20"
-            style={{ 
-              backgroundImage: `url(${post.cover_image_url})`,
-            }}
-          />
-        )}
+      <section className="relative min-h-[50vh] flex items-center overflow-visible pt-28 pb-20">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ 
+            backgroundImage: `url(${heroBackground})`,
+          }}
+        />
+        {/* Overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/20" />
+        
         <div className="relative z-10 container mx-auto px-6 text-center text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Comment choisir un adoucisseur d'eau (et améliorer la qualité de l'eau) ?
@@ -158,10 +188,25 @@ const BlogPost = () => {
             <span>4,5/5 sur plus de 600 avis clients</span>
           </div>
         </div>
+
+        {/* Feature cards - overlapping at bottom */}
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-[-60px] md:bottom-[-70px] w-full max-w-6xl px-4 z-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feature, index) => (
+              <Card key={index} className="p-6 bg-card/95 backdrop-blur-sm border-none shadow-card hover:shadow-elevated transition-all duration-300 transform hover:scale-105">
+                <div className="text-center">
+                  <feature.icon className={`w-12 h-12 mx-auto mb-4 ${feature.color}`} />
+                  <h3 className="font-bold text-lg mb-2 text-card-foreground">{feature.title}</h3>
+                  <p className="text-muted-foreground">{feature.description}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Service Category Box */}
-      <section className="py-8 bg-background">
+      <section className="py-8 bg-background" style={{ marginTop: '80px' }}>
         <div className="container mx-auto px-6">
           <Card className="p-6 border-l-4 border-l-primary bg-secondary/20">
             <p className="text-lg text-center">
@@ -169,7 +214,6 @@ const BlogPost = () => {
               <Link 
                 to="/plombier-lille" 
                 className="text-primary hover:underline font-semibold ml-1"
-                rel="nofollow"
               >
                 plombier à Lille
               </Link>
