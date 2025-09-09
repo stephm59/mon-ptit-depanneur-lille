@@ -172,7 +172,7 @@ export const ServiceCityBlog = ({ serviceId, categoryLabel = "Plomberie" }: Serv
                   
                   {/* Read More Link */}
                   <Link 
-                    to={`/${'slug' in article ? article.slug : '#'}`}
+                    to={`/carnet/${'slug' in article ? article.slug : '#'}`}
                     className="flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
                   >
                     <span>Lire le conseil</span>

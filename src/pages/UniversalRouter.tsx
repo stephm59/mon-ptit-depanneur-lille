@@ -1,16 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useServiceCityPage } from "@/hooks/useServiceCityPage";
-import { useBlogPost } from "@/hooks/useBlog";
 import ServiceCity from "./ServiceCity";
-import BlogPost from "./BlogPost";
 import NotFound from "./NotFound";
 import { Loading } from "@/components/ui/loading";
 
 const UniversalRouter = () => {
   const { slug } = useParams<{ slug: string }>();
-  
-  console.log('=== UNIVERSAL ROUTER LOADED ===', { slug, location: window.location.pathname });
-  console.error('DEBUG UNIVERSAL ROUTER:', { slug });
   
   // Parse the slug to determine if it's a service-city combination
   const parseSlug = (fullSlug: string) => {
@@ -29,33 +24,13 @@ const UniversalRouter = () => {
 
   const parsed = slug ? parseSlug(slug) : null;
   
-  console.log('UniversalRouter Debug:', {
-    slug,
-    parsed,
-    blogSlugToFetch: parsed ? "" : (slug || ""),
-    serviceSlugToFetch: parsed?.serviceSlug || "",
-    citySlugToFetch: parsed?.citySlug || ""
-  });
-  
-  // If we detected a service-city pattern, check for service-city page first
+  // Only handle service-city pages now
   const { data: serviceCityPage, isLoading: isLoadingServiceCity } = useServiceCityPage(
     parsed?.serviceSlug || "", 
     parsed?.citySlug || ""
   );
-  
-  // Only check for blog post if it's not a service-city pattern
-  const { data: blogPost, isLoading: isLoadingBlog } = useBlogPost(
-    parsed ? "" : (slug || "")
-  );
-  
-  console.log('UniversalRouter Data:', {
-    serviceCityPage,
-    isLoadingServiceCity,
-    blogPost,
-    isLoadingBlog
-  });
 
-  if (isLoadingServiceCity || isLoadingBlog) {
+  if (isLoadingServiceCity) {
     return <Loading />;
   }
 
@@ -64,11 +39,7 @@ const UniversalRouter = () => {
     return <ServiceCity />;
   }
 
-  // If we found a blog post and it's not a service-city pattern, render it
-  if (!parsed && blogPost) {
-    return <BlogPost />;
-  }
-  // If neither found, show 404
+  // If no service-city page found, show 404
   return <NotFound />;
 };
 

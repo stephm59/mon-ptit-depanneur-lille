@@ -112,7 +112,7 @@ const BlogPost = () => {
       <Helmet>
         <title>{post.title}</title>
         <meta name="description" content={post.excerpt || ""} />
-        <link rel="canonical" href={`https://monptitdepanneur.com/${post.slug}`} />
+        <link rel="canonical" href={`https://monptitdepanneur.com/carnet/${post.slug}`} />
         {faqSchema && (
           <script type="application/ld+json">
             {JSON.stringify(faqSchema)}
@@ -225,7 +225,7 @@ const BlogPost = () => {
                       </p>
                     )}
                     <Button variant="outline" asChild className="w-full">
-                      <Link to={`/${relatedPost.slug}`}>
+                      <Link to={`/carnet/${relatedPost.slug}`}>
                         Lire l'article
                       </Link>
                     </Button>
