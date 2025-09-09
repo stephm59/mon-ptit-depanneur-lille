@@ -22,7 +22,7 @@ const About = () => {
               <video
                 ref={videoRef}
                 className="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-elevated"
-                src="https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/video-david-home"
+                src="https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/video-david-home.mp4"
                 autoPlay
                 loop
                 muted
