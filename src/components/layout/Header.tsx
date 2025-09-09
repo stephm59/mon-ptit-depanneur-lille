@@ -6,8 +6,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
-    { name: "Plomberie", href: "/plomberie" },
-    { name: "Chauffage", href: "/chauffage" },
+    { name: "Plombier", href: "/plombier-lille" },
+    { name: "Chauffage", href: "/chauffagiste-lille" },
     { name: "Climatisation", href: "/climatisation" },
     { name: "Pompe à chaleur", href: "/pompe-chaleur" },
     { name: "Salle de bain", href: "/salle-de-bain" },
@@ -20,20 +20,20 @@ const Header = () => {
       <div className="container mx-auto px-4">
         {/* Main navigation */}
         <div className="py-4">
-          <div className="flex justify-between items-start">
+          <div className="flex justify-between items-center">
             {/* Logo */}
-            <div className="flex items-center pt-2">
+            <div className="flex items-center">
               <img 
-                src="/lovable-uploads/0621fc5e-3a70-4916-89ce-f9d118ba89ca.png" 
+                src="https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/logo-mon-ptit-depanneur-contour-blanc_la7i2t.webp" 
                 alt="Mon p'tit Dépanneur" 
-                className="h-40 md:h-40 w-auto"
+                className="h-20 md:h-20 w-auto"
                 loading="eager"
                 decoding="async"
               />
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-start space-x-6 pt-4">
+            <nav className="hidden lg:flex items-center space-x-6">
               {navigation.map((item) => (
                 <a
                   key={item.name}
@@ -46,15 +46,15 @@ const Header = () => {
             </nav>
 
             {/* CTA Buttons */}
-            <div className="flex items-start gap-4 pt-2">
+            <div className="flex items-center gap-4">
               <div className="hidden sm:block">
-                <Button variant="outline" className="bg-black text-white border-black hover:bg-black/90 h-12 px-4">
+                <Button variant="outline" size="sm" className="bg-black text-white border-black hover:bg-black/90">
                   Devis gratuit
                 </Button>
               </div>
               <a 
                 href="tel:0328634868" 
-                className="inline-flex items-center gap-2 font-bold text-white bg-accent px-4 py-3 h-12 rounded-lg hover:bg-accent/90 transition-colors shadow-lg"
+                className="inline-flex items-center gap-2 font-bold text-white bg-accent px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors shadow-lg"
                 aria-label="Appeler Mon p'tit Dépanneur"
               >
                 <Phone className="w-5 h-5" />
@@ -63,7 +63,7 @@ const Header = () => {
 
               {/* Mobile menu button */}
               <button
-                className="lg:hidden p-2 text-white mt-1"
+                className="lg:hidden p-2 text-white"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 {isMenuOpen ? (
