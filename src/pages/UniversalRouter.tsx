@@ -9,6 +9,8 @@ import { Loading } from "@/components/ui/loading";
 const UniversalRouter = () => {
   const { slug } = useParams<{ slug: string }>();
   
+  console.log('UniversalRouter component loaded with slug:', slug);
+  
   // Parse the slug to determine if it's a service-city combination
   const parseSlug = (fullSlug: string) => {
     // Common service patterns
