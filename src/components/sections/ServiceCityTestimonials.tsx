@@ -80,11 +80,11 @@ export const ServiceCityTestimonials = ({ serviceId, cityId }: ServiceCityTestim
             {visibleTestimonials.map((testimonial) => (
               <Card key={testimonial.id} className="p-8 bg-card border-border hover:shadow-lg transition-shadow">
                 {/* Stars */}
-                <div className="flex gap-1 mb-6">
-                  {Array.from({ length: testimonial.rating }, (_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
+                 <div className="flex gap-1 mb-6">
+                   {Array.from({ length: 5 }, (_, i) => (
+                     <Star key={i} className="w-5 h-5 fill-rating text-rating" />
+                   ))}
+                 </div>
                 
                 {/* Testimonial Text */}
                 <blockquote className="text-foreground italic text-lg leading-relaxed mb-6">

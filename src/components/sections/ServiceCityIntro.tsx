@@ -26,7 +26,17 @@ export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
                 muted
                 playsInline
                 preload="auto"
-                poster="/lovable-uploads/video-david-home.jpg"
+                crossOrigin="anonymous"
+                onError={(e) => {
+                  // Fallback to a static image if video fails to load
+                  const target = e.currentTarget;
+                  target.style.display = 'none';
+                  const img = document.createElement('img');
+                  img.src = '/src/assets/hero-background.jpg';
+                  img.className = 'w-64 h-64 object-cover rounded-full border-4 border-primary shadow-elevated';
+                  img.alt = 'Mon p\'tit Dépanneur';
+                  target.parentNode?.appendChild(img);
+                }}
               />
             </div>
           </div>
