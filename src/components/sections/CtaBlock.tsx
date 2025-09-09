@@ -31,7 +31,7 @@ export const CtaBlock = ({
           </Button>
           <Button size="lg" variant="phone">
             <Phone className="mr-2 h-5 w-5" />
-            03 28 63 48 68
+            03 28 53 48 68
           </Button>
         </div>
       </div>

@@ -34,6 +34,16 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
     { name: "Conseils économies d'énergie pour logements anciens", area: "Vieux-Lille" }
   ];
 
+  // Villeneuve-d'Ascq specific heating offers
+  const villeneuveAscqHeatingOffers = [
+    { name: "Dépannage chaudière gaz/fioul", area: "Villeneuve-d'Ascq" },
+    { name: "Entretien annuel (attestation)", area: "Villeneuve-d'Ascq" },
+    { name: "Installation chaudière à condensation (compacte)", area: "Villeneuve-d'Ascq" },
+    { name: "Remplacement d'ancienne chaudière", area: "Villeneuve-d'Ascq" },
+    { name: "Purge et désembouage de circuit", area: "Villeneuve-d'Ascq" },
+    { name: "Conseils économies d'énergie", area: "Villeneuve-d'Ascq" }
+  ];
+
   // Default heating offers
   const heatingOffers = [
     { name: "Dépannage chaudière gaz et fioul", area: cityName },
@@ -90,7 +100,8 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
     }
   ];
 
-  const offers = isHeatingService ? (isVieuxLille ? vieuxLilleHeatingOffers : heatingOffers) : plumbingOffers;
+  const isVilleneuveAscq = page.cities.slug === 'villeneuve-d-ascq';
+  const offers = isHeatingService ? (isVieuxLille ? vieuxLilleHeatingOffers : isVilleneuveAscq ? villeneuveAscqHeatingOffers : heatingOffers) : plumbingOffers;
 
   // FAQ data - for now using heating-specific FAQs, can be expanded
   const heatingFAQ = [
@@ -161,6 +172,10 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
           { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${baseUrl}/` },
           { "@type": "ListItem", "position": 2, "name": "Chauffagiste Lille", "item": `${baseUrl}/chauffagiste-lille/` },
           { "@type": "ListItem", "position": 3, "name": "Chauffagiste Vieux-Lille", "item": pageUrl }
+        ] : isVilleneuveAscq ? [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${baseUrl}/` },
+          { "@type": "ListItem", "position": 2, "name": "Chauffagiste Lille", "item": `${baseUrl}/chauffagiste-lille/` },
+          { "@type": "ListItem", "position": 3, "name": "Chauffagiste Villeneuve-d'Ascq", "item": pageUrl }
         ] : [
           { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${baseUrl}/` },
           { "@type": "ListItem", "position": 2, "name": `${serviceName} ${cityName}`, "item": pageUrl }
@@ -217,7 +232,7 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
           "opens": "08:00",
           "closes": "18:00"
         },
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": isVieuxLille ? "4.6" : "4.5", "bestRating": "5", "ratingCount": isVieuxLille ? "320" : "600" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": (isVieuxLille || isVilleneuveAscq) ? "4.6" : "4.5", "bestRating": "5", "ratingCount": (isVieuxLille || isVilleneuveAscq) ? "320" : "600" },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": `Prestations de ${serviceName.toLowerCase()} – ${cityName}`,
