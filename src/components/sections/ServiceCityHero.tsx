@@ -2,8 +2,7 @@ import { Star, Clock, Shield, Wrench, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import heroBackground from "@/assets/hero-background.jpg";
-
-const VIDEO_URL = "https://res.cloudinary.com/dit7nfyiy/video/upload/v1754995491/video-hero-home_bx95k0.mp4";
+import { HERO_VIDEO_URL } from "@/config/media";
 
 interface ServiceCityHeroProps {
   page: {
@@ -50,7 +49,7 @@ export const ServiceCityHero = ({ page }: ServiceCityHeroProps) => {
       {/* Background video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src={VIDEO_URL}
+        src={HERO_VIDEO_URL}
         autoPlay
         loop
         muted
