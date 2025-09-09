@@ -26,10 +26,27 @@ export default function ServiceCity() {
     combinedSlug: string;
   }>();
 
-  // Parse combined slug (e.g., "plombier-vieux-lille" -> "plombier" + "vieux-lille")
-  const parts = combinedSlug?.split('-') || [];
-  const serviceSlug = parts.shift() || '';
-  const citySlug = parts.join('-');
+  // Parse combined slug - try different splits to match service + city
+  const parseCombinedSlug = (slug: string) => {
+    const parts = slug.split('-');
+    
+    // Try different combinations: service could be 1-3 words
+    for (let i = 1; i <= Math.min(3, parts.length - 1); i++) {
+      const serviceSlug = parts.slice(0, i).join('-');
+      const citySlug = parts.slice(i).join('-');
+      
+      // Known service slugs to match against
+      const knownServices = ['plombier', 'chauffagiste', 'pompe-a-chaleur'];
+      if (knownServices.includes(serviceSlug)) {
+        return { serviceSlug, citySlug };
+      }
+    }
+    
+    // Fallback to original logic
+    return { serviceSlug: parts[0] || '', citySlug: parts.slice(1).join('-') };
+  };
+  
+  const { serviceSlug, citySlug } = parseCombinedSlug(combinedSlug || '');
 
   const { data: page, isLoading, error } = useServiceCityPage(
     serviceSlug,
@@ -151,7 +168,7 @@ export default function ServiceCity() {
           <div className="bg-muted/50">
             <ServiceCityBlog 
               serviceId={page.service_id} 
-              categoryLabel={page.services.slug === 'chauffagiste' ? 'Chauffage' : 'Plomberie'}
+              categoryLabel={page.services.slug === 'chauffagiste' || page.services.slug === 'pompe-a-chaleur' ? 'Chauffage' : 'Plomberie'}
             />
           </div>
         </main>
