@@ -256,7 +256,7 @@ const BlogPost = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{ 
             backgroundImage: post.cover_image_url 
-              ? `url(${post.cover_image_url})` 
+              ? `url(${post.cover_image_url}), url(/lovable-uploads/aeb391ca-88a6-497a-8d2d-a2e4d62db2fd.png)` 
               : `url(/lovable-uploads/aeb391ca-88a6-497a-8d2d-a2e4d62db2fd.png)`,
           }}
         />
