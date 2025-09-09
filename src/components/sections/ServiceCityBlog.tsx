@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, ChevronLeft, ChevronRight, Lightbulb } from "lucide-react";
 import { useServiceBlogPosts } from "@/hooks/useServiceCityPage";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface ServiceCityBlogProps {
   serviceId: string;
@@ -170,10 +171,13 @@ export const ServiceCityBlog = ({ serviceId, categoryLabel = "Plomberie" }: Serv
                   )}
                   
                   {/* Read More Link */}
-                  <div className="flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors cursor-pointer">
+                  <Link 
+                    to={`/${'slug' in article ? article.slug : '#'}`}
+                    className="flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
+                  >
                     <span>Lire le conseil</span>
                     <ArrowRight className="w-4 h-4" />
-                  </div>
+                  </Link>
                 </div>
               </Card>
             ))}
