@@ -1,7 +1,22 @@
-import { Tv, Star, Phone } from "lucide-react";
+import { Tv, Star, Phone, Play, Pause } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState, useRef } from "react";
 
 const MediaCoverage = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
   return (
     <section className="py-20 bg-primary">
       <div className="container mx-auto px-4">
@@ -10,15 +25,25 @@ const MediaCoverage = () => {
           <div className="relative">
             <div className="relative bg-white rounded-2xl p-2 shadow-elevated">
               <div className="relative">
-                <img 
-                  src="https://res.cloudinary.com/dit7nfyiy/image/upload/v1755164186/vignette-video-vu-tv_lenz8e.webp"
-                  alt="Reportage M6 - Mon p'tit Dépanneur"
+                <video 
+                  ref={videoRef}
+                  src="https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/video-entretien-chaudiere.mp4"
                   className="w-full h-auto rounded-xl object-cover"
+                  preload="metadata"
+                  poster="https://res.cloudinary.com/dit7nfyiy/image/upload/v1755164186/vignette-video-vu-tv_lenz8e.webp"
                 />
-                {/* Play Button Overlay */}
+                {/* Play/Pause Button Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <button className="w-16 h-16 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-110">
-                    <div className="w-0 h-0 border-l-[20px] border-l-primary border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-1"></div>
+                  <button 
+                    onClick={togglePlay}
+                    className="w-16 h-16 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-110"
+                    aria-label={isPlaying ? "Mettre en pause" : "Lire la vidéo"}
+                  >
+                    {isPlaying ? (
+                      <Pause className="w-6 h-6 text-primary" />
+                    ) : (
+                      <Play className="w-6 h-6 text-primary ml-1" />
+                    )}
                   </button>
                 </div>
                 {/* "VU À LA TV" Badge */}
