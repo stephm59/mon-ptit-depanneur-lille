@@ -1,5 +1,6 @@
 import { Wrench, VolumeX, Volume2 } from "lucide-react";
 import { useState, useRef } from "react";
+import { BUBBLE_VIDEO_URL } from "@/config/media";
 
 const About = () => {
   const [isMuted, setIsMuted] = useState(true);
@@ -22,13 +23,12 @@ const About = () => {
               <video
                 ref={videoRef}
                 className="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-elevated"
-                src="https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/video-david-home.mp4"
+                src={BUBBLE_VIDEO_URL}
                 autoPlay
                 loop
                 muted
                 playsInline
-                preload="auto"
-                crossOrigin="anonymous"
+                preload="metadata"
               />
               {/* Audio control button */}
               <button

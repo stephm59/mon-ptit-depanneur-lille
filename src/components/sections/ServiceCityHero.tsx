@@ -1,8 +1,9 @@
-import { Star, Clock, Shield, Wrench, Phone } from "lucide-react";
+import { Star, Clock, Shield, Wrench, Phone, VolumeX, Volume2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import heroBackground from "@/assets/hero-background.jpg";
 import { HERO_VIDEO_URL } from "@/config/media";
+import { useState, useRef } from "react";
 
 interface ServiceCityHeroProps {
   page: {
@@ -17,6 +18,16 @@ interface ServiceCityHeroProps {
 }
 
 export const ServiceCityHero = ({ page }: ServiceCityHeroProps) => {
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(!isMuted);
+    }
+  };
+
   const features = [
     {
       icon: Clock,
@@ -47,16 +58,32 @@ export const ServiceCityHero = ({ page }: ServiceCityHeroProps) => {
   return (
     <section className="relative min-h-[50vh] flex items-center overflow-visible pt-28 pb-20">
       {/* Background video */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover"
-        src={HERO_VIDEO_URL}
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster={heroBackground}
-        aria-hidden="true"
-      />
+      <div className="absolute inset-0">
+        <video
+          ref={videoRef}
+          className="w-full h-full object-cover"
+          src={HERO_VIDEO_URL}
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={heroBackground}
+          preload="metadata"
+          aria-hidden="true"
+        />
+        {/* Audio control button */}
+        <button
+          onClick={toggleMute}
+          className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white transition-colors z-10"
+          aria-label={isMuted ? "Activer le son" : "Couper le son"}
+        >
+          {isMuted ? (
+            <VolumeX className="w-4 h-4 text-gray-700" />
+          ) : (
+            <Volume2 className="w-4 h-4 text-gray-700" />
+          )}
+        </button>
+      </div>
       {/* Overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/20" />
       <div className="relative z-10 container mx-auto px-4 py-20">
