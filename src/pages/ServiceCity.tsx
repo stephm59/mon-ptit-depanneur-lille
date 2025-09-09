@@ -23,8 +23,8 @@ import { Loading } from "@/components/ui/loading";
 import { generateServiceCityJsonLd } from "@/utils/jsonld";
 
 export default function ServiceCity() {
-  const { combinedSlug } = useParams<{
-    combinedSlug: string;
+  const { slug } = useParams<{
+    slug: string;
   }>();
 
   // Fetch services to get dynamic list of service slugs
@@ -50,7 +50,7 @@ export default function ServiceCity() {
   };
   
   const serviceSlugs = services?.map(s => s.slug) || [];
-  const { serviceSlug, citySlug } = parseCombinedSlug(combinedSlug || '', serviceSlugs);
+  const { serviceSlug, citySlug } = parseCombinedSlug(slug || '', serviceSlugs);
 
   // Always call all hooks - React rule
   const { data: page, isLoading, error } = useServiceCityPage(
@@ -109,7 +109,7 @@ export default function ServiceCity() {
         />
         <meta property="og:title" content={page.meta_title || `${page.services.name} à ${page.cities.name}`} />
         <meta property="og:description" content={page.meta_description || `Services de ${page.services.name} à ${page.cities.name}`} />
-        <link rel="canonical" href={`/${combinedSlug}`} />
+        <link rel="canonical" href={`/${slug}`} />
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </script>

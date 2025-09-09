@@ -26,13 +26,6 @@ const UniversalRouter = () => {
 
   const parsed = slug ? parseSlug(slug) : null;
   
-  console.log('UniversalRouter Debug:', {
-    slug,
-    parsed,
-    serviceSlug: parsed?.serviceSlug,
-    citySlug: parsed?.citySlug
-  });
-  
   // If we detected a service-city pattern, check for service-city page first
   const { data: serviceCityPage, isLoading: isLoadingServiceCity } = useServiceCityPage(
     parsed?.serviceSlug || "", 
@@ -44,30 +37,19 @@ const UniversalRouter = () => {
     parsed ? "" : (slug || "")
   );
 
-  console.log('UniversalRouter Data:', {
-    serviceCityPage,
-    isLoadingServiceCity,
-    blogPost,
-    isLoadingBlog
-  });
-
   if (isLoadingServiceCity || isLoadingBlog) {
     return <Loading />;
   }
 
   // If we have a service-city pattern and found data, render it
   if (parsed && serviceCityPage) {
-    console.log('Rendering ServiceCity page');
     return <ServiceCity />;
   }
 
   // If we found a blog post and it's not a service-city pattern, render it
   if (!parsed && blogPost) {
-    console.log('Rendering BlogPost page');
     return <BlogPost />;
   }
-
-  console.log('Rendering NotFound page');
   // If neither found, show 404
   return <NotFound />;
 };
