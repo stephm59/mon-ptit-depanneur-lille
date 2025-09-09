@@ -17,7 +17,7 @@ import BeforeAfter from "@/components/sections/BeforeAfter";
 import QualityLabels from "@/components/sections/QualityLabels";
 import BrandPartners from "@/components/sections/BrandPartners";
 import { ServiceCityBlog } from "@/components/sections/ServiceCityBlog";
-import { useServiceCityPage } from "@/hooks/useServiceCityPage";
+import { useServiceCityPage, useServiceCityOffers, useServiceCityFaqs } from "@/hooks/useServiceCityPage";
 import { Loading } from "@/components/ui/loading";
 import { generateServiceCityJsonLd } from "@/utils/jsonld";
 
@@ -53,6 +53,10 @@ export default function ServiceCity() {
     citySlug
   );
 
+  // Fetch offers and FAQs for JSON-LD
+  const { data: offers } = useServiceCityOffers(page?.id || '');
+  const { data: faqs } = useServiceCityFaqs(page?.service_id || '', page?.city_id || '');
+
   if (isLoading) return <Loading />;
 
   if (error || !page) {
@@ -68,8 +72,28 @@ export default function ServiceCity() {
     );
   }
 
-  // Generate JSON-LD structured data
-  const jsonLd = generateServiceCityJsonLd(page);
+  // Generate JSON-LD structured data with offers and FAQs
+  const offersData = offers?.map(offer => ({
+    title: offer.title,
+    description: offer.description
+  })) || [];
+  
+  const faqsData = faqs?.slice(0, 8).map(faq => ({
+    question: faq.question,
+    answer: faq.answer
+  })) || [];
+
+  // Determine parent service for breadcrumb (hardcoded for now, could be dynamic)
+  let parentService;
+  if (page?.services.slug === 'pompe-a-chaleur' && page?.cities.slug === 'villeneuve-d-ascq') {
+    parentService = {
+      name: 'Pompe à chaleur',
+      slug: 'pompe-a-chaleur-lille',
+      cityName: 'Lille'
+    };
+  }
+
+  const jsonLd = generateServiceCityJsonLd(page, offersData, faqsData, parentService);
 
   return (
     <>
