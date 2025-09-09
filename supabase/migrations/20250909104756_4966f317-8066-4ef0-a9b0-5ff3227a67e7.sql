@@ -1,0 +1,445 @@
+-- Insert climatisation service-city pages
+INSERT INTO service_city_pages (service_id, city_id, published, meta_title, meta_description, h1, h2_intro, intro_description, zones_text, cta_title, cta_subtitle, published_at)
+SELECT 
+  s.id as service_id,
+  c.id as city_id,
+  true as published,
+  CASE c.slug
+    WHEN 'lille' THEN 'Climatisation Lille (installation, entretien, dépannage) | Mon p''tit Dépanneur'
+    WHEN 'vieux-lille' THEN 'Climatisation Vieux-Lille (pose discrète, copropriété) | Mon p''tit Dépanneur'
+    WHEN 'villeneuve-d-ascq' THEN 'Climatisation Villeneuve-d''Ascq (logements & bureaux) | Mon p''tit Dépanneur'
+    WHEN 'marcq-en-baroeul' THEN 'Climatisation Marcq-en-Barœul (maison & copro) | Mon p''tit Dépanneur'
+    WHEN 'bondues' THEN 'Climatisation Bondues (grandes maisons & dépendances) | Mon p''tit Dépanneur'
+    WHEN 'la-madeleine' THEN 'Climatisation La Madeleine (copro & maisons) | Mon p''tit Dépanneur'
+    WHEN 'lambersart' THEN 'Climatisation Lambersart (maisons bourgeoises & pavillons) | Mon p''tit Dépanneur'
+    WHEN 'saint-andre-lez-lille' THEN 'Climatisation Saint-André-lez-Lille (maisons mitoyennes) | Mon p''tit Dépanneur'
+    WHEN 'lomme' THEN 'Climatisation Lomme (pavillons & appartements) | Mon p''tit Dépanneur'
+  END as meta_title,
+  CASE c.slug
+    WHEN 'lille' THEN 'Installation de climatisation à Lille : mono/multi-split et gainable, étude d''implantation, pose, mise en service, entretien et dépannage. Respect acoustique & copro.'
+    WHEN 'vieux-lille' THEN 'Climatisation au Vieux-Lille : solutions compactes et silencieuses, pose en cour intérieure, dossiers syndic, entretien et dépannage.'
+    WHEN 'villeneuve-d-ascq' THEN 'Climatisation à Villeneuve-d''Ascq : mono/multi-split pour maisons, appartements et bureaux proches du campus. Pose, entretien, dépannage.'
+    WHEN 'marcq-en-baroeul' THEN 'Climatisation à Marcq : mono/multi-split, gainable, implantation soignée (Croisé-Laroche, Bourg, Plouich). Entretien et dépannage.'
+    WHEN 'bondues' THEN 'Climatisation à Bondues : multi-split et gainable pour grandes surfaces, dépendances et bureaux. Entretien et dépannage.'
+    WHEN 'la-madeleine' THEN 'Climatisation à La Madeleine : solutions compactes pour copropriétés (Saint-Maur, Botanique) et maisons. Entretien et dépannage.'
+    WHEN 'lambersart' THEN 'Climatisation à Lambersart : intégrations discrètes pour Canteleu, Pacot-Vandracq, Champ-de-Courses. Entretien & dépannage.'
+    WHEN 'saint-andre-lez-lille' THEN 'Climatisation à Saint-André : mono/multi-split pour maisons mitoyennes, pose en cour, gestion acoustique. Entretien & dépannage.'
+    WHEN 'lomme' THEN 'Climatisation à Lomme : mono/multi-split pour Délivrance, Bourg, Mitterie, Mont-à-Camp. Entretien & dépannage.'
+  END as meta_description,
+  CASE c.slug
+    WHEN 'lille' THEN 'Climatisation Lille (installation, entretien, dépannage)'
+    WHEN 'vieux-lille' THEN 'Climatisation Vieux-Lille (pose discrète, copropriété)'
+    WHEN 'villeneuve-d-ascq' THEN 'Climatisation Villeneuve-d''Ascq (logements & bureaux)'
+    WHEN 'marcq-en-baroeul' THEN 'Climatisation Marcq-en-Barœul (maison & copro)'
+    WHEN 'bondues' THEN 'Climatisation Bondues (grandes maisons & dépendances)'
+    WHEN 'la-madeleine' THEN 'Climatisation La Madeleine (copro & maisons)'
+    WHEN 'lambersart' THEN 'Climatisation Lambersart (maisons bourgeoises & pavillons)'
+    WHEN 'saint-andre-lez-lille' THEN 'Climatisation Saint-André-lez-Lille (maisons mitoyennes)'
+    WHEN 'lomme' THEN 'Climatisation Lomme (pavillons & appartements)'
+  END as h1,
+  CASE c.slug
+    WHEN 'lille' THEN 'Confort été comme hiver pour appartements et maisons lilloises.'
+    WHEN 'vieux-lille' THEN 'Clims compactes et silencieuses adaptées aux immeubles anciens.'
+    WHEN 'villeneuve-d-ascq' THEN 'Solutions confort pour maisons et résidences étudiantes.'
+    WHEN 'marcq-en-baroeul' THEN 'Intégrations discrètes au Croisé-Laroche, Bourg, Plouich.'
+    WHEN 'bondues' THEN 'Confort haut de gamme pour propriétés bonduoises.'
+    WHEN 'la-madeleine' THEN 'Clims compactes et silencieuses pour la ville.'
+    WHEN 'lambersart' THEN 'Intégrations discrètes et respect du bâti.'
+    WHEN 'saint-andre-lez-lille' THEN 'Clims compactes pour centre, Sainte-Hélène et bords de Deûle.'
+    WHEN 'lomme' THEN 'Confort d''été pour tous les quartiers de Lomme.'
+  END as h2_intro,
+  CASE c.slug
+    WHEN 'lille' THEN 'Étude, dimensionnement et pose de climatisations à Lille : mono/multi-split et gainable. Gestion des contraintes urbaines (façades, cours intérieures, acoustique, copropriétés) et mise en service soignée. Contrats d''entretien et dépannage rapide.'
+    WHEN 'vieux-lille' THEN 'Spécialistes du Vieux-Lille : mono/multi-split discrets, unités extérieures en cour, passages de liaisons soignés, gestion acoustique et dossiers pour les syndics. Entretien annuel et dépannage en saison chaude.'
+    WHEN 'villeneuve-d-ascq' THEN 'Étude thermique légère, choix des unités, pose et mise en service. Interventions à Annappes, Brigode, Flers-Bourg, Triolo, hôtels et bureaux autour du campus. Entretien et dépannage en période estivale.'
+    WHEN 'marcq-en-baroeul' THEN 'Étude d''implantation intérieure/extérieure, gestion acoustique, percements propres et évacuation des condensats. Dossiers syndic si besoin, contrats d''entretien et dépannage priorisé en été.'
+    WHEN 'bondues' THEN 'Dimensionnement pour grandes pièces, distribution équilibrée, implantation extérieure discrète (jardin). Entretien annuel, hygiène des échangeurs, dépannage rapide en période chaude.'
+    WHEN 'la-madeleine' THEN 'Implantation en cour ou toiture-terrasse, dossiers syndic (acoustique, esthétique), percements minimaux, gestion condensats. Entretien et désinfection des unités intérieures.'
+    WHEN 'lambersart' THEN 'Choix d''unités silencieuses, percements soignés, gainables possibles, attention aux boiseries. Mise en service, entretien annuel, dépannage priorisé en été.'
+    WHEN 'saint-andre-lez-lille' THEN 'Implantation extérieure en cour/jardin, plots antivibratiles, évacuation condensats. Passages de liaisons discrets, entretien saisonnier et dépannage rapide.'
+    WHEN 'lomme' THEN 'Étude d''implantation, pose propre, gestion acoustique et condensats. Entretien annuel (désinfection filtres/évaporateurs) et dépannage priorisé en fortes chaleurs.'
+  END as intro_description,
+  CASE c.slug
+    WHEN 'lille' THEN 'Lille : Vieux-Lille, Centre, Wazemmes, Vauban-Esquermes, Bois-Blancs, Fives, Saint-Maurice Pellevoisin, Moulins, Hellemmes, Lomme. Villes proches : La Madeleine, Lambersart, Mons-en-Barœul, Loos.'
+    WHEN 'vieux-lille' THEN 'Vieux-Lille : rues Esquermoise, Royale, Basse, Gand, place du Concert, secteurs historiques et cours intérieures. Proximité Centre et Vauban.'
+    WHEN 'villeneuve-d-ascq' THEN 'Villeneuve-d''Ascq : Annappes, Brigode, Flers-Bourg, Triolo, Hôtel de Ville, Résidences étudiantes du campus. Voisines : Wasquehal, Lezennes, Hellemmes.'
+    WHEN 'marcq-en-baroeul' THEN 'Marcq-en-Barœul : Croisé-Laroche, Bourg, Plouich, Pont, Rouges-Barres, Hippodrome. Voisines : Wasquehal, La Madeleine, Lille.'
+    WHEN 'bondues' THEN 'Bondues : Montjoie, Ravennes-les-Francs, centre, Vertu-Couture, secteurs de campagne, proche golf. Voisines : Mouvaux, Wambrechies, Roncq.'
+    WHEN 'la-madeleine' THEN 'La Madeleine : Saint-Maur, Botanique, centre-ville, Berkem, Romarin ; proche Euralille, Marcq, Saint-André.'
+    WHEN 'lambersart' THEN 'Lambersart : Canteleu, Pacot-Vandracq, Champ-de-Courses, Bourg ; proches Saint-André, La Madeleine, Lille (av. de Dunkerque).'
+    WHEN 'saint-andre-lez-lille' THEN 'Saint-André-lez-Lille : centre, Sainte-Hélène, bords de Deûle, proche gare ; limites La Madeleine, Lambersart.'
+    WHEN 'lomme' THEN 'Lomme : Délivrance, Bourg, Mitterie, Mont-à-Camp, Lomme-Campus ; proche Loos, Lambersart, Lille.'
+  END as zones_text,
+  CASE c.slug
+    WHEN 'lille' THEN 'Besoin d''une clim à Lille ?'
+    WHEN 'vieux-lille' THEN 'Une clim discrète au Vieux-Lille ?'
+    WHEN 'villeneuve-d-ascq' THEN 'Besoin d''une clim à Villeneuve-d''Ascq ?'
+    WHEN 'marcq-en-baroeul' THEN 'Votre projet clim à Marcq ?'
+    WHEN 'bondues' THEN 'Besoin d''une clim à Bondues ?'
+    WHEN 'la-madeleine' THEN 'Un installateur clim à La Madeleine ?'
+    WHEN 'lambersart' THEN 'Une clim à Lambersart ?'
+    WHEN 'saint-andre-lez-lille' THEN 'Votre clim à Saint-André ?'
+    WHEN 'lomme' THEN 'Besoin d''une clim à Lomme ?'
+  END as cta_title,
+  CASE c.slug
+    WHEN 'lille' THEN 'Devis gratuit, installation discrète et entretien garanti.'
+    WHEN 'vieux-lille' THEN 'Étude sur place, respect de la copro et du voisinage.'
+    WHEN 'villeneuve-d-ascq' THEN 'Installation rapide, entretien simplifié, SAV réactif.'
+    WHEN 'marcq-en-baroeul' THEN 'Devis gratuit, pose soignée, appareils silencieux.'
+    WHEN 'bondues' THEN 'Étude personnalisée, finitions premium.'
+    WHEN 'la-madeleine' THEN 'Respect copropriété, pose propre, SAV local.'
+    WHEN 'lambersart' THEN 'Étude gratuite, pose haut de gamme.'
+    WHEN 'saint-andre-lez-lille' THEN 'Pose rapide, appareils silencieux, SAV fiable.'
+    WHEN 'lomme' THEN 'Devis gratuit, intervention locale rapide.'
+  END as cta_subtitle,
+  '2025-09-09T09:00:00Z'::timestamp with time zone as published_at
+FROM services s, cities c
+WHERE s.slug = 'climatisation' AND c.slug IN ('lille', 'vieux-lille', 'villeneuve-d-ascq', 'marcq-en-baroeul', 'bondues', 'la-madeleine', 'lambersart', 'saint-andre-lez-lille', 'lomme');
+
+-- Insert service city offers for climatisation
+WITH page_data AS (
+  SELECT scp.id as page_id, c.slug as city_slug
+  FROM service_city_pages scp
+  JOIN services s ON s.id = scp.service_id
+  JOIN cities c ON c.id = scp.city_id
+  WHERE s.slug = 'climatisation'
+)
+INSERT INTO service_city_offers (page_id, position, title, description, icon_name, emoji)
+SELECT 
+  pd.page_id,
+  1,
+  'Étude & dimensionnement clim',
+  CASE pd.city_slug
+    WHEN 'lille' THEN 'Choix mono/multi-split ou gainable, puissance, implantation intérieure/extérieure, acoustique.'
+    WHEN 'vieux-lille' THEN 'Solutions compactes, contraintes façades/cours, acoustique maîtrisée.'
+    WHEN 'villeneuve-d-ascq' THEN 'Maisons, résidences étudiantes, open spaces campus.'
+    WHEN 'marcq-en-baroeul' THEN 'Croisé-Laroche, Bourg, Plouich : parcours de liaisons optimisés.'
+    WHEN 'bondues' THEN 'Dimensionnement pièces volumineuses, dépendances, bureaux.'
+    WHEN 'la-madeleine' THEN 'Solutions compactes, passages minimaux, esthétique préservée.'
+    WHEN 'lambersart' THEN 'Implantation discrète, respect boiseries, parcours de gaines.'
+    WHEN 'saint-andre-lez-lille' THEN 'Implantation en cour, parcours discrets, acoustique maîtrisée.'
+    WHEN 'lomme' THEN 'Délivrance, Bourg, Mitterie, Mont-à-Camp : choix adapté.'
+  END,
+  '',
+  '🔍'
+FROM page_data pd
+UNION ALL
+SELECT 
+  pd.page_id,
+  2,
+  CASE pd.city_slug
+    WHEN 'lille' THEN 'Installation & mise en service'
+    WHEN 'vieux-lille' THEN 'Pose discrète & finitions'
+    WHEN 'villeneuve-d-ascq' THEN 'Installation multi-split'
+    WHEN 'marcq-en-baroeul' THEN 'Pose mono/multi-split'
+    WHEN 'bondues' THEN 'Multi-split & gainable'
+    WHEN 'la-madeleine' THEN 'Pose en cour/toiture'
+    WHEN 'lambersart' THEN 'Installation soignée'
+    WHEN 'saint-andre-lez-lille' THEN 'Pose mono/multi-split'
+    WHEN 'lomme' THEN 'Installation & mise en service'
+  END,
+  CASE pd.city_slug
+    WHEN 'lille' THEN 'Percements soignés, passages de liaisons, tests étanchéité, paramétrage.'
+    WHEN 'vieux-lille' THEN 'Unité ext. en cour, percements minimaux, goulottes peintes.'
+    WHEN 'villeneuve-d-ascq' THEN 'Distribution multi-pièces, équilibrage débits, câblage propre.'
+    WHEN 'marcq-en-baroeul' THEN 'Implantation ext. discrète, plots antivibratiles, finitions.'
+    WHEN 'bondues' THEN 'Distribution homogène, longueurs de liaisons maîtrisées.'
+    WHEN 'la-madeleine' THEN 'Fixations sécurisées, goulottes peintes, anti-vibratiles.'
+    WHEN 'lambersart' THEN 'Percements propres, finitions, gainable possible.'
+    WHEN 'saint-andre-lez-lille' THEN 'Fixations, évacuation condensats, finitions propres.'
+    WHEN 'lomme' THEN 'Percements soignés, liaisons propres, tests.'
+  END,
+  '',
+  '🏗'
+FROM page_data pd
+UNION ALL
+SELECT 
+  pd.page_id,
+  3,
+  CASE pd.city_slug
+    WHEN 'lille' THEN 'Multi-split & gainable'
+    WHEN 'vieux-lille' THEN 'Mono/multi-split silencieux'
+    WHEN 'villeneuve-d-ascq' THEN 'Clim gainable (option)'
+    WHEN 'marcq-en-baroeul' THEN 'Gainable & design intérieur'
+    WHEN 'bondues' THEN 'Implantation extérieure jardin'
+    WHEN 'la-madeleine' THEN 'Mono/multi-split silencieux'
+    WHEN 'lambersart' THEN 'Confort multi-pièces'
+    WHEN 'saint-andre-lez-lille' THEN 'Distribution pièce par pièce'
+    WHEN 'lomme' THEN 'Confort multi-pièces'
+  END,
+  CASE pd.city_slug
+    WHEN 'lille' THEN 'Confort multi-pièces, distribution équilibrée, finitions discrètes.'
+    WHEN 'vieux-lille' THEN 'Sélection d''unités low-noise, orientation anti-nuisances.'
+    WHEN 'villeneuve-d-ascq' THEN 'Confort discret, bouches plafond, atténuation acoustique.'
+    WHEN 'marcq-en-baroeul' THEN 'Bouches plafond/mural discrètes, esthétique soignée.'
+    WHEN 'bondues' THEN 'Discrétion visuelle/sonore, cages et plots adaptés.'
+    WHEN 'la-madeleine' THEN 'Sélection low-noise, orientation anti-nuisances.'
+    WHEN 'lambersart' THEN 'Multi-split équilibré, silencieux prioritaire.'
+    WHEN 'saint-andre-lez-lille' THEN 'Multi-split efficace, confort homogène.'
+    WHEN 'lomme' THEN 'Multi-split équilibré, orientation silencieuse.'
+  END,
+  '',
+  CASE pd.city_slug
+    WHEN 'lille' THEN '🧩'
+    WHEN 'vieux-lille' THEN '🔇'
+    WHEN 'villeneuve-d-ascq' THEN '🧩'
+    WHEN 'marcq-en-baroeul' THEN '🧩'
+    WHEN 'bondues' THEN '🌿'
+    WHEN 'la-madeleine' THEN '🔇'
+    WHEN 'lambersart' THEN '🧩'
+    WHEN 'saint-andre-lez-lille' THEN '🧩'
+    WHEN 'lomme' THEN '🧩'
+  END
+FROM page_data pd
+UNION ALL
+SELECT 
+  pd.page_id,
+  4,
+  CASE pd.city_slug
+    WHEN 'lille' THEN 'Entretien annuel & hygiène'
+    WHEN 'vieux-lille' THEN 'Entretien & désinfection'
+    WHEN 'villeneuve-d-ascq' THEN 'Entretien saisonnier'
+    WHEN 'marcq-en-baroeul' THEN 'Entretien & hygiène d''air'
+    WHEN 'bondues' THEN 'Entretien premium'
+    WHEN 'la-madeleine' THEN 'Entretien & désinfection'
+    WHEN 'lambersart' THEN 'Entretien annuel'
+    WHEN 'saint-andre-lez-lille' THEN 'Entretien & hygiène'
+    WHEN 'lomme' THEN 'Entretien annuel'
+  END,
+  CASE pd.city_slug
+    WHEN 'lille' THEN 'Nettoyage filtres/évaporateurs, désinfection, contrôle frigorifique R32.'
+    WHEN 'vieux-lille' THEN 'Hygiène d''air intérieur, contrôle condensats et bac.'
+    WHEN 'villeneuve-d-ascq' THEN 'Nettoyage filtres, contrôle pressions, désinfection.'
+    WHEN 'marcq-en-baroeul' THEN 'Désinfection échangeurs, contrôle condensats.'
+    WHEN 'bondues' THEN 'Hygiène, performance, contrôle frigorifique/documentation.'
+    WHEN 'la-madeleine' THEN 'Hygiène d''air, contrôle bac condensats, pressions.'
+    WHEN 'lambersart' THEN 'Nettoyage/ désinfection, contrôle pressions.'
+    WHEN 'saint-andre-lez-lille' THEN 'Filtres, évaporateurs, contrôle pressions.'
+    WHEN 'lomme' THEN 'Hygiène d''air, désinfection, contrôle frigorifique.'
+  END,
+  '',
+  '🧰'
+FROM page_data pd
+UNION ALL
+SELECT 
+  pd.page_id,
+  5,
+  CASE pd.city_slug
+    WHEN 'lille' THEN 'Dépannage en période chaude'
+    WHEN 'vieux-lille' THEN 'Dépannage express été'
+    WHEN 'villeneuve-d-ascq' THEN 'Dépannage rapide'
+    WHEN 'marcq-en-baroeul' THEN 'Dépannage été'
+    WHEN 'bondues' THEN 'Dépannage prioritaire'
+    WHEN 'la-madeleine' THEN 'Dépannage rapide été'
+    WHEN 'lambersart' THEN 'Dépannage priorisé'
+    WHEN 'saint-andre-lez-lille' THEN 'Dépannage été'
+    WHEN 'lomme' THEN 'Dépannage rapide été'
+  END,
+  CASE pd.city_slug
+    WHEN 'lille' THEN 'Diagnostic rapide, fuites, cartes, ventilateurs, remise en service.'
+    WHEN 'vieux-lille' THEN 'Priorisation saison chaude, pièces courantes en stock.'
+    WHEN 'villeneuve-d-ascq' THEN 'Diagnostic pannes (fuite, carte, ventilateur), remise en service.'
+    WHEN 'marcq-en-baroeul' THEN 'Intervention priorisée, pièces usuelles.'
+    WHEN 'bondues' THEN 'Diagnostic complet, réparation rapide en saison.'
+    WHEN 'la-madeleine' THEN 'Diagnostic et remise en service, pièces courantes.'
+    WHEN 'lambersart' THEN 'Intervention rapide en fortes chaleurs.'
+    WHEN 'saint-andre-lez-lille' THEN 'Diagnostic fuites/cartes, remise en service.'
+    WHEN 'lomme' THEN 'Diagnostic/ réparation, réappro pièces si besoin.'
+  END,
+  '',
+  '⚡'
+FROM page_data pd
+UNION ALL
+SELECT 
+  pd.page_id,
+  6,
+  CASE pd.city_slug
+    WHEN 'lille' THEN 'Copro & acoustique'
+    WHEN 'vieux-lille' THEN 'Dossiers syndic'
+    WHEN 'villeneuve-d-ascq' THEN 'Conformité & sécurité'
+    WHEN 'marcq-en-baroeul' THEN 'Copro & conformité'
+    WHEN 'bondues' THEN 'Élec & sécurité'
+    WHEN 'la-madeleine' THEN 'Dossiers syndic'
+    WHEN 'lambersart' THEN 'Acoustique & voisinage'
+    WHEN 'saint-andre-lez-lille' THEN 'Voisinage & conformité'
+    WHEN 'lomme' THEN 'Évacuation & électricité'
+  END,
+  CASE pd.city_slug
+    WHEN 'lille' THEN 'Dossiers syndic, implantation en cour/toiture, plots antivibratiles.'
+    WHEN 'vieux-lille' THEN 'Fiches techniques, acoustique, plans d''implantation.'
+    WHEN 'villeneuve-d-ascq' THEN 'Évacuation condensats, disjoncteur adapté, normes en vigueur.'
+    WHEN 'marcq-en-baroeul' THEN 'Dossiers syndic, acoustique, implantation cour/façade.'
+    WHEN 'bondues' THEN 'Protections électriques dédiées, évacuation condensats.'
+    WHEN 'la-madeleine' THEN 'Fiches techniques, acoustique, plans d''implantation.'
+    WHEN 'lambersart' THEN 'Orientation/écrans, plots anti-vibratiles.'
+    WHEN 'saint-andre-lez-lille' THEN 'Respect distances/bruit, dossiers syndic si besoin.'
+    WHEN 'lomme' THEN 'Condensats, protections électriques adaptées.'
+  END,
+  '',
+  CASE pd.city_slug
+    WHEN 'lille' THEN '📝'
+    WHEN 'vieux-lille' THEN '📝'
+    WHEN 'villeneuve-d-ascq' THEN '📝'
+    WHEN 'marcq-en-baroeul' THEN '📝'
+    WHEN 'bondues' THEN '📝'
+    WHEN 'la-madeleine' THEN '📝'
+    WHEN 'lambersart' THEN '🔇'
+    WHEN 'saint-andre-lez-lille' THEN '📝'
+    WHEN 'lomme' THEN '📝'
+  END
+FROM page_data pd;
+
+-- Insert FAQs for climatisation service cities
+INSERT INTO service_city_faqs (service_id, city_id, position, question, answer, published)
+SELECT 
+  s.id as service_id,
+  c.id as city_id,
+  q.position,
+  q.question,
+  q.answer,
+  true as published
+FROM services s, cities c,
+(VALUES
+  ('lille', 1, 'Clim mono-split ou multi-split à Lille : que choisir ?', 'Mono-split pour une pièce principale ; multi-split si vous voulez climatiser salon + chambres. Nous dimensionnons selon l''exposition (Wazemmes, Vauban, Fives…) et l''isolation.'),
+  ('lille', 2, 'Peut-on installer une clim en copropriété à Lille ?', 'Oui, avec un dossier syndic (acoustique, implantation façade/cour, évacuation condensats). Nous fournissons les pièces et proposons des unités silencieuses.'),
+  ('lille', 3, 'Où placer l''unité extérieure en milieu urbain dense ?', 'En cour intérieure, toiture-terrasse ou façade non exposée. Plots antivibratiles, orientation anti-nuisances et distance réglementaire respectées.'),
+  ('lille', 4, 'La clim peut-elle aussi chauffer ?', 'Oui avec les modèles réversibles. C''est pratique en intersaison à Lille, pour limiter l''allumage du chauffage central.'),
+  ('lille', 5, 'L''entretien annuel est-il nécessaire ?', 'Fortement recommandé : désinfection des échangeurs et contrôles frigorifiques pour préserver santé, performance et silence.'),
+  ('lille', 6, 'Quel niveau de bruit prévoir ?', 'Nous sélectionnons des unités low-noise et optimisons l''emplacement. En général, le bruit perçu reste très discret en intérieur et maîtrisé en extérieur.'),
+  ('lille', 7, 'Délais d''installation d''une clim à Lille ?', 'Après étude, comptez 1 jour pour un mono-split, jusqu''à 2 jours pour un multi-split 2-3 unités.'),
+  ('lille', 8, 'Faut-il une autorisation particulière ?', 'En copropriété : accord de l''AG ; en maison : respect des règles d''urbanisme locales. Nous vous indiquons la marche à suivre.'),
+  ('vieux-lille', 1, 'Quelles contraintes pour climatiser un appartement du Vieux-Lille ?', 'Bâti ancien, façades protégées, cours étroites : nous privilégions des unités compactes, passages discrets et dossiers syndic complets.'),
+  ('vieux-lille', 2, 'Où installer l''unité extérieure sans gêner le voisinage ?', 'Généralement en cour intérieure avec plots antivibratiles et écran acoustique si besoin. Orientation soignée pour éviter les chambres mitoyennes.'),
+  ('vieux-lille', 3, 'La clim est-elle réversible et économique ?', 'Oui, pour rafraîchir l''été et chauffer en mi-saison. Nous réglons la consigne et la ventilation pour un confort discret.'),
+  ('vieux-lille', 4, 'Entretien : obligatoire en copro ?', 'Le règlement de copro peut l''exiger. Dans tous les cas, l''entretien annuel garantit hygiène et performance (filtres/évaporateurs).'),
+  ('vieux-lille', 5, 'Quel rendu esthétique à l''intérieur ?', 'Unités murales design ou gainables (bouches plafond discrètes). Goulottes peintes pour s''intégrer à la déco.'),
+  ('vieux-lille', 6, 'Quid des condensats en été ?', 'On prévoit une évacuation fiable (pente, pompe éventuelle) pour éviter gouttes/odeurs, crucial en immeuble ancien.'),
+  ('vieux-lille', 7, 'Bruit perçu dans les parties communes ?', 'Nous isolons les points d''appui et utilisons des plots antivibratiles. Un mémo acoustique accompagne le dossier.'),
+  ('vieux-lille', 8, 'Quels délais typiques ?', '1 jour pour un mono-split, 1–2 jours pour multi-split (selon accès et autorisations).'),
+  ('villeneuve-d-ascq', 1, 'Maison ou appart étudiant : quelle solution ?', 'Mono-split pour studio/T1 ; multi-split pour maison à Annappes/Brigode. Possibilité de gainable discret pour pièces de vie.'),
+  ('villeneuve-d-ascq', 2, 'Bureau proche du campus : clim conseillée ?', 'Oui, multi-split ou gainable selon configuration. Nous dimensionnons pour tenue en charge lors des pics de chaleur.'),
+  ('villeneuve-d-ascq', 3, 'Entretien : quel programme ?', 'Nettoyage filtres, désinfection, contrôle pressions et condensats avant l''été. Contrat recommandé.'),
+  ('villeneuve-d-ascq', 4, 'La clim fait-elle du bruit ?', 'Nous choisissons des unités silencieuses et positionnons l''extérieure loin des chambres. Orientation et plots limitent le bruit.'),
+  ('villeneuve-d-ascq', 5, 'Délais d''installation ?', '1 jour (mono) à 2 jours (multi), selon longueurs de liaisons et accès.'),
+  ('villeneuve-d-ascq', 6, 'Clim et chauffage existant compatibles ?', 'Oui, la clim réversible complète radiateurs/plan cher en mi-saison.'),
+  ('villeneuve-d-ascq', 7, 'Coût de fonctionnement ?', 'Faible en mode rafraîchissement, très raisonnable en chauffage d''appoint. Nous optimisons les réglages.'),
+  ('villeneuve-d-ascq', 8, 'Besoin d''une autorisation ?', 'Copro : accord du syndic/AG. En maison : vérifier l''urbanisme si façade visible.'),
+  ('marcq-en-baroeul', 1, 'Clim pour Croisé-Laroche/Bourg : quelles options ?', 'Multi-split discret pour salon + chambres, ou gainable pour intégration plafond. Nous veillons à l''esthétique et au silence.'),
+  ('marcq-en-baroeul', 2, 'Où poser l''unité extérieure ?', 'En cour, jardin ou façade non exposée ; plots antivibratiles et gestion condensats. Écran acoustique possible.'),
+  ('marcq-en-baroeul', 3, 'Entretien recommandé ?', 'Oui : hygiène d''air (désinfection), contrôle frigorifique et vérif condensats chaque année avant l''été.'),
+  ('marcq-en-baroeul', 4, 'Délais typiques d''installation ?', 'Le plus souvent 1 jour (mono) ou 1–2 jours (multi). Gainable : prévoir plus selon faux plafonds.'),
+  ('marcq-en-baroeul', 5, 'La clim réversible suffit-elle en hiver ?', 'Idéale en appoint/mi-saison. En hiver rigoureux, conservez votre chauffage principal.'),
+  ('marcq-en-baroeul', 6, 'Bruit et voisinage : comment éviter les soucis ?', 'Sélection low-noise + orientation réfléchie ; nous fournissons fiches acoustiques si copropriété.'),
+  ('marcq-en-baroeul', 7, 'Esthétique intérieure : quelles finitions ?', 'Goulottes peintes, unités design ou bouches plafond. Parcours de liaisons optimisé.'),
+  ('marcq-en-baroeul', 8, 'Autorisation en copro ?', 'Oui : nous montons le dossier syndic pour validation en AG.'),
+  ('bondues', 1, 'Grandes pièces : multi-split ou gainable ?', 'Multi-split si peu de pièces ; gainable si vous voulez un rendu invisible dans les pièces de vie.'),
+  ('bondues', 2, 'Où installer l''extérieure en propriété arborée ?', 'Dans le jardin, sur plots, à distance des chambres/voisins. Cages de protection possibles.'),
+  ('bondues', 3, 'Entretien premium : en quoi ça consiste ?', 'Désinfection approfondie, contrôle pressions/électricité, nettoyage échangeurs, rapport de performance.'),
+  ('bondues', 4, 'Niveau sonore en terrasse ?', 'Nous choisissons des modèles silencieux et gérons l''orientation pour préserver la terrasse et le voisinage.'),
+  ('bondues', 5, 'Délais d''installation ?', '1–2 jours selon nombre d''unités et longueurs de liaisons.'),
+  ('bondues', 6, 'Clim et isolation : impact ?', 'Une bonne isolation réduit la puissance nécessaire et le bruit perçu ; nous ajustons le dimensionnement.'),
+  ('bondues', 7, 'Gestion des condensats ?', 'Évacuation gravitaire ou pompe dédiée, test anti-fuite et anti-odeur.'),
+  ('bondues', 8, 'Autorisation nécessaire ?', 'En général non en maison, mais on respecte l''urbanisme local. En copro, accord du syndic.'),
+  ('la-madeleine', 1, 'Copropriétés (Saint-Maur, Botanique) : faisable ?', 'Oui, avec dossier complet (acoustique, esthétique, plans). Unités compactes privilégiées.'),
+  ('la-madeleine', 2, 'Où placer l''unité extérieure ?', 'Cour intérieure, toiture-terrasse ou façade arrière ; plots antivibratiles et gestion condensats.'),
+  ('la-madeleine', 3, 'Entretien annuel : pourquoi ?', 'Hygiène d''air (désinfection), performance et silence. Indispensable en habitat dense.'),
+  ('la-madeleine', 4, 'Délais d''installation typiques ?', '1 jour (mono), 1–2 jours (multi). Avec copro, dépend du calendrier d''AG.'),
+  ('la-madeleine', 5, 'Esthétique : peut-on cacher les liaisons ?', 'Oui, goulottes peintes, passages discrets, gainable possible selon faux plafonds.'),
+  ('la-madeleine', 6, 'Clim réversible pour l''hiver ?', 'Très bien en mi-saison ; chauffage principal conservé pour les pics.'),
+  ('la-madeleine', 7, 'Bruit et voisinage ?', 'Orientation soignée, matériels low-noise, écrans si besoin ; on joint une note acoustique au dossier.'),
+  ('la-madeleine', 8, 'Règles d''urbanisme ?', 'Nous vous précisons les démarches en fonction de l''emplacement et du règlement de copro.'),
+  ('lambersart', 1, 'Maisons bourgeoises : quelles finitions ?', 'Gainable discret possible, ou unités design ; percements et goulottes soignés pour respecter le bâti.'),
+  ('lambersart', 2, 'Unité extérieure : où la mettre ?', 'Jardin/cour ou façade non exposée ; plots antivibratiles et orientation anti-nuisances.'),
+  ('lambersart', 3, 'Entretien : que vérifie-t-on ?', 'Désinfection échangeurs, nettoyage filtres, contrôle pressions, évacuation condensats.'),
+  ('lambersart', 4, 'Délais d''installation ?', '1 jour (mono), 1–2 jours (multi). Gainable : prévoir plus selon travaux de plafond.'),
+  ('lambersart', 5, 'Niveau sonore acceptable ?', 'Nous choisissons des références low-noise et validons l''implantation pour préserver le voisinage.'),
+  ('lambersart', 6, 'Clim réversible en hiver ?', 'Parfaite en appoint ; chauffage principal conservé pour le cœur de l''hiver.'),
+  ('lambersart', 7, 'Copropriété : démarches ?', 'Dossier syndic fourni (fiches techniques, acoustique, plans).'),
+  ('lambersart', 8, 'Électricité & sécurité ?', 'Protection dédiée au tableau, câblage et sections conformes, essais à la mise en service.'),
+  ('saint-andre-lez-lille', 1, 'Maisons mitoyennes : quelle solution ?', 'Mono/multi-split compacts avec implantation extérieure en cour ; parcours discrets.'),
+  ('saint-andre-lez-lille', 2, 'Bruit côté voisinage ?', 'Nous optimisons orientation + plots ; écrans possibles si voisinage très proche.'),
+  ('saint-andre-lez-lille', 3, 'Entretien : indispensable ?', 'Oui, pour hygiène d''air et performance ; surtout avant l''été.'),
+  ('saint-andre-lez-lille', 4, 'Délais d''installation ?', '1 jour (mono) à 2 jours (multi) selon accès/liaisons.'),
+  ('saint-andre-lez-lille', 5, 'Clim et chauffage existant ?', 'La clim réversible complète bien les radiateurs/plancher en mi-saison.'),
+  ('saint-andre-lez-lille', 6, 'Condensats : que prévoyez-vous ?', 'Évacuation gravitaire quand possible, pompe fiable si nécessaire ; test anti-fuite.'),
+  ('saint-andre-lez-lille', 7, 'Autorisation en copro ?', 'Oui, dossier syndic avec fiches acoustiques et plans d''implantation.'),
+  ('saint-andre-lez-lille', 8, 'Esthétique intérieure ?', 'Goulottes peintes, unités murales design ou bouches plafond selon projet.'),
+  ('lomme', 1, 'Pavillons Délivrance/Mitterie : quelles options ?', 'Mono-split pour une pièce, multi-split pour salon + chambres ; orientation silencieuse prioritaire.'),
+  ('lomme', 2, 'Où placer l''unité extérieure ?', 'En jardin/cour ou façade arrière ; plots antivibratiles, gestion condensats, distance réglementaire.'),
+  ('lomme', 3, 'Entretien : que comprend la visite ?', 'Désinfection, nettoyage filtres/échangeurs, contrôle pressions et évacuation.'),
+  ('lomme', 4, 'Délais d''installation ?', '1 jour (mono), 1–2 jours (multi) selon liaisons et accès.'),
+  ('lomme', 5, 'Clim réversible : utile en hiver ?', 'Très confortable en mi-saison ; on conserve le chauffage principal pour les plus grands froids.'),
+  ('lomme', 6, 'Bruit côté voisins ?', 'Unités low-noise + orientation étudiée ; écrans possibles en cas de proximité.'),
+  ('lomme', 7, 'Électricité : faut-il une ligne dédiée ?', 'Oui, nous vérifions protections et sections au tableau, et mettons en conformité si besoin.'),
+  ('lomme', 8, 'Urbanisme & copro : qui s''en occupe ?', 'Nous guidons les démarches et préparons le dossier pour le syndic quand c''est requis.')
+) AS q(city_slug, position, question, answer)
+WHERE s.slug = 'climatisation' AND c.slug = q.city_slug;
+
+-- Insert testimonials for climatisation service cities
+INSERT INTO testimonials (author_name, content, rating, location, service_id, city_id, published)
+SELECT 
+  t.author_name,
+  t.content,
+  t.rating,
+  t.location,
+  s.id as service_id,
+  c.id as city_id,
+  true as published
+FROM services s, cities c,
+(VALUES
+  ('Camille – Centre', 'Clim mono-split posée dans notre salon. Pose très propre, appareil discret et silencieux.', 5, 'Centre', 'lille'),
+  ('Hugo – Vauban', 'Multi-split salon + deux chambres. L''équipe a géré les passages de liaisons sans abîmer.', 5, 'Vauban-Esquermes', 'lille'),
+  ('Élodie – Wazemmes', 'Installation rapide avant la canicule. Le technicien a bien expliqué l''entretien.', 5, 'Wazemmes', 'lille'),
+  ('Paul – Fives', 'Clim réversible utilisée en mi-saison. Confort au top et conso maîtrisée.', 5, 'Fives', 'lille'),
+  ('Nina – Hellemmes', 'Très bonne expérience. Unité extérieure en cour, aucun bruit gênant.', 5, 'Hellemmes', 'lille'),
+  ('Romain – Bois-Blancs', 'Dépannage en plein été, diagnostic rapide et remise en service le jour même.', 5, 'Bois-Blancs', 'lille'),
+  ('Alix – rue de Gand', 'Clim compacte et silencieuse. Dossier syndic validé du premier coup.', 5, 'Vieux-Lille', 'vieux-lille'),
+  ('Thomas – place du Concert', 'Pose soignée, percements minimalistes. Appareil quasi inaudible.', 5, 'Vieux-Lille', 'vieux-lille'),
+  ('Manon – rue Royale', 'Entretien annuel impeccable. Air plus sain, odeurs disparues.', 5, 'Vieux-Lille', 'vieux-lille'),
+  ('Julien – rue Basse', 'Installation en cour intérieure, zero nuisance pour les voisins.', 5, 'Vieux-Lille', 'vieux-lille'),
+  ('Clara – Esquermoise', 'Très pro, délais tenus malgré l''accès compliqué.', 5, 'Vieux-Lille', 'vieux-lille'),
+  ('Renaud – Cathédrale', 'Dépannage express pendant la chaleur, merci pour la réactivité.', 5, 'Vieux-Lille', 'vieux-lille'),
+  ('Catherine – Annappes', 'Multi-split pour salon + 3 chambres. Confort immédiat.', 5, 'Annappes', 'villeneuve-d-ascq'),
+  ('Hugo – Campus', 'Clim pour un bureau proche du campus. Très silencieux.', 5, 'Campus', 'villeneuve-d-ascq'),
+  ('Émilie – Flers-Bourg', 'Entretien avec désinfection complète, air plus sain.', 5, 'Flers-Bourg', 'villeneuve-d-ascq'),
+  ('Rachid – Brigode', 'Installation propre et finitions nickel. Très content.', 5, 'Brigode', 'villeneuve-d-ascq'),
+  ('Sophie – Triolo', 'Unité extérieure bien positionnée, aucun bruit la nuit.', 5, 'Triolo', 'villeneuve-d-ascq'),
+  ('Paul – Hôtel de Ville', 'Super SAV, diagnostic précis et rapide.', 5, 'Hôtel de Ville', 'villeneuve-d-ascq'),
+  ('Hélène – Croisé-Laroche', 'Multi-split salon + chambres. Passage de liaisons discret.', 5, 'Croisé-Laroche', 'marcq-en-baroeul'),
+  ('Antoine – Bourg', 'Pose très soignée, appareil quasi inaudible.', 5, 'Bourg', 'marcq-en-baroeul'),
+  ('Maya – Plouich', 'Entretien et désinfection avant l''été, parfait.', 5, 'Plouich', 'marcq-en-baroeul'),
+  ('Yanis – Pont', 'Dépannage rapide pendant la canicule.', 5, 'Pont', 'marcq-en-baroeul'),
+  ('Claire – Rouges-Barres', 'Gainable discret, rendu esthétique impeccable.', 5, 'Rouges-Barres', 'marcq-en-baroeul'),
+  ('Louis – Hippodrome', 'Conseils pertinents et délai respecté.', 5, 'Hippodrome', 'marcq-en-baroeul'),
+  ('Blandine – Montjoie', 'Multi-split dans une grande maison, équilibre parfait.', 5, 'Montjoie', 'bondues'),
+  ('Xavier – Ravennes-les-Francs', 'Pose extérieure discrète dans le jardin, aucun bruit.', 5, 'Ravennes-les-Francs', 'bondues'),
+  ('Héloïse – Centre', 'Devis clair, finitions premium.', 5, 'Centre', 'bondues'),
+  ('Damien – Vertu-Couture', 'Très pro, passages de liaisons bien pensés.', 5, 'Vertu-Couture', 'bondues'),
+  ('Agnès – Campagne', 'Entretien complet, air plus sain dans la maison.', 5, 'Secteur campagne', 'bondues'),
+  ('Romain – Proche golf', 'Dépannage prioritaire, merci pour la rapidité.', 5, 'Proche golf', 'bondues'),
+  ('Maud – Saint-Maur', 'Clim compacte en copro, dossier syndic accepté.', 5, 'Saint-Maur', 'la-madeleine'),
+  ('Jérôme – Botanique', 'Multi-split discret, travail soigné.', 5, 'Botanique', 'la-madeleine'),
+  ('Aline – Centre', 'Entretien annuel avec désinfection, très efficace.', 5, 'Centre', 'la-madeleine'),
+  ('Olivier – Berkem', 'Unité ext. en toiture, aucune nuisance.', 5, 'Berkem', 'la-madeleine'),
+  ('Sarah – Romarin', 'Installation rapide avant l''été, super.', 5, 'Romarin', 'la-madeleine'),
+  ('Hugo – Limite Marcq', 'Très bonne communication, chantier propre.', 5, 'Limite Marcq', 'la-madeleine'),
+  ('Aurélie – Canteleu', 'Gainable discret, finitions exceptionnelles.', 5, 'Canteleu', 'lambersart'),
+  ('Bastien – Pacot-Vandracq', 'Pose propre, respect du bâti.', 5, 'Pacot-Vandracq', 'lambersart'),
+  ('Léa – Champ-de-Courses', 'Multi-split silencieux, confort immédiat.', 5, 'Champ-de-Courses', 'lambersart'),
+  ('Samuel – Bourg', 'Entretien réalisé à la perfection.', 5, 'Bourg', 'lambersart'),
+  ('Nora – Limite Saint-André', 'Dépannage week-end, super réactivité.', 5, 'Limite Saint-André', 'lambersart'),
+  ('Cyril – Avenue de Dunkerque', 'Travail sérieux, rendu soigné.', 5, 'Avenue de Dunkerque', 'lambersart'),
+  ('Coralie – Centre', 'Mono-split pour le séjour, discret et efficace.', 5, 'Centre', 'saint-andre-lez-lille'),
+  ('Vincent – Sainte-Hélène', 'Multi-split bien dimensionné, très silencieux.', 5, 'Sainte-Hélène', 'saint-andre-lez-lille'),
+  ('Amandine – Bords de Deûle', 'Pose en cour intérieure, aucun souci.', 5, 'Bords de Deûle', 'saint-andre-lez-lille'),
+  ('Jules – Proche gare', 'Entretien complet, conseils utiles.', 5, 'Proche gare', 'saint-andre-lez-lille'),
+  ('Nadia – Secteur canal', 'Dépannage rapide, équipe top.', 5, 'Secteur canal', 'saint-andre-lez-lille'),
+  ('Thierry – Limite La Madeleine', 'Clim réversible très confortable en mi-saison.', 5, 'Limite La Madeleine', 'saint-andre-lez-lille'),
+  ('Amélie – Délivrance', 'Multi-split salon + chambres. Confort immédiat.', 5, 'Délivrance', 'lomme'),
+  ('Gauthier – Bourg', 'Pose propre, finitions parfaites.', 5, 'Bourg', 'lomme'),
+  ('Lina – Mitterie', 'Entretien avant été, air plus sain.', 5, 'Mitterie', 'lomme'),
+  ('Farid – Mont-à-Camp', 'Dépannage en pleine chaleur, efficace.', 5, 'Mont-à-Camp', 'lomme'),
+  ('Nolwenn – Lomme-Campus', 'Unité très silencieuse, sommeil retrouvé.', 5, 'Lomme-Campus', 'lomme'),
+  ('Cédric – Limite Loos', 'Conseils clairs, respect des délais.', 5, 'Limite Loos', 'lomme')
+) AS t(author_name, content, rating, location, city_slug)
+WHERE s.slug = 'climatisation' AND c.slug = t.city_slug;
