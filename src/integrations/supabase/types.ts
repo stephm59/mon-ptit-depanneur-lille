@@ -332,6 +332,138 @@ export type Database = {
         }
         Relationships: []
       }
+      staging_service_city_faqs: {
+        Row: {
+          answer: string
+          city_slug: string
+          position: number
+          published: boolean | null
+          question: string
+          service_slug: string
+        }
+        Insert: {
+          answer: string
+          city_slug: string
+          position: number
+          published?: boolean | null
+          question: string
+          service_slug: string
+        }
+        Update: {
+          answer?: string
+          city_slug?: string
+          position?: number
+          published?: boolean | null
+          question?: string
+          service_slug?: string
+        }
+        Relationships: []
+      }
+      staging_service_city_offers: {
+        Row: {
+          city_slug: string
+          description: string | null
+          emoji: string | null
+          icon_name: string | null
+          position: number
+          service_slug: string
+          title: string
+        }
+        Insert: {
+          city_slug: string
+          description?: string | null
+          emoji?: string | null
+          icon_name?: string | null
+          position: number
+          service_slug: string
+          title: string
+        }
+        Update: {
+          city_slug?: string
+          description?: string | null
+          emoji?: string | null
+          icon_name?: string | null
+          position?: number
+          service_slug?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      staging_service_city_pages: {
+        Row: {
+          city_slug: string
+          cta_subtitle: string | null
+          cta_title: string | null
+          h1: string | null
+          h2_intro: string | null
+          intro_description: string | null
+          meta_description: string | null
+          meta_title: string | null
+          published: boolean | null
+          published_at: string | null
+          service_slug: string
+          zones_text: string | null
+        }
+        Insert: {
+          city_slug: string
+          cta_subtitle?: string | null
+          cta_title?: string | null
+          h1?: string | null
+          h2_intro?: string | null
+          intro_description?: string | null
+          meta_description?: string | null
+          meta_title?: string | null
+          published?: boolean | null
+          published_at?: string | null
+          service_slug: string
+          zones_text?: string | null
+        }
+        Update: {
+          city_slug?: string
+          cta_subtitle?: string | null
+          cta_title?: string | null
+          h1?: string | null
+          h2_intro?: string | null
+          intro_description?: string | null
+          meta_description?: string | null
+          meta_title?: string | null
+          published?: boolean | null
+          published_at?: string | null
+          service_slug?: string
+          zones_text?: string | null
+        }
+        Relationships: []
+      }
+      staging_testimonials: {
+        Row: {
+          author_name: string
+          city_slug: string | null
+          content: string
+          location: string | null
+          published: boolean | null
+          rating: number | null
+          service_slug: string | null
+        }
+        Insert: {
+          author_name: string
+          city_slug?: string | null
+          content: string
+          location?: string | null
+          published?: boolean | null
+          rating?: number | null
+          service_slug?: string | null
+        }
+        Update: {
+          author_name?: string
+          city_slug?: string | null
+          content?: string
+          location?: string | null
+          published?: boolean | null
+          rating?: number | null
+          service_slug?: string | null
+        }
+        Relationships: []
+      }
       testimonials: {
         Row: {
           author_name: string
