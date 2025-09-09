@@ -19,6 +19,7 @@ import BrandPartners from "@/components/sections/BrandPartners";
 import { ServiceCityBlog } from "@/components/sections/ServiceCityBlog";
 import { useServiceCityPage } from "@/hooks/useServiceCityPage";
 import { Loading } from "@/components/ui/loading";
+import { generateServiceCityJsonLd } from "@/utils/jsonld";
 
 export default function ServiceCity() {
   const { combinedSlug } = useParams<{
@@ -50,6 +51,9 @@ export default function ServiceCity() {
     );
   }
 
+  // Generate JSON-LD structured data
+  const jsonLd = generateServiceCityJsonLd(page);
+
   return (
     <>
       <Helmet>
@@ -61,6 +65,9 @@ export default function ServiceCity() {
         <meta property="og:title" content={page.meta_title || `${page.services.name} à ${page.cities.name}`} />
         <meta property="og:description" content={page.meta_description || `Services de ${page.services.name} à ${page.cities.name}`} />
         <link rel="canonical" href={`/${combinedSlug}`} />
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
       </Helmet>
 
       <div className="min-h-screen bg-background">
