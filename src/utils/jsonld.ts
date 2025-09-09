@@ -94,6 +94,16 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
     { name: "Conseils économies d'énergie", area: "Saint-André-lez-Lille" }
   ];
 
+  // Lomme specific heating offers
+  const lommeHeatingOffers = [
+    { name: "Dépannage chaudière gaz/fioul", area: "Lomme" },
+    { name: "Entretien annuel (attestation)", area: "Lomme" },
+    { name: "Installation chaudière à condensation (compacte et performante)", area: "Lomme" },
+    { name: "Remplacement d'ancienne chaudière", area: "Lomme" },
+    { name: "Équilibrage & désembouage de circuit", area: "Lomme" },
+    { name: "Conseils économies d'énergie", area: "Lomme" }
+  ];
+
   // Default heating offers
   const heatingOffers = [
     { name: "Dépannage chaudière gaz et fioul", area: cityName },
@@ -156,7 +166,8 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
   const isLaMadeleine = page.cities.slug === 'la-madeleine';
   const isLambersart = page.cities.slug === 'lambersart';
   const isSaintAndre = page.cities.slug === 'saint-andre-lez-lille';
-  const offers = isHeatingService ? (isVieuxLille ? vieuxLilleHeatingOffers : isVilleneuveAscq ? villeneuveAscqHeatingOffers : isMarcqBaroeul ? marcqBaroeulHeatingOffers : isBondues ? bonduesHeatingOffers : isLaMadeleine ? laMadeleineHeatingOffers : isLambersart ? lambersartHeatingOffers : isSaintAndre ? saintAndreHeatingOffers : heatingOffers) : plumbingOffers;
+  const isLomme = page.cities.slug === 'lomme';
+  const offers = isHeatingService ? (isVieuxLille ? vieuxLilleHeatingOffers : isVilleneuveAscq ? villeneuveAscqHeatingOffers : isMarcqBaroeul ? marcqBaroeulHeatingOffers : isBondues ? bonduesHeatingOffers : isLaMadeleine ? laMadeleineHeatingOffers : isLambersart ? lambersartHeatingOffers : isSaintAndre ? saintAndreHeatingOffers : isLomme ? lommeHeatingOffers : heatingOffers) : plumbingOffers;
 
   // FAQ data - for now using heating-specific FAQs, can be expanded
   const heatingFAQ = [
@@ -251,6 +262,10 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
           { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${baseUrl}/` },
           { "@type": "ListItem", "position": 2, "name": "Chauffagiste Lille", "item": `${baseUrl}/chauffagiste-lille/` },
           { "@type": "ListItem", "position": 3, "name": "Chauffagiste Saint-André-lez-Lille", "item": pageUrl }
+        ] : isLomme ? [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${baseUrl}/` },
+          { "@type": "ListItem", "position": 2, "name": "Chauffagiste Lille", "item": `${baseUrl}/chauffagiste-lille/` },
+          { "@type": "ListItem", "position": 3, "name": "Chauffagiste Lomme", "item": pageUrl }
         ] : [
           { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${baseUrl}/` },
           { "@type": "ListItem", "position": 2, "name": `${serviceName} ${cityName}`, "item": pageUrl }
@@ -307,7 +322,7 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
           "opens": "08:00",
           "closes": "18:00"
         },
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": (isVieuxLille || isVilleneuveAscq || isMarcqBaroeul || isBondues || isLaMadeleine || isLambersart || isSaintAndre) ? "4.6" : "4.5", "bestRating": "5", "ratingCount": (isVieuxLille || isVilleneuveAscq || isMarcqBaroeul || isBondues || isLaMadeleine || isLambersart || isSaintAndre) ? "320" : "600" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": (isVieuxLille || isVilleneuveAscq || isMarcqBaroeul || isBondues || isLaMadeleine || isLambersart || isSaintAndre || isLomme) ? "4.6" : "4.5", "bestRating": "5", "ratingCount": (isVieuxLille || isVilleneuveAscq || isMarcqBaroeul || isBondues || isLaMadeleine || isLambersart || isSaintAndre || isLomme) ? "320" : "600" },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": `Prestations de ${serviceName.toLowerCase()} – ${cityName}`,
