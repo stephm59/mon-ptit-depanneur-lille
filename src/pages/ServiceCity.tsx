@@ -199,7 +199,7 @@ export default function ServiceCity() {
               categoryLabel={
                 ['chauffagiste', 'chaudiere', 'climatisation', 'pompe-a-chaleur'].includes(page.services.slug) 
                   ? 'Chauffage' 
-                  : page.services.slug === 'renovation-salle-de-bain'
+                  : page.services.slug === 'renovation-salle-de-bains'
                   ? 'Rénovation'
                   : 'Plomberie'
               }
