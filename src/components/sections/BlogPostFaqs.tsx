@@ -91,6 +91,41 @@ export const BlogPostFaqs = ({ slug }: BlogPostFaqsProps) => {
       ];
     }
     
+    if (slug === "regulation-chauffage") {
+      return [
+        {
+          id: 1,
+          question: "Quelle est la température idéale dans une maison ?",
+          answer: "L'ADEME recommande 19 °C dans les pièces de vie, 16–17 °C dans les chambres et 22 °C dans la salle de bain lorsqu'elle est utilisée."
+        },
+        {
+          id: 2,
+          question: "Quelle économie peut-on faire avec un thermostat programmable ?",
+          answer: "En moyenne, vous pouvez économiser 10 à 20 % sur vos dépenses de chauffage, simplement en programmant intelligemment vos absences et vos nuits."
+        },
+        {
+          id: 3,
+          question: "Quelle est la différence entre un thermostat classique et un thermostat connecté ?",
+          answer: "Le thermostat classique maintient une température fixée. Le thermostat connecté permet en plus de piloter votre chauffage à distance (smartphone) et d'optimiser automatiquement vos consommations."
+        },
+        {
+          id: 4,
+          question: "Comment régler un robinet thermostatique ?",
+          answer: "Chaque graduation correspond à une température : 1 ≈ 12 °C, 2 ≈ 16 °C, 3 ≈ 20 °C, 4 ≈ 24 °C, 5 ≈ 28 °C."
+        },
+        {
+          id: 5,
+          question: "Les robinets thermostatiques suffisent-ils à réguler la maison ?",
+          answer: "Non. Ils complètent le thermostat central. Le premier pilote la chaudière, les seconds ajustent pièce par pièce."
+        },
+        {
+          id: 6,
+          question: "Quand faut-il changer un thermostat ou un robinet thermostatique ?",
+          answer: "En moyenne tous les 10 à 15 ans. Des signes comme des écarts de température ou des réglages inefficaces indiquent qu'il est temps de moderniser l'installation."
+        }
+      ];
+    }
+    
     return [];
   };
 
