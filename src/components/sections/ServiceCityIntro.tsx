@@ -25,9 +25,11 @@ export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
                 loop
                 muted
                 playsInline
-                preload="auto"
-                crossOrigin="anonymous"
+                preload="metadata"
+                onLoadStart={() => console.log('Video loading started')}
+                onCanPlay={() => console.log('Video can play')}
                 onError={(e) => {
+                  console.error('Video failed to load:', e);
                   // Fallback to a static image if video fails to load
                   const target = e.currentTarget;
                   target.style.display = 'none';
