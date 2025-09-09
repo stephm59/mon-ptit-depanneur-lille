@@ -1,6 +1,20 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => {
+  // Function to generate URL from service name
+  const generateServiceUrl = (serviceName: string) => {
+    return "/" + serviceName
+      .toLowerCase()
+      .replace(/à /g, "a-")
+      .replace(/é/g, "e")
+      .replace(/è/g, "e")
+      .replace(/ç/g, "c")
+      .replace(/œ/g, "oe")
+      .replace(/'/g, "-")
+      .replace(/ /g, "-")
+      .replace(/--+/g, "-");
+  };
+
   const services = {
     plomberie: [
       "Plombier Lille",
@@ -157,7 +171,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 {services.plomberie.map((service, index) => (
                   <li key={index}>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
                       {service}
                     </a>
                   </li>
@@ -171,7 +185,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 {services.chauffage.map((service, index) => (
                   <li key={index}>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
                       {service}
                     </a>
                   </li>
@@ -185,7 +199,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 {services.pompeAChaleur.map((service, index) => (
                   <li key={index}>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
                       {service}
                     </a>
                   </li>
@@ -199,7 +213,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 {services.climatisation.map((service, index) => (
                   <li key={index}>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
                       {service}
                     </a>
                   </li>
@@ -216,7 +230,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 {services.salleDeBains.map((service, index) => (
                   <li key={index}>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
                       {service}
                     </a>
                   </li>
@@ -230,7 +244,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 {services.electricite.map((service, index) => (
                   <li key={index}>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
                       {service}
                     </a>
                   </li>
@@ -244,7 +258,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 {services.serrurerie.map((service, index) => (
                   <li key={index}>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
                       {service}
                     </a>
                   </li>
@@ -258,7 +272,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 {services.vitrerie.map((service, index) => (
                   <li key={index}>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
                       {service}
                     </a>
                   </li>
