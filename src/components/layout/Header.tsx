@@ -8,11 +8,11 @@ const Header = () => {
   const navigation = [
     { name: "Plombier", href: "/plombier-lille" },
     { name: "Chauffage", href: "/chauffagiste-lille" },
-    { name: "Climatisation", href: "/climatisation" },
-    { name: "Pompe à chaleur", href: "/pompe-chaleur" },
-    { name: "Salle de bain", href: "/salle-de-bain" },
-    { name: "Serrure", href: "/serrure" },
-    { name: "Vitre", href: "/vitre" },
+    { name: "Climatisation", href: "/climatisation-lille" },
+    { name: "Pompe à chaleur", href: "/pompe-a-chaleur-lille" },
+    { name: "Salle de bains", href: "/renovation-salle-de-bains-lille" },
+    { name: "Serrurier", href: "/serrurier-lille" },
+    { name: "Vitrier", href: "/vitrier-lille" },
   ];
 
   return (
