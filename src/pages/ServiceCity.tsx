@@ -49,12 +49,10 @@ export default function ServiceCity() {
     return { serviceSlug: parts[0] || '', citySlug: parts.slice(1).join('-') };
   };
   
-  // Wait for services to load before parsing
-  if (servicesLoading) return <Loading />;
-  
   const serviceSlugs = services?.map(s => s.slug) || [];
   const { serviceSlug, citySlug } = parseCombinedSlug(combinedSlug || '', serviceSlugs);
 
+  // Always call all hooks - React rule
   const { data: page, isLoading, error } = useServiceCityPage(
     serviceSlug,
     citySlug
@@ -65,7 +63,8 @@ export default function ServiceCity() {
   const { data: faqs } = useServiceCityFaqs(page?.service_id || '', page?.city_id || '');
   const { data: testimonials } = useServiceCityTestimonials(page?.service_id, page?.city_id);
 
-  if (isLoading) return <Loading />;
+  // Show loading if services are loading or page is loading
+  if (servicesLoading || isLoading) return <Loading />;
 
   if (error || !page) {
     return (
