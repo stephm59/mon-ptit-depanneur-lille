@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Star, Phone } from "lucide-react";
+import { Star, Phone, Calendar, ArrowRight } from "lucide-react";
 import { useBlogPost, useRelatedBlogPosts } from "@/hooks/useBlog";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -12,6 +12,9 @@ import { HomeServices } from "@/components/sections/HomeServices";
 import MediaCoverage from "@/components/sections/MediaCoverage";
 import Testimonials from "@/components/sections/Testimonials";
 import { Link } from "react-router-dom";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { BlogPostFaqs } from "@/components/sections/BlogPostFaqs";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -109,6 +112,7 @@ const BlogPost = () => {
 
   return (
     <>
+      <Header />
       <Helmet>
         <title>{post.title}</title>
         <meta name="description" content={post.excerpt || ""} />
@@ -121,7 +125,7 @@ const BlogPost = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-primary">
+      <section className="relative min-h-[50vh] flex items-center justify-center bg-gradient-primary pt-20">
         {post.cover_image_url && (
           <div 
             className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -178,13 +182,33 @@ const BlogPost = () => {
       {/* Article Content */}
       <article className="py-16 bg-background">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto prose prose-lg prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {post.content || ""}
-            </ReactMarkdown>
+          <div className="max-w-4xl mx-auto">
+            <div className="prose prose-lg prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-img:rounded-lg prose-img:shadow-md max-w-none">
+              <ReactMarkdown 
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  h2: ({ children }) => <h2 className="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-6 border-b border-border pb-3">{children}</h2>,
+                  h3: ({ children }) => <h3 className="text-xl md:text-2xl font-semibold text-foreground mt-8 mb-4">{children}</h3>,
+                  p: ({ children }) => <p className="text-muted-foreground leading-relaxed mb-6 text-lg">{children}</p>,
+                  ul: ({ children }) => <ul className="text-muted-foreground space-y-2 mb-6 ml-6">{children}</ul>,
+                  ol: ({ children }) => <ol className="text-muted-foreground space-y-2 mb-6 ml-6">{children}</ol>,
+                  li: ({ children }) => <li className="leading-relaxed">{children}</li>,
+                  blockquote: ({ children }) => (
+                    <blockquote className="border-l-4 border-l-primary bg-secondary/20 p-6 my-8 rounded-r-lg">
+                      <div className="text-muted-foreground italic">{children}</div>
+                    </blockquote>
+                  ),
+                }}
+              >
+                {post.content || ""}
+              </ReactMarkdown>
+            </div>
           </div>
         </div>
       </article>
+
+      {/* FAQ Section */}
+      <BlogPostFaqs slug={post.slug} />
 
       {/* CTA Block */}
       <CtaBlock />
@@ -200,35 +224,63 @@ const BlogPost = () => {
 
       {/* Related Articles */}
       {relatedPosts && relatedPosts.length > 0 && (
-        <section className="py-16 bg-secondary/30">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center mb-12">
-              D'autres articles du blog
-            </h2>
+        <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16 max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+                Ces conseils pourraient vous plaire
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Découvrez d'autres conseils utiles de nos experts pour mieux entretenir vos installations
+              </p>
+            </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {relatedPosts.map((relatedPost) => (
-                <Card key={relatedPost.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+                <Card key={relatedPost.id} className="overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:scale-105 bg-white border border-gray-200">
                   {relatedPost.cover_image_url && (
-                    <div 
-                      className="h-48 bg-cover bg-center"
-                      style={{ backgroundImage: `url(${relatedPost.cover_image_url})` }}
-                    />
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <img 
+                        src={relatedPost.cover_image_url}
+                        alt={relatedPost.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="px-3 py-1 rounded-full text-sm font-medium bg-cyan-100 text-cyan-700">
+                          Conseil
+                        </span>
+                      </div>
+                    </div>
                   )}
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-3 line-clamp-2">
+                    <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
                       {relatedPost.title}
                     </h3>
                     {relatedPost.excerpt && (
-                      <p className="text-muted-foreground mb-4 line-clamp-3">
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
                         {relatedPost.excerpt}
                       </p>
                     )}
-                    <Button variant="outline" asChild className="w-full">
-                      <Link to={`/carnet/${relatedPost.slug}`}>
-                        Lire l'article
-                      </Link>
-                    </Button>
+                    
+                    {relatedPost.published_at && (
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
+                        <Calendar className="h-3 w-3" />
+                        {new Date(relatedPost.published_at).toLocaleDateString('fr-FR', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
+                        })}
+                      </div>
+                    )}
+                    
+                    <Link 
+                      to={`/carnet/${relatedPost.slug}`}
+                      className="flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
+                    >
+                      <span>Lire le conseil</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
                 </Card>
               ))}
@@ -236,6 +288,8 @@ const BlogPost = () => {
           </div>
         </section>
       )}
+      
+      <Footer />
     </>
   );
 };
