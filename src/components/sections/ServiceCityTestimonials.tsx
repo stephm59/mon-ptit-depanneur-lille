@@ -1,6 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { useServiceCityTestimonials } from "@/hooks/useServiceCityPage";
+import { useState } from "react";
 
 interface ServiceCityTestimonialsProps {
   serviceId: string;
@@ -9,49 +11,115 @@ interface ServiceCityTestimonialsProps {
 
 export const ServiceCityTestimonials = ({ serviceId, cityId }: ServiceCityTestimonialsProps) => {
   const { data: testimonials, isLoading } = useServiceCityTestimonials(serviceId, cityId);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   if (isLoading || !testimonials?.length) return null;
 
+  const testimonialsPerView = 3;
+  const maxIndex = Math.max(0, testimonials.length - testimonialsPerView);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex >= maxIndex ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? maxIndex : prevIndex - 1
+    );
+  };
+
+  const visibleTestimonials = testimonials.slice(currentIndex, currentIndex + testimonialsPerView);
+  const totalSlides = Math.ceil(testimonials.length / testimonialsPerView);
+  const currentSlide = Math.floor(currentIndex / testimonialsPerView);
+
   return (
-    <section className="py-16 bg-muted/30">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Témoignages clients
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Découvrez les avis de nos clients satisfaits
+    <section className="py-20 bg-background">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Star className="w-8 h-8 text-primary fill-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Ce que disent nos clients
+            </h2>
+          </div>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Plus de 600 avis positifs sur Google témoignent de notre engagement envers la qualité et la satisfaction client.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.slice(0, 6).map((testimonial) => (
-            <Card key={testimonial.id} className="bg-card">
-              <CardContent className="p-6">
-                <div className="flex mb-4">
+        {/* Testimonials Carousel */}
+        <div className="relative max-w-6xl mx-auto">
+          {/* Navigation Arrows */}
+          {testimonials.length > testimonialsPerView && (
+            <>
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-background hover:bg-muted/50 border-border"
+                onClick={prevSlide}
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </Button>
+              
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-background hover:bg-muted/50 border-border"
+                onClick={nextSlide}
+              >
+                <ChevronRight className="w-5 h-5" />
+              </Button>
+            </>
+          )}
+
+          {/* Testimonials Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {visibleTestimonials.map((testimonial) => (
+              <Card key={testimonial.id} className="p-8 bg-card border-border hover:shadow-lg transition-shadow">
+                {/* Stars */}
+                <div className="flex gap-1 mb-6">
                   {Array.from({ length: testimonial.rating }, (_, i) => (
-                    <Star
-                      key={i}
-                      className="h-5 w-5 fill-primary text-primary"
-                    />
+                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <blockquote className="text-foreground mb-4 leading-relaxed">
+                
+                {/* Testimonial Text */}
+                <blockquote className="text-foreground italic text-lg leading-relaxed mb-6">
                   "{testimonial.content}"
                 </blockquote>
+                
+                {/* Author */}
                 <div>
-                  <cite className="font-semibold text-foreground not-italic">
+                  <div className="font-semibold text-foreground mb-1">
                     {testimonial.author_name}
-                  </cite>
+                  </div>
                   {testimonial.location && (
-                    <p className="text-sm text-muted-foreground">
+                    <div className="text-muted-foreground text-sm">
                       {testimonial.location}
-                    </p>
+                    </div>
                   )}
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              </Card>
+            ))}
+          </div>
+
+          {/* Dots Navigation */}
+          {testimonials.length > testimonialsPerView && (
+            <div className="flex justify-center gap-2 mt-8">
+              {Array.from({ length: totalSlides }).map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    index === currentSlide ? 'bg-primary' : 'bg-muted-foreground/30'
+                  }`}
+                  onClick={() => setCurrentIndex(index * testimonialsPerView)}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

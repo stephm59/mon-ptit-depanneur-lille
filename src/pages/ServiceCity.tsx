@@ -142,7 +142,10 @@ export default function ServiceCity() {
           
           {/* 16. Les bons conseils de Mon p'tit Dépanneur - GRIS */}
           <div className="bg-muted/50">
-            <ServiceCityBlog serviceId={page.service_id} />
+            <ServiceCityBlog 
+              serviceId={page.service_id} 
+              categoryLabel={page.services.slug === 'chauffagiste' ? 'Chauffage' : 'Plomberie'}
+            />
           </div>
         </main>
 

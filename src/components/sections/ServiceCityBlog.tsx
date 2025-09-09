@@ -6,17 +6,18 @@ import { useState } from "react";
 
 interface ServiceCityBlogProps {
   serviceId: string;
+  categoryLabel?: string;
 }
 
-export const ServiceCityBlog = ({ serviceId }: ServiceCityBlogProps) => {
+export const ServiceCityBlog = ({ serviceId, categoryLabel = "Plomberie" }: ServiceCityBlogProps) => {
   const { data: posts, isLoading } = useServiceBlogPosts(serviceId);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Articles statiques spécifiques à la plomberie si pas d'articles en base
-  const staticPlombingArticles = [
+  // Articles statiques par défaut si pas d'articles en base
+  const staticArticles = [
     {
       id: 1,
-      category: "Plomberie",
+      category: categoryLabel,
       title: "Fuite d'eau : les gestes d'urgence à connaître",
       description: "Que faire en cas de fuite ? Les réflexes essentiels pour limiter les dégâts en attendant le plombier.",
       image: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=400&h=300&fit=crop",
@@ -24,7 +25,7 @@ export const ServiceCityBlog = ({ serviceId }: ServiceCityBlogProps) => {
     },
     {
       id: 2,
-      category: "Plomberie",
+      category: categoryLabel,
       title: "Comment déboucher un évier sans produit chimique ?",
       description: "Méthodes naturelles et efficaces pour déboucher vos canalisations sans abîmer vos tuyaux.",
       image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&h=300&fit=crop",
@@ -32,7 +33,7 @@ export const ServiceCityBlog = ({ serviceId }: ServiceCityBlogProps) => {
     },
     {
       id: 3,
-      category: "Plomberie",
+      category: categoryLabel,
       title: "Entretien ballon d'eau chaude : nos conseils",
       description: "Guide complet pour prolonger la durée de vie de votre chauffe-eau et éviter les pannes.",
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
@@ -40,7 +41,7 @@ export const ServiceCityBlog = ({ serviceId }: ServiceCityBlogProps) => {
     },
     {
       id: 4,
-      category: "Plomberie",
+      category: categoryLabel,
       title: "Réduire sa consommation d'eau : 10 astuces",
       description: "Conseils pratiques pour économiser l'eau au quotidien et réduire votre facture.",
       image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=300&fit=crop",
@@ -48,7 +49,7 @@ export const ServiceCityBlog = ({ serviceId }: ServiceCityBlogProps) => {
     },
     {
       id: 5,
-      category: "Plomberie",
+      category: categoryLabel,
       title: "Prévenir le gel des canalisations en hiver",
       description: "Comment protéger vos tuyaux du gel et que faire si vos canalisations sont gelées.",
       image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
@@ -56,7 +57,7 @@ export const ServiceCityBlog = ({ serviceId }: ServiceCityBlogProps) => {
     },
     {
       id: 6,
-      category: "Plomberie",
+      category: categoryLabel,
       title: "Installer un robinet : étapes et outils nécessaires",
       description: "Guide étape par étape pour remplacer votre robinetterie en toute sécurité.",
       image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&h=300&fit=crop",
@@ -65,7 +66,7 @@ export const ServiceCityBlog = ({ serviceId }: ServiceCityBlogProps) => {
   ];
 
   // Utiliser les articles de la base si disponibles, sinon les articles statiques
-  const articlesToShow = posts && posts.length > 0 ? posts : staticPlombingArticles;
+  const articlesToShow = posts && posts.length > 0 ? posts : staticArticles;
   const articlesPerView = 3;
   const maxIndex = Math.max(0, articlesToShow.length - articlesPerView);
 
@@ -97,7 +98,7 @@ export const ServiceCityBlog = ({ serviceId }: ServiceCityBlogProps) => {
             </h2>
           </div>
           <p className="text-lg text-muted-foreground">
-            Nos experts plombiers partagent leurs conseils et astuces pour vous aider à mieux entretenir vos 
+            Nos experts {categoryLabel.toLowerCase()} partagent leurs conseils et astuces pour vous aider à mieux entretenir vos 
             installations et éviter les pannes
           </p>
         </div>
@@ -142,7 +143,7 @@ export const ServiceCityBlog = ({ serviceId }: ServiceCityBlogProps) => {
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
                     <span className={`px-3 py-1 rounded-full text-sm font-medium ${'categoryColor' in article ? article.categoryColor : 'bg-cyan-100 text-cyan-700'}`}>
-                      {'category' in article ? article.category : 'Plomberie'}
+                      {'category' in article ? article.category : categoryLabel}
                     </span>
                   </div>
                 </div>

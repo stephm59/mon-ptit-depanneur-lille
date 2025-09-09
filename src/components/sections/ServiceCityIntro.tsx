@@ -1,4 +1,5 @@
 import { Wrench } from "lucide-react";
+import { BUBBLE_VIDEO_URL } from "@/config/media";
 
 interface ServiceCityIntroProps {
   page: {
@@ -19,12 +20,13 @@ export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
             <div className="relative">
               <video
                 className="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-elevated"
-                src="https://res.cloudinary.com/dit7nfyiy/video/upload/v1755014760/video-david-home_vsocwu.mp4"
-                controls
+                src={BUBBLE_VIDEO_URL}
+                autoPlay
+                loop
                 muted
                 playsInline
                 preload="auto"
-                crossOrigin="anonymous"
+                poster="/lovable-uploads/video-david-home.jpg"
               />
             </div>
           </div>
