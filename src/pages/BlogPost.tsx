@@ -311,10 +311,10 @@ const BlogPost = () => {
             <p className="text-lg text-center">
               Ce bon conseil vous est proposé par Mon p'tit Dépanneur, 
               <Link 
-                to="/plombier-lille" 
+                to={post.slug === "regulation-chauffage" ? "/chauffagiste-lille" : "/plombier-lille"}
                 className="text-primary hover:underline font-semibold ml-1"
               >
-                plombier à Lille
+                {post.slug === "regulation-chauffage" ? "chauffagiste à Lille" : "plombier à Lille"}
               </Link>
               .
             </p>
