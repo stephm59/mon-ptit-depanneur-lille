@@ -255,8 +255,8 @@ const BlogPost = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ 
-            backgroundImage: post.slug === "comment-reparer-fuites-eau" 
-              ? `url(/lovable-uploads/76784ec0-28ab-4608-9856-185b0922175f.png)` 
+            backgroundImage: post.cover_image_url 
+              ? `url(${post.cover_image_url})` 
               : `url(/lovable-uploads/aeb391ca-88a6-497a-8d2d-a2e4d62db2fd.png)`,
           }}
         />
