@@ -1,0 +1,373 @@
+-- Update FAQ for pompe-a-chaleur service in specific cities
+-- First, let's get the service and city IDs we need
+WITH service_info AS (
+  SELECT id as service_id FROM services WHERE slug = 'pompe-a-chaleur'
+),
+city_info AS (
+  SELECT 
+    'marcq-en-baroeul' as slug, id as city_id FROM cities WHERE slug = 'marcq-en-baroeul'
+  UNION ALL
+  SELECT 'bondues' as slug, id as city_id FROM cities WHERE slug = 'bondues'
+  UNION ALL  
+  SELECT 'la-madeleine' as slug, id as city_id FROM cities WHERE slug = 'la-madeleine'
+  UNION ALL
+  SELECT 'lambersart' as slug, id as city_id FROM cities WHERE slug = 'lambersart'
+  UNION ALL
+  SELECT 'saint-andre-lez-lille' as slug, id as city_id FROM cities WHERE slug = 'saint-andre-lez-lille'
+  UNION ALL
+  SELECT 'lomme' as slug, id as city_id FROM cities WHERE slug = 'lomme'
+)
+
+-- Delete existing FAQ for these cities and service
+DELETE FROM service_city_faqs 
+WHERE service_id = (SELECT service_id FROM service_info)
+AND city_id IN (SELECT city_id FROM city_info);
+
+-- Insert new FAQ for Marcq-en-Barœul
+INSERT INTO service_city_faqs (service_id, city_id, position, question, answer, published)
+SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'marcq-en-baroeul'),
+  1,
+  'PAC air/eau ou air/air : laquelle choisir à Marcq-en-Barœul ?',
+  'Dans les quartiers comme le Croisé-Laroche ou le Bourg, les maisons sont souvent spacieuses et bien adaptées aux PAC air/eau reliées aux radiateurs ou planchers chauffants. Les PAC air/air conviennent davantage aux appartements compacts ou comme appoint.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'marcq-en-baroeul'),
+  2,
+  'Les PAC restent-elles performantes lors des hivers froids à Marcq ?',
+  'Oui, à condition qu''elles soient dimensionnées correctement. Dans les zones exposées comme Plouich ou Pont, nous prévoyons souvent un appoint (chaudière conservée ou résistance électrique) pour garantir le confort lors des pics de froid.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'marcq-en-baroeul'),
+  3,
+  'Mes radiateurs en fonte sont-ils compatibles avec une PAC ?',
+  'Dans de nombreuses maisons marcquoises, les radiateurs en fonte peuvent être conservés. Nous réalisons un désembouage complet et ajustons la loi d''eau pour assurer un rendement optimal. Si nécessaire, certains émetteurs sont remplacés par des modèles basse température.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'marcq-en-baroeul'),
+  4,
+  'Y a-t-il un risque de bruit pour les voisins (Croisé-Laroche, Bourg) ?',
+  'Nous installons des PAC silencieuses, montées sur plots antivibratiles. Dans les zones résidentielles denses, nous proposons des écrans acoustiques et une implantation réfléchie pour respecter le voisinage.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'marcq-en-baroeul'),
+  5,
+  'Est-il possible d''installer une PAC en copropriété à Marcq-en-Barœul ?',
+  'Oui. Nous constituons un dossier technique pour le syndic, avec fiches acoustiques, plans d''implantation et schémas hydrauliques. Cela facilite les validations lors des assemblées générales de copropriété.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'marcq-en-baroeul'),
+  6,
+  'Quelles économies puis-je espérer avec une PAC à Marcq ?',
+  'En remplaçant une chaudière gaz ou fioul, nos clients constatent souvent des économies de 30 à 50 %. Nous fournissons une projection personnalisée, en tenant compte de l''isolation de la maison et de votre consommation.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'marcq-en-baroeul'),
+  7,
+  'L''entretien annuel d''une PAC est-il obligatoire ?',
+  'Il est recommandé et souvent obligatoire (selon la charge en fluide frigorigène). Nous contrôlons l''étanchéité, les cycles de dégivrage, la régulation et nettoyons les échangeurs pour garantir performance et longévité.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'marcq-en-baroeul'),
+  8,
+  'Puis-je bénéficier d''aides financières pour une PAC à Marcq-en-Barœul ?',
+  'Oui. Nous vous accompagnons pour obtenir MaPrimeRénov'' et les primes CEE. Nous préparons les devis normalisés, attestations et justificatifs afin de maximiser vos aides.',
+  true
+
+-- Insert new FAQ for Bondues  
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'bondues'),
+  1,
+  'PAC adaptée aux maisons de Bondues : air/eau ou air/air ?',
+  'Les grandes propriétés de Montjoie ou Ravennes-les-Francs bénéficient d''une PAC air/eau reliée au chauffage central. Les PAC air/air sont plutôt conseillées pour les dépendances ou les pièces secondaires.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'bondues'),
+  2,
+  'Les réseaux hydrauliques longs de Bondues posent-ils problème ?',
+  'Non, à condition de réaliser un équilibrage et d''installer éventuellement un circulateur supplémentaire. Nous adaptons le dimensionnement aux grandes surfaces typiques de Bondues.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'bondues'),
+  3,
+  'Où implanter l''unité extérieure dans les zones résidentielles verdoyantes ?',
+  'En jardin ou en cour arrière, loin des chambres, avec plots antivibratiles et gestion des condensats. Dans les zones proches du golf, nous privilégions des unités silencieuses.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'bondues'),
+  4,
+  'Peut-on remplacer une chaudière fioul par une PAC à Bondues ?',
+  'Oui. Nous gérons la dépose de la chaudière, la mise en conformité et la conversion vers une PAC performante, avec option hybride si besoin.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'bondues'),
+  5,
+  'Combien de temps prend l''installation d''une PAC à Bondues ?',
+  'Pour une maison standard, l''installation dure en moyenne 2 jours. Les grandes surfaces peuvent nécessiter une journée supplémentaire.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'bondues'),
+  6,
+  'Quels gains financiers espérer à Bondues ?',
+  'Les économies atteignent fréquemment 40 % sur la facture énergétique. Nous fournissons une simulation personnalisée en fonction de votre habitation.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'bondues'),
+  7,
+  'Le bruit est-il un problème dans les zones pavillonnaires de Bondues ?',
+  'Nos PAC sont certifiées silencieuses. Nous étudions toujours l''implantation pour respecter les distances acoustiques légales et préserver le voisinage.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'bondues'),
+  8,
+  'Quelles aides sont accessibles aux Bonduois ?',
+  'MaPrimeRénov'' et les primes CEE sont disponibles. Nous vous guidons dans la constitution du dossier pour sécuriser vos subventions.',
+  true
+
+-- Insert new FAQ for La Madeleine
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'la-madeleine'),
+  1,
+  'Quelle PAC choisir à La Madeleine (maison vs copropriété) ?',
+  'Dans les résidences de Saint-Maur ou Botanique, une PAC air/air compacte est souvent privilégiée. Dans les maisons, nous conseillons plutôt une PAC air/eau avec ballon ECS.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'la-madeleine'),
+  2,
+  'Comment gérer l''installation en copropriété madeleinoise ?',
+  'Nous préparons un dossier complet pour le syndic : acoustique, plans d''implantation, schémas hydrauliques et attestations de conformité.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'la-madeleine'),
+  3,
+  'Où installer l''unité extérieure dans les rues denses de La Madeleine ?',
+  'En cour intérieure, en toiture-terrasse ou sur un balcon technique, toujours avec plots antivibratiles et gestion des condensats.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'la-madeleine'),
+  4,
+  'Mes radiateurs sont-ils compatibles avec une PAC ?',
+  'Oui, la plupart des radiateurs en place peuvent être conservés après désembouage. Nous ajustons ensuite la loi d''eau pour un rendement optimal.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'la-madeleine'),
+  5,
+  'Quels délais prévoir pour une installation à La Madeleine ?',
+  'Entre 1 et 2 jours selon la configuration et les validations de copropriété.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'la-madeleine'),
+  6,
+  'Quelles économies espérer en zone urbaine dense ?',
+  'Nos clients madeleinois constatent souvent une réduction de 30 à 40 % sur leur facture annuelle de chauffage.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'la-madeleine'),
+  7,
+  'L''entretien est-il obligatoire à La Madeleine ?',
+  'Oui, selon la puissance et le fluide. Nous assurons un suivi annuel complet pour prolonger la durée de vie de votre PAC.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'la-madeleine'),
+  8,
+  'Quelles aides financières sont disponibles à La Madeleine ?',
+  'Les habitants peuvent bénéficier de MaPrimeRénov'' et des primes CEE. Nous accompagnons les démarches pour maximiser vos droits.',
+  true
+
+-- Insert new FAQ for Lambersart
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'lambersart'),
+  1,
+  'Les PAC conviennent-elles aux maisons bourgeoises de Lambersart ?',
+  'Oui, les PAC air/eau basse température sont idéales pour ces habitations. Nous prenons soin d''adapter l''installation aux contraintes architecturales.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'lambersart'),
+  2,
+  'Mes radiateurs à Lambersart sont-ils adaptés ?',
+  'Généralement oui. Après désembouage et équilibrage, ils fonctionnent très bien avec une PAC moderne.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'lambersart'),
+  3,
+  'Où placer l''unité extérieure dans Pacot-Vandracq ou Champ-de-Courses ?',
+  'Dans le jardin ou sur une façade non exposée, avec plots antivibratiles et écrans acoustiques si nécessaire.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'lambersart'),
+  4,
+  'Combien de temps dure un remplacement chaudière → PAC ?',
+  'En moyenne 2 jours, incluant la dépose de la chaudière, la pose de la PAC et la mise en service.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'lambersart'),
+  5,
+  'Quels contrôles inclut l''entretien annuel ?',
+  'Vérification de l''étanchéité, des cycles de dégivrage, nettoyage des échangeurs et réglages de régulation.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'lambersart'),
+  6,
+  'Le bruit est-il un problème en zones mitoyennes de Lambersart ?',
+  'Nous privilégions des PAC silencieuses, avec orientation réfléchie et plots antivibratiles pour limiter toute nuisance.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'lambersart'),
+  7,
+  'Quelles économies puis-je espérer à Lambersart ?',
+  'Selon l''isolation et le réglage, une PAC permet souvent de réduire la facture de 35 à 45 %. Nous faisons une simulation personnalisée.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'lambersart'),
+  8,
+  'Puis-je obtenir des aides financières à Lambersart ?',
+  'Oui. MaPrimeRénov'' et CEE sont disponibles. Nous fournissons l''ensemble des documents nécessaires.',
+  true
+
+-- Insert new FAQ for Saint-André-lez-Lille
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'saint-andre-lez-lille'),
+  1,
+  'PAC adaptée aux maisons mitoyennes de Saint-André ?',
+  'Les PAC air/eau basse température sont idéales. Nous adaptons le dimensionnement aux maisons serrées proches du canal ou du centre.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'saint-andre-lez-lille'),
+  2,
+  'Où placer l''unité extérieure près de la Deûle ?',
+  'Dans la cour ou le jardin arrière, sur plots antivibratiles et avec gestion des condensats. Écrans acoustiques possibles si voisinage proche.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'saint-andre-lez-lille'),
+  3,
+  'Compatibilité avec les radiateurs existants ?',
+  'Oui, la majorité sont adaptés après désembouage. Nous remplaçons uniquement ceux qui nécessitent une température de départ trop élevée.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'saint-andre-lez-lille'),
+  4,
+  'Quelles économies espérer à Saint-André ?',
+  'Avec une PAC performante, on observe généralement 30 à 50 % d''économies selon l''isolation de la maison.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'saint-andre-lez-lille'),
+  5,
+  'L''entretien est-il obligatoire ?',
+  'Oui, en fonction de la charge en fluide. Nous réalisons un suivi annuel complet : régulation, dégivrage, étanchéité, échangeurs.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'saint-andre-lez-lille'),
+  6,
+  'Quel est le délai pour une installation à Saint-André ?',
+  'En moyenne 2 jours, après validation technique. En copropriété, prévoir le délai de validation par le syndic.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'saint-andre-lez-lille'),
+  7,
+  'Les PAC sont-elles adaptées en copropriété à Saint-André ?',
+  'Oui. Nous préparons le dossier complet pour le syndic, avec fiches acoustiques et schémas d''implantation.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'saint-andre-lez-lille'),
+  8,
+  'Puis-je bénéficier d''aides financières ?',
+  'MaPrimeRénov'' et CEE sont disponibles pour les Andréens. Nous accompagnons le montage du dossier.',
+  true
+
+-- Insert new FAQ for Lomme
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'lomme'),
+  1,
+  'PAC air/eau ou air/air : laquelle choisir à Lomme ?',
+  'Dans les pavillons de la Délivrance ou les maisons du Bourg, les PAC air/eau sont idéales. Les PAC air/air conviennent mieux aux appartements compacts.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'lomme'),
+  2,
+  'Les PAC sont-elles adaptées aux quartiers de la Mitterie et du Mont-à-Camp ?',
+  'Oui, grâce à leur modularité. Nous installons des modèles compacts et silencieux, adaptés aux maisons mitoyennes de ces quartiers.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'lomme'),
+  3,
+  'Mes radiateurs sont-ils compatibles avec une PAC ?',
+  'Oui, après un désembouage et un équilibrage, la plupart des radiateurs lommois peuvent être conservés.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'lomme'),
+  4,
+  'Quelles économies espérer à Lomme ?',
+  'Nos clients observent souvent entre 30 et 40 % de réduction sur leurs factures annuelles de chauffage.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'lomme'),
+  5,
+  'Que comprend l''entretien annuel d''une PAC ?',
+  'Contrôles de l''étanchéité, vérification du rendement, réglages de la régulation et nettoyage des échangeurs.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'lomme'),
+  6,
+  'Combien de temps prend une installation à Lomme ?',
+  'Généralement 2 jours, incluant la dépose de l''ancien système et la mise en service de la PAC.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'lomme'),
+  7,
+  'Où placer l''unité extérieure dans les quartiers pavillonnaires ?',
+  'En jardin ou sur une cour arrière, avec plots antivibratiles et écrans acoustiques si nécessaire.',
+  true
+UNION ALL SELECT 
+  (SELECT service_id FROM service_info),
+  (SELECT city_id FROM cities WHERE slug = 'lomme'),
+  8,
+  'Les aides financières s''appliquent-elles aussi à Lomme ?',
+  'Oui. MaPrimeRénov'' et les primes CEE sont accessibles. Nous gérons l''ensemble du dossier pour vous.',
+  true;
