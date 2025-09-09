@@ -18,6 +18,7 @@ import QualityLabels from "@/components/sections/QualityLabels";
 import BrandPartners from "@/components/sections/BrandPartners";
 import { ServiceCityBlog } from "@/components/sections/ServiceCityBlog";
 import { useServiceCityPage, useServiceCityOffers, useServiceCityFaqs, useServiceCityTestimonials } from "@/hooks/useServiceCityPage";
+import { useServices } from "@/hooks/useServices";
 import { Loading } from "@/components/ui/loading";
 import { generateServiceCityJsonLd } from "@/utils/jsonld";
 
@@ -26,27 +27,33 @@ export default function ServiceCity() {
     combinedSlug: string;
   }>();
 
-  // Parse combined slug - try different splits to match service + city
-  const parseCombinedSlug = (slug: string) => {
+  // Fetch services to get dynamic list of service slugs
+  const { data: services, isLoading: servicesLoading } = useServices();
+
+  // Parse combined slug dynamically using fetched service slugs
+  const parseCombinedSlug = (slug: string, serviceSlugs: string[]) => {
     const parts = slug.split('-');
     
-    // Try different combinations: service could be 1-3 words
-    for (let i = 1; i <= Math.min(3, parts.length - 1); i++) {
+    // Try different combinations: test all possible splits
+    for (let i = 1; i < parts.length; i++) {
       const serviceSlug = parts.slice(0, i).join('-');
       const citySlug = parts.slice(i).join('-');
       
-      // Known service slugs to match against
-      const knownServices = ['plombier', 'chauffagiste', 'pompe-a-chaleur'];
-      if (knownServices.includes(serviceSlug)) {
+      // Check if this serviceSlug exists in our services
+      if (serviceSlugs.includes(serviceSlug)) {
         return { serviceSlug, citySlug };
       }
     }
     
-    // Fallback to original logic
+    // Fallback: assume first part is service, rest is city
     return { serviceSlug: parts[0] || '', citySlug: parts.slice(1).join('-') };
   };
   
-  const { serviceSlug, citySlug } = parseCombinedSlug(combinedSlug || '');
+  // Wait for services to load before parsing
+  if (servicesLoading) return <Loading />;
+  
+  const serviceSlugs = services?.map(s => s.slug) || [];
+  const { serviceSlug, citySlug } = parseCombinedSlug(combinedSlug || '', serviceSlugs);
 
   const { data: page, isLoading, error } = useServiceCityPage(
     serviceSlug,
@@ -190,7 +197,13 @@ export default function ServiceCity() {
           <div className="bg-muted/50">
             <ServiceCityBlog 
               serviceId={page.service_id} 
-              categoryLabel={page.services.slug === 'chauffagiste' || page.services.slug === 'pompe-a-chaleur' ? 'Chauffage' : 'Plomberie'}
+              categoryLabel={
+                ['chauffagiste', 'chaudiere', 'climatisation', 'pompe-a-chaleur'].includes(page.services.slug) 
+                  ? 'Chauffage' 
+                  : page.services.slug === 'renovation-salle-de-bain'
+                  ? 'Rénovation'
+                  : 'Plomberie'
+              }
             />
           </div>
         </main>

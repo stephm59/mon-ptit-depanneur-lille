@@ -15,7 +15,7 @@ export const useServiceCityPage = (serviceSlug: string, citySlug: string) => {
         .eq("services.slug", serviceSlug)
         .eq("cities.slug", citySlug)
         .eq("published", true)
-        .single();
+        .maybeSingle();
 
       if (error) throw error;
       return data;
