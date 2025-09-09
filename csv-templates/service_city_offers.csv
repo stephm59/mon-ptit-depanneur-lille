@@ -1,7 +1,37 @@
-service_slug,city_slug,title,description,icon_name,emoji,position
-pompe-a-chaleur,villeneuve-d-ascq,"Installation pompe à chaleur","Installation complète de votre pompe à chaleur par nos experts certifiés RGE",Zap,⚡,1
-pompe-a-chaleur,villeneuve-d-ascq,"Réparation et dépannage","Diagnostic et réparation rapide de tous types de pompes à chaleur",Wrench,🔧,2
-pompe-a-chaleur,villeneuve-d-ascq,"Entretien préventif","Maintenance régulière pour optimiser les performances de votre installation",Settings,⚙️,3
-pompe-a-chaleur,villeneuve-d-ascq,"Devis gratuit","Estimation détaillée et personnalisée de vos travaux",Calculator,📊,4
-chauffage,lille,"Installation chauffage","Installation de tous types de systèmes de chauffage",Flame,🔥,1
-chauffage,lille,"Réparation urgente","Dépannage rapide de vos systèmes de chauffage",AlertTriangle,🚨,2
+service_slug,city_slug,position,title,description,icon_name,emoji
+pompe-a-chaleur,marcq-en-baroeul,1,"Étude & dimensionnement PAC","Bilan des déperditions, choix air/eau ou air/air, puissance et loi d'eau adaptées au bâti marcquois.","","🔍"
+pompe-a-chaleur,marcq-en-baroeul,2,"Installation PAC air/eau + ballon ECS","Pose, raccordements hydrauliques, régulation et mise en service.","","🏗"
+pompe-a-chaleur,marcq-en-baroeul,3,"Remplacement de chaudière par PAC","Conversion gaz → PAC, compatibilité radiateurs fonte/acier, option hybride.","","♻️"
+pompe-a-chaleur,marcq-en-baroeul,4,"Optimisation circuit (équilibrage & désembouage)","Eau propre, débits équilibrés, meilleur SCOP et confort homogène.","","🧪"
+pompe-a-chaleur,marcq-en-baroeul,5,"Entretien & dépannage PAC","Contrat annuel, contrôle étanchéité, dégivrage, réglages et diagnostics.","","🧰"
+pompe-a-chaleur,marcq-en-baroeul,6,"Aides & conformité (MaPrimeRénov', CEE)","Accompagnement administratif, notices acoustiques et dossiers syndic.","","📝"
+pompe-a-chaleur,bondues,1,"Étude & dimensionnement PAC","Analyse thermique pour grandes maisons, choix air/eau vs air/air et puissance adaptée.","","🔍"
+pompe-a-chaleur,bondues,2,"Installation PAC air/eau + ballon ECS","Intégration propre, régulation basse température, mise en service.","","🏗"
+pompe-a-chaleur,bondues,3,"Remplacement de chaudière par PAC","Conversion gaz → PAC, scénarios bivalents pour réseaux étendus.","","♻️"
+pompe-a-chaleur,bondues,4,"Optimisation circuit (équilibrage & désembouage)","Traitement des réseaux longs, confort homogène, rendement accru.","","🧪"
+pompe-a-chaleur,bondues,5,"Entretien & dépannage PAC","Contrats annuels, vérifs étanchéité/SCOP, gestion givre/bruit.","","🧰"
+pompe-a-chaleur,bondues,6,"Aides & conformité","Aide MaPrimeRénov'/CEE, attestations et pièces justificatives.","","📝"
+pompe-a-chaleur,la-madeleine,1,"Étude & dimensionnement PAC","Étude adaptée aux copropriétés et maisons, contraintes d'accès et acoustiques.","","🔍"
+pompe-a-chaleur,la-madeleine,2,"Installation PAC air/eau + ballon ECS","Pose en logement ancien/compact, régulation et mise en service.","","🏗"
+pompe-a-chaleur,la-madeleine,3,"Remplacement de chaudière par PAC","Compatibilité radiateurs, option hybride si besoin.","","♻️"
+pompe-a-chaleur,la-madeleine,4,"Optimisation circuit (équilibrage & désembouage)","Protection du système, confort et rendement à basse température.","","🧪"
+pompe-a-chaleur,la-madeleine,5,"Entretien & dépannage PAC","Contrat annuel, contrôle étanchéité, réglages et diagnostics.","","🧰"
+pompe-a-chaleur,la-madeleine,6,"Aides & conformité copro","Dossiers syndic (acoustique, implantation), MaPrimeRénov'/CEE.","","📝"
+pompe-a-chaleur,lambersart,1,"Étude & dimensionnement PAC","Étude pour maisons bourgeoises/pavillons, loi d'eau basse température.","","🔍"
+pompe-a-chaleur,lambersart,2,"Installation PAC air/eau + ballon ECS","Intégration compacte en cuisine/cellier, mise en service.","","🏗"
+pompe-a-chaleur,lambersart,3,"Remplacement de chaudière par PAC","Vérification émetteurs, option hybride si nécessaire.","","♻️"
+pompe-a-chaleur,lambersart,4,"Optimisation circuit (équilibrage & désembouage)","Désembouage + équilibrage : confort homogène, SCOP optimisé.","","🧪"
+pompe-a-chaleur,lambersart,5,"Entretien & dépannage PAC","Contrôles annuels : étanchéité, dégivrage, régulation.","","🧰"
+pompe-a-chaleur,lambersart,6,"Aides & conformité","Accompagnement MaPrimeRénov'/CEE, notes acoustiques.","","📝"
+pompe-a-chaleur,saint-andre-lez-lille,1,"Étude & dimensionnement PAC","Maisons mitoyennes, bords de Deûle : puissance et acoustique maîtrisées.","","🔍"
+pompe-a-chaleur,saint-andre-lez-lille,2,"Installation PAC air/eau + ballon ECS","Pose soignée, régulation, mise en service et tests.","","🏗"
+pompe-a-chaleur,saint-andre-lez-lille,3,"Remplacement de chaudière par PAC","Compatibilité radiateurs, solution hybride possible.","","♻️"
+pompe-a-chaleur,saint-andre-lez-lille,4,"Optimisation circuit (équilibrage & désembouage)","Montée en température plus rapide, bruit réduit.","","🧪"
+pompe-a-chaleur,saint-andre-lez-lille,5,"Entretien & dépannage PAC","Contrats annuels, diagnostics givre/bruit/SCOP.","","🧰"
+pompe-a-chaleur,saint-andre-lez-lille,6,"Aides & conformité","Aide MaPrimeRénov'/CEE, justificatifs et attestations.","","📝"
+pompe-a-chaleur,lomme,1,"Étude & dimensionnement PAC","Pavillons Délivrance, maisons du Bourg : puissance et loi d'eau adaptées.","","🔍"
+pompe-a-chaleur,lomme,2,"Installation PAC air/eau + ballon ECS","Pose complète, régulation et mise en service.","","🏗"
+pompe-a-chaleur,lomme,3,"Remplacement de chaudière par PAC","Conversion gaz → PAC, vérif émetteurs, option hybride.","","♻️"
+pompe-a-chaleur,lomme,4,"Optimisation circuit (équilibrage & désembouage)","Confort homogène, protection du système et rendement.","","🧪"
+pompe-a-chaleur,lomme,5,"Entretien & dépannage PAC","Contrôles annuels, réglages, diagnostics rapides.","","🧰"
+pompe-a-chaleur,lomme,6,"Aides & conformité","Accompagnement MaPrimeRénov'/CEE, pièces justificatives.","","📝"
