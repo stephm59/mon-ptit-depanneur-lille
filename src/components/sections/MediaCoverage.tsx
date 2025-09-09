@@ -30,7 +30,7 @@ const MediaCoverage = () => {
                   src="https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/video-entretien-chaudiere.mp4"
                   className="w-full h-auto rounded-xl object-cover"
                   preload="metadata"
-                  poster="https://res.cloudinary.com/dit7nfyiy/image/upload/v1755164186/vignette-video-vu-tv_lenz8e.webp"
+                  poster="/lovable-uploads/984ccede-5332-4fbb-988e-b50d67978d04.png"
                 />
                 {/* Play/Pause Button Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center">
