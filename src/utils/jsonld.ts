@@ -12,6 +12,7 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
   const serviceName = page.services.name;
   const cityName = page.cities.name;
   const isHeatingService = page.services.slug === 'chauffagiste';
+  const isVieuxLille = page.cities.slug === 'vieux-lille';
   
   // Service-specific data
   const serviceTypeMap = {
@@ -23,7 +24,17 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
 
   const serviceType = serviceTypeMap[page.services.slug as keyof typeof serviceTypeMap] || "Services de dépannage";
 
-  // Heating-specific offers
+  // Vieux-Lille specific heating offers
+  const vieuxLilleHeatingOffers = [
+    { name: "Dépannage chaudière gaz et fioul", area: "Vieux-Lille" },
+    { name: "Entretien annuel (attestation)", area: "Vieux-Lille" },
+    { name: "Installation chaudière gaz à condensation (compacte)", area: "Vieux-Lille" },
+    { name: "Remplacement de chaudière vétuste", area: "Vieux-Lille" },
+    { name: "Entretien circuits (purge, désembouage radiateurs)", area: "Vieux-Lille" },
+    { name: "Conseils économies d'énergie pour logements anciens", area: "Vieux-Lille" }
+  ];
+
+  // Default heating offers
   const heatingOffers = [
     { name: "Dépannage chaudière gaz et fioul", area: cityName },
     { name: "Entretien annuel (attestation)", area: cityName },
@@ -43,7 +54,43 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
     { name: "Entretien cumulus", area: cityName }
   ];
 
-  const offers = isHeatingService ? heatingOffers : plumbingOffers;
+  // Vieux-Lille specific FAQ
+  const vieuxLilleFAQ = [
+    {
+      question: "Vos délais pour un dépannage chaudière dans le Vieux-Lille ?",
+      answer: "Intervention moyenne sous 2 heures dans le Vieux-Lille. Nous connaissons les contraintes d'accès (rues piétonnes, escaliers étroits). Mise en sécurité immédiate puis réparation ou remplacement des pièces nécessaires."
+    },
+    {
+      question: "Quel est le tarif d'un entretien de chaudière dans un appartement ancien du Vieux-Lille ?",
+      answer: "Entre 120 et 160 € TTC selon l'appareil (gaz, fioul, condensation). Comprend nettoyage du brûleur, contrôle sécurité, réglages et attestation obligatoire pour l'assurance."
+    },
+    {
+      question: "Pouvez-vous intervenir dans les immeubles historiques aux accès étroits ?",
+      answer: "Oui. Matériel compact, protections des parties communes, respect des conduits existants et des normes en vigueur. Nous adaptons la logistique (sous-sols, cages d'escalier) pour préserver les lieux."
+    },
+    {
+      question: "Installez-vous des chaudières adaptées aux petits logements du Vieux-Lille ?",
+      answer: "Oui. Modèles gaz à condensation compacts, intégrables en cuisine/cellier exigu, avec haut rendement pour réduire la consommation énergétique sans sacrifier l'espace."
+    },
+    {
+      question: "Êtes-vous disponibles le week-end pour les pannes de chauffage ?",
+      answer: "Oui. Permanence le samedi et le dimanche pour les urgences. Tarifs de week-end annoncés à l'avance ; sécurisation immédiate et réparation définitive programmée si besoin."
+    },
+    {
+      question: "Travaillez-vous avec les syndics pour les chaudières collectives du Vieux-Lille ?",
+      answer: "Oui. Entretien des chaudières collectives, vérification des colonnes montantes et coordination avec gardiens et copropriétés pour limiter les coupures d'eau chaude."
+    },
+    {
+      question: "Puis-je bénéficier d'aides pour remplacer ma vieille chaudière ?",
+      answer: "Oui. Aides possibles (ex. MaPrimeRénov', primes énergie) sous conditions. Nous conseillons le modèle éligible et aidons à constituer un dossier complet."
+    },
+    {
+      question: "Quelles zones du Vieux-Lille couvrez-vous ?",
+      answer: "Toutes les rues du Vieux-Lille : Esquermoise, Gand, Royale, Basse, place du Concert, ainsi que les secteurs limitrophes (Centre, Saint-Maurice, Vauban)."
+    }
+  ];
+
+  const offers = isHeatingService ? (isVieuxLille ? vieuxLilleHeatingOffers : heatingOffers) : plumbingOffers;
 
   // FAQ data - for now using heating-specific FAQs, can be expanded
   const heatingFAQ = [
@@ -88,7 +135,7 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
     }
   ];
 
-  const faqData = isHeatingService ? heatingFAQ : plumbingFAQ;
+  const faqData = isHeatingService ? (isVieuxLille ? vieuxLilleFAQ : heatingFAQ) : plumbingFAQ;
 
   return {
     "@context": "https://schema.org",
@@ -110,7 +157,11 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
       {
         "@type": "BreadcrumbList",
         "@id": `${pageUrl}#breadcrumb`,
-        "itemListElement": [
+        "itemListElement": isVieuxLille ? [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${baseUrl}/` },
+          { "@type": "ListItem", "position": 2, "name": "Chauffagiste Lille", "item": `${baseUrl}/chauffagiste-lille/` },
+          { "@type": "ListItem", "position": 3, "name": "Chauffagiste Vieux-Lille", "item": pageUrl }
+        ] : [
           { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${baseUrl}/` },
           { "@type": "ListItem", "position": 2, "name": `${serviceName} ${cityName}`, "item": pageUrl }
         ]
@@ -142,7 +193,7 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
         "name": `${serviceName} ${cityName}`,
         "serviceType": serviceType,
         "provider": { "@id": `${baseUrl}/#etablissement` },
-        "areaServed": { "@type": "City", "name": cityName },
+        "areaServed": { "@type": "City", "name": isVieuxLille ? "Lille - Vieux-Lille" : cityName },
         "serviceLocation": {
           "@type": "Place",
           "name": `Mon p'tit Dépanneur – ${cityName}`,
@@ -166,7 +217,7 @@ export const generateServiceCityJsonLd = (page: ServiceCityPageData, baseUrl: st
           "opens": "08:00",
           "closes": "18:00"
         },
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.5", "bestRating": "5", "ratingCount": "600" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": isVieuxLille ? "4.6" : "4.5", "bestRating": "5", "ratingCount": isVieuxLille ? "320" : "600" },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": `Prestations de ${serviceName.toLowerCase()} – ${cityName}`,
