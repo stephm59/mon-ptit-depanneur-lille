@@ -23,6 +23,7 @@ const App = () => (
             <Route path="/carnet/:slug" element={<BlogPost />} />
             {/* Redirections des anciennes URLs vers les nouvelles */}
             <Route path="/choisir-adoucisseur-eau" element={<Navigate to="/carnet/choisir-adoucisseur-eau" replace />} />
+            <Route path="/choisir-chauffe-eau" element={<Navigate to="/carnet/choisir-chauffe-eau" replace />} />
             <Route path="/comment-reparer-fuites-eau" element={<Navigate to="/carnet/comment-reparer-fuites-eau" replace />} />
             <Route path="/comment-purger-radiateurs" element={<Navigate to="/carnet/comment-purger-radiateurs" replace />} />
             <Route path="/variation-temperatures-plomberie" element={<Navigate to="/carnet/variation-temperatures-plomberie" replace />} />
