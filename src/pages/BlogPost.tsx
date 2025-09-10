@@ -344,6 +344,63 @@ const BlogPost = () => {
       };
     }
     
+    if (slug === "chauffe-eau-electrique-cumulus") {
+      return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quelle est la durée de vie d'un cumulus électrique ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Un chauffe-eau électrique (cumulus) dure en moyenne 10 à 15 ans, selon sa qualité et son entretien."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "À quelle température régler mon chauffe-eau ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La température idéale se situe entre 50 et 55 °C, ce qui permet de limiter la consommation tout en évitant la prolifération bactérienne."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Le cumulus consomme-t-il beaucoup d'électricité ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, c'est l'un des appareils les plus énergivores d'un foyer. Mais avec un modèle performant et une bonne programmation, la facture peut être réduite de 20 à 30 %."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle capacité de cumulus choisir ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Comptez 50 à 100 L pour 1 à 2 personnes, 150 à 200 L pour 3 à 4 personnes, et 250 L ou plus pour une famille nombreuse."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-on installer un cumulus soi-même ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "C'est possible mais déconseillé. L'installation demande des compétences en plomberie et en électricité pour garantir la sécurité."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il entretenir son cumulus ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, un entretien tous les 2 à 3 ans est recommandé (détartrage, vérification de l'anode) afin de prolonger sa durée de vie."
+            }
+          }
+        ]
+      };
+    }
+    
     return null;
   };
 

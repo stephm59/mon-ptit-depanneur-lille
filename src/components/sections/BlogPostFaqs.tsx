@@ -196,6 +196,76 @@ export const BlogPostFaqs = ({ slug }: BlogPostFaqsProps) => {
       ];
     }
     
+    if (slug === "chauffe-eau-electrique-cumulus") {
+      return [
+        {
+          id: 1,
+          question: "Quelle est la durée de vie d'un cumulus électrique ?",
+          answer: "En moyenne 10 à 15 ans, selon la qualité et l'entretien."
+        },
+        {
+          id: 2,
+          question: "À quelle température régler mon chauffe-eau ?",
+          answer: "Entre 50 et 55 °C pour un bon compromis entre confort et économies."
+        },
+        {
+          id: 3,
+          question: "Le cumulus consomme-t-il beaucoup d'électricité ?",
+          answer: "Oui, c'est l'un des plus gros postes de consommation dans un foyer. Mais avec une bonne programmation et des habitudes adaptées, on peut réduire la facture de 20 à 30 %."
+        },
+        {
+          id: 4,
+          question: "Quelle capacité de cumulus choisir ?",
+          answer: "50 à 100 L → 1 à 2 personnes, 150 à 200 L → 3 à 4 personnes, 250 L et + → familles nombreuses"
+        },
+        {
+          id: 5,
+          question: "Peut-on installer un cumulus soi-même ?",
+          answer: "C'est possible, mais déconseillé. L'installation requiert des compétences en plomberie et en électricité pour garantir la sécurité."
+        },
+        {
+          id: 6,
+          question: "Faut-il entretenir son cumulus ?",
+          answer: "Oui. Détartrage et vérification de l'anode sont recommandés tous les 2 à 3 ans pour prolonger sa durée de vie."
+        }
+      ];
+    }
+    
+    if (slug === "comment-choisir-raccord") {
+      return [
+        {
+          id: 1,
+          question: "Quel raccord utiliser pour du cuivre ?",
+          answer: "Les raccords à souder ou à sertir sont les plus adaptés pour une installation durable sur cuivre."
+        },
+        {
+          id: 2,
+          question: "Peut-on mélanger différents types de raccords ?",
+          answer: "Oui, mais il faut respecter la compatibilité des matériaux et vérifier l'étanchéité."
+        },
+        {
+          id: 3,
+          question: "Quel raccord choisir pour du PER ou du multicouche ?",
+          answer: "On utilise généralement des raccords à sertir ou à compression."
+        },
+        {
+          id: 4,
+          question: "Quelle est la différence entre un raccord à visser et un raccord à sertir ?",
+          answer: "À visser : démontable, nécessite une clé. À sertir : permanent, nécessite une pince à sertir."
+        },
+        {
+          id: 5,
+          question: "Quels sont les raccords les plus faciles à poser soi-même ?",
+          answer: "Les raccords à visser ou instantanés, car ils ne demandent pas d'outillage spécialisé."
+        },
+        {
+          id: 6,
+          question: "Est-il risqué d'installer un raccord soi-même ?",
+          answer: "Oui, si vous n'avez pas l'expérience nécessaire. Un raccord mal monté peut causer une fuite ou des dégâts d'eau importants."
+        }
+      ];
+    }
+    
     return [];
   };
 
