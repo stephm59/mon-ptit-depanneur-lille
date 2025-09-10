@@ -596,10 +596,13 @@ const BlogPost = () => {
             <p className="text-lg text-center">
               Ce bon conseil vous est proposé par Mon p'tit Dépanneur, 
               <Link 
-                to={["regulation-chauffage", "thermostat-sans-fil-avantages", "entretien-annuel-chaudiere"].includes(post.slug) ? "/chauffagiste-lille" : "/plombier-lille"}
+                to={post.services?.slug ? `/${post.services.slug}-lille` : "/"}
                 className="text-primary hover:underline font-semibold ml-1"
               >
-                {["regulation-chauffage", "thermostat-sans-fil-avantages", "entretien-annuel-chaudiere"].includes(post.slug) ? "chauffagiste à Lille" : "plombier à Lille"}
+                {post.services?.name === 'Chauffage' ? 'chauffagiste à Lille' : 
+                 post.services?.name === 'Plomberie' ? 'plombier à Lille' :
+                 post.services?.name === 'Climatisation' ? 'installateur de climatisation à Lille' :
+                 'artisan spécialisé à Lille'}
               </Link>
               .
             </p>
@@ -674,42 +677,37 @@ const BlogPost = () => {
                         className="w-full h-full object-cover"
                         loading="lazy"
                       />
-                      <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 rounded-full text-sm font-medium bg-cyan-100 text-cyan-700">
-                          Conseil
-                        </span>
-                      </div>
+                       <div className="absolute top-4 left-4">
+                         <span className="px-3 py-1 rounded-full text-sm font-medium bg-cyan-100 text-cyan-700">
+                           {post.services?.name || 'Conseil'}
+                         </span>
+                       </div>
                     </div>
                   )}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
-                      {relatedPost.title}
-                    </h3>
-                    {relatedPost.excerpt && (
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
-                        {relatedPost.excerpt}
-                      </p>
-                    )}
-                    
-                    {relatedPost.published_at && (
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
-                        <Calendar className="h-3 w-3" />
-                        {new Date(relatedPost.published_at).toLocaleDateString('fr-FR', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}
-                      </div>
-                    )}
-                    
-                    <Link 
-                      to={`/carnet/${relatedPost.slug}`}
-                      className="flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
-                    >
-                      <span>Lire le conseil</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
+                   <div className="p-6">
+                     <Link 
+                       to={`/carnet/${relatedPost.slug}`}
+                       className="block mb-3 hover:text-primary transition-colors"
+                     >
+                       <h3 className="text-xl font-bold text-foreground line-clamp-2">
+                         {relatedPost.title}
+                       </h3>
+                     </Link>
+                     {relatedPost.excerpt && (
+                       <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
+                         {relatedPost.excerpt}
+                       </p>
+                     )}
+                     
+                     <Link 
+                       to={`/carnet/${relatedPost.slug}`}
+                       className="flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
+                       rel="nofollow"
+                     >
+                       <span>Lire le conseil</span>
+                       <ArrowRight className="w-4 h-4" />
+                     </Link>
+                   </div>
                 </Card>
               ))}
             </div>

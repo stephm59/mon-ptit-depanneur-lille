@@ -40,24 +40,40 @@ export const useRelatedBlogPosts = (serviceId?: string | null, currentSlug?: str
   return useQuery({
     queryKey: ["relatedBlogPosts", serviceId, currentSlug, limit],
     queryFn: async () => {
-      let query = supabase
-        .from("blog_posts")
-        .select("*")
-        .eq("published", true)
-        .order("created_at", { ascending: false })
-        .limit(limit);
-
-      if (currentSlug) {
-        query = query.neq("slug", currentSlug);
-      }
-
+      // First, try to get posts from the same service category
+      let relatedPosts = [];
+      
       if (serviceId) {
-        query = query.eq("service_id", serviceId);
+        const { data: sameCategoryPosts, error: categoryError } = await supabase
+          .from("blog_posts")
+          .select("*")
+          .eq("published", true)
+          .eq("service_id", serviceId)
+          .neq("slug", currentSlug || "")
+          .order("created_at", { ascending: false })
+          .limit(limit);
+
+        if (categoryError) throw categoryError;
+        relatedPosts = sameCategoryPosts || [];
       }
 
-      const { data, error } = await query;
-      if (error) throw error;
-      return data || [];
+      // If we don't have enough posts from the same category, fill with other posts
+      if (relatedPosts.length < limit) {
+        const remainingLimit = limit - relatedPosts.length;
+        const { data: otherPosts, error: otherError } = await supabase
+          .from("blog_posts")
+          .select("*")
+          .eq("published", true)
+          .neq("slug", currentSlug || "")
+          .not("service_id", "eq", serviceId || "")
+          .order("created_at", { ascending: false })
+          .limit(remainingLimit);
+
+        if (otherError) throw otherError;
+        relatedPosts = [...relatedPosts, ...(otherPosts || [])];
+      }
+
+      return relatedPosts.slice(0, limit);
     },
   });
 };
