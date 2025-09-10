@@ -35,6 +35,7 @@ const App = () => (
             <Route path="/variation-temperatures-plomberie" element={<Navigate to="/carnet/variation-temperatures-plomberie" replace />} />
             <Route path="/regulation-chauffage" element={<Navigate to="/carnet/regulation-chauffage" replace />} />
             <Route path="/au-secours-ma-chasse-deau-ne-fonctionne-plus" element={<Navigate to="/carnet/au-secours-ma-chasse-deau-ne-fonctionne-plus" replace />} />
+            <Route path="/entretien-annuel-chaudiere" element={<Navigate to="/carnet/entretien-annuel-chaudiere" replace />} />
             <Route path="/planifier-entretien-chaudiere" element={<Navigate to="/carnet/planifier-entretien-chaudiere" replace />} />
             <Route path="/:slug" element={<UniversalRouter />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
