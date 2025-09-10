@@ -458,6 +458,63 @@ const BlogPost = () => {
       };
     }
     
+    if (slug === "role-tuyauterie-plomberie") {
+      return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quel matériau de tuyauterie choisir pour l'eau potable ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le cuivre reste très utilisé, mais le multicouche et le PER offrent une excellente alternative pour l'eau potable grâce à leur durabilité et facilité de pose."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle tuyauterie utiliser pour l'évacuation des eaux usées ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le PVC est le matériau le plus répandu, car il est léger, économique et simple à installer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Combien de temps dure une installation de tuyauterie ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Une installation peut durer entre 30 et 50 ans selon le matériau choisi et l'entretien effectué."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il remplacer les anciens tuyaux en plomb ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, car le plomb est interdit et dangereux pour la santé. Toute installation en plomb doit être remplacée par du cuivre, du PER ou du multicouche."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle différence entre PER et multicouche ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le PER est flexible et pratique pour les zones difficiles d'accès, tandis que le multicouche est plus rigide, plus stable et plus durable."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Puis-je installer ma tuyauterie moi-même ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Il est possible de réaliser de petites réparations, mais pour une installation ou rénovation complète, il est fortement conseillé de faire appel à un plombier professionnel."
+            }
+          }
+        ]
+      };
+    }
+    
     return null;
   };
 

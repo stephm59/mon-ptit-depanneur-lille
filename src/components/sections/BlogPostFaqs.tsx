@@ -266,6 +266,41 @@ export const BlogPostFaqs = ({ slug }: BlogPostFaqsProps) => {
       ];
     }
     
+    if (slug === "role-tuyauterie-plomberie") {
+      return [
+        {
+          id: 1,
+          question: "Quel matériau de tuyauterie choisir pour l'eau potable ?",
+          answer: "Le cuivre reste un grand classique, mais le multicouche et le PER sont aujourd'hui très utilisés pour leur durabilité et leur facilité de pose."
+        },
+        {
+          id: 2,
+          question: "Quelle tuyauterie utiliser pour l'évacuation des eaux usées ?",
+          answer: "Le PVC est le matériau le plus courant : léger, économique et facile à poser."
+        },
+        {
+          id: 3,
+          question: "Combien de temps dure une installation de tuyauterie ?",
+          answer: "Selon le matériau et l'entretien, une installation peut durer 30 à 50 ans."
+        },
+        {
+          id: 4,
+          question: "Faut-il remplacer les anciens tuyaux en plomb ?",
+          answer: "Oui, absolument. Le plomb est interdit car dangereux pour la santé."
+        },
+        {
+          id: 5,
+          question: "Quelle différence entre PER et multicouche ?",
+          answer: "PER : souple, idéal pour les passages difficiles. Multicouche : plus rigide, meilleure stabilité et durabilité."
+        },
+        {
+          id: 6,
+          question: "Puis-je installer ma tuyauterie moi-même ?",
+          answer: "Certaines petites réparations sont possibles, mais pour une rénovation complète, il est fortement recommandé de faire appel à un plombier."
+        }
+      ];
+    }
+    
     if (slug === "comment-choisir-raccord") {
       return [
         {
