@@ -25,6 +25,7 @@ const App = () => (
             <Route path="/choisir-adoucisseur-eau" element={<Navigate to="/carnet/choisir-adoucisseur-eau" replace />} />
             <Route path="/comment-reparer-fuites-eau" element={<Navigate to="/carnet/comment-reparer-fuites-eau" replace />} />
             <Route path="/regulation-chauffage" element={<Navigate to="/carnet/regulation-chauffage" replace />} />
+            <Route path="/planifier-entretien-chaudiere" element={<Navigate to="/carnet/planifier-entretien-chaudiere" replace />} />
             <Route path="/:slug" element={<UniversalRouter />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
