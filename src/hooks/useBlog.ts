@@ -78,3 +78,22 @@ export const useLatestBlogPosts = (limit = 6) => {
     },
   });
 };
+
+export const useBlogPostFaqs = (blogPostId?: string) => {
+  return useQuery({
+    queryKey: ["blogPostFaqs", blogPostId],
+    queryFn: async () => {
+      if (!blogPostId) return [];
+      
+      const { data, error } = await supabase
+        .from("blog_post_faqs")
+        .select("*")
+        .eq("blog_post_id", blogPostId)
+        .order("position", { ascending: true });
+
+      if (error) throw error;
+      return data || [];
+    },
+    enabled: !!blogPostId,
+  });
+};

@@ -14,6 +14,44 @@ export type Database = {
   }
   public: {
     Tables: {
+      blog_post_faqs: {
+        Row: {
+          answer: string
+          blog_post_id: string
+          created_at: string
+          id: string
+          position: number | null
+          question: string
+          updated_at: string
+        }
+        Insert: {
+          answer: string
+          blog_post_id: string
+          created_at?: string
+          id?: string
+          position?: number | null
+          question: string
+          updated_at?: string
+        }
+        Update: {
+          answer?: string
+          blog_post_id?: string
+          created_at?: string
+          id?: string
+          position?: number | null
+          question?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blog_post_faqs_blog_post_id_fkey"
+            columns: ["blog_post_id"]
+            isOneToOne: false
+            referencedRelation: "blog_posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       blog_posts: {
         Row: {
           content: string | null
@@ -93,6 +131,33 @@ export type Database = {
           published?: boolean
           region?: string | null
           slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      redirects: {
+        Row: {
+          created_at: string
+          from_path: string
+          id: string
+          status_code: number
+          to_path: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          from_path: string
+          id?: string
+          status_code?: number
+          to_path: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          from_path?: string
+          id?: string
+          status_code?: number
+          to_path?: string
           updated_at?: string
         }
         Relationships: []

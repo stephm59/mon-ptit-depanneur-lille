@@ -636,7 +636,7 @@ const BlogPost = () => {
       </article>
 
       {/* FAQ Section */}
-      <BlogPostFaqs slug={post.slug} />
+      <BlogPostFaqs serviceId={post.service_id} blogPostId={post.id} />
 
       {/* CTA Block */}
       <CtaBlock />
