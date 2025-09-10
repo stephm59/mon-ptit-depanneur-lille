@@ -200,33 +200,68 @@ export const BlogPostFaqs = ({ slug }: BlogPostFaqsProps) => {
       return [
         {
           id: 1,
-          question: "Quelle est la durée de vie d'un cumulus électrique ?",
-          answer: "En moyenne 10 à 15 ans, selon la qualité et l'entretien."
+          question: "Qu'est-ce qu'un cumulus électrique ?",
+          answer: "Un cumulus électrique est un chauffe-eau à accumulation qui stocke l'eau chaude dans une cuve isolée. Il chauffe l'eau grâce à une résistance électrique et maintient la température grâce à l'isolation du ballon."
         },
         {
           id: 2,
-          question: "À quelle température régler mon chauffe-eau ?",
-          answer: "Entre 50 et 55 °C pour un bon compromis entre confort et économies."
+          question: "Quelle capacité de cumulus choisir pour une famille ?",
+          answer: "Pour 2 personnes : 100L, pour 3-4 personnes : 150-200L, pour 5-6 personnes : 250-300L. Ces volumes correspondent à une consommation standard d'eau chaude sanitaire."
         },
         {
           id: 3,
-          question: "Le cumulus consomme-t-il beaucoup d'électricité ?",
-          answer: "Oui, c'est l'un des plus gros postes de consommation dans un foyer. Mais avec une bonne programmation et des habitudes adaptées, on peut réduire la facture de 20 à 30 %."
+          question: "Comment économiser avec un chauffe-eau électrique ?",
+          answer: "Programmez le chauffage en heures creuses, isolez les canalisations, réglez la température à 60°C maximum et entretenez régulièrement votre appareil pour maintenir ses performances."
         },
         {
           id: 4,
-          question: "Quelle capacité de cumulus choisir ?",
-          answer: "50 à 100 L → 1 à 2 personnes, 150 à 200 L → 3 à 4 personnes, 250 L et + → familles nombreuses"
+          question: "Quelle est la durée de vie d'un cumulus ?",
+          answer: "Un chauffe-eau électrique bien entretenu dure en moyenne 10 à 15 ans. La durée de vie dépend de la qualité de l'eau, de l'entretien et de la qualité de l'installation."
         },
         {
           id: 5,
-          question: "Peut-on installer un cumulus soi-même ?",
-          answer: "C'est possible, mais déconseillé. L'installation requiert des compétences en plomberie et en électricité pour garantir la sécurité."
+          question: "Où installer un chauffe-eau électrique ?",
+          answer: "Dans un local sec, aéré et accessible pour l'entretien. Évitez les pièces à vivre et privilégiez cave, buanderie ou placard technique. Respectez les distances de sécurité avec les autres équipements."
         },
         {
           id: 6,
-          question: "Faut-il entretenir son cumulus ?",
-          answer: "Oui. Détartrage et vérification de l'anode sont recommandés tous les 2 à 3 ans pour prolonger sa durée de vie."
+          question: "Que faire si mon cumulus ne chauffe plus ?",
+          answer: "Vérifiez d'abord le disjoncteur et le contacteur jour/nuit. Si le problème persiste, il peut s'agir de la résistance, du thermostat ou du groupe de sécurité. Faites appel à un professionnel pour le diagnostic."
+        }
+      ];
+    }
+    
+    if (slug === "types-tuyauterie") {
+      return [
+        {
+          id: 1,
+          question: "Quel est le meilleur type de tuyauterie pour l'eau potable ?",
+          answer: "Le cuivre est très utilisé pour l'eau potable, mais les systèmes en multicouche et en PER (PEX) sont désormais des alternatives fiables et modernes."
+        },
+        {
+          id: 2,
+          question: "Quelle tuyauterie pour le chauffage ?",
+          answer: "Le multicouche et le PER sont les plus adaptés, car ils résistent bien aux hautes températures et offrent une bonne durabilité."
+        },
+        {
+          id: 3,
+          question: "Quelle différence entre PER et multicouche ?",
+          answer: "Le PER est souple et simple à poser, mais le multicouche est plus rigide, plus stable et offre une meilleure durabilité."
+        },
+        {
+          id: 4,
+          question: "Quelle durée de vie pour un tuyau en cuivre ?",
+          answer: "Un tuyau en cuivre a une durée de vie moyenne de 40 à 50 ans, voire plus selon l'entretien et la qualité de l'eau."
+        },
+        {
+          id: 5,
+          question: "Le PVC peut-il être utilisé pour l'eau potable ?",
+          answer: "Non, le PVC est réservé aux évacuations (eaux usées, eaux pluviales). Pour l'eau potable, privilégiez le cuivre, le multicouche ou le PER."
+        },
+        {
+          id: 6,
+          question: "Faut-il remplacer une vieille installation en plomb ?",
+          answer: "Oui. Le plomb est interdit car il est nocif pour la santé. Toute installation ancienne doit être remplacée par du cuivre, du PER ou du multicouche."
         }
       ];
     }

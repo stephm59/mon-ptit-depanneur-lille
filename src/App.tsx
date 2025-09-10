@@ -43,6 +43,7 @@ const App = () => (
         <Route path="/comment-choisir-raccord" element={<Navigate to="/carnet/comment-choisir-raccord" replace />} />
         <Route path="/guide-achat" element={<Navigate to="/" replace />} />
         <Route path="/comprendre-cumulus" element={<Navigate to="/carnet/chauffe-eau-electrique-cumulus" replace />} />
+        <Route path="/types-tuyauterie" element={<Navigate to="/carnet/types-tuyauterie" replace />} />
             <Route path="/:slug" element={<UniversalRouter />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
