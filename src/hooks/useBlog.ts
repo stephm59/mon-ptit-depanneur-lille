@@ -60,12 +60,18 @@ export const useRelatedBlogPosts = (serviceId?: string | null, currentSlug?: str
       // If we don't have enough posts from the same category, fill with other posts
       if (relatedPosts.length < limit) {
         const remainingLimit = limit - relatedPosts.length;
-        const { data: otherPosts, error: otherError } = await supabase
+        let query = supabase
           .from("blog_posts")
           .select("*")
           .eq("published", true)
-          .neq("slug", currentSlug || "")
-          .not("service_id", "eq", serviceId || "")
+          .neq("slug", currentSlug || "");
+
+        // Only add service_id filter if serviceId is provided
+        if (serviceId) {
+          query = query.not("service_id", "eq", serviceId);
+        }
+
+        const { data: otherPosts, error: otherError } = await query
           .order("created_at", { ascending: false })
           .limit(remainingLimit);
 
