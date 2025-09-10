@@ -287,6 +287,63 @@ const BlogPost = () => {
       };
     }
     
+    if (slug === "comment-choisir-raccord") {
+      return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quel raccord utiliser pour du cuivre ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pour une installation durable sur cuivre, on utilise principalement des raccords à souder ou à sertir."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-on mélanger différents types de raccords ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, mais il faut s'assurer que les matériaux sont compatibles et que l'étanchéité est garantie."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel raccord choisir pour du PER ou du multicouche ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pour les canalisations en PER ou multicouche, on utilise généralement des raccords à sertir ou à compression."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle est la différence entre un raccord à visser et un raccord à sertir ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Un raccord à visser est démontable et se monte avec une clé. Un raccord à sertir est permanent et nécessite une pince à sertir."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quels sont les raccords les plus faciles à poser soi-même ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Les raccords à visser et instantanés sont les plus simples à poser pour un particulier, car ils ne demandent pas d'outillage spécialisé."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Est-il risqué d'installer un raccord soi-même ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, car un raccord mal monté peut entraîner une fuite d'eau et des dégâts matériels. Il est conseillé de faire appel à un plombier."
+            }
+          }
+        ]
+      };
+    }
+    
     return null;
   };
 

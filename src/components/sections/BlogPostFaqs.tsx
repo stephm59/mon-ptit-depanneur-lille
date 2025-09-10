@@ -161,6 +161,41 @@ export const BlogPostFaqs = ({ slug }: BlogPostFaqsProps) => {
       ];
     }
     
+    if (slug === "comment-choisir-raccord") {
+      return [
+        {
+          id: 1,
+          question: "Quel raccord utiliser pour du cuivre ?",
+          answer: "Les raccords à souder ou à sertir sont les plus adaptés pour une installation durable sur cuivre."
+        },
+        {
+          id: 2,
+          question: "Peut-on mélanger différents types de raccords ?",
+          answer: "Oui, mais il faut respecter la compatibilité des matériaux et vérifier l'étanchéité."
+        },
+        {
+          id: 3,
+          question: "Quel raccord choisir pour du PER ou du multicouche ?",
+          answer: "On utilise généralement des raccords à sertir ou à compression."
+        },
+        {
+          id: 4,
+          question: "Quelle est la différence entre un raccord à visser et un raccord à sertir ?",
+          answer: "À visser : démontable, nécessite une clé. À sertir : permanent, nécessite une pince à sertir."
+        },
+        {
+          id: 5,
+          question: "Quels sont les raccords les plus faciles à poser soi-même ?",
+          answer: "Les raccords à visser ou instantanés, car ils ne demandent pas d'outillage spécialisé."
+        },
+        {
+          id: 6,
+          question: "Est-il risqué d'installer un raccord soi-même ?",
+          answer: "Oui, si vous n'avez pas l'expérience nécessaire. Un raccord mal monté peut causer une fuite ou des dégâts d'eau importants."
+        }
+      ];
+    }
+    
     return [];
   };
 
