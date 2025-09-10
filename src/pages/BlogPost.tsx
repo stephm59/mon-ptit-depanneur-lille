@@ -230,6 +230,63 @@ const BlogPost = () => {
       };
     }
     
+    if (slug === "reparer-fuite-eau-soi-meme") {
+      return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Peut-on réparer toutes les fuites soi-même ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non. Seules les petites fuites liées à un joint ou un raccord peuvent être réparées facilement. Pour une canalisation encastrée ou un gros écoulement, il faut faire appel à un plombier."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quels outils faut-il pour réparer une fuite ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Les outils de base sont : clé à molette, tournevis, joints neufs, chiffon absorbant et ruban téflon pour renforcer l'étanchéité."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Combien de temps prend une réparation ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Changer un joint ou resserrer un raccord prend environ 30 minutes. Le remplacement d'un tuyau complet peut prendre plus longtemps."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Que faire si la fuite persiste après réparation ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Fermez l'arrivée d'eau et contactez un plombier. La fuite peut venir d'un problème plus important nécessitant un professionnel."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Combien coûte l'intervention d'un plombier pour une fuite ?",
+            "acceptedAnswer": {
+              "@type": "Answer", 
+              "text": "Le prix varie généralement de 100 à 250 €, selon l'ampleur de la fuite et son accessibilité."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment prévenir les fuites ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Entretenez régulièrement vos canalisations, changez vos joints dès les premiers signes d'usure et évitez d'utiliser des produits corrosifs."
+            }
+          }
+        ]
+      };
+    }
+    
     return null;
   };
 

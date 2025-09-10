@@ -126,6 +126,41 @@ export const BlogPostFaqs = ({ slug }: BlogPostFaqsProps) => {
       ];
     }
     
+    if (slug === "reparer-fuite-eau-soi-meme") {
+      return [
+        {
+          id: 1,
+          question: "Peut-on réparer toutes les fuites soi-même ?",
+          answer: "Non, seules les petites fuites (joints usés, raccords desserrés) sont accessibles aux bricoleurs. Pour une canalisation encastrée ou un gros écoulement, il faut un plombier."
+        },
+        {
+          id: 2,
+          question: "Quels outils faut-il pour réparer une fuite ?",
+          answer: "Clé à molette, tournevis, joints neufs, chiffon absorbant et éventuellement du ruban de plomberie (téflon)."
+        },
+        {
+          id: 3,
+          question: "Combien de temps prend une réparation ?",
+          answer: "Environ 30 minutes pour un joint ou un petit raccord. Plus si le tuyau doit être remplacé."
+        },
+        {
+          id: 4,
+          question: "Que faire si la fuite persiste après réparation ?",
+          answer: "Fermez l'eau immédiatement et contactez un plombier. Cela peut cacher un problème plus sérieux."
+        },
+        {
+          id: 5,
+          question: "Combien coûte l'intervention d'un plombier pour une fuite ?",
+          answer: "Entre 100 et 250 € selon la gravité et l'accessibilité de la canalisation."
+        },
+        {
+          id: 6,
+          question: "Comment prévenir les fuites ?",
+          answer: "Entretenez vos canalisations, évitez les produits corrosifs et faites vérifier vos installations anciennes par un professionnel."
+        }
+      ];
+    }
+    
     return [];
   };
 
