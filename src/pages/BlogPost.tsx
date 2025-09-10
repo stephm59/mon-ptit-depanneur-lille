@@ -620,7 +620,7 @@ const BlogPost = () => {
                 components={{
                   h2: ({ children }) => <h2 className="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-6 border-b border-border pb-3">{children}</h2>,
                   h3: ({ children }) => <h3 className="text-xl md:text-2xl font-semibold text-foreground mt-8 mb-4">{children}</h3>,
-                  p: ({ children }) => <p className="text-muted-foreground leading-relaxed mb-6 text-lg">{children}</p>,
+                  p: ({ children }) => <p className="text-muted-foreground leading-relaxed mb-6 text-lg whitespace-pre-line">{children}</p>,
                   ul: ({ children }) => <ul className="text-muted-foreground space-y-2 mb-6 ml-6">{children}</ul>,
                   ol: ({ children }) => <ol className="text-muted-foreground space-y-2 mb-6 ml-6">{children}</ol>,
                   li: ({ children }) => <li className="leading-relaxed">{children}</li>,
