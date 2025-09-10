@@ -30,6 +30,7 @@ const App = () => (
             <Route path="/chauffage-ete" element={<Navigate to="/carnet/chauffage-ete" replace />} />
             <Route path="/chaudieres-a-condensation" element={<Navigate to="/carnet/chaudieres-a-condensation" replace />} />
             <Route path="/differents-types-chaudieres" element={<Navigate to="/carnet/differents-types-chaudieres" replace />} />
+            <Route path="/thermostat-sans-fil-avantage-reduction-deconomie/" element={<Navigate to="/carnet/thermostat-sans-fil-avantages" replace />} />
             <Route path="/maintenance-chaudiere" element={<Navigate to="/carnet/maintenance-chaudiere" replace />} />
             <Route path="/variation-temperatures-plomberie" element={<Navigate to="/carnet/variation-temperatures-plomberie" replace />} />
             <Route path="/regulation-chauffage" element={<Navigate to="/carnet/regulation-chauffage" replace />} />
