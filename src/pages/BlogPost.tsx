@@ -644,7 +644,17 @@ const BlogPost = () => {
           <Card className="p-6 border-l-4 border-l-primary bg-secondary/20">
             <p className="text-lg text-center">
               Ce bon conseil vous est proposé par Mon p'tit Dépanneur, 
-              {post.slug === 'renover-salle-bains-douche-baignoire' || post.slug === 'comment-choisir-colonne-douche' || post.slug === 'choisir-toilettes' ? (
+              {post.slug === 'avantages-inconvenients-pompe-chaleur' ? (
+                <>
+                  installateur de{' '}
+                  <Link 
+                    to="/pompe-a-chaleur-lille"
+                    className="text-primary hover:underline font-semibold"
+                  >
+                    pompe à chaleur à Lille
+                  </Link>
+                </>
+              ) : post.slug === 'renover-salle-bains-douche-baignoire' || post.slug === 'comment-choisir-colonne-douche' || post.slug === 'choisir-toilettes' ? (
                 <>
                   spécialiste en{' '}
                   <Link 
