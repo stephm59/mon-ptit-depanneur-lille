@@ -679,7 +679,7 @@ const BlogPost = () => {
              {/* Conditional rendering based on content type */}
              {(post.content || "").includes('<') ? (
                <div 
-                 className="prose prose-lg prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-img:rounded-lg prose-img:shadow-md max-w-none"
+                 className="blog-content"
                  dangerouslySetInnerHTML={{ __html: post.content || "" }}
                />
              ) : (
