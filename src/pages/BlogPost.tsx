@@ -654,6 +654,15 @@ const BlogPost = () => {
                     pompe à chaleur à Lille
                   </Link>
                 </>
+              ) : post.slug === 'vase-expansion-sanitaire' ? (
+                <>
+                  <Link 
+                    to="/plomberie-lille"
+                    className="text-primary hover:underline font-semibold"
+                  >
+                    plombier à Lille
+                  </Link>
+                </>
               ) : post.slug === 'renover-salle-bains-douche-baignoire' || post.slug === 'comment-choisir-colonne-douche' || post.slug === 'choisir-toilettes' ? (
                 <>
                   spécialiste en{' '}
