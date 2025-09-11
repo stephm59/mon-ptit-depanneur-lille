@@ -654,6 +654,16 @@ const BlogPost = () => {
                     rénovation de salle de bains à Lille
                   </Link>
                 </>
+              ) : post.slug === 'adoucisseur-eau-solucalc-co2' ? (
+                <>
+                  votre{' '}
+                  <Link 
+                    to="/plombier-lille"
+                    className="text-primary hover:underline font-semibold"
+                  >
+                    plombier à Lille
+                  </Link>
+                </>
               ) : (
                 <Link 
                   to={post.services?.slug ? `/${post.services.slug}-lille` : "/"}
