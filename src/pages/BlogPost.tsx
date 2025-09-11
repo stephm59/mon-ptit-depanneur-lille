@@ -801,7 +801,7 @@ const BlogPost = () => {
                      to="/plombier-lille"
                      className="text-primary hover:underline font-semibold"
                    >
-                     plombier dans le Nord
+                     plombier à Lille et ses alentours
                    </Link>
                  </>
                ) : post.slug === 'detartrer-mousseur-robinet' ? (
