@@ -48,6 +48,7 @@ const App = () => (
             <Route path="/chaudiere-chauffe-eau-electrique-ou-gaz" element={<Navigate to="/carnet/choisir-chaudiere-ou-chauffe-eau" replace />} />
             <Route path="/differents-types-serrures" element={<Navigate to="/carnet/differents-types-serrures" replace />} />
             <Route path="/comment-changer-serrure" element={<Navigate to="/carnet/comment-changer-serrure" replace />} />
+            <Route path="/fuite-du-groupe-de-securite-de-votre-chauffe-eau-pas-de-panique" element={<Navigate to="/carnet/fuite-groupe-securite-chauffe-eau" replace />} />
             <Route path="/:slug" element={<UniversalRouter />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

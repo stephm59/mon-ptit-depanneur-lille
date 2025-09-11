@@ -764,6 +764,16 @@ const BlogPost = () => {
                     serrurier bien noté à Lille
                   </Link>
                 </>
+              ) : post.slug === 'fuite-groupe-securite-chauffe-eau' ? (
+                <>
+                  votre{' '}
+                  <Link 
+                    to="/plomberie-lille"
+                    className="text-primary hover:underline font-semibold"
+                  >
+                    plombier bien noté à Lille
+                  </Link>
+                </>
               ) : (
                 <Link 
                   to={post.services?.slug ? `/${post.services.slug}-lille` : "/"}
