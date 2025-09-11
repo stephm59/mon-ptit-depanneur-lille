@@ -52,6 +52,7 @@ const App = () => (
             <Route path="/cintrage" element={<Navigate to="/carnet/cintrage" replace />} />
             <Route path="/vanne" element={<Navigate to="/carnet/vanne" replace />} />
             <Route path="/mitigeur-panne" element={<Navigate to="/carnet/mitigeur-panne" replace />} />
+            <Route path="/mousseurs" element={<Navigate to="/carnet/detartrer-mousseur-robinet" replace />} />
             <Route path="/:slug" element={<UniversalRouter />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
