@@ -61,16 +61,16 @@ const Footer = () => {
       "Climatisation Lomme"
     ],
     salleDeBains: [
-      "Rénovation salle de bain Lille",
-      "Rénovation salle de bain Vieux-Lille",
-      "Rénovation salle de bain Villeneuve-d'Ascq",
-      "Rénovation salle de bain Marcq-en-Barœul",
-      "Rénovation salle de bain Lomme",
-      "Rénovation salle de bain Bondues",
-      "Rénovation salle de bain La Madeleine", 
-      "Rénovation salle de bain Lambersart",
-      "Rénovation salle de bain Saint-André-lez-Lille",
-      "Rénovation salle de bain Lomme"
+      "Rénovation salle de bains Lille",
+      "Rénovation salle de bains Vieux-Lille",
+      "Rénovation salle de bains Villeneuve-d'Ascq",
+      "Rénovation salle de bains Marcq-en-Barœul",
+      "Rénovation salle de bains Lomme",
+      "Rénovation salle de bains Bondues",
+      "Rénovation salle de bains La Madeleine", 
+      "Rénovation salle de bains Lambersart",
+      "Rénovation salle de bains Saint-André-lez-Lille",
+      "Rénovation salle de bains Lomme"
     ],
     electricite: [
       "Électricien Lille",
