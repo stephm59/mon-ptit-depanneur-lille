@@ -515,6 +515,55 @@ const BlogPost = () => {
       };
     }
     
+    if (slug === "comment-choisir-colonne-douche") {
+      return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quelle différence entre une colonne de douche et une barre de douche classique ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La barre de douche ne fait que maintenir la douchette, alors que la colonne inclut pommeau, douchette, et souvent robinetterie intégrée."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle hauteur pour une colonne de douche ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En général, entre 2 m et 2,20 m du sol, mais cela dépend de la taille des utilisateurs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Combien coûte une colonne de douche ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Les prix varient de 100 € pour une entrée de gamme à plus de 1 000 € pour une colonne haut de gamme avec jets massants et LED."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il un plombier pour installer une colonne de douche ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pas toujours : une colonne apparente est facile à poser. Mais pour une encastrée, mieux vaut faire appel à un professionnel."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle colonne de douche choisir pour économiser l'eau ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Optez pour une colonne avec mitigeur thermostatique et réducteur de débit, vous pouvez économiser jusqu'à 50 % d'eau."
+            }
+          }
+        ]
+      };
+    }
+    
     return null;
   };
 
@@ -595,7 +644,7 @@ const BlogPost = () => {
           <Card className="p-6 border-l-4 border-l-primary bg-secondary/20">
             <p className="text-lg text-center">
               Ce bon conseil vous est proposé par Mon p'tit Dépanneur, 
-              {post.slug === 'renover-salle-bains-douche-baignoire' ? (
+              {post.slug === 'renover-salle-bains-douche-baignoire' || post.slug === 'comment-choisir-colonne-douche' ? (
                 <>
                   spécialiste en{' '}
                   <Link 
