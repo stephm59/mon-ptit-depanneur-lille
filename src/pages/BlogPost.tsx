@@ -654,7 +654,7 @@ const BlogPost = () => {
                     rénovation de salle de bains à Lille
                   </Link>
                 </>
-              ) : post.slug === 'adoucisseur-eau-solucalc-co2' ? (
+              ) : post.slug === 'adoucisseur-eau-solucalc-co2' || post.slug === 'lutter-contre-calcaire-nord' ? (
                 <>
                   votre{' '}
                   <Link 
