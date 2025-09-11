@@ -734,6 +734,16 @@ const BlogPost = () => {
                     artisan de confiance à Lille
                   </Link>
                 </>
+              ) : post.slug === 'chauffe-eau' ? (
+                <>
+                  votre{' '}
+                  <Link 
+                    to="/chauffagiste-lille"
+                    className="text-primary hover:underline font-semibold"
+                  >
+                    chauffagiste préféré à Lille
+                  </Link>
+                </>
               ) : (
                 <Link 
                   to={post.services?.slug ? `/${post.services.slug}-lille` : "/"}
