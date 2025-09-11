@@ -603,6 +603,7 @@ const BlogPost = () => {
                  post.services?.name === 'Plomberie' ? 'plombier à Lille' :
                  post.services?.name === 'Climatisation' ? 'installateur de climatisation à Lille' :
                  post.services?.name === 'Serrure' ? 'serrurier à Lille' :
+                 post.slug === 'renover-salle-bains-douche-baignoire' ? 'spécialiste en rénovation de salle de bains à Lille' :
                  'artisan spécialisé à Lille'}
               </Link>
               .
