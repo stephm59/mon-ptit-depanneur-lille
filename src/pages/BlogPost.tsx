@@ -656,8 +656,9 @@ const BlogPost = () => {
                 </>
               ) : post.slug === 'vase-expansion-sanitaire' ? (
                 <>
-                  <Link 
-                    to="/plomberie-lille"
+                  {' '}
+                  <Link
+                    to="/plombier-lille"
                     className="text-primary hover:underline font-semibold"
                   >
                     plombier à Lille
