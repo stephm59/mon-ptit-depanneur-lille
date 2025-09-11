@@ -714,7 +714,7 @@ const BlogPost = () => {
                     rénovation de salle de bains à Lille
                   </Link>
                 </>
-              ) : post.slug === 'adoucisseur-eau-solucalc-co2' || post.slug === 'lutter-contre-calcaire-nord' || post.slug === 'installer-adoucisseur' ? (
+               ) : post.slug === 'adoucisseur-eau-solucalc-co2' || post.slug === 'lutter-contre-calcaire-nord' || post.slug === 'installer-adoucisseur' ? (
                 <>
                   votre{' '}
                   <Link 
@@ -722,6 +722,16 @@ const BlogPost = () => {
                     className="text-primary hover:underline font-semibold"
                   >
                     plombier préféré à Lille
+                  </Link>
+                </>
+              ) : post.slug === 'artisan-certifie-quels-avantages' ? (
+                <>
+                  votre{' '}
+                  <Link 
+                    to="/"
+                    className="text-primary hover:underline font-semibold"
+                  >
+                    artisan de confiance à Lille
                   </Link>
                 </>
               ) : (
