@@ -686,7 +686,7 @@ const BlogPost = () => {
               ) : (
                 <Link 
                   to={post.services?.slug ? `/${post.services.slug}-lille` : "/"}
-                  className="text-primary hover:underline font-semibold ml-1"
+                  className="text-primary hover:underline font-semibold"
                 >
                   {post.services?.name === 'Chauffage' ? 'chauffagiste à Lille' : 
                    post.services?.name === 'Plomberie' ? 'plombier préféré à Lille' :
