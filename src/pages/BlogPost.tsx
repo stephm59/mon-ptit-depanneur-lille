@@ -654,14 +654,14 @@ const BlogPost = () => {
                     rénovation de salle de bains à Lille
                   </Link>
                 </>
-              ) : post.slug === 'adoucisseur-eau-solucalc-co2' || post.slug === 'lutter-contre-calcaire-nord' ? (
+              ) : post.slug === 'adoucisseur-eau-solucalc-co2' || post.slug === 'lutter-contre-calcaire-nord' || post.slug === 'installer-adoucisseur' ? (
                 <>
                   votre{' '}
                   <Link 
                     to="/plombier-lille"
                     className="text-primary hover:underline font-semibold"
                   >
-                     plombier préféré à Lille
+                    plombier préféré à Lille
                   </Link>
                 </>
               ) : (
@@ -670,7 +670,7 @@ const BlogPost = () => {
                   className="text-primary hover:underline font-semibold ml-1"
                 >
                   {post.services?.name === 'Chauffage' ? 'chauffagiste à Lille' : 
-                   post.services?.name === 'Plomberie' ? 'plombier à Lille' :
+                   post.services?.name === 'Plomberie' ? 'plombier préféré à Lille' :
                    post.services?.name === 'Climatisation' ? 'installateur de climatisation à Lille' :
                    post.services?.name === 'Serrure' ? 'serrurier à Lille' :
                    'artisan spécialisé à Lille'}
