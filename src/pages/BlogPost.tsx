@@ -595,17 +595,28 @@ const BlogPost = () => {
           <Card className="p-6 border-l-4 border-l-primary bg-secondary/20">
             <p className="text-lg text-center">
               Ce bon conseil vous est proposé par Mon p'tit Dépanneur, 
-              <Link 
-                to={post.services?.slug ? `/${post.services.slug}-lille` : "/"}
-                className="text-primary hover:underline font-semibold ml-1"
-              >
-                {post.services?.name === 'Chauffage' ? 'chauffagiste à Lille' : 
-                 post.services?.name === 'Plomberie' ? 'plombier à Lille' :
-                 post.services?.name === 'Climatisation' ? 'installateur de climatisation à Lille' :
-                 post.services?.name === 'Serrure' ? 'serrurier à Lille' :
-                 post.slug === 'renover-salle-bains-douche-baignoire' ? 'spécialiste en rénovation de salle de bains à Lille' :
-                 'artisan spécialisé à Lille'}
-              </Link>
+              {post.slug === 'renover-salle-bains-douche-baignoire' ? (
+                <>
+                  spécialiste en{' '}
+                  <Link 
+                    to="/renovation-salle-de-bains-lille"
+                    className="text-primary hover:underline font-semibold"
+                  >
+                    rénovation de salle de bains à Lille
+                  </Link>
+                </>
+              ) : (
+                <Link 
+                  to={post.services?.slug ? `/${post.services.slug}-lille` : "/"}
+                  className="text-primary hover:underline font-semibold ml-1"
+                >
+                  {post.services?.name === 'Chauffage' ? 'chauffagiste à Lille' : 
+                   post.services?.name === 'Plomberie' ? 'plombier à Lille' :
+                   post.services?.name === 'Climatisation' ? 'installateur de climatisation à Lille' :
+                   post.services?.name === 'Serrure' ? 'serrurier à Lille' :
+                   'artisan spécialisé à Lille'}
+                </Link>
+              )}
               .
             </p>
           </Card>
