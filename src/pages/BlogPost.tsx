@@ -674,6 +674,16 @@ const BlogPost = () => {
                     plombier de confiance à Lille
                   </Link>
                 </>
+              ) : post.slug === 'comment-retourner-un-pene-demi-tour' ? (
+                <>
+                  votre{' '}
+                  <Link 
+                    to="/serrurier-lille"
+                    className="text-primary hover:underline font-semibold"
+                  >
+                    serrurier préféré à Lille
+                  </Link>
+                </>
               ) : post.slug === 'renover-salle-bains-douche-baignoire' || post.slug === 'comment-choisir-colonne-douche' || post.slug === 'choisir-toilettes' ? (
                 <>
                   spécialiste en{' '}
