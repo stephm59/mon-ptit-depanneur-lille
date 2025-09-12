@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
+import Map from "@/components/Map";
 import { Phone, Mail, MapPin, Send, Upload } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -318,6 +319,12 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Map Section */}
+            <div className="mt-16">
+              <h2 className="text-3xl font-bold mb-8 text-center text-foreground">Notre localisation</h2>
+              <Map />
             </div>
           </div>
         </div>
