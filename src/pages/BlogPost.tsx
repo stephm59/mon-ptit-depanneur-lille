@@ -831,7 +831,7 @@ const BlogPost = () => {
                       to="/plombier-lille"
                       className="text-primary hover:underline font-semibold"
                     >
-                      plombier à Lille et ses alentours
+                      plombier de confiance à Lille
                     </Link>
                   </>
                 ) : (
