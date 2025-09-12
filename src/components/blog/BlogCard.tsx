@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { BlogPost } from "@/hooks/useBlog";
-import { format } from "date-fns";
-import { fr } from "date-fns/locale";
 
 interface BlogCardProps {
   post: BlogPost & { 
@@ -16,10 +14,6 @@ interface BlogCardProps {
 }
 
 export const BlogCard = ({ post }: BlogCardProps) => {
-  const formatDate = (date: string) => {
-    return format(new Date(date), "d MMMM yyyy", { locale: fr });
-  };
-
   const getCategoryColor = (serviceName?: string) => {
     switch (serviceName) {
       case 'Chauffage':
@@ -51,7 +45,7 @@ export const BlogCard = ({ post }: BlogCardProps) => {
         )}
         
         <CardHeader className="pb-3">
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center mb-2">
             {post.services && (
               <Badge 
                 variant="secondary"
@@ -60,9 +54,6 @@ export const BlogCard = ({ post }: BlogCardProps) => {
                 {post.services.name}
               </Badge>
             )}
-            <span className="text-xs text-muted-foreground">
-              {formatDate(post.created_at)}
-            </span>
           </div>
           
           <h3 className="font-semibold text-lg leading-tight group-hover:text-primary transition-colors duration-200 line-clamp-2">
