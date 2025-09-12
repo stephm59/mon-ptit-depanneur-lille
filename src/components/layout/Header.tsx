@@ -26,13 +26,15 @@ const Header = () => {
           <div className="flex justify-between items-start">
             {/* Logo */}
             <div className="flex items-center">
-              <img 
-                src="https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/logo-mon-ptit-depanneur-contour-blanc_la7i2t.webp" 
-                alt="Mon p'tit Dépanneur" 
-                className="h-40 md:h-40 w-auto"
-                loading="eager"
-                decoding="async"
-              />
+              <a href="/" className="block">
+                <img 
+                  src="https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/logo-mon-ptit-depanneur-contour-blanc_la7i2t.webp" 
+                  alt="Mon p'tit Dépanneur" 
+                  className="h-40 md:h-40 w-auto"
+                  loading="eager"
+                  decoding="async"
+                />
+              </a>
             </div>
 
             {/* Desktop Navigation */}
@@ -41,7 +43,7 @@ const Header = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-white/90 hover:text-accent transition-colors duration-200 font-medium"
+                  className="text-white/90 hover:text-white transition-colors duration-200 font-medium relative pb-1 hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:right-0 hover:after:h-1 hover:after:bg-red-600 hover:after:rounded-full"
                 >
                   {item.name}
                 </a>
@@ -91,7 +93,7 @@ const Header = () => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="text-white/90 hover:text-accent transition-colors duration-200 font-medium py-2"
+                    className="text-white/90 hover:text-white transition-colors duration-200 font-medium py-2 relative hover:after:content-[''] hover:after:absolute hover:after:bottom-1 hover:after:left-0 hover:after:right-0 hover:after:h-1 hover:after:bg-red-600 hover:after:rounded-full"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
