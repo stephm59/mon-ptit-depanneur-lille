@@ -97,8 +97,8 @@ const Contact = () => {
       <Header />
       
       <Hero 
-        title="Contactez-nous pour un devis gratuit"
-        subtitle="Intervention rapide à Lille et ses environs"
+        title="Contactez-nous"
+        subtitle="Des questions ? Besoin d'un devis ? Laissez-nous votre message (ou appelez-nous)."
       />
       
       <main className="min-h-screen bg-gray-50 py-32">
