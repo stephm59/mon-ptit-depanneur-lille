@@ -9,16 +9,32 @@ const UniversalRouter = () => {
   
   // Parse the slug to determine if it's a service-city combination
   const parseSlug = (fullSlug: string) => {
-    // All service patterns supported by the footer
+    // All service patterns that actually exist in the database
     const servicePatterns = [
-      'plombier', 'chauffagiste', 'electricien', 'vitrier', 'serrurier',
+      'plombier', 'chauffage', 'vitrier', 'serrure',
       'pompe-a-chaleur', 'climatisation', 'renovation-salle-de-bains'
     ];
     
+    // Also handle common variations that should redirect to the correct service
+    const serviceRedirects: Record<string, string> = {
+      'chauffagiste': 'chauffage',
+      'serrurier': 'serrure',
+      'electricien': 'serrure' // assuming electricien maps to serrure, or add electricien to services
+    };
+    
+    // First, check direct service patterns
     for (const service of servicePatterns) {
       if (fullSlug.startsWith(`${service}-`)) {
         const citySlug = fullSlug.substring(service.length + 1);
         return { serviceSlug: service, citySlug };
+      }
+    }
+    
+    // Then check service redirects (e.g., chauffagiste -> chauffage)
+    for (const [oldService, newService] of Object.entries(serviceRedirects)) {
+      if (fullSlug.startsWith(`${oldService}-`)) {
+        const citySlug = fullSlug.substring(oldService.length + 1);
+        return { serviceSlug: newService, citySlug };
       }
     }
     
