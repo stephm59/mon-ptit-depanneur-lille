@@ -12,52 +12,52 @@ const localReviews = [
   },
   {
     name: "Marc D.",
-    city: "Paris 15e", 
+    city: "Roubaix", 
     rating: 5,
     review: "Plombier très professionnel, je recommande !",
     time: "Hier"
   },
   {
     name: "Julie M.",
-    city: "Lyon 3e",
+    city: "Tourcoing",
     rating: 5,
     review: "Dépannage chaudière parfait, merci beaucoup",
-    time: "Il y a 2h"
+    time: "Il y a 2 jours"
   },
   {
     name: "Pierre R.",
-    city: "Marseille 8e",
+    city: "Villeneuve-d'Ascq",
     rating: 5,
     review: "Service excellent, tarifs transparents",
-    time: "Ce matin"
+    time: "Il y a 3 jours"
   },
   {
     name: "Anne B.",
-    city: "Toulouse 1er",
+    city: "Marcq-en-Barœul",
     rating: 5,
     review: "Très bon artisan, travail soigné et rapide",
-    time: "Hier soir"
+    time: "Hier"
   },
   {
     name: "Thomas K.",
-    city: "Nice 6e",
+    city: "Wattrelos",
     rating: 5,
     review: "Installation impeccable, équipe sympathique",
-    time: "Il y a 3h"
+    time: "Il y a 2 jours"
   },
   {
     name: "Marie C.",
-    city: "Nantes 2e",
+    city: "Lomme",
     rating: 5,
     review: "Dépannage d'urgence, très réactif !",
     time: "Aujourd'hui"
   },
   {
     name: "David L.",
-    city: "Strasbourg 4e",
+    city: "La Madeleine",
     rating: 5,
     review: "Parfait du début à la fin, je recommande",
-    time: "Ce matin"
+    time: "Il y a 3 jours"
   }
 ];
 
@@ -65,11 +65,13 @@ export const LocalReviewsWidget = () => {
   const [currentReview, setCurrentReview] = useState(localReviews[0]);
   const [isVisible, setIsVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
+    if (isDisabled) return;
+
     let showTimeout: NodeJS.Timeout;
     let hideTimeout: NodeJS.Timeout;
-    let nextReviewTimeout: NodeJS.Timeout;
 
     const showNextReview = () => {
       // Sélectionner un avis aléatoire
@@ -78,33 +80,32 @@ export const LocalReviewsWidget = () => {
       setIsVisible(true);
       setIsClosing(false);
 
-      // Masquer après 6 secondes
+      // Masquer après 3 secondes
       hideTimeout = setTimeout(() => {
-        handleClose();
-      }, 6000);
+        handleAutoClose();
+      }, 3000);
     };
 
-    // Première apparition après 8 secondes
+    // Première apparition après 3 secondes
     showTimeout = setTimeout(() => {
       showNextReview();
-    }, 8000);
+    }, 3000);
 
-    // Puis un nouvel avis toutes les 20-30 secondes
+    // Puis un nouvel avis toutes les 8 secondes (3s d'affichage + 5s d'attente)
     const interval = setInterval(() => {
-      if (!isVisible) {
+      if (!isVisible && !isDisabled) {
         showNextReview();
       }
-    }, Math.random() * 10000 + 20000);
+    }, 8000);
 
     return () => {
       clearTimeout(showTimeout);
       clearTimeout(hideTimeout);
-      clearTimeout(nextReviewTimeout);
       clearInterval(interval);
     };
-  }, [isVisible]);
+  }, [isVisible, isDisabled]);
 
-  const handleClose = () => {
+  const handleAutoClose = () => {
     setIsClosing(true);
     setTimeout(() => {
       setIsVisible(false);
@@ -112,7 +113,16 @@ export const LocalReviewsWidget = () => {
     }, 300);
   };
 
-  if (!isVisible) return null;
+  const handleManualClose = () => {
+    setIsDisabled(true); // Désactive toutes les futures notifications
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsVisible(false);
+      setIsClosing(false);
+    }, 300);
+  };
+
+  if (!isVisible || isDisabled) return null;
 
   return (
     <div 
@@ -126,7 +136,7 @@ export const LocalReviewsWidget = () => {
         
         {/* Bouton fermer */}
         <Button
-          onClick={handleClose}
+          onClick={handleManualClose}
           variant="ghost"
           size="sm"
           className="absolute top-2 right-2 h-6 w-6 p-0 hover:bg-gray-100"

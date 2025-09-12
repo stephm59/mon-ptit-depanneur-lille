@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ErrorBoundary } from "@/components/ui/error-boundary";
 import { ChatWidget } from "@/components/widgets/ChatWidget";
-import { SatisfiedCustomerNotifications } from "@/components/widgets/SatisfiedCustomerNotifications";
 import { LocalReviewsWidget } from "@/components/widgets/LocalReviewsWidget";
 import Index from "./pages/Index";
 import UniversalRouter from "./pages/UniversalRouter";
@@ -75,7 +74,6 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           <ChatWidget />
-          <SatisfiedCustomerNotifications />
           <LocalReviewsWidget />
         </BrowserRouter>
       </TooltipProvider>
