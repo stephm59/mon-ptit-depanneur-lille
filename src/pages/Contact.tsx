@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
-import Map from "@/components/Map";
 import { Phone, Mail, MapPin, Send, Upload } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -324,7 +323,17 @@ const Contact = () => {
             {/* Map Section */}
             <div className="mt-16">
               <h2 className="text-3xl font-bold mb-8 text-center text-foreground">Notre localisation</h2>
-              <Map />
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.7059302239863!2d3.0639534767775842!3d50.6325794742331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2d58f1a1b39a3%3A0xc50987d8e1d3f5d6!2sMon%20P&#39;tit%20D%C3%A9panneur!5e0!3m2!1sfr!2sfr!4v1757079283815!5m2!1sfr!2sfr"
+                  className="w-full h-96 md:h-[500px]"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Localisation Mon p'tit Dépanneur - Lille"
+                />
+              </div>
             </div>
           </div>
         </div>
