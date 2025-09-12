@@ -1,4 +1,4 @@
-import { useParams, Navigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useServiceCityPage } from "@/hooks/useServiceCityPage";
 import ServiceCity from "./ServiceCity";
 import NotFound from "./NotFound";
@@ -9,17 +9,16 @@ const UniversalRouter = () => {
   
   // Parse the slug to determine if it's a service-city combination
   const parseSlug = (fullSlug: string) => {
-    // All service patterns that actually exist in the database
+    // All service patterns that should be handled
     const servicePatterns = [
-      'plombier', 'chauffage', 'vitrier', 'serrure',
-      'pompe-a-chaleur', 'climatisation', 'renovation-salle-de-bains'
+      'plombier', 'pompe-a-chaleur', 'climatisation', 'renovation-salle-de-bains'
     ];
     
-    // Also handle common variations that should redirect to the correct service
+    // Service redirects: user-facing URLs → database slugs
     const serviceRedirects: Record<string, string> = {
       'chauffagiste': 'chauffage',
-      'serrurier': 'serrure',
-      'electricien': 'serrure' // assuming electricien maps to serrure, or add electricien to services
+      'vitrier': 'vitre',
+      'serrurier': 'serrure'
     };
     
     // First, check direct service patterns
@@ -30,11 +29,11 @@ const UniversalRouter = () => {
       }
     }
     
-    // Then check service redirects (e.g., chauffagiste -> chauffage)
-    for (const [oldService, newService] of Object.entries(serviceRedirects)) {
-      if (fullSlug.startsWith(`${oldService}-`)) {
-        const citySlug = fullSlug.substring(oldService.length + 1);
-        return { serviceSlug: newService, citySlug };
+    // Then check service redirects
+    for (const [userService, dbService] of Object.entries(serviceRedirects)) {
+      if (fullSlug.startsWith(`${userService}-`)) {
+        const citySlug = fullSlug.substring(userService.length + 1);
+        return { serviceSlug: dbService, citySlug };
       }
     }
     
@@ -58,9 +57,9 @@ const UniversalRouter = () => {
     return <ServiceCity />;
   }
 
-  // If we have a service-city pattern but no data, redirect to home instead of 404
+  // If we have a service-city pattern but no data, show 404
   if (parsed && !serviceCityPage) {
-    return <Navigate to="/" replace />;
+    return <NotFound />;
   }
 
   // If no service-city page found, show 404
