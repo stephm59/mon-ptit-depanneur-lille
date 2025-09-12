@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { useServiceCityPage } from "@/hooks/useServiceCityPage";
 import ServiceCity from "./ServiceCity";
 import NotFound from "./NotFound";
@@ -56,6 +56,11 @@ const UniversalRouter = () => {
   // If we have a service-city pattern and found data, render it
   if (parsed && serviceCityPage) {
     return <ServiceCity />;
+  }
+
+  // If we have a service-city pattern but no data, redirect to home instead of 404
+  if (parsed && !serviceCityPage) {
+    return <Navigate to="/" replace />;
   }
 
   // If no service-city page found, show 404
