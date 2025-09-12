@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -21,15 +20,8 @@ export const BlogSearchAndFilters = ({
   totalPosts
 }: BlogSearchAndFiltersProps) => {
   const { data: services } = useServices();
-  const [localSearchTerm, setLocalSearchTerm] = useState(searchTerm);
-
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSearchChange(localSearchTerm);
-  };
 
   const clearSearch = () => {
-    setLocalSearchTerm("");
     onSearchChange("");
   };
 
@@ -39,17 +31,17 @@ export const BlogSearchAndFilters = ({
     <div className="bg-background/80 backdrop-blur-sm border-b sticky top-0 z-10">
       <div className="container mx-auto px-4 py-6">
         {/* Search Bar */}
-        <form onSubmit={handleSearchSubmit} className="mb-6">
+        <div className="mb-6">
           <div className="relative max-w-md mx-auto">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
             <Input
               type="text"
               placeholder="Rechercher un article..."
-              value={localSearchTerm}
-              onChange={(e) => setLocalSearchTerm(e.target.value)}
+              value={searchTerm}
+              onChange={(e) => onSearchChange(e.target.value)}
               className="pl-10 pr-10"
             />
-            {localSearchTerm && (
+            {searchTerm && (
               <button
                 type="button"
                 onClick={clearSearch}
@@ -59,7 +51,7 @@ export const BlogSearchAndFilters = ({
               </button>
             )}
           </div>
-        </form>
+        </div>
 
         {/* Category Filters */}
         <div className="flex flex-wrap gap-2 justify-center">
