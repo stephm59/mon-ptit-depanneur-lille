@@ -121,23 +121,26 @@ export const useAllBlogPosts = () => {
   });
 };
 
-// Liste des articles populaires basée sur le trafic
-const POPULAR_POST_TITLES = [
-  "Les différents types de tuyauterie",
-  "Fuite du groupe de sécurité de votre chauffe-eau ? Pas de panique",
-  "Aide pour lire son compteur d'eau",
-  "Pourquoi et comment retourner un pêne demi-tour ?",
-  "Différence entre robinet mélangeur, mitigeur simple et thermostatique ?",
-  "Au secours : Ma chasse d'eau ne fonctionne plus !",
-  "Lutter contre le « code erreur » sur ma chaudière",
-  "Qu'est-ce qui compose une serrure de porte ?",
-  "Comment savoir si mon mitigeur est toujours fonctionnel ?"
+// Liste des articles populaires basée sur le trafic (avec mots-clés pour une correspondance flexible)
+const POPULAR_POST_KEYWORDS = [
+  "types de tuyauterie",
+  "fuite du groupe de sécurité",
+  "compteur d'eau", 
+  "pêne demi-tour",
+  "robinet mélangeur",
+  "mitigeur simple",
+  "thermostatique",
+  "chasse d'eau ne fonctionne",
+  "code erreur",
+  "chaudière",
+  "serrure de porte",
+  "mitigeur fonctionnel"
 ];
 
 const isPopularPost = (title: string): boolean => {
-  return POPULAR_POST_TITLES.some(popularTitle => 
-    title.toLowerCase().includes(popularTitle.toLowerCase()) ||
-    popularTitle.toLowerCase().includes(title.toLowerCase())
+  const titleLower = title.toLowerCase();
+  return POPULAR_POST_KEYWORDS.some(keyword => 
+    titleLower.includes(keyword.toLowerCase())
   );
 };
 
