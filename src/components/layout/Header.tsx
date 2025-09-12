@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ContactForm } from "@/components/forms/ContactForm";
+import { useContactForm } from "@/hooks/useContactForm";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isOpen, openForm, closeForm } = useContactForm();
 
   const navigation = [
     { name: "Plombier", href: "/plombier-lille" },
@@ -48,7 +51,12 @@ const Header = () => {
             {/* CTA Buttons */}
             <div className="flex items-start gap-4 pt-4">
               <div className="hidden sm:block">
-                <Button variant="outline" size="sm" className="bg-black text-white border-black hover:bg-black/90 h-10">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="bg-black text-white border-black hover:bg-black/90 h-10"
+                  onClick={openForm}
+                >
                   Devis gratuit
                 </Button>
               </div>
@@ -94,6 +102,13 @@ const Header = () => {
           )}
         </div>
       </div>
+
+      <ContactForm 
+        isOpen={isOpen} 
+        onClose={closeForm}
+        title="Demander un devis gratuit"
+        description="Remplissez ce formulaire et nous vous recontacterons rapidement pour établir votre devis personnalisé et sans engagement."
+      />
     </header>
   );
 };

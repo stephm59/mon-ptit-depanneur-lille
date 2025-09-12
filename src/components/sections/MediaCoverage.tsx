@@ -1,10 +1,13 @@
 import { Tv, Star, Phone, Play, Pause } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useRef } from "react";
+import { ContactForm } from "@/components/forms/ContactForm";
+import { useContactForm } from "@/hooks/useContactForm";
 
 const MediaCoverage = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { isOpen, openForm, closeForm } = useContactForm();
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -96,6 +99,7 @@ const MediaCoverage = () => {
                 variant="outline" 
                 size="lg" 
                 className="bg-white text-primary border-white hover:bg-white/90 font-semibold px-8"
+                onClick={openForm}
               >
                 Recevoir un devis
               </Button>
@@ -112,6 +116,13 @@ const MediaCoverage = () => {
             </div>
           </div>
         </div>
+
+        <ContactForm 
+          isOpen={isOpen} 
+          onClose={closeForm}
+          title="Demander un devis gratuit"
+          description="Suite à votre demande de devis, nous vous recontacterons rapidement pour évaluer vos besoins et vous proposer une solution sur-mesure."
+        />
       </div>
     </section>
   );

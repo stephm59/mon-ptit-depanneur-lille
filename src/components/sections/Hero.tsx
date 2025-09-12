@@ -4,6 +4,8 @@ import { Card } from "@/components/ui/card";
 import heroBackground from "@/assets/hero-background.jpg";
 import { HERO_VIDEO_URL } from "@/config/media";
 import { useState, useRef } from "react";
+import { ContactForm } from "@/components/forms/ContactForm";
+import { useContactForm } from "@/hooks/useContactForm";
 
 interface HeroProps {
   title?: string;
@@ -13,6 +15,7 @@ interface HeroProps {
 const Hero = ({ title, subtitle }: HeroProps = {}) => {
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { isOpen, openForm, closeForm } = useContactForm();
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -97,10 +100,12 @@ const Hero = ({ title, subtitle }: HeroProps = {}) => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-elevated text-lg font-bold">
-              <a href="#devis">
-                Demander un devis
-              </a>
+            <Button 
+              size="lg" 
+              className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-elevated text-lg font-bold"
+              onClick={openForm}
+            >
+              Demander un devis
             </Button>
             <Button asChild variant="outline" size="lg" className="border-2 border-white text-white bg-black/20 hover:bg-white hover:text-primary transition-colors text-lg" aria-label="Appeler Mon p'tit Dépanneur">
               <a href="tel:0328534868" className="flex items-center gap-3">
@@ -144,6 +149,13 @@ const Hero = ({ title, subtitle }: HeroProps = {}) => {
           ))}
         </div>
       </div>
+
+      <ContactForm 
+        isOpen={isOpen} 
+        onClose={closeForm}
+        title="Demander un devis gratuit"
+        description="Remplissez ce formulaire et nous vous recontacterons rapidement pour établir votre devis personnalisé et sans engagement."
+      />
     </section>
   );
 };
