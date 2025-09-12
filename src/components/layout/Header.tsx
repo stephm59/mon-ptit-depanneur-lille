@@ -30,7 +30,7 @@ const Header = () => {
                 <img 
                   src="https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp" 
                   alt="Mon p'tit Dépanneur" 
-                  className="h-40 md:h-40 w-auto"
+                  className="h-24 md:h-40 w-auto"
                   loading="eager"
                   decoding="async"
                 />
@@ -64,7 +64,7 @@ const Header = () => {
               </div>
               <a 
                 href="tel:0328634868" 
-                className="inline-flex items-center gap-2 text-white bg-accent px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors shadow-lg h-10"
+                className="hidden md:inline-flex items-center gap-2 text-white bg-accent px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors shadow-lg h-10"
                 aria-label="Appeler Mon p'tit Dépanneur"
               >
                 <Phone className="w-5 h-5" />

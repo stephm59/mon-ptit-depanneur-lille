@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { CheckCircle, X, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const localReviews = [
   {
@@ -62,6 +63,7 @@ const localReviews = [
 ];
 
 export const LocalReviewsWidget = () => {
+  const isMobile = useIsMobile();
   const [currentReview, setCurrentReview] = useState(localReviews[0]);
   const [isVisible, setIsVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
@@ -130,7 +132,8 @@ export const LocalReviewsWidget = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
   };
 
-  if (!isVisible || isDisabled) return null;
+  // Don't show on mobile or if disabled/not visible
+  if (!isVisible || isDisabled || isMobile) return null;
 
   return (
     <div 

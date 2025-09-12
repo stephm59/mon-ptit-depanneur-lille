@@ -112,8 +112,8 @@ const Hero = ({ title, subtitle }: HeroProps = {}) => {
         </div>
       </div>
 
-      {/* Feature cards - overlapping at bottom */}
-      <div className="absolute left-1/2 -translate-x-1/2 bottom-[-60px] md:bottom-[-70px] w-full max-w-6xl px-4 z-20">
+      {/* Feature cards - overlapping at bottom - Hidden on mobile */}
+      <div className="hidden md:block absolute left-1/2 -translate-x-1/2 bottom-[-60px] md:bottom-[-70px] w-full max-w-6xl px-4 z-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
             <Card key={index} className="p-6 bg-card/95 backdrop-blur-sm border-none shadow-card hover:shadow-elevated transition-all duration-300 transform hover:scale-105">

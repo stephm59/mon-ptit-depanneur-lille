@@ -13,6 +13,7 @@ import ServiceAreas from "@/components/sections/ServiceAreas";
 import Testimonials from "@/components/sections/Testimonials";
 import { HomeServices } from "@/components/sections/HomeServices";
 import Footer from "@/components/layout/Footer";
+import { FixedCallButton } from "@/components/widgets/FixedCallButton";
 
 const Index = () => {
   return (
@@ -34,6 +35,7 @@ const Index = () => {
         <ServiceAreas />
       </main>
       <Footer />
+      <FixedCallButton />
     </div>
   );
 };
