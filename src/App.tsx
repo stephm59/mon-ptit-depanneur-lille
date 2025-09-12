@@ -13,6 +13,7 @@ import BlogCarnet from "./pages/BlogCarnet";
 import Contact from "./pages/Contact";
 import Entreprise from "./pages/Entreprise";
 import MentionsLegales from "./pages/MentionsLegales";
+import Avis from "./pages/Avis";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/entreprise" element={<Entreprise />} />
+            <Route path="/avis" element={<Avis />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/carnet" element={<BlogCarnet />} />
             <Route path="/carnet/:slug" element={<BlogPost />} />

@@ -153,6 +153,8 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><a href="/contact" className="text-gray-300 hover:text-white transition-colors">Nous écrire</a></li>
               <li><a href="/entreprise" className="text-gray-300 hover:text-white transition-colors">Notre société</a></li>
+              <li><a href="/carnet" className="text-gray-300 hover:text-white transition-colors">Nos bons conseils</a></li>
+              <li><a href="/avis" className="text-gray-300 hover:text-white transition-colors">Avis et Photos</a></li>
               <li><a href="/mentions-legales" className="text-gray-300 hover:text-white transition-colors">Mentions légales</a></li>
             </ul>
           </div>
