@@ -1,17 +1,7 @@
-import { Wrench, VolumeX, Volume2 } from "lucide-react";
-import { useState, useRef } from "react";
+import { Wrench } from "lucide-react";
 import { BUBBLE_VIDEO_URL } from "@/config/media";
 
 const About = () => {
-  const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-      setIsMuted(!isMuted);
-    }
-  };
 
   return (
     <section className="pt-32 pb-20 bg-background">
@@ -21,7 +11,6 @@ const About = () => {
           <div className="flex-shrink-0">
             <div className="relative">
               <video
-                ref={videoRef}
                 className="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-elevated"
                 src={BUBBLE_VIDEO_URL}
                 autoPlay
@@ -30,18 +19,6 @@ const About = () => {
                 playsInline
                 preload="metadata"
               />
-              {/* Audio control button */}
-              <button
-                onClick={toggleMute}
-                className="absolute bottom-2 right-2 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white transition-colors"
-                aria-label={isMuted ? "Activer le son" : "Couper le son"}
-              >
-                {isMuted ? (
-                  <VolumeX className="w-4 h-4 text-gray-700" />
-                ) : (
-                  <Volume2 className="w-4 h-4 text-gray-700" />
-                )}
-              </button>
             </div>
           </div>
 

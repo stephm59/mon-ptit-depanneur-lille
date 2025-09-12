@@ -1,9 +1,8 @@
-import { Star, Clock, Shield, Wrench, Phone, VolumeX, Volume2 } from "lucide-react";
+import { Star, Clock, Shield, Wrench, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import heroBackground from "@/assets/hero-background.jpg";
 import { HERO_VIDEO_URL } from "@/config/media";
-import { useState, useRef } from "react";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { useContactForm } from "@/hooks/useContactForm";
 
@@ -20,16 +19,7 @@ interface ServiceCityHeroProps {
 }
 
 export const ServiceCityHero = ({ page }: ServiceCityHeroProps) => {
-  const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const { isOpen, openForm, closeForm } = useContactForm();
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-      setIsMuted(!isMuted);
-    }
-  };
 
   const features = [
     {
@@ -64,7 +54,6 @@ export const ServiceCityHero = ({ page }: ServiceCityHeroProps) => {
         {/* Background video */}
         <div className="absolute inset-0">
           <video
-            ref={videoRef}
             className="w-full h-full object-cover"
             src={HERO_VIDEO_URL}
             autoPlay
@@ -75,18 +64,6 @@ export const ServiceCityHero = ({ page }: ServiceCityHeroProps) => {
             preload="metadata"
             aria-hidden="true"
           />
-          {/* Audio control button */}
-          <button
-            onClick={toggleMute}
-            className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white transition-colors z-10"
-            aria-label={isMuted ? "Activer le son" : "Couper le son"}
-          >
-            {isMuted ? (
-              <VolumeX className="w-4 h-4 text-gray-700" />
-            ) : (
-              <Volume2 className="w-4 h-4 text-gray-700" />
-            )}
-          </button>
         </div>
         {/* Overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/20" />
