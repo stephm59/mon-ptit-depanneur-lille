@@ -1,10 +1,39 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => {
-  // Function to generate URL from service name
+  // Function to generate URL from service name that matches UniversalRouter patterns
   const generateServiceUrl = (serviceName: string) => {
-    return "/" + serviceName
-      .toLowerCase()
+    // Extract service type and city from the service name
+    const lowerName = serviceName.toLowerCase();
+    
+    // Map service names to router patterns
+    const serviceMapping: { [key: string]: string } = {
+      'plombier': 'plombier',
+      'chauffagiste': 'chauffagiste', 
+      'vitrier': 'vitrier',
+      'serrurier': 'serrurier',
+      'pompe à chaleur': 'pompe-a-chaleur',
+      'climatisation': 'climatisation',
+      'rénovation salle de bains': 'renovation-salle-de-bains'
+    };
+    
+    // Find the service type
+    let serviceSlug = '';
+    let cityPart = '';
+    
+    for (const [serviceName, slug] of Object.entries(serviceMapping)) {
+      if (lowerName.startsWith(serviceName)) {
+        serviceSlug = slug;
+        cityPart = lowerName.substring(serviceName.length).trim();
+        break;
+      }
+    }
+    
+    if (!serviceSlug) return '#'; // Fallback for unrecognized services
+    
+    // Clean up city name for URL
+    const citySlug = cityPart
+      .replace(/^(à|de|d'|du|des|le|la|les)\s+/g, '') // Remove articles
       .replace(/à /g, "a-")
       .replace(/é/g, "e")
       .replace(/è/g, "e")
@@ -12,7 +41,10 @@ const Footer = () => {
       .replace(/œ/g, "oe")
       .replace(/'/g, "-")
       .replace(/ /g, "-")
-      .replace(/--+/g, "-");
+      .replace(/--+/g, "-")
+      .replace(/^-+|-+$/g, ''); // Remove leading/trailing dashes
+    
+    return `/${serviceSlug}-${citySlug}`;
   };
 
   const services = {
@@ -65,12 +97,10 @@ const Footer = () => {
       "Rénovation salle de bains Vieux-Lille",
       "Rénovation salle de bains Villeneuve-d'Ascq",
       "Rénovation salle de bains Marcq-en-Barœul",
-      "Rénovation salle de bains Lomme",
       "Rénovation salle de bains Bondues",
       "Rénovation salle de bains La Madeleine", 
       "Rénovation salle de bains Lambersart",
-      "Rénovation salle de bains Saint-André-lez-Lille",
-      "Rénovation salle de bains Lomme"
+      "Rénovation salle de bains Saint-André-lez-Lille"
     ],
     serrurerie: [
       "Serrurier Lille",

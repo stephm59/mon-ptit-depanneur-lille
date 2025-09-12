@@ -9,8 +9,11 @@ const UniversalRouter = () => {
   
   // Parse the slug to determine if it's a service-city combination
   const parseSlug = (fullSlug: string) => {
-    // Common service patterns
-    const servicePatterns = ['plombier', 'chauffagiste', 'electricien', 'vitrier', 'serrurier'];
+    // All service patterns supported by the footer
+    const servicePatterns = [
+      'plombier', 'chauffagiste', 'electricien', 'vitrier', 'serrurier',
+      'pompe-a-chaleur', 'climatisation', 'renovation-salle-de-bains'
+    ];
     
     for (const service of servicePatterns) {
       if (fullSlug.startsWith(`${service}-`)) {

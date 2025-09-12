@@ -8,6 +8,9 @@ import Index from "./pages/Index";
 import UniversalRouter from "./pages/UniversalRouter";
 import BlogPost from "./pages/BlogPost";
 import BlogCarnet from "./pages/BlogCarnet";
+import Contact from "./pages/Contact";
+import NotreSociete from "./pages/NotreSociete";
+import MentionsLegales from "./pages/MentionsLegales";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +24,9 @@ const App = () => (
         <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/notre-societe" element={<NotreSociete />} />
+          <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/carnet" element={<BlogCarnet />} />
           <Route path="/carnet/:slug" element={<BlogPost />} />
             {/* Redirections des anciennes URLs vers les nouvelles */}
