@@ -17,6 +17,7 @@ import { BlogCard } from "@/components/blog/BlogCard";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { BlogPostFaqs } from "@/components/sections/BlogPostFaqs";
+import { FixedCallButton } from "@/components/widgets/FixedCallButton";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -988,6 +989,7 @@ const BlogPost = () => {
       )}
       
       <Footer />
+      <FixedCallButton />
     </>
   );
 };

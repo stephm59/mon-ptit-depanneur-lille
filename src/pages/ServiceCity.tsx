@@ -21,6 +21,7 @@ import { useServiceCityPage, useServiceCityOffers, useServiceCityFaqs, useServic
 import { useServices } from "@/hooks/useServices";
 import { Loading } from "@/components/ui/loading";
 import { generateServiceCityJsonLd } from "@/utils/jsonld";
+import { FixedCallButton } from "@/components/widgets/FixedCallButton";
 
 export default function ServiceCity() {
   const { slug } = useParams<{
@@ -208,6 +209,7 @@ export default function ServiceCity() {
         </main>
 
         <Footer />
+        <FixedCallButton />
       </div>
     </>
   );

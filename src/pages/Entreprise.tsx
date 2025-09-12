@@ -5,6 +5,7 @@ import Hero from "@/components/sections/Hero";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin, Users, Award, Clock, Shield, Check, Star, Quote } from "lucide-react";
+import { FixedCallButton } from "@/components/widgets/FixedCallButton";
 
 const Entreprise = () => {
   const services = [
@@ -404,6 +405,7 @@ const Entreprise = () => {
       </main>
       
       <Footer />
+      <FixedCallButton />
     </>
   );
 };

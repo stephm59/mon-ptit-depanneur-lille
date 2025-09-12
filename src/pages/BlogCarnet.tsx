@@ -6,6 +6,7 @@ import { BlogCarnetHero } from "@/components/blog/BlogCarnetHero";
 import { BlogSearchAndFilters } from "@/components/blog/BlogSearchAndFilters";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 import { useFilteredBlogPosts } from "@/hooks/useBlog";
+import { FixedCallButton } from "@/components/widgets/FixedCallButton";
 
 const BlogCarnet = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -42,6 +43,7 @@ const BlogCarnet = () => {
         </main>
         
         <Footer />
+        <FixedCallButton />
       </div>
     </>
   );

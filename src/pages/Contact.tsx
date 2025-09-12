@@ -19,6 +19,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { FixedCallButton } from "@/components/widgets/FixedCallButton";
 
 const contactFormSchema = z.object({
   firstName: z.string().min(2, "Le prénom doit contenir au moins 2 caractères"),
@@ -340,6 +341,7 @@ const Contact = () => {
       </main>
       
       <Footer />
+      <FixedCallButton />
     </>
   );
 };

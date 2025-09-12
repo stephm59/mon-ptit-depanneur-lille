@@ -95,28 +95,28 @@ export const ServiceCityHero = ({ page }: ServiceCityHeroProps) => {
               </Button>
             </div>
 
-            {/* Rating */}
-            <div className="flex items-center justify-center gap-2 mb-16">
-              <div className="flex items-center">
-                {[...Array(4)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-rating text-rating" />
-                ))}
-                <div className="relative w-5 h-5">
-                  <Star className="absolute inset-0 w-5 h-5 text-white/40" />
-                  <div className="overflow-hidden w-1/2 h-full">
-                    <Star className="w-5 h-5 fill-rating text-rating" />
-                  </div>
+          {/* Rating - Stacked on mobile */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-2 mb-16">
+            <div className="flex items-center justify-center">
+              {[...Array(4)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 fill-rating text-rating" />
+              ))}
+              <div className="relative w-5 h-5">
+                <Star className="absolute inset-0 w-5 h-5 text-white/40" />
+                <div className="overflow-hidden w-1/2 h-full">
+                  <Star className="w-5 h-5 fill-rating text-rating" />
                 </div>
               </div>
-              <span className="text-white/90 ml-2">
-                4,5/5 sur plus de 600 avis clients
-              </span>
             </div>
+            <span className="text-white/90 md:ml-2 text-center">
+              4,5/5 sur plus de 600 avis clients
+            </span>
+          </div>
           </div>
         </div>
 
-        {/* Feature cards - overlapping at bottom */}
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-[-60px] md:bottom-[-70px] w-full max-w-6xl px-4 z-20">
+        {/* Feature cards - overlapping at bottom, hidden on mobile */}
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-[-60px] md:bottom-[-70px] w-full max-w-6xl px-4 z-20 hidden md:block">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <Card key={index} className="p-6 bg-card/95 backdrop-blur-sm border-none shadow-card hover:shadow-elevated transition-all duration-300 transform hover:scale-105">
