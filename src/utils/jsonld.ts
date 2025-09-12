@@ -58,6 +58,7 @@ export const generateServiceCityJsonLd = (
   // Generate offers as Service items
   const servicesList = offers.map((offer, index) => ({
     "@type": "Service",
+    "@id": `${pageUrl}#service-${index}`,
     "name": offer.title,
     "description": offer.description,
     "provider": {
@@ -93,6 +94,7 @@ export const generateServiceCityJsonLd = (
   // Generate reviews from testimonials
   const reviews = testimonials.slice(0, 5).map((testimonial, index) => ({
     "@type": "Review",
+    "@id": `${pageUrl}#review-${index}`,
     "reviewRating": {
       "@type": "Rating",
       "ratingValue": testimonial.rating,
@@ -147,7 +149,7 @@ export const generateServiceCityJsonLd = (
   // Generate FAQ from data
   const faqPage = faqs.length > 0 ? {
     "@type": "FAQPage",
-    "@id": pageUrl,
+    "@id": `${pageUrl}#faq`,
     "mainEntity": faqs.map(faq => ({
       "@type": "Question",
       "name": faq.question,
