@@ -35,7 +35,7 @@ export const ServiceCityTestimonials = ({ serviceId, cityId }: ServiceCityTestim
   const currentSlide = Math.floor(currentIndex / testimonialsPerView);
 
   return (
-    <section className="py-20 bg-background">
+    <section id="testimonials" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -77,8 +77,8 @@ export const ServiceCityTestimonials = ({ serviceId, cityId }: ServiceCityTestim
 
           {/* Testimonials Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {visibleTestimonials.map((testimonial) => (
-              <Card key={testimonial.id} className="p-8 bg-card border-border hover:shadow-lg transition-shadow">
+            {visibleTestimonials.map((testimonial, index) => (
+              <Card key={testimonial.id} id={`review-${currentIndex + index}`} className="p-8 bg-card border-border hover:shadow-lg transition-shadow">
                 {/* Stars */}
                  <div className="flex gap-1 mb-6">
                    {Array.from({ length: 5 }, (_, i) => (
