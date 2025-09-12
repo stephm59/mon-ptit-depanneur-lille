@@ -71,6 +71,56 @@ const App = () => (
               <Route path="/deboucher-evier-bouche" element={<Navigate to="/carnet/deboucher-evier-bouche" replace />} />
               <Route path="/fuite-chez-moi" element={<Navigate to="/carnet/detecter-fuite-eau-maison" replace />} />
               <Route path="/lecture-compteur-eau" element={<Navigate to="/carnet/lecture-compteur-eau" replace />} />
+              
+              {/* Redirections des anciennes pages générales */}
+              <Route path="/accueil/" element={<Navigate to="/" replace />} />
+              <Route path="/services/" element={<Navigate to="/" replace />} />
+              <Route path="/nous-contacter/" element={<Navigate to="/contact" replace />} />
+              <Route path="/plan-dacces/" element={<Navigate to="/contact" replace />} />
+              <Route path="/contact/" element={<Navigate to="/contact" replace />} />
+              <Route path="/blog-2/" element={<Navigate to="/carnet" replace />} />
+              <Route path="/gallery/" element={<Navigate to="/avis" replace />} />
+              <Route path="/mentions-legales/" element={<Navigate to="/mentions-legales" replace />} />
+              
+              {/* Redirections services techniques spécifiques vers services généraux */}
+              <Route path="/installation-serrure-lille/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/ouverture-porte-lille/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/blindage-porte-lille/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/changement-barillet-lille/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/detartrage-chaudiere-lille/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/depannage-chaudiere-lille/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/installation-chaudiere-lille/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/remplacement-chaudiere-lille/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/entretien-chaudiere-lille/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/reparation-chaudiere-lille/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/recherche-fuite-eau-lille/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/debouchage-canalisation-lille/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/degorgement-canalisation-lille/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/salle-bains-lille/" element={<Navigate to="/renovation-salle-de-bains-lille" replace />} />
+              <Route path="/installation-robinet-thermostatique-lille/" element={<Navigate to="/plombier-lille" replace />} />
+              
+              {/* Redirections marques vers services généraux */}
+              <Route path="/serrurier-bricard-lille/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-iseo-lille/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-city-lille/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-vachette-lille/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/plombier-atlantic-lille/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-grohe-lille/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-jacob-delafon-lille-2/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-porcher-lille/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-delabie-lille/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-geberit-lille-2/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/chauffagiste-chappee-lille/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-saunier-duval-lille/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-vaillant-lille/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-viessman-lille/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-frisquet-lille/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              
+              {/* Correction faute de frappe et pages obsolètes */}
+              <Route path="/pompe-achaleur-lompret/" element={<Navigate to="/pompe-a-chaleur-lompret" replace />} />
+              <Route path="/page-d-exemple/" element={<Navigate to="/" replace />} />
+              <Route path="/serious-lead-lead-generation-for-school-education-companies/" element={<Navigate to="/" replace />} />
+              
               <Route path="/:slug" element={<UniversalRouter />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
