@@ -43,21 +43,21 @@ export const BlogCard = ({ post }: BlogCardProps) => {
             />
             
             {/* Badges en overlay sur l'image */}
-            <div className="absolute top-3 left-3 flex flex-col gap-1">
-              {post.isPopular && (
-                <Badge 
-                  variant="default"
-                  className="bg-red-500 hover:bg-red-600 text-white text-xs font-medium shadow-lg"
-                >
-                  Populaire
-                </Badge>
-              )}
+            <div className="absolute top-3 left-3 flex gap-1">
               {post.services && (
                 <Badge 
                   variant="secondary"
                   className={`${getCategoryColor(post.services.name)} text-xs font-medium shadow-lg`}
                 >
                   {post.services.name}
+                </Badge>
+              )}
+              {post.isPopular && (
+                <Badge 
+                  variant="default"
+                  className="bg-red-500 hover:bg-red-600 text-white text-xs font-medium shadow-lg"
+                >
+                  Populaire
                 </Badge>
               )}
             </div>
