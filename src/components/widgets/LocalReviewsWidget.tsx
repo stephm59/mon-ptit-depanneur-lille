@@ -72,8 +72,12 @@ export const LocalReviewsWidget = () => {
 
     let showTimeout: NodeJS.Timeout;
     let hideTimeout: NodeJS.Timeout;
+    let interval: NodeJS.Timeout;
 
     const showNextReview = () => {
+      // Ne pas afficher si une notification est déjà visible
+      if (isVisible) return;
+      
       // Sélectionner un avis aléatoire
       const randomReview = localReviews[Math.floor(Math.random() * localReviews.length)];
       setCurrentReview(randomReview);
@@ -88,12 +92,14 @@ export const LocalReviewsWidget = () => {
 
     // Première apparition après 3 secondes
     showTimeout = setTimeout(() => {
-      showNextReview();
+      if (!isVisible) {
+        showNextReview();
+      }
     }, 3000);
 
     // Puis un nouvel avis toutes les 8 secondes (3s d'affichage + 5s d'attente)
-    const interval = setInterval(() => {
-      if (!isVisible && !isDisabled) {
+    interval = setInterval(() => {
+      if (!isVisible && !isDisabled && !isClosing) {
         showNextReview();
       }
     }, 8000);
@@ -103,7 +109,7 @@ export const LocalReviewsWidget = () => {
       clearTimeout(hideTimeout);
       clearInterval(interval);
     };
-  }, [isVisible, isDisabled]);
+  }, [isVisible, isDisabled, isClosing]);
 
   const handleAutoClose = () => {
     setIsClosing(true);
