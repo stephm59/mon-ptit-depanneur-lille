@@ -639,7 +639,7 @@ const BlogPost = () => {
       </section>
 
       {/* Service Category Box */}
-      <section className="py-8 bg-background" style={{ marginTop: '80px' }}>
+      <section className="py-8 bg-background mt-20">
         <div className="container mx-auto px-6">
           <Card className="p-6 border-l-4 border-l-primary bg-secondary/20">
             <p className="text-lg text-center">
