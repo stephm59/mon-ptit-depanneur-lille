@@ -87,8 +87,8 @@ const Entreprise = () => {
             "url": "https://monptitdepanneur.fr/",
             "description": "Artisans à Lille depuis 20 ans : chauffage (installation, entretien, dépannage), plomberie (fuites, cumulus), serrurerie (ouverture, barillet), vitrerie (remplacement). 12 experts, agréés par de nombreuses assurances.",
             "slogan": "Une équipe d'artisans à votre service",
-            "logo": "https://res.cloudinary.com/dit7nfyiy/image/upload/logo-mon-ptit-depanneur.webp",
-            "image": "https://res.cloudinary.com/dit7nfyiy/image/upload/logo-mon-ptit-depanneur.webp",
+            "logo": "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp",
+            "image": "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp",
             "telephone": "+33-3-28-53-48-68",
             "priceRange": "€€",
             "founder": {

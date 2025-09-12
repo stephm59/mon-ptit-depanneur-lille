@@ -35,11 +35,11 @@ const LILLE_METRO_CITIES = [
 // Service-specific images
 const getServiceImage = (serviceSlug: string): string => {
   const images = {
-    'pompe-a-chaleur': 'https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/pompe-chaleur-installation_service.webp',
-    'chauffagiste': 'https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/chauffage-maintenance_service.webp',
-    'plombier': 'https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/plomberie-depannage_service.webp'
+    'pompe-a-chaleur': 'https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp',
+    'chauffagiste': 'https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp',
+    'plombier': 'https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp'
   };
-  return images[serviceSlug as keyof typeof images] || 'https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/logo-mon-ptit-depanneur-contour-blanc_la7i2t.webp';
+  return images[serviceSlug as keyof typeof images] || 'https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp';
 };
 
 export const generateServiceCityJsonLd = (
@@ -238,7 +238,7 @@ export const generateServiceCityJsonLd = (
         "url": baseUrl,
         "logo": {
           "@type": "ImageObject",
-          "url": "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/logo-mon-ptit-depanneur-contour-blanc_la7i2t.webp"
+          "url": "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp"
         }
       },
       {
@@ -283,7 +283,7 @@ export const generateHomeJsonLd = (baseUrl: string = "https://www.monptitdepanne
         "url": baseUrl,
         "logo": {
           "@type": "ImageObject",
-          "url": "https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/logo-mon-ptit-depanneur-contour-blanc_la7i2t.webp"
+          "url": "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp"
         }
       },
       {
