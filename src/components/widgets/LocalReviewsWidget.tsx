@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { CheckCircle, X, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -66,50 +66,48 @@ export const LocalReviewsWidget = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
+  
+  const showTimeoutRef = useRef<NodeJS.Timeout>();
+  const intervalRef = useRef<NodeJS.Timeout>();
 
+  // Effect pour gérer l'affichage des notifications
   useEffect(() => {
     if (isDisabled) return;
 
-    let showTimeout: NodeJS.Timeout;
-    let hideTimeout: NodeJS.Timeout;
-    let interval: NodeJS.Timeout;
-
     const showNextReview = () => {
-      // Ne pas afficher si une notification est déjà visible
-      if (isVisible) return;
-      
       // Sélectionner un avis aléatoire
       const randomReview = localReviews[Math.floor(Math.random() * localReviews.length)];
       setCurrentReview(randomReview);
       setIsVisible(true);
       setIsClosing(false);
-
-      // Masquer après 3 secondes
-      hideTimeout = setTimeout(() => {
-        handleAutoClose();
-      }, 3000);
     };
 
     // Première apparition après 3 secondes
-    showTimeout = setTimeout(() => {
-      if (!isVisible) {
-        showNextReview();
-      }
+    showTimeoutRef.current = setTimeout(() => {
+      showNextReview();
     }, 3000);
 
     // Puis un nouvel avis toutes les 8 secondes (3s d'affichage + 5s d'attente)
-    interval = setInterval(() => {
-      if (!isVisible && !isDisabled && !isClosing) {
-        showNextReview();
-      }
+    intervalRef.current = setInterval(() => {
+      showNextReview();
     }, 8000);
 
     return () => {
-      clearTimeout(showTimeout);
-      clearTimeout(hideTimeout);
-      clearInterval(interval);
+      if (showTimeoutRef.current) clearTimeout(showTimeoutRef.current);
+      if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [isVisible, isDisabled, isClosing]);
+  }, [isDisabled]);
+
+  // Effect séparé pour la fermeture automatique après 3 secondes
+  useEffect(() => {
+    if (isVisible && !isDisabled) {
+      const autoCloseTimeout = setTimeout(() => {
+        handleAutoClose();
+      }, 3000);
+
+      return () => clearTimeout(autoCloseTimeout);
+    }
+  }, [isVisible, isDisabled]);
 
   const handleAutoClose = () => {
     setIsClosing(true);
@@ -126,6 +124,10 @@ export const LocalReviewsWidget = () => {
       setIsVisible(false);
       setIsClosing(false);
     }, 300);
+    
+    // Nettoyer les timeouts en cours
+    if (showTimeoutRef.current) clearTimeout(showTimeoutRef.current);
+    if (intervalRef.current) clearInterval(intervalRef.current);
   };
 
   if (!isVisible || isDisabled) return null;
