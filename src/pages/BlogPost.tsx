@@ -896,20 +896,14 @@ const BlogPost = () => {
       <article className="py-16 bg-background">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-             {/* Conditional rendering based on content type */}
-             {(post.content || "").includes('<') ? (
-               <div 
-                 className="blog-content"
-                 dangerouslySetInnerHTML={{ __html: post.content || "" }}
-               />
-             ) : (
-                <div className="prose prose-lg prose-headings:text-foreground prose-p:text-foreground prose-strong:text-foreground prose-li:text-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-img:rounded-lg prose-img:shadow-md max-w-none">
-                  <ReactMarkdown 
-                    remarkPlugins={[remarkGfm]}
-                    components={{
-                      h2: ({ children }) => <h2 className="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-6 border-b border-border pb-3">{children}</h2>,
-                      h3: ({ children }) => <h3 className="text-xl md:text-2xl font-semibold text-foreground mt-8 mb-4">{children}</h3>,
-                      p: ({ children }) => <p className="text-foreground leading-relaxed mb-6 text-lg whitespace-pre-line">{children}</p>,
+             {/* Always use ReactMarkdown for proper Markdown parsing with HTML support */}
+             <div className="prose prose-lg prose-headings:text-foreground prose-p:text-foreground prose-strong:text-foreground prose-li:text-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-img:rounded-lg prose-img:shadow-md max-w-none blog-content">
+               <ReactMarkdown 
+                 remarkPlugins={[remarkGfm]}
+                 components={{
+                   h2: ({ children }) => <h2 className="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-6 border-b border-border pb-3">{children}</h2>,
+                   h3: ({ children }) => <h3 className="text-xl md:text-2xl font-semibold text-foreground mt-8 mb-4">{children}</h3>,
+                   p: ({ children }) => <p className="text-foreground leading-relaxed mb-6 text-lg whitespace-pre-line">{children}</p>,
                       ul: ({ children }) => <ul className="text-foreground space-y-2 mb-6 ml-6">{children}</ul>,
                       ol: ({ children }) => <ol className="text-foreground space-y-2 mb-6 ml-6">{children}</ol>,
                       li: ({ children }) => <li className="leading-relaxed">{children}</li>,
@@ -952,17 +946,10 @@ const BlogPost = () => {
                  >
                    {post.content || ""}
                  </ReactMarkdown>
-               </div>
-             )}
-          </div>
-        </div>
-      </article>
-
-      {/* FAQ Section */}
-      <BlogPostFaqs serviceId={post.service_id} blogPostId={post.id} />
-
-      {/* CTA Block */}
-      <CtaBlock />
+                </div>
+           </div>
+         </div>
+       </article>
 
       {/* Services Grid - Plumbing focused */}
       <HomeServices />
