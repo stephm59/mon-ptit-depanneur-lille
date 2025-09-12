@@ -16,7 +16,7 @@ export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-8 items-start max-w-6xl mx-auto">
           {/* Video Section */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 flex justify-center lg:justify-start">
             <div className="relative">
               <video
                 className="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-elevated"
