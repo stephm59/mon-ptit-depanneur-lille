@@ -14,8 +14,24 @@ import Testimonials from "@/components/sections/Testimonials";
 import { HomeServices } from "@/components/sections/HomeServices";
 import Footer from "@/components/layout/Footer";
 import { FixedCallButton } from "@/components/widgets/FixedCallButton";
+import { LegalModal } from "@/components/modals/LegalModal";
+import { useLegalModal } from "@/hooks/useLegalModal";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Index = () => {
+  const { isOpen, openModal, closeModal } = useLegalModal();
+  const location = useLocation();
+
+  // Ouvrir la modal si le paramètre ?legal=true est présent
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get('legal') === 'true') {
+      openModal();
+      // Nettoyer l'URL après ouverture de la modal
+      window.history.replaceState({}, '', '/');
+    }
+  }, [location, openModal]);
   return (
     <div className="min-h-screen">
       <Header />
@@ -36,6 +52,8 @@ const Index = () => {
       </main>
       <Footer />
       <FixedCallButton />
+      
+      <LegalModal isOpen={isOpen} onClose={closeModal} />
     </div>
   );
 };
