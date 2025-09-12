@@ -92,9 +92,9 @@ const Hero = ({ title, subtitle }: HeroProps = {}) => {
             </Button>
           </div>
 
-          {/* Rating */}
-          <div className="flex items-center justify-center gap-2 mb-16">
-            <div className="flex items-center">
+          {/* Rating - Stacked on mobile */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-2 mb-16">
+            <div className="flex items-center justify-center">
               {[...Array(4)].map((_, i) => (
                 <Star key={i} className="w-5 h-5 fill-rating text-rating" />
               ))}
@@ -105,7 +105,7 @@ const Hero = ({ title, subtitle }: HeroProps = {}) => {
                 </div>
               </div>
             </div>
-            <span className="text-white/90 ml-2">
+            <span className="text-white/90 md:ml-2 text-center">
               4,5/5 sur plus de 600 avis clients
             </span>
           </div>
