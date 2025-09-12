@@ -5,7 +5,12 @@ import heroBackground from "@/assets/hero-background.jpg";
 import { HERO_VIDEO_URL } from "@/config/media";
 import { useState, useRef } from "react";
 
-const Hero = () => {
+interface HeroProps {
+  title?: string;
+  subtitle?: string;
+}
+
+const Hero = ({ title, subtitle }: HeroProps = {}) => {
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -78,12 +83,16 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Main headline */}
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white">
-            Mon p'tit dépanneur, votre artisan de confiance 
-            <span className="block text-rating">depuis plus de 20 ans</span>
+            {title || (
+              <>
+                Mon p'tit dépanneur, votre artisan de confiance 
+                <span className="block text-rating">depuis plus de 20 ans</span>
+              </>
+            )}
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 text-white/90">
-            à Lille & ses alentours
+            {subtitle || "à Lille & ses alentours"}
           </p>
 
           {/* CTA Buttons */}

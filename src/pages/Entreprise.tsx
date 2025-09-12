@@ -83,22 +83,15 @@ const Entreprise = () => {
       <Header />
       
       {/* Hero section with reassurance cards */}
-      <Hero />
+      <Hero 
+        title="Mon p'tit Dépanneur : une équipe d'artisans à votre service depuis 20 ans"
+        subtitle="à Lille & ses alentours"
+      />
       
       <main className="bg-gray-50 pt-28">
-        {/* Main title */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-8 text-primary">
-                Mon p'tit Dépanneur : une équipe d'artisans à votre service depuis 20 ans
-              </h1>
-            </div>
-          </div>
-        </section>
-
         {/* Company story */}
-        <section className="py-16">
+
+        <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <p className="text-lg text-gray-700 leading-relaxed mb-8">
