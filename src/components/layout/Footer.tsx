@@ -72,17 +72,6 @@ const Footer = () => {
       "Rénovation salle de bains Saint-André-lez-Lille",
       "Rénovation salle de bains Lomme"
     ],
-    electricite: [
-      "Électricien Lille",
-      "Électricien Vieux-Lille",
-      "Électricien Villeneuve-d'Ascq",
-      "Électricien Marcq-en-Barœul",
-      "Électricien Bondues",
-      "Électricien La Madeleine",
-      "Électricien Lambersart", 
-      "Électricien Saint-André-lez-Lille",
-      "Électricien Lomme"
-    ],
     serrurerie: [
       "Serrurier Lille",
       "Serrurier Vieux-Lille",
@@ -222,27 +211,13 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Deuxième ligne : Salle de bains, Électricité, Serrurier, Vitre */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Deuxième ligne : Salle de bains, Serrurier, Vitre */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Salle de bains */}
             <div>
               <h4 className="text-lg font-bold text-white mb-4">Salle de bains</h4>
               <ul className="space-y-2">
                 {services.salleDeBains.map((service, index) => (
-                  <li key={index}>
-                    <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
-                      {service}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Électricité */}
-            <div>
-              <h4 className="text-lg font-bold text-white mb-4">Électricité</h4>
-              <ul className="space-y-2">
-                {services.electricite.map((service, index) => (
                   <li key={index}>
                     <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
                       {service}
