@@ -26,7 +26,7 @@ const Header = () => {
               <img 
                 src="https://res.cloudinary.com/dit7nfyiy/image/upload/v1755088306/logo-mon-ptit-depanneur-contour-blanc_la7i2t.webp" 
                 alt="Mon p'tit Dépanneur" 
-                className="h-20 md:h-20 w-auto"
+                className="h-40 md:h-40 w-auto"
                 loading="eager"
                 decoding="async"
               />
