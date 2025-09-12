@@ -41,13 +41,13 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-start space-x-6 pt-4">
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="text-white/90 hover:text-white transition-colors duration-200 font-medium relative pb-1 hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:right-0 hover:after:h-1 hover:after:bg-red-600 hover:after:rounded-full"
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </nav>
 
@@ -64,12 +64,12 @@ const Header = () => {
                 </Button>
               </div>
               <a 
-                href="tel:0328634868" 
+                href="tel:0328534868" 
                 className="hidden md:inline-flex items-center gap-2 text-white bg-accent px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors shadow-lg h-10"
                 aria-label="Appeler Mon p'tit Dépanneur"
               >
                 <Phone className="w-5 h-5" />
-                03 28 63 48 68
+                03 28 53 48 68
               </a>
 
               {/* Mobile menu button */}
@@ -91,14 +91,14 @@ const Header = () => {
             <nav className="lg:hidden mt-4 pb-4 border-t border-white/20 pt-4 bg-black/60 backdrop-blur-md rounded-lg">
               <div className="flex flex-col space-y-3 px-4">
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     className="text-white/90 hover:text-white transition-colors duration-200 font-medium py-2 relative hover:after:content-[''] hover:after:absolute hover:after:bottom-1 hover:after:left-0 hover:after:right-0 hover:after:h-1 hover:after:bg-red-600 hover:after:rounded-full"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </nav>
