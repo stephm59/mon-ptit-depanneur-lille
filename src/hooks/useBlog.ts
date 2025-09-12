@@ -37,7 +37,7 @@ export const useBlogPost = (slug: string) => {
   });
 };
 
-export const useRelatedBlogPosts = (serviceId?: string | null, currentSlug?: string, limit = 3) => {
+export const useRelatedBlogPosts = (serviceId?: string | null, currentSlug?: string, limit = 6) => {
   return useQuery({
     queryKey: ["relatedBlogPosts", serviceId, currentSlug, limit],
     queryFn: async () => {
@@ -47,12 +47,14 @@ export const useRelatedBlogPosts = (serviceId?: string | null, currentSlug?: str
       if (serviceId) {
         const { data: sameCategoryPosts, error: categoryError } = await supabase
           .from("blog_posts")
-          .select("*")
+          .select(`
+            *,
+            services(id, name, slug)
+          `)
           .eq("published", true)
           .eq("service_id", serviceId)
           .neq("slug", currentSlug || "")
-          .order("created_at", { ascending: false })
-          .limit(limit);
+          .order("created_at", { ascending: false });
 
         if (categoryError) throw categoryError;
         relatedPosts = sameCategoryPosts || [];
@@ -63,7 +65,10 @@ export const useRelatedBlogPosts = (serviceId?: string | null, currentSlug?: str
         const remainingLimit = limit - relatedPosts.length;
         let query = supabase
           .from("blog_posts")
-          .select("*")
+          .select(`
+            *,
+            services(id, name, slug)
+          `)
           .eq("published", true)
           .neq("slug", currentSlug || "");
 
@@ -73,12 +78,23 @@ export const useRelatedBlogPosts = (serviceId?: string | null, currentSlug?: str
         }
 
         const { data: otherPosts, error: otherError } = await query
-          .order("created_at", { ascending: false })
-          .limit(remainingLimit);
+          .order("created_at", { ascending: false });
 
         if (otherError) throw otherError;
         relatedPosts = [...relatedPosts, ...(otherPosts || [])];
       }
+
+      // Ajouter la propriété isPopular et trier pour mettre les populaires en premier
+      relatedPosts = relatedPosts.map(post => ({
+        ...post,
+        isPopular: isPopularPost(post.title)
+      })).sort((a, b) => {
+        // Les articles populaires d'abord
+        if (a.isPopular && !b.isPopular) return -1;
+        if (!a.isPopular && b.isPopular) return 1;
+        // Ensuite par date de création (plus récent d'abord)
+        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+      });
 
       return relatedPosts.slice(0, limit);
     },

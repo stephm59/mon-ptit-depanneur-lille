@@ -13,6 +13,7 @@ import { HomeServices } from "@/components/sections/HomeServices";
 import MediaCoverage from "@/components/sections/MediaCoverage";
 import Testimonials from "@/components/sections/Testimonials";
 import { Link } from "react-router-dom";
+import { BlogCard } from "@/components/blog/BlogCard";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { BlogPostFaqs } from "@/components/sections/BlogPostFaqs";
@@ -20,7 +21,7 @@ import { BlogPostFaqs } from "@/components/sections/BlogPostFaqs";
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const { data: post, isLoading, error } = useBlogPost(slug || "");
-  const { data: relatedPosts } = useRelatedBlogPosts(post?.service_id, slug, 3);
+  const { data: relatedPosts } = useRelatedBlogPosts(post?.service_id, slug, 6);
 
   const features = [
     {
@@ -979,47 +980,7 @@ const BlogPost = () => {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {relatedPosts.map((relatedPost) => (
-                <Card key={relatedPost.id} className="overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:scale-105 bg-white border border-gray-200">
-                  {relatedPost.cover_image_url && (
-                    <div className="relative aspect-[4/3] overflow-hidden">
-                      <img 
-                        src={relatedPost.cover_image_url}
-                        alt={relatedPost.title}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                       <div className="absolute top-4 left-4">
-                         <span className="px-3 py-1 rounded-full text-sm font-medium bg-cyan-100 text-cyan-700">
-                           {post.services?.name || 'Conseil'}
-                         </span>
-                       </div>
-                    </div>
-                  )}
-                   <div className="p-6">
-                     <Link 
-                       to={`/carnet/${relatedPost.slug}`}
-                       className="block mb-3 hover:text-primary transition-colors"
-                     >
-                       <h3 className="text-xl font-bold text-foreground line-clamp-2">
-                         {relatedPost.title}
-                       </h3>
-                     </Link>
-                     {relatedPost.excerpt && (
-                       <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
-                         {relatedPost.excerpt}
-                       </p>
-                     )}
-                     
-                     <Link 
-                       to={`/carnet/${relatedPost.slug}`}
-                       className="flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
-                       rel="nofollow"
-                     >
-                       <span>Lire le conseil</span>
-                       <ArrowRight className="w-4 h-4" />
-                     </Link>
-                   </div>
-                </Card>
+                <BlogCard key={relatedPost.id} post={relatedPost} />
               ))}
             </div>
           </div>
