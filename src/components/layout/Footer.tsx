@@ -1,6 +1,9 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import { useLegalModal } from "@/hooks/useLegalModal";
+import { LegalModal } from "@/components/modals/LegalModal";
 
 const Footer = () => {
+  const { isOpen, openModal, closeModal } = useLegalModal();
   // Function to generate URL from service name that matches UniversalRouter patterns
   const generateServiceUrl = (serviceName: string) => {
     // Extract service type and city from the service name
@@ -155,7 +158,7 @@ const Footer = () => {
               <li><a href="/entreprise" className="text-gray-300 hover:text-white transition-colors">Notre société</a></li>
               <li><a href="/carnet" className="text-gray-300 hover:text-white transition-colors">Nos bons conseils</a></li>
               <li><a href="/avis" className="text-gray-300 hover:text-white transition-colors">Avis et Photos</a></li>
-              <li><a href="/mentions-legales" className="text-gray-300 hover:text-white transition-colors">Mentions légales</a></li>
+              <li><button onClick={openModal} className="text-gray-300 hover:text-white transition-colors text-left">Mentions légales</button></li>
             </ul>
           </div>
 
@@ -299,6 +302,8 @@ const Footer = () => {
           </p>
         </div>
       </div>
+      
+      <LegalModal isOpen={isOpen} onClose={closeModal} />
     </footer>
   );
 };
