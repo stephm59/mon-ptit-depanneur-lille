@@ -7,6 +7,7 @@ import { ErrorBoundary } from "@/components/ui/error-boundary";
 import Index from "./pages/Index";
 import UniversalRouter from "./pages/UniversalRouter";
 import BlogPost from "./pages/BlogPost";
+import BlogCarnet from "./pages/BlogCarnet";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -18,9 +19,10 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/carnet/:slug" element={<BlogPost />} />
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/carnet" element={<BlogCarnet />} />
+          <Route path="/carnet/:slug" element={<BlogPost />} />
             {/* Redirections des anciennes URLs vers les nouvelles */}
             <Route path="/choisir-adoucisseur-eau" element={<Navigate to="/carnet/choisir-adoucisseur-eau" replace />} />
             <Route path="/choisir-chauffe-eau" element={<Navigate to="/carnet/choisir-chauffe-eau" replace />} />

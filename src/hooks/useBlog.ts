@@ -101,6 +101,62 @@ export const useLatestBlogPosts = (limit = 6) => {
   });
 };
 
+export const useAllBlogPosts = () => {
+  return useQuery({
+    queryKey: ["allBlogPosts"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("blog_posts")
+        .select(`
+          *,
+          services(id, name, slug)
+        `)
+        .eq("published", true)
+        .order("created_at", { ascending: false });
+
+      if (error) throw error;
+      return data || [];
+    },
+  });
+};
+
+export const useFilteredBlogPosts = (searchTerm: string = "", serviceId: string | null = null) => {
+  return useQuery({
+    queryKey: ["filteredBlogPosts", searchTerm, serviceId],
+    queryFn: async () => {
+      let query = supabase
+        .from("blog_posts")
+        .select(`
+          *,
+          services(id, name, slug)
+        `)
+        .eq("published", true);
+
+      // Filter by service if provided
+      if (serviceId) {
+        query = query.eq("service_id", serviceId);
+      }
+
+      const { data, error } = await query.order("created_at", { ascending: false });
+
+      if (error) throw error;
+      
+      let posts = data || [];
+
+      // Filter by search term if provided
+      if (searchTerm) {
+        const searchLower = searchTerm.toLowerCase();
+        posts = posts.filter(post => 
+          post.title.toLowerCase().includes(searchLower) ||
+          (post.excerpt && post.excerpt.toLowerCase().includes(searchLower))
+        );
+      }
+
+      return posts;
+    },
+  });
+};
+
 export const useBlogPostFaqs = (blogPostId?: string) => {
   return useQuery({
     queryKey: ["blogPostFaqs", blogPostId],
