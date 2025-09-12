@@ -33,6 +33,7 @@ const contactFormSchema = z.object({
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
+  console.log("Contact component rendering...");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   
@@ -86,6 +87,8 @@ const Contact = () => {
       form.setValue("file", file);
     }
   };
+  
+  console.log("About to return JSX from Contact component");
   return (
     <>
       <Helmet>
