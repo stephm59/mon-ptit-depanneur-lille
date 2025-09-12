@@ -877,14 +877,10 @@ const BlogPost = () => {
                   </>
                 ) : (
                 <Link 
-                  to={post.services?.slug ? `/${post.services.slug}-lille` : "/"}
+                  to="/plombier-lille"
                   className="text-primary hover:underline font-semibold"
                 >
-                  {post.services?.name === 'Chauffage' ? 'chauffagiste à Lille' : 
-                   post.services?.name === 'Plomberie' ? 'plombier préféré à Lille' :
-                   post.services?.name === 'Climatisation' ? 'installateur de climatisation à Lille' :
-                   post.services?.name === 'Serrure' ? 'serrurier à Lille' :
-                   'artisan spécialisé à Lille'}
+                  votre plombier à Lille
                 </Link>
               )}
               .
