@@ -844,6 +844,16 @@ const BlogPost = () => {
                       plombier de confiance à Lille
                     </Link>
                   </>
+                ) : post.slug === 'deboucher-evier-bouche' ? (
+                 <>
+                    votre{' '}
+                    <Link 
+                      to="/plombier-lille"
+                      className="text-primary hover:underline font-semibold"
+                    >
+                      plombier de confiance à Lille
+                    </Link>
+                  </>
                 ) : (
                 <Link 
                   to={post.services?.slug ? `/${post.services.slug}-lille` : "/"}
