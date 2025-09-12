@@ -55,6 +55,7 @@ const App = () => (
             <Route path="/mousseurs" element={<Navigate to="/carnet/detartrer-mousseur-robinet" replace />} />
             <Route path="/mitigeurs" element={<Navigate to="/carnet/difference-mitigeur-melangeur-thermostatique" replace />} />
             <Route path="/mitigeur-thermostatique" element={<Navigate to="/carnet/mitigeur-thermostatique-fonctionnement-avantages" replace />} />
+            <Route path="/guide-entretien-ballon-eau-chaude" element={<Navigate to="/carnet/guide-entretien-ballon-eau-chaude" replace />} />
             <Route path="/:slug" element={<UniversalRouter />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
