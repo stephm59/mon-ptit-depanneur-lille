@@ -6,28 +6,24 @@ const BeforeAfter = () => {
 
   const transformations = [
     {
-      url: "/lovable-uploads/c89637b1-525a-4d28-b6ac-29d14f11caa1.png",
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/sdb-1.webp",
       alt: "Transformation salle de bain 1 - Avant/Après"
     },
     {
-      url: "/lovable-uploads/8e6488f1-9d82-4c92-9d28-164874e15730.png", 
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/sdb-10.webp", 
       alt: "Transformation salle de bain 2 - Avant/Après"
     },
     {
-      url: "/lovable-uploads/7403e95b-f35e-4ba3-b010-e30e16836890.png",
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/sdb-3.webp",
       alt: "Transformation salle de bain 3 - Avant/Après"
     },
     {
-      url: "/lovable-uploads/e7933388-3d87-4104-b549-4077042a3b66.png",
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/sdb-5.webp",
       alt: "Transformation salle de bain 4 - Avant/Après"
     },
     {
-      url: "/lovable-uploads/e5ff3c35-5e26-4d1c-9956-f788ccfe6793.png",
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/sdb-8.webp",
       alt: "Transformation salle de bain 5 - Avant/Après"
-    },
-    {
-      url: "/lovable-uploads/b96ed7b6-8730-4ebe-bf10-eb98d2175b21.png",
-      alt: "Transformation salle de bain 6 - Avant/Après"
     }
   ];
 

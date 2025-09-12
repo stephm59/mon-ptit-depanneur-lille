@@ -14,8 +14,8 @@ const Avis = () => {
       service: "Plomberie",
       commentaire: "Intervention très rapide pour une fuite d'eau urgente. Le plombier était professionnel et a résolu le problème efficacement. Je recommande !",
       photos: [
-        "/site-media/avant-apres-1.webp",
-        "/site-media/avant-apres-2.webp"
+        "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/sdb-1.webp",
+        "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/sdb-10.webp"
       ]
     },
     {
@@ -27,7 +27,7 @@ const Avis = () => {
       service: "Chauffage",
       commentaire: "Installation de ma nouvelle chaudière parfaitement réalisée. Équipe compétente et prix transparent. Très satisfait du service.",
       photos: [
-        "/site-media/avant-apres-3.webp"
+        "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/sdb-3.webp"
       ]
     },
     {
@@ -49,8 +49,8 @@ const Avis = () => {
       service: "Vitrerie",
       commentaire: "Remplacement d'une vitre cassée suite à un cambriolage. Travail soigné et délais respectés. Bon rapport qualité-prix.",
       photos: [
-        "/site-media/avant-apres-4.webp",
-        "/site-media/avant-apres-5.webp"
+        "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/sdb-5.webp",
+        "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/sdb-8.webp"
       ]
     },
     {
@@ -62,7 +62,7 @@ const Avis = () => {
       service: "Salle de bains",
       commentaire: "Rénovation complète de ma salle de bains. Le résultat est magnifique et les travaux ont été réalisés dans les temps. Je suis ravie !",
       photos: [
-        "/site-media/avant-apres-6.webp"
+        "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/sdb-1.webp"
       ]
     },
     {
