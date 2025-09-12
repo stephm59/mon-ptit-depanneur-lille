@@ -10,7 +10,7 @@ export const ChatWidget = () => {
     <>
       <Button
         onClick={openForm}
-        className="fixed bottom-6 right-6 h-14 w-14 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 z-50 relative"
+        className="fixed bottom-6 right-6 h-14 w-14 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 z-[9999]"
         size="icon"
       >
         <MessageCircle className="h-6 w-6" />
