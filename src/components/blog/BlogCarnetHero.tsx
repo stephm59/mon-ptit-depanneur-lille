@@ -42,7 +42,7 @@ export const BlogCarnetHero = () => {
       </Button>
 
       {/* Content */}
-      <div className="relative z-20 text-center text-white max-w-4xl mx-auto px-4">
+      <div className="relative z-20 text-center text-white max-w-4xl mx-auto px-4 pt-20">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
           Les bons conseils de Mon p'tit Dépanneur
         </h1>
