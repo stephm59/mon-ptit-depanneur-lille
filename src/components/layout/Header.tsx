@@ -20,7 +20,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         {/* Main navigation */}
         <div className="py-4">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-start">
             {/* Logo */}
             <div className="flex items-center">
               <img 
@@ -33,7 +33,7 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-6">
+            <nav className="hidden lg:flex items-start space-x-6 pt-4">
               {navigation.map((item) => (
                 <a
                   key={item.name}
@@ -46,7 +46,7 @@ const Header = () => {
             </nav>
 
             {/* CTA Buttons */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-start gap-4 pt-4">
               <div className="hidden sm:block">
                 <Button variant="outline" size="sm" className="bg-black text-white border-black hover:bg-black/90">
                   Devis gratuit
