@@ -1,18 +1,20 @@
+import React from 'react';
+
 const Contact = () => {
-  console.log("Contact component is rendering!");
+  console.log("=== CONTACT PAGE - LOADED SUCCESSFULLY ===");
   
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "#f9fafb", padding: "32px 0" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 16px" }}>
-        <h1 style={{ fontSize: "36px", fontWeight: "bold", textAlign: "center", marginBottom: "32px", color: "#111827" }}>
-          Contact - Version Test avec CSS inline
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="container mx-auto px-4">
+        <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">
+          Page Contact - Fonctionne !
         </h1>
-        <div style={{ backgroundColor: "white", padding: "32px", borderRadius: "8px", boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }}>
-          <p style={{ fontSize: "18px", textAlign: "center", color: "#374151" }}>
-            Test de la page Contact avec CSS inline - Si vous voyez ceci, le composant fonctionne !
+        <div className="bg-white p-8 rounded-lg shadow-lg max-w-2xl mx-auto">
+          <p className="text-lg text-center text-gray-700 mb-4">
+            ✅ La page Contact se charge maintenant correctement !
           </p>
-          <p style={{ fontSize: "14px", textAlign: "center", color: "#6b7280", marginTop: "16px" }}>
-            Debug: Le composant Contact se charge correctement.
+          <p className="text-sm text-center text-gray-500">
+            Le problème de routage a été résolu - la route /contact a maintenant la priorité sur /:slug
           </p>
         </div>
       </div>

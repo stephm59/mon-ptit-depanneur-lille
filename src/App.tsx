@@ -26,6 +26,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
+            {/* Routes spécifiques - DOIVENT être en premier */}
             <Route path="/" element={<Index />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/entreprise" element={<Entreprise />} />
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/carnet" element={<BlogCarnet />} />
             <Route path="/carnet/:slug" element={<BlogPost />} />
+              
               {/* Redirections des anciennes URLs vers les nouvelles */}
               <Route path="/choisir-adoucisseur-eau" element={<Navigate to="/carnet/choisir-adoucisseur-eau" replace />} />
               <Route path="/choisir-chauffe-eau" element={<Navigate to="/carnet/choisir-chauffe-eau" replace />} />
@@ -121,8 +123,8 @@ const App = () => (
               <Route path="/page-d-exemple/" element={<Navigate to="/" replace />} />
               <Route path="/serious-lead-lead-generation-for-school-education-companies/" element={<Navigate to="/" replace />} />
               
+              {/* IMPORTANT: Route catch-all DOIT être en dernier */}
               <Route path="/:slug" element={<UniversalRouter />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           <ChatWidget />
