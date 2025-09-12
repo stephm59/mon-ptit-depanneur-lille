@@ -101,7 +101,7 @@ const Contact = () => {
         subtitle="Intervention rapide à Lille et ses environs"
       />
       
-      <main className="min-h-screen bg-gray-50 py-12">
+      <main className="min-h-screen bg-gray-50 py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16">
