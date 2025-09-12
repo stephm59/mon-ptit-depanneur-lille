@@ -77,9 +77,9 @@ const App = () => (
               {/* Redirections des anciennes pages générales */}
               <Route path="/accueil/" element={<Navigate to="/" replace />} />
               <Route path="/services/" element={<Navigate to="/" replace />} />
-              <Route path="/nous-contacter/" element={<Navigate to="/contact" replace />} />
-              <Route path="/plan-dacces/" element={<Navigate to="/contact" replace />} />
-              <Route path="/contact/" element={<Navigate to="/contact" replace />} />
+              <Route path="/nous-contacter/" element={<Navigate to="/" replace />} />
+              <Route path="/plan-dacces/" element={<Navigate to="/" replace />} />
+              <Route path="/contact/" element={<Navigate to="/" replace />} />
               <Route path="/blog-2/" element={<Navigate to="/carnet" replace />} />
               <Route path="/gallery/" element={<Navigate to="/avis" replace />} />
               <Route path="/mentions-legales/" element={<Navigate to="/mentions-legales" replace />} />
