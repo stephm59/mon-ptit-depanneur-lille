@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { BlogCarnetHero } from "@/components/blog/BlogCarnetHero";
-import { BlogSearchAndFilters } from "@/components/blog/BlogSearchAndFilters";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 import { useFilteredBlogPosts } from "@/hooks/useBlog";
 
@@ -28,14 +27,11 @@ const BlogCarnet = () => {
         <Header />
         
         <main>
-          <BlogCarnetHero />
-          
-          <BlogSearchAndFilters
+          <BlogCarnetHero 
             searchTerm={searchTerm}
             onSearchChange={setSearchTerm}
             selectedServiceId={selectedServiceId}
             onServiceChange={setSelectedServiceId}
-            totalPosts={posts.length}
           />
           
           <BlogGrid posts={posts} isLoading={isLoading} />
