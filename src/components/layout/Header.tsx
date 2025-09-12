@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Phone, Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { useContactForm } from "@/hooks/useContactForm";
@@ -26,7 +27,7 @@ const Header = () => {
           <div className="flex justify-between items-start">
             {/* Logo */}
             <div className="flex items-center">
-              <a href="/" className="block">
+              <Link to="/" className="block">
                 <img 
                   src="https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp" 
                   alt="Mon p'tit Dépanneur" 
@@ -34,7 +35,7 @@ const Header = () => {
                   loading="eager"
                   decoding="async"
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}

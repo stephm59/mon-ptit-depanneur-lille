@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLegalModal } from "@/hooks/useLegalModal";
 import { LegalModal } from "@/components/modals/LegalModal";
 
@@ -154,10 +155,10 @@ const Footer = () => {
           <div>
             <h4 className="text-xl font-bold text-white mb-6">Accès rapide</h4>
             <ul className="space-y-3">
-              <li><a href="/contact" className="text-gray-300 hover:text-white transition-colors">Nous écrire</a></li>
-              <li><a href="/entreprise" className="text-gray-300 hover:text-white transition-colors">Notre société</a></li>
-              <li><a href="/carnet" className="text-gray-300 hover:text-white transition-colors">Nos bons conseils</a></li>
-              <li><a href="/avis" className="text-gray-300 hover:text-white transition-colors">Avis et Photos</a></li>
+              <li><Link to="/contact" className="text-gray-300 hover:text-white transition-colors">Nous écrire</Link></li>
+              <li><Link to="/entreprise" className="text-gray-300 hover:text-white transition-colors">Notre société</Link></li>
+              <li><Link to="/carnet" className="text-gray-300 hover:text-white transition-colors">Nos bons conseils</Link></li>
+              <li><Link to="/avis" className="text-gray-300 hover:text-white transition-colors">Avis et Photos</Link></li>
               <li><button onClick={openModal} className="text-gray-300 hover:text-white transition-colors text-left">Mentions légales</button></li>
             </ul>
           </div>
@@ -193,13 +194,13 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-bold text-white mb-4">Plomberie</h4>
               <ul className="space-y-2">
-                {services.plomberie.map((service, index) => (
-                  <li key={index}>
-                    <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
-                      {service}
-                    </a>
-                  </li>
-                ))}
+                 {services.plomberie.map((service, index) => (
+                   <li key={index}>
+                     <Link to={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
+                       {service}
+                     </Link>
+                   </li>
+                 ))}
               </ul>
             </div>
 
@@ -207,13 +208,13 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-bold text-white mb-4">Chauffage</h4>
               <ul className="space-y-2">
-                {services.chauffage.map((service, index) => (
-                  <li key={index}>
-                    <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
-                      {service}
-                    </a>
-                  </li>
-                ))}
+                 {services.chauffage.map((service, index) => (
+                   <li key={index}>
+                     <Link to={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
+                       {service}
+                     </Link>
+                   </li>
+                 ))}
               </ul>
             </div>
 
@@ -221,13 +222,13 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-bold text-white mb-4">Pompe à chaleur</h4>
               <ul className="space-y-2">
-                {services.pompeAChaleur.map((service, index) => (
-                  <li key={index}>
-                    <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
-                      {service}
-                    </a>
-                  </li>
-                ))}
+                 {services.pompeAChaleur.map((service, index) => (
+                   <li key={index}>
+                     <Link to={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
+                       {service}
+                     </Link>
+                   </li>
+                 ))}
               </ul>
             </div>
 
@@ -235,13 +236,13 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-bold text-white mb-4">Climatisation</h4>
               <ul className="space-y-2">
-                {services.climatisation.map((service, index) => (
-                  <li key={index}>
-                    <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
-                      {service}
-                    </a>
-                  </li>
-                ))}
+                 {services.climatisation.map((service, index) => (
+                   <li key={index}>
+                     <Link to={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
+                       {service}
+                     </Link>
+                   </li>
+                 ))}
               </ul>
             </div>
           </div>
@@ -252,13 +253,13 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-bold text-white mb-4">Salle de bains</h4>
               <ul className="space-y-2">
-                {services.salleDeBains.map((service, index) => (
-                  <li key={index}>
-                    <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
-                      {service}
-                    </a>
-                  </li>
-                ))}
+                 {services.salleDeBains.map((service, index) => (
+                   <li key={index}>
+                     <Link to={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
+                       {service}
+                     </Link>
+                   </li>
+                 ))}
               </ul>
             </div>
 
@@ -266,13 +267,13 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-bold text-white mb-4">Serrurier</h4>
               <ul className="space-y-2">
-                {services.serrurerie.map((service, index) => (
-                  <li key={index}>
-                    <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
-                      {service}
-                    </a>
-                  </li>
-                ))}
+                 {services.serrurerie.map((service, index) => (
+                   <li key={index}>
+                     <Link to={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
+                       {service}
+                     </Link>
+                   </li>
+                 ))}
               </ul>
             </div>
 
@@ -280,13 +281,13 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-bold text-white mb-4">Vitre</h4>
               <ul className="space-y-2">
-                {services.vitrerie.map((service, index) => (
-                  <li key={index}>
-                    <a href={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
-                      {service}
-                    </a>
-                  </li>
-                ))}
+                 {services.vitrerie.map((service, index) => (
+                   <li key={index}>
+                     <Link to={generateServiceUrl(service)} className="text-gray-400 hover:text-white transition-colors text-sm">
+                       {service}
+                     </Link>
+                   </li>
+                 ))}
               </ul>
             </div>
 

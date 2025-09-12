@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
@@ -361,9 +362,9 @@ const Entreprise = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100">
-                  <a href="/contact">
+                  <Link to="/contact">
                     Formulaire de contact
-                  </a>
+                  </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="bg-primary border-2 border-white text-white hover:bg-primary/80 hover-scale transition-all duration-300">
                   <a href="tel:0328534868">
