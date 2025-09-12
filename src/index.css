@@ -43,6 +43,9 @@
     --success: 142 76% 36%;
     --success-foreground: 0 0% 98%;
 
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
     /* Neutral tones */
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
