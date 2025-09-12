@@ -804,17 +804,27 @@ const BlogPost = () => {
                      plombier à Lille et ses alentours
                    </Link>
                  </>
-               ) : post.slug === 'detartrer-mousseur-robinet' ? (
-                <>
-                   votre{' '}
-                   <Link 
-                     to="/plombier-lille"
-                     className="text-primary hover:underline font-semibold"
-                   >
-                     plombier à Lille et ses alentours
-                   </Link>
-                 </>
-               ) : (
+                ) : post.slug === 'detartrer-mousseur-robinet' ? (
+                 <>
+                    votre{' '}
+                    <Link 
+                      to="/plombier-lille"
+                      className="text-primary hover:underline font-semibold"
+                    >
+                      plombier à Lille et ses alentours
+                    </Link>
+                  </>
+                ) : post.slug === 'difference-mitigeur-melangeur-thermostatique' ? (
+                 <>
+                    votre{' '}
+                    <Link 
+                      to="/plombier-lille"
+                      className="text-primary hover:underline font-semibold"
+                    >
+                      plombier à Lille et ses alentours
+                    </Link>
+                  </>
+                ) : (
                 <Link 
                   to={post.services?.slug ? `/${post.services.slug}-lille` : "/"}
                   className="text-primary hover:underline font-semibold"
