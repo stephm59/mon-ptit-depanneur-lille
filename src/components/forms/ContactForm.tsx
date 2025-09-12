@@ -273,3 +273,5 @@ export const ContactForm = ({
     </Dialog>
   );
 };
+
+export default ContactForm;
