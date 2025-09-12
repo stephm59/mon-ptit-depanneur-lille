@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useFilteredBlogPosts } from "@/hooks/useBlog";
+import { Link } from "react-router-dom";
 
 const BlogAdvice = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -147,9 +148,11 @@ const BlogAdvice = () => {
 
         {/* CTA Button */}
         <div className="text-center">
-          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8">
-            <span>Voir tous nos conseils</span>
-            <ArrowRight className="w-5 h-5 ml-2" />
+          <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8">
+            <Link to="/carnet">
+              <span>Voir tous nos conseils</span>
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Link>
           </Button>
         </div>
       </div>
