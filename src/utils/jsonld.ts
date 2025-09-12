@@ -189,19 +189,19 @@ export const generateServiceCityJsonLd = (
         "alternateName": "Mon petit dépanneur",
         "description": `Dépannage ${serviceName.toLowerCase()} ${cityName}`,
         "url": baseUrl,
-        "telephone": "03 66 88 29 38",
+        "telephone": "03 28 63 48 68",
         "priceRange": "€€",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "42 avenue de Flandre",
+          "streetAddress": "21 Rue Edouard Delesalle",
           "addressLocality": "Lille",
           "postalCode": "59000",
           "addressCountry": "FR"
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 50.6311,
-          "longitude": 3.0628
+          "latitude": 50.6365,
+          "longitude": 3.0586
         },
         "areaServed": [
           {
@@ -226,10 +226,7 @@ export const generateServiceCityJsonLd = (
           "Mo-Fr 08:00-19:00",
           "Sa 09:00-17:00"
         ],
-        "sameAs": [
-          "https://www.facebook.com/MonPtitDepanneur",
-          "https://www.instagram.com/monptitdepanneur"
-        ]
+        "sameAs": []
       },
       {
         "@type": "Organization",
@@ -293,19 +290,19 @@ export const generateHomeJsonLd = (baseUrl: string = "https://www.monptitdepanne
         "alternateName": "Mon petit dépanneur",
         "description": "Entreprise de dépannage et d'intervention rapide : chauffage, plomberie, pompe à chaleur sur Lille et sa métropole",
         "url": baseUrl,
-        "telephone": "03 66 88 29 38",
+        "telephone": "03 28 63 48 68",
         "priceRange": "€€",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "42 avenue de Flandre",
+          "streetAddress": "21 Rue Edouard Delesalle",
           "addressLocality": "Lille",
           "postalCode": "59000",
           "addressCountry": "FR"
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 50.6311,
-          "longitude": 3.0628
+          "latitude": 50.6365,
+          "longitude": 3.0586
         },
         "areaServed": [
           { "@type": "City", "name": "Lille" },
@@ -318,10 +315,7 @@ export const generateHomeJsonLd = (baseUrl: string = "https://www.monptitdepanne
           "Mo-Fr 08:00-19:00",
           "Sa 09:00-17:00"
         ],
-        "sameAs": [
-          "https://www.facebook.com/MonPtitDepanneur",
-          "https://www.instagram.com/monptitdepanneur"
-        ]
+        "sameAs": []
       }
     ]
   };
