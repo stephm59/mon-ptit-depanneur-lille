@@ -130,7 +130,9 @@ export const useFilteredBlogPosts = (searchTerm: string = "", serviceId: string 
           *,
           services(id, name, slug)
         `)
-        .eq("published", true);
+        .eq("published", true)
+        .not("cover_image_url", "is", null)
+        .neq("cover_image_url", "");
 
       // Filter by service if provided
       if (serviceId) {
