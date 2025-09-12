@@ -9,7 +9,7 @@ import UniversalRouter from "./pages/UniversalRouter";
 import BlogPost from "./pages/BlogPost";
 import BlogCarnet from "./pages/BlogCarnet";
 import Contact from "./pages/Contact";
-import NotreSociete from "./pages/NotreSociete";
+import Entreprise from "./pages/Entreprise";
 import MentionsLegales from "./pages/MentionsLegales";
 import NotFound from "./pages/NotFound";
 
@@ -25,7 +25,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/notre-societe" element={<NotreSociete />} />
+          <Route path="/entreprise" element={<Entreprise />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/carnet" element={<BlogCarnet />} />
           <Route path="/carnet/:slug" element={<BlogPost />} />

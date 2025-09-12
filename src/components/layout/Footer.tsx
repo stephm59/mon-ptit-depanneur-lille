@@ -152,7 +152,7 @@ const Footer = () => {
             <h4 className="text-xl font-bold text-white mb-6">Accès rapide</h4>
             <ul className="space-y-3">
               <li><a href="/contact" className="text-gray-300 hover:text-white transition-colors">Nous écrire</a></li>
-              <li><a href="/notre-societe" className="text-gray-300 hover:text-white transition-colors">Notre société</a></li>
+              <li><a href="/entreprise" className="text-gray-300 hover:text-white transition-colors">Notre société</a></li>
               <li><a href="/mentions-legales" className="text-gray-300 hover:text-white transition-colors">Mentions légales</a></li>
             </ul>
           </div>
