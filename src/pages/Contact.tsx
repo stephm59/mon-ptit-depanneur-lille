@@ -315,19 +315,6 @@ const Contact = () => {
                       <span className="font-medium">Lundi - Vendredi</span>
                       <span className="text-muted-foreground">8h00 - 18h00</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="font-medium">Samedi</span>
-                      <span className="text-muted-foreground">9h00 - 17h00</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="font-medium">Dimanche</span>
-                      <span className="text-muted-foreground">Urgences uniquement</span>
-                    </div>
-                  </div>
-                  <div className="mt-6 p-4 bg-accent/10 rounded-lg">
-                    <p className="text-sm text-accent font-medium">
-                      🚨 Service d'urgence 24h/24 et 7j/7
-                    </p>
                   </div>
                 </div>
               </div>
