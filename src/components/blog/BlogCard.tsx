@@ -45,15 +45,25 @@ export const BlogCard = ({ post }: BlogCardProps) => {
         )}
         
         <CardHeader className="pb-3">
-          <div className="flex items-center mb-2">
-            {post.services && (
-              <Badge 
-                variant="secondary"
-                className={`${getCategoryColor(post.services.name)} text-xs font-medium`}
-              >
-                {post.services.name}
-              </Badge>
-            )}
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-2">
+              {post.services && (
+                <Badge 
+                  variant="secondary"
+                  className={`${getCategoryColor(post.services.name)} text-xs font-medium`}
+                >
+                  {post.services.name}
+                </Badge>
+              )}
+              {post.isPopular && (
+                <Badge 
+                  variant="default"
+                  className="bg-red-500 hover:bg-red-600 text-white text-xs font-medium"
+                >
+                  Populaire
+                </Badge>
+              )}
+            </div>
           </div>
           
           <h3 className="font-semibold text-lg leading-tight group-hover:text-primary transition-colors duration-200 line-clamp-2">

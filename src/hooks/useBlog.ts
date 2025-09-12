@@ -13,6 +13,7 @@ export interface BlogPost {
   created_at: string;
   updated_at: string;
   service_id: string | null;
+  isPopular?: boolean;
 }
 
 export const useBlogPost = (slug: string) => {
@@ -120,6 +121,26 @@ export const useAllBlogPosts = () => {
   });
 };
 
+// Liste des articles populaires basée sur le trafic
+const POPULAR_POST_TITLES = [
+  "Les différents types de tuyauterie",
+  "Fuite du groupe de sécurité de votre chauffe-eau ? Pas de panique",
+  "Aide pour lire son compteur d'eau",
+  "Pourquoi et comment retourner un pêne demi-tour ?",
+  "Différence entre robinet mélangeur, mitigeur simple et thermostatique ?",
+  "Au secours : Ma chasse d'eau ne fonctionne plus !",
+  "Lutter contre le « code erreur » sur ma chaudière",
+  "Qu'est-ce qui compose une serrure de porte ?",
+  "Comment savoir si mon mitigeur est toujours fonctionnel ?"
+];
+
+const isPopularPost = (title: string): boolean => {
+  return POPULAR_POST_TITLES.some(popularTitle => 
+    title.toLowerCase().includes(popularTitle.toLowerCase()) ||
+    popularTitle.toLowerCase().includes(title.toLowerCase())
+  );
+};
+
 export const useFilteredBlogPosts = (searchTerm: string = "", serviceId: string | null = null) => {
   return useQuery({
     queryKey: ["filteredBlogPosts", searchTerm, serviceId],
@@ -153,6 +174,18 @@ export const useFilteredBlogPosts = (searchTerm: string = "", serviceId: string 
           (post.excerpt && post.excerpt.toLowerCase().includes(searchLower))
         );
       }
+
+      // Ajouter la propriété isPopular et trier pour mettre les populaires en premier
+      posts = posts.map(post => ({
+        ...post,
+        isPopular: isPopularPost(post.title)
+      })).sort((a, b) => {
+        // Les articles populaires d'abord
+        if (a.isPopular && !b.isPopular) return -1;
+        if (!a.isPopular && b.isPopular) return 1;
+        // Ensuite par date de création (plus récent d'abord)
+        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+      });
 
       return posts;
     },
