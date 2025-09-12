@@ -824,6 +824,16 @@ const BlogPost = () => {
                       plombier à Lille et ses alentours
                     </Link>
                   </>
+                ) : post.slug === 'mitigeur-thermostatique-fonctionnement-avantages' ? (
+                 <>
+                    votre{' '}
+                    <Link 
+                      to="/plombier-lille"
+                      className="text-primary hover:underline font-semibold"
+                    >
+                      plombier à Lille et ses alentours
+                    </Link>
+                  </>
                 ) : (
                 <Link 
                   to={post.services?.slug ? `/${post.services.slug}-lille` : "/"}
