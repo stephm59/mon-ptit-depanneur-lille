@@ -2,63 +2,28 @@ import { Lightbulb, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useFilteredBlogPosts } from "@/hooks/useBlog";
 
 const BlogAdvice = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { data: blogPosts, isLoading } = useFilteredBlogPosts();
   
-  const articles = [
-    {
-      id: 1,
-      category: "Pompe à chaleur",
-      title: "3 signes qu'il faut remplacer votre pompe à chaleur",
-      description: "Apprenez à reconnaître les signaux d'alarme avant qu'une panne majeure ne vous laisse sans chauffage ni climatisation.",
-      image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&h=300&fit=crop",
-      categoryColor: "bg-blue-100 text-blue-700"
-    },
-    {
-      id: 2,
-      category: "Pompe à chaleur", 
-      title: "Comment optimiser les performances de votre PAC ?",
-      description: "Guide étape par étape pour entretenir votre pompe à chaleur et maximiser son efficacité énergétique.",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
-      categoryColor: "bg-blue-100 text-blue-700"
-    },
-    {
-      id: 3,
-      category: "Pompe à chaleur",
-      title: "Entretien PAC : pourquoi c'est obligatoire ?",
-      description: "Découvrez l'importance de l'entretien annuel de votre pompe à chaleur pour la sécurité et les économies d'énergie.",
-      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=300&fit=crop",
-      categoryColor: "bg-blue-100 text-blue-700"
-    },
-    {
-      id: 4,
-      category: "Chauffage",
-      title: "5 conseils pour réduire votre facture de chauffage",
-      description: "Astuces simples et efficaces pour optimiser votre système de chauffage et faire des économies importantes.",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop",
-      categoryColor: "bg-orange-100 text-orange-700"
-    },
-    {
-      id: 5,
-      category: "Serrurerie",
-      title: "Comment choisir la bonne serrure pour votre porte ?",
-      description: "Guide complet des différents types de serrures et conseils pour sécuriser efficacement votre domicile.",
-      image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=300&fit=crop",
-      categoryColor: "bg-green-100 text-green-700"
-    },
-    {
-      id: 6,
-      category: "Plomberie",
-      title: "Fuite d'eau : les gestes d'urgence à connaître",
-      description: "Que faire en cas de fuite ? Les réflexes essentiels pour limiter les dégâts en attendant le plombier.",
-      image: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=400&h=300&fit=crop",
-      categoryColor: "bg-cyan-100 text-cyan-700"
-    }
-  ];
-
+  // Les articles populaires sont déjà triés en premier par le hook
+  const articles = blogPosts?.slice(0, 6) || [];
+  
+  // Fonction pour déterminer la couleur de catégorie basée sur le service
+  const getCategoryColor = (serviceName?: string) => {
+    const service = serviceName?.toLowerCase() || '';
+    if (service.includes('pompe') || service.includes('chauffage')) return "bg-blue-100 text-blue-700";
+    if (service.includes('plomberie')) return "bg-cyan-100 text-cyan-700";
+    if (service.includes('serrurerie')) return "bg-green-100 text-green-700";
+    if (service.includes('électricité')) return "bg-yellow-100 text-yellow-700";
+    if (service.includes('vitrerie')) return "bg-purple-100 text-purple-700";
+    return "bg-gray-100 text-gray-700";
+  };
+  
   const articlesPerView = 3;
-  const maxIndex = articles.length - articlesPerView;
+  const maxIndex = Math.max(0, articles.length - articlesPerView);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => 
@@ -73,6 +38,21 @@ const BlogAdvice = () => {
   };
 
   const visibleArticles = articles.slice(currentIndex, currentIndex + articlesPerView);
+
+  if (isLoading) {
+    return (
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <div className="animate-pulse">
+              <div className="h-8 bg-gray-300 rounded w-96 mx-auto mb-4"></div>
+              <div className="h-4 bg-gray-300 rounded w-64 mx-auto"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-20 bg-gray-50">
@@ -116,30 +96,30 @@ const BlogAdvice = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {visibleArticles.map((article) => (
               <Card key={article.id} className="overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:scale-105 bg-white border border-gray-200">
-                {/* Image */}
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img 
-                    src={article.image}
-                    alt={article.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${article.categoryColor}`}>
-                      {article.category}
-                    </span>
-                  </div>
-                </div>
-                
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
-                    {article.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
-                    {article.description}
-                  </p>
+                 {/* Image */}
+                 <div className="relative aspect-[4/3] overflow-hidden">
+                   <img 
+                     src={article.cover_image_url || "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&h=300&fit=crop"}
+                     alt={article.title}
+                     className="w-full h-full object-cover"
+                     loading="lazy"
+                   />
+                   {/* Category Badge */}
+                   <div className="absolute top-4 left-4">
+                     <span className={`px-3 py-1 rounded-full text-sm font-medium ${getCategoryColor(article.services?.name)}`}>
+                       {article.services?.name || "Conseil"}
+                     </span>
+                   </div>
+                 </div>
+                 
+                 {/* Content */}
+                 <div className="p-6">
+                   <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
+                     {article.title}
+                   </h3>
+                   <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
+                     {article.excerpt || "Découvrez nos conseils d'experts pour mieux entretenir vos équipements."}
+                   </p>
                   
                   {/* Read More Link */}
                   <div className="flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors cursor-pointer">
