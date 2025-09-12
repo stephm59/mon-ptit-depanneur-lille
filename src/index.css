@@ -196,3 +196,16 @@
 .blog-content img {
   @apply rounded-lg shadow-md;
 }
+
+.blog-content svg {
+  @apply max-w-full h-auto;
+}
+
+.blog-content div[style*="background"] {
+  @apply rounded-lg my-6;
+}
+
+/* Ensure proper text styling within SVG containers */
+.blog-content div[style*="background"] + * {
+  @apply mt-6;
+}
