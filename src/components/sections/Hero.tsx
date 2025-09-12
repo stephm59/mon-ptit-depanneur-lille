@@ -102,10 +102,10 @@ const Hero = ({ title, subtitle }: HeroProps = {}) => {
                 Demander un devis
               </a>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-white text-white bg-white/20 hover:bg-white hover:text-primary backdrop-blur-sm text-lg" aria-label="Appeler Mon p'tit Dépanneur">
-              <a href="tel:0328634868">
-                <Phone className="w-6 h-6 text-white" />
-                03 28 63 48 68
+            <Button asChild variant="outline" size="lg" className="border-white text-white bg-transparent hover:bg-white/20 backdrop-blur-sm text-lg" aria-label="Appeler Mon p'tit Dépanneur">
+              <a href="tel:0328534868" className="flex items-center gap-3">
+                <Phone className="w-5 h-5" />
+                03 28 53 48 68
               </a>
             </Button>
           </div>
