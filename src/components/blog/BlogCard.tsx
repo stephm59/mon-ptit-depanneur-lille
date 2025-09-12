@@ -35,37 +35,36 @@ export const BlogCard = ({ post }: BlogCardProps) => {
     <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-[1.02] overflow-hidden">
       <Link to={`/carnet/${post.slug}`} className="block">
         {post.cover_image_url && (
-          <div className="aspect-video overflow-hidden">
+          <div className="aspect-video overflow-hidden relative">
             <img
               src={post.cover_image_url}
               alt={post.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
-          </div>
-        )}
-        
-        <CardHeader className="pb-3">
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center gap-2">
-              {post.services && (
-                <Badge 
-                  variant="secondary"
-                  className={`${getCategoryColor(post.services.name)} text-xs font-medium`}
-                >
-                  {post.services.name}
-                </Badge>
-              )}
+            
+            {/* Badges en overlay sur l'image */}
+            <div className="absolute top-3 left-3 flex flex-col gap-1">
               {post.isPopular && (
                 <Badge 
                   variant="default"
-                  className="bg-red-500 hover:bg-red-600 text-white text-xs font-medium"
+                  className="bg-red-500 hover:bg-red-600 text-white text-xs font-medium shadow-lg"
                 >
                   Populaire
                 </Badge>
               )}
+              {post.services && (
+                <Badge 
+                  variant="secondary"
+                  className={`${getCategoryColor(post.services.name)} text-xs font-medium shadow-lg`}
+                >
+                  {post.services.name}
+                </Badge>
+              )}
             </div>
           </div>
-          
+        )}
+        
+        <CardHeader className="pb-3">
           <h3 className="font-semibold text-lg leading-tight group-hover:text-primary transition-colors duration-200 line-clamp-2">
             {post.title}
           </h3>
