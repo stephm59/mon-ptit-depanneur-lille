@@ -831,7 +831,7 @@ const BlogPost = () => {
                       to="/plombier-lille"
                       className="text-primary hover:underline font-semibold"
                     >
-                      plombier de confiance à Lille
+                      plombier à Lille depuis 20 ans
                     </Link>
                   </>
                 ) : post.slug === 'guide-entretien-ballon-eau-chaude' ? (
