@@ -43,7 +43,7 @@ const Hero = ({ title, subtitle }: HeroProps = {}) => {
   ];
 
   return (
-    <section className="relative min-h-[50vh] flex items-center overflow-visible pt-32 pb-20">
+    <section className="relative min-h-[50vh] flex items-center overflow-visible pt-20 pb-20">
       {/* Background video */}
       <div className="absolute inset-0">
         <video
