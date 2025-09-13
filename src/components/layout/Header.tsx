@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Phone, Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { useContactForm } from "@/hooks/useContactForm";
@@ -11,8 +11,15 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isOpen, openForm, closeForm } = useContactForm();
   const { scrollY } = useScrollPosition();
+  const location = useLocation();
   
-  const isScrolled = scrollY > 50;
+  // Pages with dark hero backgrounds that should start with white text
+  const pagesWithDarkHero = ['/', '/contact', '/carnet'];
+  const isServiceCityPage = location.pathname.includes('-lille') || location.pathname.includes('-');
+  const hasDarkHero = pagesWithDarkHero.includes(location.pathname) || isServiceCityPage;
+  
+  // Only show scrolled state if we actually scrolled AND it's not a page with dark hero OR we scrolled enough
+  const isScrolled = hasDarkHero ? scrollY > 200 : scrollY > 50;
   const isCompact = scrollY > 100;
 
   const navigation = [
