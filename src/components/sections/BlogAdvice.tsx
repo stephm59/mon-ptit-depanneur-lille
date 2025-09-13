@@ -115,18 +115,24 @@ const BlogAdvice = () => {
                  
                  {/* Content */}
                  <div className="p-6">
-                   <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
-                     {article.title}
-                   </h3>
+                   <Link to={`/carnet/${article.slug}`} className="block">
+                     <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2 hover:text-primary transition-colors">
+                       {article.title}
+                     </h3>
+                   </Link>
                    <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
                      {article.excerpt || "Découvrez nos conseils d'experts pour mieux entretenir vos équipements."}
                    </p>
                   
                   {/* Read More Link */}
-                  <div className="flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors cursor-pointer">
+                  <Link 
+                    to={`/carnet/${article.slug}`} 
+                    rel="nofollow"
+                    className="flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
+                  >
                     <span>Lire le bon conseil</span>
                     <ArrowRight className="w-4 h-4" />
-                  </div>
+                  </Link>
                 </div>
               </Card>
             ))}
