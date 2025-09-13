@@ -66,7 +66,7 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className={cn(
             "hidden lg:flex items-center space-x-6 transition-all duration-300",
-            !isScrolled && "pt-4"
+            !isScrolled && "pt-6"
           )}>
             {navigation.map((item) => (
               <Link
