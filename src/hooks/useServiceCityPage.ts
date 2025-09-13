@@ -105,6 +105,7 @@ export const useGenericTestimonials = () => {
   return useQuery({
     queryKey: ["generic-testimonials"],
     queryFn: async () => {
+      // Récupérer plus de témoignages pour avoir une diversité
       const { data, error } = await supabase
         .from("testimonials")
         .select(`
@@ -114,10 +115,30 @@ export const useGenericTestimonials = () => {
         `)
         .eq("published", true)
         .order("created_at", { ascending: false })
-        .limit(6); // Limiter à 6 avis génériques
+        .limit(30); // Récupérer plus pour pouvoir diversifier
 
       if (error) throw error;
-      return data;
+      
+      if (!data) return [];
+
+      // Diversifier les témoignages par service (max 2 par service)
+      const serviceGroups = new Map();
+      const diversifiedTestimonials = [];
+
+      for (const testimonial of data) {
+        const serviceName = testimonial.services?.name || 'Autre';
+        const currentCount = serviceGroups.get(serviceName) || 0;
+        
+        if (currentCount < 2) {
+          serviceGroups.set(serviceName, currentCount + 1);
+          diversifiedTestimonials.push(testimonial);
+          
+          // Arrêter quand on a 6 témoignages diversifiés
+          if (diversifiedTestimonials.length >= 6) break;
+        }
+      }
+
+      return diversifiedTestimonials;
     },
   });
 };
