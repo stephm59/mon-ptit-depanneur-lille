@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -9,21 +9,19 @@ import { cn } from "@/lib/utils";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const { isOpen, openForm, closeForm } = useContactForm();
   const { scrollY } = useScrollPosition();
   const location = useLocation();
   
-  // Pages with dark hero backgrounds that should start with white text
-  const pagesWithDarkHero = ['/', '/contact', '/carnet'];
-  const isServiceCityPage = location.pathname.includes('-lille') || location.pathname.includes('-');
-  const hasDarkHero = pagesWithDarkHero.includes(location.pathname) || isServiceCityPage;
+  // Ensure component is properly mounted
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   
-  // Only show scrolled state when we actually scroll past threshold
-  const isScrolled = scrollY > 50;
+  // Only show scrolled state when component is mounted and we've scrolled
+  const isScrolled = isMounted && scrollY > 50;
   const isCompact = scrollY > 100;
-  
-  // Force transparent background for pages with dark hero when not scrolled
-  const shouldBeTransparent = hasDarkHero && !isScrolled;
 
   const navigation = [
     { name: "Plombier", href: "/plombier-lille" },
@@ -38,11 +36,7 @@ const Header = () => {
   return (
     <header className={cn(
       "absolute top-0 inset-x-0 z-50 transition-all duration-300 will-change-transform",
-      shouldBeTransparent 
-        ? "bg-transparent text-white" 
-        : isScrolled 
-        ? "fixed bg-white/80 backdrop-blur-md text-foreground shadow-sm" 
-        : "text-white"
+      isScrolled ? "fixed bg-white/80 backdrop-blur-md text-foreground shadow-sm" : "text-white"
     )}>
       <div className="container mx-auto px-4">
         {/* Main navigation */}
@@ -71,8 +65,8 @@ const Header = () => {
 
             {/* Desktop Navigation */}
             <nav className={cn(
-              "hidden lg:flex items-start space-x-6 transition-all duration-300",
-              isCompact ? "pt-2" : "pt-4"
+              "hidden lg:flex items-center space-x-6 transition-all duration-300",
+              isCompact ? "pt-0" : "pt-4"
             )}>
               {navigation.map((item) => (
                 <Link
@@ -92,8 +86,8 @@ const Header = () => {
 
             {/* CTA Buttons */}
             <div className={cn(
-              "flex items-start gap-4 transition-all duration-300",
-              isCompact ? "pt-2" : "pt-4"
+              "flex items-center gap-4 transition-all duration-300",
+              isCompact ? "pt-0" : "pt-4"
             )}>
               <div className="hidden sm:block">
                 <Button 
