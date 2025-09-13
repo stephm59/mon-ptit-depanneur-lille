@@ -12,3 +12,9 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://www.monptitdepanneur.com/sitemap.xml
+
+# Crawl-delay for politeness
+Crawl-delay: 1

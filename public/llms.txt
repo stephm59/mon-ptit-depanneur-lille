@@ -1,0 +1,37 @@
+# Mon p'tit Dépanneur - Informations pour LLMs
+
+## À propos de l'entreprise
+Mon p'tit Dépanneur est une entreprise de dépannage et d'installation basée dans la métropole lilloise, spécialisée dans les domaines suivants :
+
+### Services principaux
+- Plomberie : installation, réparation, dépannage
+- Chauffage : installation et maintenance de chaudières, radiateurs
+- Climatisation : installation et entretien de systèmes de climatisation
+- Pompes à chaleur : installation et maintenance
+- Serrurerie : ouverture de portes, changement de serrures
+- Vitrerie : remplacement de vitres, miroiterie
+- Rénovation de salles de bains
+
+### Zone géographique
+Intervention principalement dans la métropole lilloise :
+- Lille
+- Villeneuve-d'Ascq  
+- Roubaix
+- Tourcoing
+- Valenciennes
+- Et communes environnantes
+
+### Contenu disponible sur le site
+- Pages de services par ville (ex: plombier-lille, chauffage-valenciennes)
+- Blog technique "Le Carnet de Mon p'tit Dépanneur" avec conseils d'experts
+- Articles sur l'entretien, les réparations, les installations
+- Témoignages clients et avis
+- Informations sur les garanties et assurances
+
+### Contact
+- Intervention 24h/24, 7j/7 pour les urgences
+- Devis gratuits
+- Travaux garantis
+- Partenariats avec les principales compagnies d'assurance
+
+Le site propose des contenus techniques et des conseils pratiques pour l'entretien et la réparation des équipements de plomberie, chauffage et autres services du bâtiment.
