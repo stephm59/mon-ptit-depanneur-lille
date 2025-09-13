@@ -44,7 +44,7 @@ const Header = () => {
           "transition-all duration-300",
           isCompact ? "py-2" : "py-4"
         )}>
-          <div className="flex justify-between items-start">
+          <div className="flex justify-between items-center">
             {/* Logo */}
             <div className="flex items-center">
               <Link to="/" className="block">
@@ -64,10 +64,7 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className={cn(
-              "hidden lg:flex items-center space-x-6 transition-all duration-300",
-              isCompact ? "pt-0" : "pt-4"
-            )}>
+            <nav className="hidden lg:flex items-center space-x-6 transition-all duration-300">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
@@ -85,10 +82,7 @@ const Header = () => {
             </nav>
 
             {/* CTA Buttons */}
-            <div className={cn(
-              "flex items-center gap-4 transition-all duration-300",
-              isCompact ? "pt-0" : "pt-4"
-            )}>
+            <div className="flex items-center gap-4 transition-all duration-300">
               <div className="hidden sm:block">
                 <Button 
                   variant="outline" 
