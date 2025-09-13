@@ -41,7 +41,8 @@ const Header = () => {
       <div className="container mx-auto px-4">
         {/* Main navigation */}
         <div className={cn(
-          "flex justify-between items-center transition-all duration-300",
+          "flex justify-between transition-all duration-300",
+          isScrolled ? "items-center" : "items-start",
           isCompact ? "py-2" : "py-4"
         )}>
           {/* Logo */}
@@ -63,7 +64,10 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6 transition-all duration-300">
+          <nav className={cn(
+            "hidden lg:flex items-center space-x-6 transition-all duration-300",
+            !isScrolled && "pt-4"
+          )}>
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -81,7 +85,10 @@ const Header = () => {
           </nav>
 
           {/* CTA Buttons */}
-          <div className="flex items-center gap-4 transition-all duration-300">
+          <div className={cn(
+            "flex items-center gap-4 transition-all duration-300",
+            !isScrolled && "pt-4"
+          )}>
             <div className="hidden sm:block">
               <Button 
                 variant="outline" 
