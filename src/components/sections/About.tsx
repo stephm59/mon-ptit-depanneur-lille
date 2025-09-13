@@ -1,11 +1,20 @@
 import { Wrench } from "lucide-react";
 import { BUBBLE_VIDEO_URL } from "@/config/media";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { cn } from "@/lib/utils";
 
 const About = () => {
+  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
     <section className="pt-32 pb-20 bg-background">
-      <div className="container mx-auto px-4">
+      <div 
+        ref={elementRef}
+        className={cn(
+          "container mx-auto px-4 fade-in-up",
+          isVisible && "animate"
+        )}
+      >
         <div className="flex flex-col lg:flex-row gap-8 items-start max-w-6xl mx-auto">
           {/* Video Section - Plus petite */}
           <div className="flex-shrink-0">

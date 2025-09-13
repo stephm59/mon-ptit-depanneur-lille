@@ -4,10 +4,16 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { useContactForm } from "@/hooks/useContactForm";
+import { useScrollPosition } from "@/hooks/useScrollAnimation";
+import { cn } from "@/lib/utils";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isOpen, openForm, closeForm } = useContactForm();
+  const { scrollY } = useScrollPosition();
+  
+  const isScrolled = scrollY > 50;
+  const isCompact = scrollY > 100;
 
   const navigation = [
     { name: "Plombier", href: "/plombier-lille" },
@@ -20,10 +26,16 @@ const Header = () => {
   ];
 
   return (
-    <header className="absolute top-0 inset-x-0 z-50 text-white">
+    <header className={cn(
+      "fixed top-0 inset-x-0 z-50 text-white transition-all duration-300 will-change-transform",
+      isScrolled && "header-compact"
+    )}>
       <div className="container mx-auto px-4">
         {/* Main navigation */}
-        <div className="py-4">
+        <div className={cn(
+          "transition-all duration-300",
+          isCompact ? "py-2" : "py-4"
+        )}>
           <div className="flex justify-between items-start">
             {/* Logo */}
             <div className="flex items-center">
@@ -31,7 +43,10 @@ const Header = () => {
                 <img 
                   src="https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp" 
                   alt="Mon p'tit Dépanneur" 
-                  className="h-24 md:h-40 w-auto"
+                  className={cn(
+                    "w-auto transition-all duration-300",
+                    isCompact ? "h-16 md:h-20" : "h-24 md:h-40"
+                  )}
                   loading="eager"
                   decoding="async"
                 />
@@ -39,7 +54,10 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-start space-x-6 pt-4">
+            <nav className={cn(
+              "hidden lg:flex items-start space-x-6 transition-all duration-300",
+              isCompact ? "pt-2" : "pt-4"
+            )}>
               {navigation.map((item) => (
                 <Link
                   key={item.name}
@@ -52,7 +70,10 @@ const Header = () => {
             </nav>
 
             {/* CTA Buttons */}
-            <div className="flex items-start gap-4 pt-4">
+            <div className={cn(
+              "flex items-start gap-4 transition-all duration-300",
+              isCompact ? "pt-2" : "pt-4"
+            )}>
               <div className="hidden sm:block">
                 <Button 
                   variant="outline" 

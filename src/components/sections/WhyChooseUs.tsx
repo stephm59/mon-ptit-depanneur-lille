@@ -1,7 +1,11 @@
 import { Clock, Shield, ThumbsUp, Phone } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { cn } from "@/lib/utils";
 
 const WhyChooseUs = () => {
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
+  const { elementRef: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ threshold: 0.2 });
   const advantages = [
     {
       icon: Clock,
@@ -33,7 +37,13 @@ const WhyChooseUs = () => {
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16 max-w-4xl mx-auto">
+        <div 
+          ref={headerRef}
+          className={cn(
+            "text-center mb-16 max-w-4xl mx-auto fade-in-up",
+            headerVisible && "animate"
+          )}
+        >
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
               <div className="w-4 h-4 bg-primary rounded-full"></div>
@@ -49,9 +59,19 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Advantages Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div 
+          ref={cardsRef}
+          className={cn(
+            "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto fade-in-up",
+            cardsVisible && "animate"
+          )}
+        >
           {advantages.map((advantage, index) => (
-            <Card key={index} className="p-8 text-center bg-white border border-gray-100 hover:shadow-lg transition-all duration-300 hover:scale-105">
+            <Card 
+              key={index} 
+              className="p-8 text-center bg-white border border-gray-100 hover:shadow-lg transition-all duration-300 hover:scale-105"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
               {/* Icon Container */}
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <advantage.icon className={`w-8 h-8 ${advantage.color}`} />

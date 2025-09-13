@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ErrorBoundary } from "@/components/ui/error-boundary";
 import { ChatWidget } from "@/components/widgets/ChatWidget";
 import { LocalReviewsWidget } from "@/components/widgets/LocalReviewsWidget";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 import Index from "./pages/Index";
 import UniversalRouter from "./pages/UniversalRouter";
 import BlogPost from "./pages/BlogPost";
@@ -18,6 +19,12 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// Component to handle scroll to top on route changes
+const ScrollToTop = () => {
+  useScrollToTop();
+  return null;
+};
+
 const App = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
@@ -25,6 +32,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             {/* Routes spécifiques - DOIVENT être en premier */}
             <Route path="/" element={<Index />} />
