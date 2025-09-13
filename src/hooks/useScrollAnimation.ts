@@ -47,9 +47,14 @@ export const useScrollAnimation = <T extends HTMLElement = HTMLDivElement>(optio
 export const useScrollPosition = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isScrollingDown, setIsScrollingDown] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
+    // Ensure we start with 0 scroll position on mount
+    setIsMounted(true);
+    setScrollY(0);
+    
+    let lastScrollY = 0;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -57,6 +62,12 @@ export const useScrollPosition = () => {
       setIsScrollingDown(currentScrollY > lastScrollY && currentScrollY > 100);
       lastScrollY = currentScrollY;
     };
+
+    // Small delay to ensure proper initialization
+    const timeoutId = setTimeout(() => {
+      lastScrollY = window.scrollY;
+      setScrollY(window.scrollY);
+    }, 50);
 
     // Throttle scroll events for performance
     let ticking = false;
@@ -73,9 +84,10 @@ export const useScrollPosition = () => {
     window.addEventListener('scroll', throttledHandleScroll, { passive: true });
     
     return () => {
+      clearTimeout(timeoutId);
       window.removeEventListener('scroll', throttledHandleScroll);
     };
   }, []);
 
-  return { scrollY, isScrollingDown };
+  return { scrollY: isMounted ? scrollY : 0, isScrollingDown };
 };
