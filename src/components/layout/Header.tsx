@@ -27,8 +27,8 @@ const Header = () => {
 
   return (
     <header className={cn(
-      "fixed top-0 inset-x-0 z-50 text-white transition-all duration-300 will-change-transform",
-      isScrolled && "header-compact"
+      "absolute top-0 inset-x-0 z-50 transition-all duration-300 will-change-transform",
+      isScrolled ? "fixed bg-white/80 backdrop-blur-md text-foreground shadow-sm" : "text-white"
     )}>
       <div className="container mx-auto px-4">
         {/* Main navigation */}
@@ -45,7 +45,9 @@ const Header = () => {
                   alt="Mon p'tit Dépanneur" 
                   className={cn(
                     "w-auto transition-all duration-300",
-                    isCompact ? "h-16 md:h-20" : "h-24 md:h-40"
+                    isScrolled 
+                      ? "h-12 md:h-16" // Plus petit au scroll
+                      : "h-24 md:h-40" // Taille originale
                   )}
                   loading="eager"
                   decoding="async"
@@ -62,7 +64,12 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="text-white/90 hover:text-white transition-colors duration-200 font-medium relative pb-1 hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:right-0 hover:after:h-1 hover:after:bg-red-600 hover:after:rounded-full"
+                  className={cn(
+                    "transition-colors duration-200 font-medium relative pb-1 hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:right-0 hover:after:h-1 hover:after:bg-red-600 hover:after:rounded-full",
+                    isScrolled 
+                      ? "text-foreground/90 hover:text-foreground" 
+                      : "text-white/90 hover:text-white"
+                  )}
                 >
                   {item.name}
                 </Link>
@@ -78,7 +85,12 @@ const Header = () => {
                 <Button 
                   variant="outline" 
                   size="sm" 
-                  className="bg-black text-white border-black hover:bg-black/90 h-10"
+                  className={cn(
+                    "h-10 transition-colors duration-300",
+                    isScrolled 
+                      ? "bg-white text-foreground border-border hover:bg-secondary" 
+                      : "bg-black text-white border-black hover:bg-black/90"
+                  )}
                   onClick={openForm}
                 >
                   Devis gratuit
@@ -86,7 +98,12 @@ const Header = () => {
               </div>
               <a 
                 href="tel:0328534868" 
-                className="hidden md:inline-flex items-center gap-2 text-white bg-accent px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors shadow-lg h-10"
+                className={cn(
+                  "hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors shadow-lg h-10",
+                  isScrolled 
+                    ? "text-white bg-accent" 
+                    : "text-white bg-accent"
+                )}
                 aria-label="Appeler Mon p'tit Dépanneur"
               >
                 <Phone className="w-5 h-5" />
@@ -95,7 +112,10 @@ const Header = () => {
 
               {/* Mobile menu button */}
               <button
-                className="lg:hidden p-2 text-white"
+                className={cn(
+                  "lg:hidden p-2 transition-colors duration-300",
+                  isScrolled ? "text-foreground" : "text-white"
+                )}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 {isMenuOpen ? (
@@ -109,13 +129,23 @@ const Header = () => {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <nav className="lg:hidden mt-4 pb-4 border-t border-white/20 pt-4 bg-black/60 backdrop-blur-md rounded-lg">
+            <nav className={cn(
+              "lg:hidden mt-4 pb-4 border-t pt-4 rounded-lg transition-colors duration-300",
+              isScrolled 
+                ? "border-border bg-white/90 backdrop-blur-md" 
+                : "border-white/20 bg-black/60 backdrop-blur-md"
+            )}>
               <div className="flex flex-col space-y-3 px-4">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     to={item.href}
-                    className="text-white/90 hover:text-white transition-colors duration-200 font-medium py-2 relative hover:after:content-[''] hover:after:absolute hover:after:bottom-1 hover:after:left-0 hover:after:right-0 hover:after:h-1 hover:after:bg-red-600 hover:after:rounded-full"
+                    className={cn(
+                      "transition-colors duration-200 font-medium py-2 relative hover:after:content-[''] hover:after:absolute hover:after:bottom-1 hover:after:left-0 hover:after:right-0 hover:after:h-1 hover:after:bg-red-600 hover:after:rounded-full",
+                      isScrolled 
+                        ? "text-foreground/90 hover:text-foreground" 
+                        : "text-white/90 hover:text-white"
+                    )}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
