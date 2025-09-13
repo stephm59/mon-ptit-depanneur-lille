@@ -41,122 +41,120 @@ const Header = () => {
       <div className="container mx-auto px-4">
         {/* Main navigation */}
         <div className={cn(
-          "transition-all duration-300",
+          "flex justify-between items-center transition-all duration-300",
           isCompact ? "py-2" : "py-4"
         )}>
-          <div className="flex justify-between items-center">
-            {/* Logo */}
-            <div className="flex items-center">
-              <Link to="/" className="block">
-                <img 
-                  src="https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp" 
-                  alt="Mon p'tit Dépanneur" 
-                  className={cn(
-                    "w-auto transition-all duration-300",
-                    isScrolled 
-                      ? "h-12 md:h-16" // Plus petit au scroll
-                      : "h-24 md:h-40" // Taille originale
-                  )}
-                  loading="eager"
-                  decoding="async"
-                />
-              </Link>
-            </div>
+          {/* Logo */}
+          <div className="flex items-center">
+            <Link to="/" className="block">
+              <img 
+                src="https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp" 
+                alt="Mon p'tit Dépanneur" 
+                className={cn(
+                  "w-auto transition-all duration-300",
+                  isScrolled 
+                    ? "h-12 md:h-16" // Plus petit au scroll
+                    : "h-24 md:h-40" // Taille originale
+                )}
+                loading="eager"
+                decoding="async"
+              />
+            </Link>
+          </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-6 transition-all duration-300">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-6 transition-all duration-300">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className={cn(
+                  "transition-colors duration-200 font-medium relative pb-1 hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:right-0 hover:after:h-1 hover:after:bg-red-600 hover:after:rounded-full",
+                  isScrolled 
+                    ? "text-foreground/90 hover:text-foreground" 
+                    : "text-white/90 hover:text-white"
+                )}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+
+          {/* CTA Buttons */}
+          <div className="flex items-center gap-4 transition-all duration-300">
+            <div className="hidden sm:block">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className={cn(
+                  "h-10 transition-colors duration-300",
+                  isScrolled 
+                    ? "bg-white text-foreground border-border hover:bg-secondary" 
+                    : "bg-black text-white border-black hover:bg-black/90"
+                )}
+                onClick={openForm}
+              >
+                Devis gratuit
+              </Button>
+            </div>
+            <a 
+              href="tel:0328534868" 
+              className={cn(
+                "hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors shadow-lg h-10",
+                isScrolled 
+                  ? "text-white bg-accent" 
+                  : "text-white bg-accent"
+              )}
+              aria-label="Appeler Mon p'tit Dépanneur"
+            >
+              <Phone className="w-5 h-5" />
+              03 28 53 48 68
+            </a>
+
+            {/* Mobile menu button */}
+            <button
+              className={cn(
+                "lg:hidden p-2 transition-colors duration-300",
+                isScrolled ? "text-foreground" : "text-white"
+              )}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <nav className={cn(
+            "lg:hidden mt-4 pb-4 border-t pt-4 rounded-lg transition-colors duration-300",
+            isScrolled 
+              ? "border-border bg-white/90 backdrop-blur-md" 
+              : "border-white/20 bg-black/60 backdrop-blur-md"
+          )}>
+            <div className="flex flex-col space-y-3 px-4">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
                   className={cn(
-                    "transition-colors duration-200 font-medium relative pb-1 hover:after:content-[''] hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:right-0 hover:after:h-1 hover:after:bg-red-600 hover:after:rounded-full",
+                    "transition-colors duration-200 font-medium py-2 relative hover:after:content-[''] hover:after:absolute hover:after:bottom-1 hover:after:left-0 hover:after:right-0 hover:after:h-1 hover:after:bg-red-600 hover:after:rounded-full",
                     isScrolled 
                       ? "text-foreground/90 hover:text-foreground" 
                       : "text-white/90 hover:text-white"
                   )}
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-            </nav>
-
-            {/* CTA Buttons */}
-            <div className="flex items-center gap-4 transition-all duration-300">
-              <div className="hidden sm:block">
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className={cn(
-                    "h-10 transition-colors duration-300",
-                    isScrolled 
-                      ? "bg-white text-foreground border-border hover:bg-secondary" 
-                      : "bg-black text-white border-black hover:bg-black/90"
-                  )}
-                  onClick={openForm}
-                >
-                  Devis gratuit
-                </Button>
-              </div>
-              <a 
-                href="tel:0328534868" 
-                className={cn(
-                  "hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors shadow-lg h-10",
-                  isScrolled 
-                    ? "text-white bg-accent" 
-                    : "text-white bg-accent"
-                )}
-                aria-label="Appeler Mon p'tit Dépanneur"
-              >
-                <Phone className="w-5 h-5" />
-                03 28 53 48 68
-              </a>
-
-              {/* Mobile menu button */}
-              <button
-                className={cn(
-                  "lg:hidden p-2 transition-colors duration-300",
-                  isScrolled ? "text-foreground" : "text-white"
-                )}
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                {isMenuOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-6 h-6" />
-                )}
-              </button>
             </div>
-          </div>
-
-          {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <nav className={cn(
-              "lg:hidden mt-4 pb-4 border-t pt-4 rounded-lg transition-colors duration-300",
-              isScrolled 
-                ? "border-border bg-white/90 backdrop-blur-md" 
-                : "border-white/20 bg-black/60 backdrop-blur-md"
-            )}>
-              <div className="flex flex-col space-y-3 px-4">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={cn(
-                      "transition-colors duration-200 font-medium py-2 relative hover:after:content-[''] hover:after:absolute hover:after:bottom-1 hover:after:left-0 hover:after:right-0 hover:after:h-1 hover:after:bg-red-600 hover:after:rounded-full",
-                      isScrolled 
-                        ? "text-foreground/90 hover:text-foreground" 
-                        : "text-white/90 hover:text-white"
-                    )}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            </nav>
-          )}
-        </div>
+          </nav>
+        )}
       </div>
 
       <ContactForm 
