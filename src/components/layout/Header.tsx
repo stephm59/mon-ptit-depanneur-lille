@@ -18,9 +18,12 @@ const Header = () => {
   const isServiceCityPage = location.pathname.includes('-lille') || location.pathname.includes('-');
   const hasDarkHero = pagesWithDarkHero.includes(location.pathname) || isServiceCityPage;
   
-  // Only show scrolled state if we actually scrolled AND it's not a page with dark hero OR we scrolled enough
-  const isScrolled = hasDarkHero ? scrollY > 200 : scrollY > 50;
+  // Only show scrolled state when we actually scroll past threshold
+  const isScrolled = scrollY > 50;
   const isCompact = scrollY > 100;
+  
+  // Force transparent background for pages with dark hero when not scrolled
+  const shouldBeTransparent = hasDarkHero && !isScrolled;
 
   const navigation = [
     { name: "Plombier", href: "/plombier-lille" },
@@ -35,7 +38,11 @@ const Header = () => {
   return (
     <header className={cn(
       "absolute top-0 inset-x-0 z-50 transition-all duration-300 will-change-transform",
-      isScrolled ? "fixed bg-white/80 backdrop-blur-md text-foreground shadow-sm" : "text-white"
+      shouldBeTransparent 
+        ? "bg-transparent text-white" 
+        : isScrolled 
+        ? "fixed bg-white/80 backdrop-blur-md text-foreground shadow-sm" 
+        : "text-white"
     )}>
       <div className="container mx-auto px-4">
         {/* Main navigation */}
