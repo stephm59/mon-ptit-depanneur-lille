@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import { useServiceCityTestimonials } from "@/hooks/useServiceCityPage";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 interface ServiceCityTestimonialsProps {
   serviceId: string;
@@ -28,35 +29,48 @@ export const ServiceCityTestimonials = ({ serviceId, cityId }: ServiceCityTestim
           </p>
         </div>
 
-        {/* Testimonials Grid - 6 avis directement affichés */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <Card key={testimonial.id} className="p-8 bg-card border-border hover:shadow-lg transition-shadow">
-              {/* Stars */}
-              <div className="flex gap-1 mb-6">
-                {Array.from({ length: 5 }, (_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-rating text-rating" />
-                ))}
-              </div>
-             
-              {/* Testimonial Text */}
-              <blockquote className="text-foreground italic text-lg leading-relaxed mb-6">
-                "{testimonial.content}"
-              </blockquote>
-             
-              {/* Author */}
-              <div>
-                <div className="font-semibold text-foreground mb-1">
-                  {testimonial.author_name}
-                </div>
-                {testimonial.location && (
-                  <div className="text-muted-foreground text-sm">
-                    {testimonial.location}
-                  </div>
-                )}
-              </div>
-            </Card>
-          ))}
+        {/* Testimonials Carousel */}
+        <div className="max-w-6xl mx-auto">
+          <Carousel className="w-full">
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {testimonials.map((testimonial) => (
+                <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Card className="p-8 bg-card border-border hover:shadow-lg transition-shadow h-full">
+                    {/* Stars */}
+                    <div className="flex gap-1 mb-6">
+                      {Array.from({ length: 5 }, (_, i) => (
+                        <Star key={i} className="w-5 h-5 fill-rating text-rating" />
+                      ))}
+                    </div>
+                   
+                    {/* Testimonial Text */}
+                    <blockquote className="text-foreground italic text-lg leading-relaxed mb-6 flex-1">
+                      "{testimonial.content}"
+                    </blockquote>
+                   
+                    {/* Author */}
+                    <div>
+                      <div className="font-semibold text-foreground mb-1">
+                        {(() => {
+                          const nameParts = testimonial.author_name.split(' ');
+                          const firstName = nameParts[0];
+                          const lastNameInitial = nameParts[1] ? `${nameParts[1].charAt(0)}.` : '';
+                          return `${firstName} ${lastNameInitial}`;
+                        })()}
+                      </div>
+                      {testimonial.location && (
+                        <div className="text-muted-foreground text-sm">
+                          {testimonial.location}
+                        </div>
+                      )}
+                    </div>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-0" />
+            <CarouselNext className="right-0" />
+          </Carousel>
         </div>
       </div>
     </section>
