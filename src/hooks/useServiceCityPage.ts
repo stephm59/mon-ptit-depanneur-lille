@@ -90,12 +90,35 @@ export const useServiceCityTestimonials = (serviceId?: string, cityId?: string) 
         query = query.eq("city_id", cityId);
       }
 
-      const { data, error } = await query.order("created_at", { ascending: false });
+      const { data, error } = await query
+        .order("created_at", { ascending: false })
+        .limit(6); // Limiter à 6 avis pour les pages service-city
 
       if (error) throw error;
       return data;
     },
     enabled: !!serviceId || !!cityId,
+  });
+};
+
+export const useGenericTestimonials = () => {
+  return useQuery({
+    queryKey: ["generic-testimonials"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("testimonials")
+        .select(`
+          *,
+          services!inner(name),
+          cities!inner(name)
+        `)
+        .eq("published", true)
+        .order("created_at", { ascending: false })
+        .limit(6); // Limiter à 6 avis génériques
+
+      if (error) throw error;
+      return data;
+    },
   });
 };
 
