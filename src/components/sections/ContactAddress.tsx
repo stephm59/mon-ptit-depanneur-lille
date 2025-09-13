@@ -6,7 +6,7 @@ const ContactAddress = () => {
     {
       icon: MapPin,
       title: "Adresse",
-      details: ["123 Rue de la République", "59000 Lille"],
+      details: ["21 Rue Edouard Delesalle", "59000 Lille"],
       color: "text-primary"
     },
     {
@@ -24,7 +24,7 @@ const ContactAddress = () => {
     {
       icon: Clock,
       title: "Horaires",
-      details: ["Lun-Ven : 8h-18h", "Sam : 9h-17h", "Dim : Urgences"],
+      details: ["Lun-Ven : 8h-18h"],
       color: "text-warning"
     }
   ];

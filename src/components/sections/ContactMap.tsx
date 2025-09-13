@@ -33,23 +33,6 @@ const ContactMap = () => {
               className="absolute inset-0"
             />
             
-            {/* Overlay with company info */}
-            <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg max-w-xs">
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-foreground mb-1">
-                    Mon p'tit Dépanneur
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    123 Rue de la République<br />
-                    59000 Lille
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Zone d'intervention */}

@@ -13,8 +13,8 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact - Mon p'tit Dépanneur | Plombier Chauffagiste Lille</title>
-        <meta name="description" content="Contactez Mon p'tit Dépanneur, votre artisan de confiance à Lille. Devis gratuit, intervention rapide pour plomberie, chauffage, serrurerie et vitrerie." />
+        <title>Comment contacter Mon p'tit Dépanneur ? (Mail et téléphone)</title>
+        <meta name="description" content="Contactez facilement Mon p'tit Dépanneur à Lille : téléphone 03 28 53 48 68, email ou formulaire en ligne. Devis gratuit et intervention rapide en moins d'1h." />
         <meta name="keywords" content="contact, plombier lille, chauffagiste lille, devis gratuit, dépanneur lille" />
         <link rel="canonical" href="https://www.monptitdepanneur.fr/contact" />
       </Helmet>
@@ -23,10 +23,12 @@ const Contact = () => {
         <Header />
         <main>
           <Hero 
-            title="Contactez Mon p'tit Dépanneur, votre artisan de confiance"
+            title="Contactez-nous"
             subtitle="Devis gratuit • Intervention rapide • Travaux garantis"
           />
-          <ContactFormSection />
+          <div className="pt-12">
+            <ContactFormSection />
+          </div>
           <ContactAddress />
           <ContactMap />
           <CtaBlock />
