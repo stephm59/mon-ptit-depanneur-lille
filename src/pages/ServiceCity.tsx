@@ -35,29 +35,63 @@ export default function ServiceCity() {
   const parseCombinedSlug = (slug: string, serviceSlugs: string[]) => {
     const parts = slug.split('-');
     
+    // City slug mapping for special cases
+    const citySlugMapping: Record<string, string> = {
+      'madeleine': 'la-madeleine',
+      'saint-andre': 'saint-andre-lez-lille',
+      'marcq': 'marcq-en-baroeul',
+      'villeneuve': 'villeneuve-d-ascq'
+    };
+    
     // Try different combinations: test all possible splits
     for (let i = 1; i < parts.length; i++) {
       const serviceSlug = parts.slice(0, i).join('-');
-      const citySlug = parts.slice(i).join('-');
+      let citySlug = parts.slice(i).join('-');
       
       // Check if this serviceSlug exists in our services
       if (serviceSlugs.includes(serviceSlug)) {
+        // Apply city slug mapping if needed
+        if (citySlugMapping[citySlug]) {
+          citySlug = citySlugMapping[citySlug];
+        }
+        
         return { serviceSlug, citySlug };
       }
     }
     
     // Fallback: assume first part is service, rest is city
-    return { serviceSlug: parts[0] || '', citySlug: parts.slice(1).join('-') };
+    let citySlug = parts.slice(1).join('-');
+    if (citySlugMapping[citySlug]) {
+      citySlug = citySlugMapping[citySlug];
+    }
+    
+    return { serviceSlug: parts[0] || '', citySlug };
   };
   
   const serviceSlugs = services?.map(s => s.slug) || [];
   const { serviceSlug, citySlug } = parseCombinedSlug(slug || '', serviceSlugs);
+  
+  // Debug logging
+  console.log("ServiceCity Debug:", {
+    originalSlug: slug,
+    serviceSlug,
+    citySlug,
+    serviceSlugs
+  });
 
   // Always call all hooks - React rule
   const { data: page, isLoading, error } = useServiceCityPage(
     serviceSlug,
     citySlug
   );
+  
+  // More debug logging
+  console.log("ServiceCity Data:", {
+    pageData: page,
+    isLoading,
+    error,
+    hasPage: !!page
+  });
 
   // Fetch offers, FAQs, and testimonials for JSON-LD
   const { data: offers } = useServiceCityOffers(page?.id || '');
