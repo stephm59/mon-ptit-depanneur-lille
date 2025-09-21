@@ -36,7 +36,7 @@ const Footer = () => {
     if (!serviceSlug) return '#'; // Fallback for unrecognized services
     
     // Clean up city name for URL
-    const citySlug = cityPart
+    let citySlug = cityPart
       .replace(/^(à|de|d'|du|des|le|la|les)\s+/g, '') // Remove articles
       .replace(/à /g, "a-")
       .replace(/é/g, "e")
@@ -47,6 +47,19 @@ const Footer = () => {
       .replace(/ /g, "-")
       .replace(/--+/g, "-")
       .replace(/^-+|-+$/g, ''); // Remove leading/trailing dashes
+    
+    // City slug mapping for special cases (match database slugs)
+    const citySlugMapping: Record<string, string> = {
+      'madeleine': 'la-madeleine',
+      'saint-andre': 'saint-andre-lez-lille',
+      'marcq': 'marcq-en-baroeul',
+      'villeneuve': 'villeneuve-d-ascq'
+    };
+    
+    // Apply mapping if needed
+    if (citySlugMapping[citySlug]) {
+      citySlug = citySlugMapping[citySlug];
+    }
     
     return `/${serviceSlug}-${citySlug}`;
   };
