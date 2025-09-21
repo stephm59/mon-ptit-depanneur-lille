@@ -15,10 +15,24 @@ const UniversalRouter = () => {
       'renovation-salle-de-bains', 'serrurier', 'vitrier'
     ];
     
+    // City slug mapping for special cases
+    const citySlugMapping: Record<string, string> = {
+      'madeleine': 'la-madeleine',
+      'saint-andre': 'saint-andre-lez-lille',
+      'marcq': 'marcq-en-baroeul',
+      'villeneuve': 'villeneuve-d-ascq'
+    };
+    
     // Check if slug matches any service pattern
     for (const service of servicePatterns) {
       if (fullSlug.startsWith(`${service}-`)) {
-        const citySlug = fullSlug.substring(service.length + 1);
+        let citySlug = fullSlug.substring(service.length + 1);
+        
+        // Apply city slug mapping if needed
+        if (citySlugMapping[citySlug]) {
+          citySlug = citySlugMapping[citySlug];
+        }
+        
         return { serviceSlug: service, citySlug };
       }
     }
