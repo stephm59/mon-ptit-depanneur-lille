@@ -45,16 +45,31 @@ const BlogPost = () => {
     'pac-air-eau-ou-air-air-lille'
   ];
   
+  // Articles liés à la climatisation
+  const climArticleSlugs = [
+    'climatisation-copropriete-regles-votes-lille',
+    'entretien-clim-checklist-pro',
+    'code-erreur-clim-premiers-reflexes',
+    'climatisation-inversee-fonctionnement'
+  ];
+  
   const isPacArticle = pacArticleSlugs.includes(slug || '');
+  const isClimArticle = climArticleSlugs.includes(slug || '');
   const pacServiceId = '5bbb80dd-9a2f-4a2c-b0dc-12176886d474';
+  const climServiceId = '0ba6e0d2-17f3-4961-9e6f-8dbb9d455f40';
   
   // Utiliser différents paramètres selon le type d'article
-  const relatedPostsLimit = isPacArticle ? 3 : 6;
+  const relatedPostsLimit = (isPacArticle || isClimArticle) ? 3 : 6;
   const { data: relatedPosts } = useRelatedBlogPosts(post?.service_id, slug, relatedPostsLimit);
   
-  // Témoignages spécifiques aux PAC si nécessaire
+  // Témoignages spécifiques aux PAC ou Clim si nécessaire
   const { data: pacTestimonials } = useServiceCityTestimonials(
     isPacArticle ? pacServiceId : undefined,
+    undefined
+  );
+  
+  const { data: climTestimonials } = useServiceCityTestimonials(
+    isClimArticle ? climServiceId : undefined,
     undefined
   );
 
@@ -1081,6 +1096,65 @@ const BlogPost = () => {
             </div>
           </div>
         </section>
+      ) : isClimArticle && climTestimonials?.length ? (
+        // Témoignages spécifiques à la climatisation
+        <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Star className="w-8 h-8 text-primary fill-primary" />
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                  Ce que disent nos clients
+                </h2>
+              </div>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Découvrez les avis de nos clients sur nos installations de climatisation à Lille et dans la métropole.
+              </p>
+            </div>
+
+            <div className="max-w-6xl mx-auto">
+              <Carousel className="w-full">
+                <CarouselContent className="-ml-2 md:-ml-4">
+                  {climTestimonials.map((testimonial) => (
+                    <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                      <Card className="p-8 bg-white border border-gray-200 hover:shadow-lg transition-shadow h-full">
+                        <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
+                          Climatisation
+                        </div>
+
+                        <div className="flex gap-1 mb-6">
+                          {Array.from({ length: 5 }, (_, i) => (
+                            <Star key={i} className="w-5 h-5 fill-rating text-rating" />
+                          ))}
+                        </div>
+                        
+                        <blockquote className="text-gray-700 italic text-lg leading-relaxed mb-6 flex-1">
+                          "{testimonial.content}"
+                        </blockquote>
+                        
+                        <div>
+                          <div className="font-semibold text-gray-900 mb-1">
+                            {(() => {
+                              const nameParts = testimonial.author_name.split(' ');
+                              const firstName = nameParts[0];
+                              const lastNameInitial = nameParts[1] ? `${nameParts[1].charAt(0)}.` : '';
+                              return `${firstName} ${lastNameInitial}`;
+                            })()}
+                          </div>
+                          <div className="text-gray-500 text-sm">
+                            {testimonial.location || 'Région lilloise'}
+                          </div>
+                        </div>
+                      </Card>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-0" />
+                <CarouselNext className="right-0" />
+              </Carousel>
+            </div>
+          </div>
+        </section>
       ) : (
         <Testimonials />
       )}
@@ -1096,6 +1170,8 @@ const BlogPost = () => {
               <p className="text-lg text-muted-foreground">
                 {isPacArticle 
                   ? "Découvrez nos autres conseils pour bien choisir et entretenir votre pompe à chaleur" 
+                  : isClimArticle
+                  ? "Découvrez nos autres conseils pour bien choisir et entretenir votre climatisation"
                   : "Découvrez d'autres conseils utiles de nos experts pour mieux entretenir vos installations"
                 }
               </p>
