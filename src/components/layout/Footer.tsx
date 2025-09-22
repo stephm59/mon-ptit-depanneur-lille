@@ -3,6 +3,18 @@ import { Link } from "react-router-dom";
 import { useLegalModal } from "@/hooks/useLegalModal";
 import { LegalModal } from "@/components/modals/LegalModal";
 
+// Google Badge Styles
+const googleBadgeStyles = `
+.google-badge{display:inline-flex;align-items:center;gap:.5rem;
+  padding:.55rem .85rem;border:1px solid #e5e7eb;border-radius:999px;
+  font:500 14px/1.2 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  text-decoration:none;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.google-badge:hover{box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.g-logo{font-weight:800;background:conic-gradient(from 0deg,#4285F4 0 25%,#EA4335 25% 50%,#FBBC05 50% 75%,#34A853 75% 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;font-size:16px}
+.g-text{color:#111827}
+`;
+
 const Footer = () => {
   const { isOpen, openModal, closeModal } = useLegalModal();
   // Function to generate URL from service name that matches UniversalRouter patterns
@@ -144,7 +156,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white py-16">
+    <>
+      <style dangerouslySetInnerHTML={{ __html: googleBadgeStyles }} />
+      <footer className="bg-black text-white py-16">
       <div className="container mx-auto px-4">
         {/* Top Section - 3 colonnes comme dans le modèle */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
@@ -194,6 +208,20 @@ const Footer = () => {
                   21 Rue Edouard Delesalle,<br />
                   59000 Lille
                 </div>
+              </div>
+              
+              {/* Google Review Link */}
+              <div className="mt-6">
+                <a 
+                  href="https://search.google.com/local/writereview?placeid=ChIJozkbGo_VwkcR1vXT4diHCcU"
+                  target="_blank" 
+                  rel="noopener"
+                  className="google-badge" 
+                  aria-label="Donner un avis Google"
+                >
+                  <span className="g-logo">G</span>
+                  <span className="g-text">Laisser un avis Google</span>
+                </a>
               </div>
             </div>
           </div>
@@ -326,7 +354,8 @@ const Footer = () => {
       </div>
       
       <LegalModal isOpen={isOpen} onClose={closeModal} />
-    </footer>
+      </footer>
+    </>
   );
 };
 
