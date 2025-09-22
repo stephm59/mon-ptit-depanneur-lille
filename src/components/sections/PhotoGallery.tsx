@@ -55,6 +55,71 @@ const PhotoGallery = () => {
       url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/sdb-10.webp",
       title: "Salle d'eau optimisée",
       description: "Solution gain de place intelligente"
+    },
+    {
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/pac-1.webp",
+      title: "Installation pompe à chaleur",
+      description: "Pompe à chaleur air-eau haute performance"
+    },
+    {
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/pac-2.webp",
+      title: "Pompe à chaleur extérieure",
+      description: "Installation professionnelle en extérieur"
+    },
+    {
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/pac-3.webp",
+      title: "Système de chauffage PAC",
+      description: "Solution écologique et économique"
+    },
+    {
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/pac-4.webp",
+      title: "Installation PAC complète",
+      description: "Mise en service et raccordements"
+    },
+    {
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/pac-5.webp",
+      title: "Pompe à chaleur moderne",
+      description: "Technologie dernière génération"
+    },
+    {
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/chaudiere.webp",
+      title: "Installation chaudière",
+      description: "Chaudière gaz haute efficacité"
+    },
+    {
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/chaudiere-2.webp",
+      title: "Chaudière condensation",
+      description: "Installation avec évacuation optimisée"
+    },
+    {
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/chaudiere-3.webp",
+      title: "Système de chauffage",
+      description: "Raccordement professionnel"
+    },
+    {
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/climatisation-1.webp",
+      title: "Installation climatisation",
+      description: "Climatiseur split mural"
+    },
+    {
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/climatisation-2.webp",
+      title: "Unité intérieure clim",
+      description: "Design discret et performant"
+    },
+    {
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/climatisation-3.webp",
+      title: "Climatisation réversible",
+      description: "Chauffage et rafraîchissement"
+    },
+    {
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/climatisation-4.webp",
+      title: "Installation clim murale",
+      description: "Pose professionnelle sur mesure"
+    },
+    {
+      url: "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/climatisation-5.webp",
+      title: "Système climatisation",
+      description: "Solution complète de confort"
     }
   ];
 
