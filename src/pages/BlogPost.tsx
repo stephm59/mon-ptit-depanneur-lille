@@ -5,6 +5,8 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { Star, Phone, Calendar, ArrowRight, Clock, Shield, Wrench } from "lucide-react";
 import { useBlogPost, useRelatedBlogPosts } from "@/hooks/useBlog";
+import { useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
 import { useServiceCityTestimonials } from "@/hooks/useServiceCityPage";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -23,7 +25,17 @@ import { FixedCallButton } from "@/components/widgets/FixedCallButton";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
+  const queryClient = useQueryClient();
   const { data: post, isLoading, error } = useBlogPost(slug || "");
+
+  // Force cache invalidation for the current blog post
+  useEffect(() => {
+    if (slug) {
+      queryClient.invalidateQueries({ 
+        queryKey: ["blogPost", slug] 
+      });
+    }
+  }, [slug, queryClient]);
   
   // Articles liés aux pompes à chaleur (vos 4 articles)
   const pacArticleSlugs = [
