@@ -3,13 +3,14 @@ import { ReactNode } from "react";
 
 // Mots-clés pour les services et leurs liens correspondants
 const SERVICE_KEYWORDS = {
+  "climatisation à lille": ["/climatisation-lille"],
   "plomberie": ["/plombier-lille", "/plombier-villeneuve-d-ascq", "/plombier-roubaix"],
   "plombier": ["/plombier-lille", "/plombier-villeneuve-d-ascq", "/plombier-roubaix"],
   "chauffage": ["/chauffage-lille", "/chauffage-villeneuve-d-ascq", "/chauffage-roubaix"],
   "chauffagiste": ["/chauffage-lille", "/chauffage-villeneuve-d-ascq", "/chauffage-roubaix"],
   "chaudière": ["/chauffage-lille", "/chauffage-villeneuve-d-ascq"],
   "chaudières": ["/chauffage-lille", "/chauffage-villeneuve-d-ascq"],
-  "climatisation": ["/climatisation-lille", "/climatisation-villeneuve-d-ascq"],
+  "climatisation": ["/climatisation-lille", "/climatisation-villeneuve-d-ascq"], 
   "pompe à chaleur": ["/pompe-a-chaleur-lille", "/pompe-a-chaleur-villeneuve-d-ascq"],
   "pompes à chaleur": ["/pompe-a-chaleur-lille", "/pompe-a-chaleur-villeneuve-d-ascq"],
   "serrurerie": ["/serrurier-lille", "/serrurier-villeneuve-d-ascq"],
