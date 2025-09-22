@@ -647,7 +647,7 @@ const BlogPost = () => {
           <Card className="p-6 border-l-4 border-l-primary bg-secondary/20">
             <p className="text-lg text-center">
               Ce bon conseil vous est proposé par Mon p'tit Dépanneur, 
-              {post.slug === 'avantages-inconvenients-pompe-chaleur' ? (
+              {post.slug === 'avantages-inconvenients-pompe-chaleur' || post.slug === 'pac-air-eau-ou-air-air-lille' ? (
                 <>
                   installateur de{' '}
                   <Link 
