@@ -1,0 +1,1 @@
+UPDATE blog_posts SET cover_image_url = '/blog-images/installation-pompe-chaleur-lille.webp' WHERE slug = 'pac-air-eau-ou-air-air-lille';
