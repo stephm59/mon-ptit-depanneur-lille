@@ -669,7 +669,17 @@ const BlogPost = () => {
           <Card className="p-6 border-l-4 border-l-primary bg-secondary/20">
             <p className="text-lg text-center">
               Ce bon conseil vous est proposé par Mon p'tit Dépanneur, 
-               {post.slug === 'avantages-inconvenients-pompe-chaleur' || post.slug === 'pac-air-eau-ou-air-air-lille' || post.slug === 'bruit-pac-diagnostic-solutions' || post.slug === 'installer-pac-appartement-lille' || post.slug === 'remplacer-chaudiere-gaz-par-pac-lille' ? (
+               {post.slug === 'climatisation-inversee-fonctionnement' ? (
+                <>
+                  {' '}
+                  <Link
+                    to="/climatisation-lille"
+                    className="text-primary hover:underline font-semibold"
+                  >
+                    installateur de climatisation à Lille
+                  </Link>
+                </>
+               ) : post.slug === 'avantages-inconvenients-pompe-chaleur' || post.slug === 'pac-air-eau-ou-air-air-lille' || post.slug === 'bruit-pac-diagnostic-solutions' || post.slug === 'installer-pac-appartement-lille' || post.slug === 'remplacer-chaudiere-gaz-par-pac-lille' ? (
                 <>
                   {post.slug === 'bruit-pac-diagnostic-solutions' || post.slug === 'installer-pac-appartement-lille' || post.slug === 'remplacer-chaudiere-gaz-par-pac-lille' ? (
                     <>
