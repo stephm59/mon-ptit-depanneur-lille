@@ -312,7 +312,15 @@ const Footer = () => {
         {/* Bottom Border */}
         <div className="border-t border-gray-800 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © 2024 Mon p'tit Dépanneur - Tous droits réservés
+            © Mon p'tit Dépanneur - Tous droits réservés | Un site réalisé avec ❤️ par{" "}
+            <a 
+              href="https://sprintzero.fr/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white hover:text-gray-300 transition-colors"
+            >
+              Sprint Zéro
+            </a>
           </p>
         </div>
       </div>
