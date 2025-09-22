@@ -22,7 +22,7 @@ const BlogCarnet = () => {
         <meta property="og:title" content="Les bons conseils de Mon p'tit Dépanneur" />
         <meta property="og:description" content="Retrouvez toutes les astuces de votre artisan préféré dans notre carnet.." />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://www.monptitdepanneur.com/carnet" />
+        <link rel="canonical" href="https://www.monptitdepanneur.fr/carnet" />
       </Helmet>
 
       <div className="min-h-screen">

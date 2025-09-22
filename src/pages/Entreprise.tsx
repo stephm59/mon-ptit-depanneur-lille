@@ -79,14 +79,14 @@ const Entreprise = () => {
       <Helmet>
         <title>Mon p'tit Dépanneur à Lille — Chauffage, Plomberie, Serrurerie</title>
         <meta name="description" content="Mon p'tit Dépanneur, artisans à Lille depuis 20 ans : chauffage, plomberie, serrurerie, vitrerie. 12 experts, agréés assurances. Devis clair, intervention rapide." />
-        <link rel="canonical" href="https://monptitdepanneur.fr/entreprise" />
+        <link rel="canonical" href="https://www.monptitdepanneur.fr/entreprise" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "@id": "https://monptitdepanneur.fr/#entreprise",
+            "@id": "https://www.monptitdepanneur.fr/#entreprise",
             "name": "Mon p'tit Dépanneur",
-            "url": "https://monptitdepanneur.fr/",
+            "url": "https://www.monptitdepanneur.fr/",
             "description": "Artisans à Lille depuis 20 ans : chauffage (installation, entretien, dépannage), plomberie (fuites, cumulus), serrurerie (ouverture, barillet), vitrerie (remplacement). 12 experts, agréés par de nombreuses assurances.",
             "slogan": "Une équipe d'artisans à votre service",
             "logo": "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp",

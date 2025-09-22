@@ -578,7 +578,7 @@ const BlogPost = () => {
       <Helmet>
         <title>{post.title}</title>
         <meta name="description" content={post.excerpt || ""} />
-        <link rel="canonical" href={`https://monptitdepanneur.com/carnet/${post.slug}`} />
+        <link rel="canonical" href={`https://www.monptitdepanneur.fr/carnet/${post.slug}`} />
         {faqSchema && (
           <script type="application/ld+json">
             {JSON.stringify(faqSchema)}

@@ -68,7 +68,7 @@ const useSitemapData = () => {
   });
 };
 
-export const generateSitemapXml = (data: SitemapData, baseUrl: string = "https://www.monptitdepanneur.com"): string => {
+export const generateSitemapXml = (data: SitemapData, baseUrl: string = "https://www.monptitdepanneur.fr"): string => {
   const currentDate = new Date().toISOString();
   
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
