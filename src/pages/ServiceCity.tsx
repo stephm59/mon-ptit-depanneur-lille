@@ -217,7 +217,7 @@ export default function ServiceCity() {
           )}
           
           {/* 13. Section Avant / Après - BLANC */}
-          <BeforeAfter />
+          {page.services.slug !== 'climatisation' && <BeforeAfter />}
           
           {/* 14. Nos labels qualités - GRIS */}
           <div className="bg-muted/50">
