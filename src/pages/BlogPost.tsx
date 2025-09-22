@@ -25,13 +25,12 @@ const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const { data: post, isLoading, error } = useBlogPost(slug || "");
   
-  // Articles liés aux pompes à chaleur
+  // Articles liés aux pompes à chaleur (vos 4 articles)
   const pacArticleSlugs = [
-    'avantages-inconvenients-pompe-chaleur',
-    'pac-air-eau-ou-air-air-lille',
-    'bruit-pac-diagnostic-solutions',
+    'remplacer-chaudiere-gaz-par-pac-lille',
     'installer-pac-appartement-lille',
-    'remplacer-chaudiere-gaz-par-pac-lille'
+    'bruit-pac-diagnostic-solutions',
+    'pac-air-eau-ou-air-air-lille'
   ];
   
   const isPacArticle = pacArticleSlugs.includes(slug || '');
