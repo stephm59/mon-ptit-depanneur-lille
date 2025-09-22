@@ -27,7 +27,7 @@ const BlogPost = () => {
   
   // Articles liés aux pompes à chaleur (vos 4 articles)
   const pacArticleSlugs = [
-    'remplacer-chaudiere-gaz-par-pac-lille',
+    'remplacer-chaudiere-par-pompe-chaleur',
     'installer-pac-appartement-lille',
     'bruit-pac-diagnostic-solutions',
     'pac-air-eau-ou-air-air-lille'
