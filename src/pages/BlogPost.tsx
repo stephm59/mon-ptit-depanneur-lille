@@ -960,7 +960,7 @@ const BlogPost = () => {
                      chauffagiste à Lille
                    </Link>
                  </>
-               ) : post.slug === 'code-erreur-chaudiere-signification' ? (
+                ) : post.slug === 'code-erreur-chaudiere-signification' ? (
                  <>
                    votre{' '}
                    <Link 
@@ -970,13 +970,23 @@ const BlogPost = () => {
                      chauffagiste à Lille
                    </Link>
                  </>
-               ) : (
-               <Link 
-                 to="/plombier-lille"
-                 className="text-primary hover:underline font-semibold"
-               >
-                 votre plombier à Lille
-               </Link>
+                ) : post.slug === 'desambuer-radiateur' ? (
+                 <>
+                   votre{' '}
+                   <Link 
+                     to="/chauffagiste-lille"
+                     className="text-primary hover:underline font-semibold"
+                   >
+                     chauffagiste à Lille
+                   </Link>
+                 </>
+                ) : (
+                <Link 
+                  to="/plombier-lille"
+                  className="text-primary hover:underline font-semibold"
+                >
+                  votre plombier à Lille
+                </Link>
              )}
               .
             </p>
