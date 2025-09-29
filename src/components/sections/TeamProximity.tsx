@@ -15,7 +15,7 @@ const TeamProximity = () => {
             <div className="order-2 lg:order-1">
               <div className="relative">
                 <img 
-                  src="/lovable-uploads/97b05e12-dbaf-4add-8676-d507fa48b7f5.png"
+                  src="https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/photo-equipe.webp"
                   alt="Équipe Mon p'tit Dépanneur"
                   className="w-full h-auto rounded-2xl shadow-lg"
                   loading="lazy"
