@@ -940,24 +940,34 @@ const BlogPost = () => {
                       plombier à Lille
                     </Link>
                   </>
-                ) : post.slug === 'lecture-compteur-eau' ? (
+               ) : post.slug === 'lecture-compteur-eau' ? (
                  <>
-                    votre{' '}
-                    <Link 
-                      to="/plombier-lille"
-                      className="text-primary hover:underline font-semibold"
-                    >
-                      plombier à Lille
-                    </Link>
-                  </>
-                ) : (
-                <Link 
-                  to="/plombier-lille"
-                  className="text-primary hover:underline font-semibold"
-                >
-                  votre plombier à Lille
-                </Link>
-              )}
+                   votre{' '}
+                   <Link 
+                     to="/plombier-lille"
+                     className="text-primary hover:underline font-semibold"
+                   >
+                     plombier à Lille
+                   </Link>
+                 </>
+               ) : post.slug === 'entretien-chaudiere-lille' ? (
+                 <>
+                   votre{' '}
+                   <Link 
+                     to="/chauffagiste-lille"
+                     className="text-primary hover:underline font-semibold"
+                   >
+                     chauffagiste à Lille
+                   </Link>
+                 </>
+               ) : (
+               <Link 
+                 to="/plombier-lille"
+                 className="text-primary hover:underline font-semibold"
+               >
+                 votre plombier à Lille
+               </Link>
+             )}
               .
             </p>
           </Card>
