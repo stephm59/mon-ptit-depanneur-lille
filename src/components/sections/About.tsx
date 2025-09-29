@@ -1,9 +1,12 @@
-import { Wrench } from "lucide-react";
+import { useState } from "react";
+import { Wrench, Volume2, VolumeX } from "lucide-react";
 import { GENERAL_VIDEO_URL } from "@/config/media";
+import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { cn } from "@/lib/utils";
 
 const About = () => {
+  const [isMuted, setIsMuted] = useState(true);
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
@@ -16,22 +19,56 @@ const About = () => {
         )}
       >
         <div className="flex flex-col lg:flex-row gap-8 items-start max-w-6xl mx-auto">
-          {/* Video Section - Plus petite */}
-          <div className="flex-shrink-0">
+          {/* Video Section */}
+          <div className="flex-shrink-0 flex justify-center lg:justify-start">
             <div className="relative">
               <video
+                ref={(video) => {
+                  if (video) {
+                    video.muted = isMuted;
+                  }
+                }}
                 className="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-elevated"
+                style={{ objectPosition: 'center 25%' }}
                 src={GENERAL_VIDEO_URL}
                 autoPlay
                 loop
-                muted
+                muted={isMuted}
                 playsInline
                 preload="metadata"
+                onLoadStart={() => console.log('Video loading started')}
+                onCanPlay={() => console.log('Video can play')}
+                onError={(e) => {
+                  console.error('Video failed to load:', e);
+                  // Fallback to a static image if video fails to load
+                  const target = e.currentTarget;
+                  target.style.display = 'none';
+                  const img = document.createElement('img');
+                  img.src = '/src/assets/logo-mon-ptit-depanneur.png';
+                  img.className = 'w-64 h-64 object-cover rounded-full border-4 border-primary shadow-elevated';
+                  img.alt = 'Mon p\'tit Dépanneur';
+                  target.parentNode?.appendChild(img);
+                }}
               />
+              
+              {/* Sound control button */}
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute bottom-2 right-2 w-8 h-8 rounded-full bg-background/80 backdrop-blur-sm border-primary/20 hover:bg-background/90 transition-all duration-200"
+                onClick={() => setIsMuted(!isMuted)}
+                aria-label={isMuted ? "Activer le son" : "Couper le son"}
+              >
+                {isMuted ? (
+                  <VolumeX className="w-4 h-4 text-muted-foreground" />
+                ) : (
+                  <Volume2 className="w-4 h-4 text-primary" />
+                )}
+              </Button>
             </div>
           </div>
 
-          {/* Content Section - Prend plus de place */}
+          {/* Content Section */}
           <div className="flex-1">
             <div className="flex items-start mb-6">
               <Wrench className="w-8 h-8 text-primary mr-4 mt-1 flex-shrink-0" />
