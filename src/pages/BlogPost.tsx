@@ -60,15 +60,22 @@ const BlogPost = () => {
     'comment-choisir-colonne-douche'
   ];
   
+  // Articles liés à la serrurerie
+  const locksmithArticleSlugs = [
+    'differents-types-serrures'
+  ];
+  
   const isPacArticle = pacArticleSlugs.includes(slug || '');
   const isClimArticle = climArticleSlugs.includes(slug || '');
   const isBathroomArticle = bathroomArticleSlugs.includes(slug || '');
+  const isLocksmithArticle = locksmithArticleSlugs.includes(slug || '');
   const pacServiceId = '5bbb80dd-9a2f-4a2c-b0dc-12176886d474';
   const climServiceId = '0ba6e0d2-17f3-4961-9e6f-8dbb9d455f40';
   const bathroomServiceId = '48a41b25-8754-4ed0-a44a-85a358174394';
+  const locksmithServiceId = 'af8c75e3-3c6f-4bd1-b884-3aac376b1775';
   
   // Utiliser différents paramètres selon le type d'article
-  const relatedPostsLimit = (isPacArticle || isClimArticle || isBathroomArticle) ? 3 : 6;
+  const relatedPostsLimit = (isPacArticle || isClimArticle || isBathroomArticle || isLocksmithArticle) ? 3 : 6;
   const { data: relatedPosts } = useRelatedBlogPosts(post?.service_id, slug, relatedPostsLimit);
   
   // Témoignages spécifiques aux PAC ou Clim ou Rénovation salle de bains si nécessaire
@@ -84,6 +91,11 @@ const BlogPost = () => {
   
   const { data: bathroomTestimonials } = useServiceCityTestimonials(
     isBathroomArticle ? bathroomServiceId : undefined,
+    undefined
+  );
+  
+  const { data: locksmithTestimonials } = useServiceCityTestimonials(
+    isLocksmithArticle ? locksmithServiceId : undefined,
     undefined
   );
 
@@ -1223,6 +1235,65 @@ const BlogPost = () => {
                       <Card className="p-8 bg-white border border-gray-200 hover:shadow-lg transition-shadow h-full">
                         <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
                           Rénovation salle de bains
+                        </div>
+
+                        <div className="flex gap-1 mb-6">
+                          {Array.from({ length: 5 }, (_, i) => (
+                            <Star key={i} className="w-5 h-5 fill-rating text-rating" />
+                          ))}
+                        </div>
+                        
+                        <blockquote className="text-gray-700 italic text-lg leading-relaxed mb-6 flex-1">
+                          "{testimonial.content}"
+                        </blockquote>
+                        
+                        <div>
+                          <div className="font-semibold text-gray-900 mb-1">
+                            {(() => {
+                              const nameParts = testimonial.author_name.split(' ');
+                              const firstName = nameParts[0];
+                              const lastNameInitial = nameParts[1] ? `${nameParts[1].charAt(0)}.` : '';
+                              return `${firstName} ${lastNameInitial}`;
+                            })()}
+                          </div>
+                          <div className="text-gray-500 text-sm">
+                            {testimonial.location || 'Région lilloise'}
+                          </div>
+                        </div>
+                      </Card>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-0" />
+                <CarouselNext className="right-0" />
+              </Carousel>
+            </div>
+          </div>
+        </section>
+      ) : isLocksmithArticle && locksmithTestimonials?.length ? (
+        // Témoignages spécifiques à la serrurerie
+        <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Star className="w-8 h-8 text-primary fill-primary" />
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                  Ce que disent nos clients
+                </h2>
+              </div>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Découvrez les avis de nos clients sur nos services de serrurerie à Lille et dans la métropole.
+              </p>
+            </div>
+
+            <div className="max-w-6xl mx-auto">
+              <Carousel className="w-full">
+                <CarouselContent className="-ml-2 md:-ml-4">
+                  {locksmithTestimonials.map((testimonial) => (
+                    <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                      <Card className="p-8 bg-white border border-gray-200 hover:shadow-lg transition-shadow h-full">
+                        <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
+                          Serrurerie
                         </div>
 
                         <div className="flex gap-1 mb-6">
