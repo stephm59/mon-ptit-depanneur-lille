@@ -2,7 +2,7 @@ import { Star, Clock, Shield, Wrench, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import heroBackground from "@/assets/hero-background.jpg";
-import { HERO_VIDEO_URL, GENERAL_VIDEO_URL } from "@/config/media";
+import { HERO_VIDEO_URL } from "@/config/media";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { useContactForm } from "@/hooks/useContactForm";
 import { OptimizedImage } from "@/components/ui/optimized-image";
@@ -48,7 +48,7 @@ const Hero = ({ title, subtitle }: HeroProps = {}) => {
       <div className="absolute inset-0">
         <video
           className="w-full h-full object-cover"
-          src={GENERAL_VIDEO_URL}
+          src={HERO_VIDEO_URL}
           autoPlay
           loop
           muted
