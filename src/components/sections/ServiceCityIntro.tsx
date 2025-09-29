@@ -1,5 +1,5 @@
 import { Wrench } from "lucide-react";
-import { BUBBLE_VIDEO_URL } from "@/config/media";
+import { BUBBLE_VIDEO_URL, PLUMBER_VIDEO_URL } from "@/config/media";
 
 interface ServiceCityIntroProps {
   page: {
@@ -11,6 +11,13 @@ interface ServiceCityIntroProps {
 }
 
 export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
+  // Detect if this is a plumbing service page
+  const isPlumbingService = page.services.name.toLowerCase().includes('plomb') || 
+                           (page.services as any).slug?.includes('plomb');
+  
+  // Choose the appropriate video URL
+  const videoUrl = isPlumbingService ? PLUMBER_VIDEO_URL : BUBBLE_VIDEO_URL;
+  
   return (
     <section className="pt-32 pb-20 bg-background">
       <div className="container mx-auto px-4">
@@ -20,7 +27,7 @@ export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
             <div className="relative">
               <video
                 className="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-elevated"
-                src={BUBBLE_VIDEO_URL}
+                src={videoUrl}
                 autoPlay
                 loop
                 muted
