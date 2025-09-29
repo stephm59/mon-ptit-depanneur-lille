@@ -1,5 +1,7 @@
-import { Wrench } from "lucide-react";
+import { useState } from "react";
+import { Wrench, Volume2, VolumeX } from "lucide-react";
 import { BUBBLE_VIDEO_URL, PLUMBER_VIDEO_URL } from "@/config/media";
+import { Button } from "@/components/ui/button";
 
 interface ServiceCityIntroProps {
   page: {
@@ -11,6 +13,8 @@ interface ServiceCityIntroProps {
 }
 
 export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
+  const [isMuted, setIsMuted] = useState(true);
+  
   // Detect if this is a plumbing service page
   const isPlumbingService = page.services.name.toLowerCase().includes('plomb') || 
                            (page.services as any).slug?.includes('plomb');
@@ -26,11 +30,17 @@ export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
           <div className="flex-shrink-0 flex justify-center lg:justify-start">
             <div className="relative">
               <video
+                ref={(video) => {
+                  if (video) {
+                    video.muted = isMuted;
+                  }
+                }}
                 className="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-elevated"
+                style={{ objectPosition: 'center 25%' }}
                 src={videoUrl}
                 autoPlay
                 loop
-                muted
+                muted={isMuted}
                 playsInline
                 preload="metadata"
                 onLoadStart={() => console.log('Video loading started')}
@@ -47,6 +57,21 @@ export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
                   target.parentNode?.appendChild(img);
                 }}
               />
+              
+              {/* Sound control button */}
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute bottom-2 right-2 w-8 h-8 rounded-full bg-background/80 backdrop-blur-sm border-primary/20 hover:bg-background/90 transition-all duration-200"
+                onClick={() => setIsMuted(!isMuted)}
+                aria-label={isMuted ? "Activer le son" : "Couper le son"}
+              >
+                {isMuted ? (
+                  <VolumeX className="w-4 h-4 text-muted-foreground" />
+                ) : (
+                  <Volume2 className="w-4 h-4 text-primary" />
+                )}
+              </Button>
             </div>
           </div>
 
