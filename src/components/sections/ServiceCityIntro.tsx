@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Wrench, Volume2, VolumeX } from "lucide-react";
-import { BUBBLE_VIDEO_URL, PLUMBER_VIDEO_URL } from "@/config/media";
+import { BUBBLE_VIDEO_URL, PLUMBER_VIDEO_URL, HEATING_VIDEO_URL } from "@/config/media";
 import { Button } from "@/components/ui/button";
 
 interface ServiceCityIntroProps {
@@ -15,12 +15,16 @@ interface ServiceCityIntroProps {
 export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
   const [isMuted, setIsMuted] = useState(true);
   
-  // Detect if this is a plumbing service page
+  // Detect service type for video selection
   const isPlumbingService = page.services.name.toLowerCase().includes('plomb') || 
                            (page.services as any).slug?.includes('plomb');
+  const isHeatingService = page.services.name.toLowerCase().includes('chauffage') || 
+                          (page.services as any).slug?.includes('chauffagiste');
   
   // Choose the appropriate video URL
-  const videoUrl = isPlumbingService ? PLUMBER_VIDEO_URL : BUBBLE_VIDEO_URL;
+  const videoUrl = isPlumbingService ? PLUMBER_VIDEO_URL : 
+                   isHeatingService ? HEATING_VIDEO_URL : 
+                   BUBBLE_VIDEO_URL;
   
   return (
     <section className="pt-32 pb-20 bg-background">
