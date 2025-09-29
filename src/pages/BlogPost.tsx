@@ -960,6 +960,16 @@ const BlogPost = () => {
                      chauffagiste à Lille
                    </Link>
                  </>
+               ) : post.slug === 'code-erreur-chaudiere-signification' ? (
+                 <>
+                   votre{' '}
+                   <Link 
+                     to="/chauffagiste-lille"
+                     className="text-primary hover:underline font-semibold"
+                   >
+                     chauffagiste à Lille
+                   </Link>
+                 </>
                ) : (
                <Link 
                  to="/plombier-lille"
