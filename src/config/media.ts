@@ -7,3 +7,4 @@ export const HEAT_PUMP_VIDEO_URL = "https://pub-ee5d8554679a4a23a82caac56686992a
 export const LOCKSMITH_VIDEO_URL = "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/video-david-serrure.mp4";
 export const GLAZIER_VIDEO_URL = "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/video-david-vitre.mp4";
 export const BATHROOM_VIDEO_URL = "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/video-david-salle-bains.mp4";
+export const GENERAL_VIDEO_URL = "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/video-david-general.mp4";

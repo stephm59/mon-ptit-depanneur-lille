@@ -1,5 +1,5 @@
 import { Wrench } from "lucide-react";
-import { BUBBLE_VIDEO_URL } from "@/config/media";
+import { GENERAL_VIDEO_URL } from "@/config/media";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { cn } from "@/lib/utils";
 
@@ -21,7 +21,7 @@ const About = () => {
             <div className="relative">
               <video
                 className="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-elevated"
-                src={BUBBLE_VIDEO_URL}
+                src={GENERAL_VIDEO_URL}
                 autoPlay
                 loop
                 muted
