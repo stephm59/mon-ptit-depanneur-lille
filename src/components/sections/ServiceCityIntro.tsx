@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Wrench, Volume2, VolumeX } from "lucide-react";
-import { BUBBLE_VIDEO_URL, PLUMBER_VIDEO_URL, HEATING_VIDEO_URL, CLIMATISATION_VIDEO_URL, HEAT_PUMP_VIDEO_URL, LOCKSMITH_VIDEO_URL } from "@/config/media";
+import { BUBBLE_VIDEO_URL, PLUMBER_VIDEO_URL, HEATING_VIDEO_URL, CLIMATISATION_VIDEO_URL, HEAT_PUMP_VIDEO_URL, LOCKSMITH_VIDEO_URL, GLAZIER_VIDEO_URL } from "@/config/media";
 import { Button } from "@/components/ui/button";
 
 interface ServiceCityIntroProps {
@@ -27,6 +27,9 @@ export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
   const isLocksmithService = page.services.name.toLowerCase().includes('serrurier') || 
                             page.services.name.toLowerCase().includes('serrurerie') ||
                             (page.services as any).slug?.includes('serrurier');
+  const isGlazierService = page.services.name.toLowerCase().includes('vitrier') || 
+                          page.services.name.toLowerCase().includes('vitrerie') ||
+                          (page.services as any).slug?.includes('vitrier');
   
   // Choose the appropriate video URL
   const videoUrl = isPlumbingService ? PLUMBER_VIDEO_URL : 
@@ -34,6 +37,7 @@ export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
                    isClimatisationService ? CLIMATISATION_VIDEO_URL :
                    isHeatPumpService ? HEAT_PUMP_VIDEO_URL :
                    isLocksmithService ? LOCKSMITH_VIDEO_URL :
+                   isGlazierService ? GLAZIER_VIDEO_URL :
                    BUBBLE_VIDEO_URL;
   
   return (
