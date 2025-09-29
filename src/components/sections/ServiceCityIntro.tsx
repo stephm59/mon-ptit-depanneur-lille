@@ -40,7 +40,7 @@ export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
                   }
                 }}
                 className="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-elevated"
-                style={{ objectPosition: 'center 25%' }}
+                style={{ objectPosition: 'center 45%' }}
                 src={videoUrl}
                 autoPlay
                 loop
