@@ -735,7 +735,7 @@ const BlogPost = () => {
           <Card className="p-6 border-l-4 border-l-primary bg-secondary/20">
             <p className="text-lg text-center">
                Ce bon conseil vous est proposé par Mon p'tit Dépanneur, 
-                {post.slug === 'climatisation-inversee-fonctionnement' || post.slug === 'climatisation-copropriete-regles-votes-lille' || post.slug === 'entretien-clim-checklist-pro' || post.slug === 'code-erreur-clim-premiers-reflexes' ? (
+                {post.slug === 'climatisation-inversee-fonctionnement' || post.slug === 'climatisation-copropriete-regles-votes-lille' || post.slug === 'entretien-clim-checklist-pro' || post.slug === 'code-erreur-clim-premiers-reflexes' || post.slug === 'climatisation-ne-refroidit-plus' ? (
                 <>
                   {' '}
                   <Link
