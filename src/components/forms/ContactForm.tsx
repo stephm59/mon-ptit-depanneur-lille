@@ -79,7 +79,7 @@ export const ContactForm = ({
         'service_3ja2w6x',
         'template_5n8krc1',
         templateParams,
-        'JWcps7Vj8BkvDAzsc'
+        { publicKey: 'JWcps7Vj8BkvDAzsc' }
       );
       
       toast({
