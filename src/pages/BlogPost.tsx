@@ -729,68 +729,8 @@ const BlogPost = () => {
         </div>
       </section>
 
-      {/* Article Content */}
-      <article className="py-16 bg-background mt-20">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-             {/* Always use ReactMarkdown for proper Markdown parsing with HTML support */}
-             <div className="prose prose-lg prose-headings:text-foreground prose-p:text-foreground prose-strong:text-foreground prose-li:text-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-img:rounded-lg prose-img:shadow-md max-w-none blog-content">
-               <ReactMarkdown 
-                 remarkPlugins={[remarkGfm]}
-                 rehypePlugins={[[rehypeRaw, { allowDangerousHtml: true }]]}
-                 components={{
-                   h2: ({ children }) => <h2 className="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-6 border-b border-border pb-3">{children}</h2>,
-                   h3: ({ children }) => <h3 className="text-xl md:text-2xl font-semibold text-foreground mt-8 mb-4">{children}</h3>,
-                   p: ({ children }) => <p className="text-foreground leading-relaxed mb-6 text-lg whitespace-pre-line">{children}</p>,
-                      ul: ({ children }) => <ul className="text-foreground space-y-2 mb-6 ml-6">{children}</ul>,
-                      ol: ({ children }) => <ol className="text-foreground space-y-2 mb-6 ml-6">{children}</ol>,
-                      li: ({ children }) => <li className="leading-relaxed">{children}</li>,
-                      blockquote: ({ children }) => (
-                        <blockquote className="border-l-4 border-l-primary bg-secondary/20 p-6 my-8 rounded-r-lg">
-                          <div className="text-foreground italic">{children}</div>
-                        </blockquote>
-                      ),
-                      table: ({ children }) => (
-                        <div className="my-8 overflow-x-auto bg-card rounded-lg border border-border shadow-sm">
-                          <table className="w-full border-collapse">{children}</table>
-                        </div>
-                      ),
-                      thead: ({ children }) => (
-                        <thead className="bg-primary/5">
-                          {children}
-                        </thead>
-                      ),
-                      tbody: ({ children }) => (
-                        <tbody className="divide-y divide-border">
-                          {children}
-                        </tbody>
-                      ),
-                      tr: ({ children }) => (
-                        <tr className="hover:bg-muted/50 transition-colors">
-                          {children}
-                        </tr>
-                      ),
-                      th: ({ children }) => (
-                        <th className="px-4 py-3 text-left text-sm font-semibold text-foreground border-r border-border last:border-r-0">
-                          {children}
-                        </th>
-                      ),
-                      td: ({ children }) => (
-                        <td className="px-4 py-3 text-sm text-foreground border-r border-border last:border-r-0 whitespace-nowrap md:whitespace-normal">
-                          {children}
-                        </td>
-                      ),
-                    }}
-                 >
-                   {post.content || ""}
-                 </ReactMarkdown>
-                </div>
-           </div>
-         </div>
-       </article>
-
       {/* Service Category Box */}
-      <section className="py-8 bg-background">
+      <section className="py-8 bg-background mt-20">
         <div className="container mx-auto px-6">
           <Card className="p-6 border-l-4 border-l-primary bg-secondary/20">
             <p className="text-lg text-center">
@@ -1102,6 +1042,66 @@ const BlogPost = () => {
           </Card>
         </div>
       </section>
+
+      {/* Article Content */}
+      <article className="py-16 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+             {/* Always use ReactMarkdown for proper Markdown parsing with HTML support */}
+             <div className="prose prose-lg prose-headings:text-foreground prose-p:text-foreground prose-strong:text-foreground prose-li:text-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-img:rounded-lg prose-img:shadow-md max-w-none blog-content">
+               <ReactMarkdown 
+                 remarkPlugins={[remarkGfm]}
+                 rehypePlugins={[[rehypeRaw, { allowDangerousHtml: true }]]}
+                 components={{
+                   h2: ({ children }) => <h2 className="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-6 border-b border-border pb-3">{children}</h2>,
+                   h3: ({ children }) => <h3 className="text-xl md:text-2xl font-semibold text-foreground mt-8 mb-4">{children}</h3>,
+                   p: ({ children }) => <p className="text-foreground leading-relaxed mb-6 text-lg whitespace-pre-line">{children}</p>,
+                      ul: ({ children }) => <ul className="text-foreground space-y-2 mb-6 ml-6">{children}</ul>,
+                      ol: ({ children }) => <ol className="text-foreground space-y-2 mb-6 ml-6">{children}</ol>,
+                      li: ({ children }) => <li className="leading-relaxed">{children}</li>,
+                      blockquote: ({ children }) => (
+                        <blockquote className="border-l-4 border-l-primary bg-secondary/20 p-6 my-8 rounded-r-lg">
+                          <div className="text-foreground italic">{children}</div>
+                        </blockquote>
+                      ),
+                      table: ({ children }) => (
+                        <div className="my-8 overflow-x-auto bg-card rounded-lg border border-border shadow-sm">
+                          <table className="w-full border-collapse">{children}</table>
+                        </div>
+                      ),
+                      thead: ({ children }) => (
+                        <thead className="bg-primary/5">
+                          {children}
+                        </thead>
+                      ),
+                      tbody: ({ children }) => (
+                        <tbody className="divide-y divide-border">
+                          {children}
+                        </tbody>
+                      ),
+                      tr: ({ children }) => (
+                        <tr className="hover:bg-muted/50 transition-colors">
+                          {children}
+                        </tr>
+                      ),
+                      th: ({ children }) => (
+                        <th className="px-4 py-3 text-left text-sm font-semibold text-foreground border-r border-border last:border-r-0">
+                          {children}
+                        </th>
+                      ),
+                      td: ({ children }) => (
+                        <td className="px-4 py-3 text-sm text-foreground border-r border-border last:border-r-0 whitespace-nowrap md:whitespace-normal">
+                          {children}
+                        </td>
+                      ),
+                    }}
+                 >
+                   {post.content || ""}
+                 </ReactMarkdown>
+                </div>
+           </div>
+         </div>
+       </article>
 
        {/* FAQ Section */}
        <BlogPostFaqs serviceId={post.service_id} blogPostId={post.id} />
