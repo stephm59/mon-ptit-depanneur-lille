@@ -60,8 +60,7 @@ const ContactFormSection = () => {
       await emailjs.send(
         'service_3ja2w6x',
         'template_5n8krc1',
-        templateParams,
-        { publicKey: 'JWcps7Vj8BkvDAzsc' }
+        templateParams
       );
       
       toast({
