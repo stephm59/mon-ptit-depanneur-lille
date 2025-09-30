@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { BlogCarnetHero } from "@/components/blog/BlogCarnetHero";
@@ -7,6 +6,7 @@ import { BlogSearchAndFilters } from "@/components/blog/BlogSearchAndFilters";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 import { useFilteredBlogPosts } from "@/hooks/useBlog";
 import { FixedCallButton } from "@/components/widgets/FixedCallButton";
+import { SEOHead } from "@/components/seo/SEOHead";
 
 const BlogCarnet = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,14 +16,12 @@ const BlogCarnet = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Les bons conseils de Mon p'tit Dépanneur</title>
-        <meta name="description" content="Retrouvez toutes les astuces de votre artisan préféré dans notre carnet.." />
-        <meta property="og:title" content="Les bons conseils de Mon p'tit Dépanneur" />
-        <meta property="og:description" content="Retrouvez toutes les astuces de votre artisan préféré dans notre carnet.." />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://www.monptitdepanneur.fr/carnet" />
-      </Helmet>
+      <SEOHead
+        title="Les bons conseils de Mon p'tit Dépanneur"
+        description="Retrouvez toutes les astuces de votre artisan préféré dans notre carnet.."
+        canonical="/carnet"
+        keywords="conseils plomberie, astuces chauffage, guide dépannage, blog artisan lille"
+      />
 
       <div className="min-h-screen">
         <Header />

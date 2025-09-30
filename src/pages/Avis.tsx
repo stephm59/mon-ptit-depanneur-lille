@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { SEOHead } from "@/components/seo/SEOHead";
 import Header from "@/components/layout/Header";
 import Hero from "@/components/sections/Hero";
 import ReviewsGrid from "@/components/sections/ReviewsGrid";
@@ -9,12 +9,12 @@ import Footer from "@/components/layout/Footer";
 const Avis = () => {
   return (
     <>
-      <Helmet>
-        <title>Nos (jolies) réalisations, vos avis | Mon P&#039;tit Dépanneur</title>
-        <meta name="description" content="Salles des bains, de douches, installations, réparations... Voici quelqu&#039;unes de nos réalisations et les avis de nos clients." />
-        <meta name="keywords" content="avis clients lille, témoignages plombier, photos réalisations, salle de bain lille" />
-        <link rel="canonical" href="https://www.monptitdepanneur.fr/avis" />
-      </Helmet>
+      <SEOHead
+        title="Nos (jolies) réalisations, vos avis | Mon P'tit Dépanneur"
+        description="Salles des bains, de douches, installations, réparations... Voici quelqu'unes de nos réalisations et les avis de nos clients."
+        canonical="/avis"
+        keywords="avis clients lille, témoignages plombier, photos réalisations, salle de bain lille"
+      />
 
       <Header />
       

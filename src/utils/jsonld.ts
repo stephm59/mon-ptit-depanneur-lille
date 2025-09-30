@@ -320,3 +320,57 @@ export const generateHomeJsonLd = (baseUrl: string = "https://www.monptitdepanne
     ]
   };
 };
+
+interface BlogPostData {
+  title: string;
+  slug: string;
+  excerpt?: string | null;
+  content?: string | null;
+  cover_image_url?: string | null;
+  published_at?: string | null;
+  updated_at?: string;
+  meta_title?: string | null;
+  meta_description?: string | null;
+}
+
+export const generateBlogPostJsonLd = (
+  post: BlogPostData,
+  baseUrl: string = "https://www.monptitdepanneur.fr"
+) => {
+  const postUrl = `${baseUrl}/carnet/${post.slug}`;
+  const imageUrl = post.cover_image_url || "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp";
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${postUrl}#article`,
+    "headline": post.title,
+    "name": post.meta_title || post.title,
+    "description": post.meta_description || post.excerpt || "",
+    "image": {
+      "@type": "ImageObject",
+      "url": imageUrl
+    },
+    "datePublished": post.published_at || new Date().toISOString(),
+    "dateModified": post.updated_at || post.published_at || new Date().toISOString(),
+    "author": {
+      "@type": "Organization",
+      "@id": `${baseUrl}/#organization`,
+      "name": "Mon p'tit Dépanneur"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": `${baseUrl}/#organization`,
+      "name": "Mon p'tit Dépanneur",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": postUrl
+    },
+    "inLanguage": "fr"
+  };
+};

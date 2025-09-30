@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -7,6 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin, Users, Award, Clock, Shield, Check, Star, Quote } from "lucide-react";
 import { FixedCallButton } from "@/components/widgets/FixedCallButton";
+import { SEOHead } from "@/components/seo/SEOHead";
 
 const Entreprise = () => {
   const services = [
@@ -73,124 +73,126 @@ const Entreprise = () => {
     "Garantie sur chaque intervention",
     "Service après-vente assuré"
   ];
+  
+  // JSON-LD structured data for the company
+  const companyJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.monptitdepanneur.fr/#entreprise",
+    "name": "Mon p'tit Dépanneur",
+    "url": "https://www.monptitdepanneur.fr/",
+    "description": "Artisans à Lille depuis 20 ans : chauffage (installation, entretien, dépannage), plomberie (fuites, cumulus), serrurerie (ouverture, barillet), vitrerie (remplacement). 12 experts, agréés par de nombreuses assurances.",
+    "slogan": "Une équipe d'artisans à votre service",
+    "logo": "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp",
+    "image": "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp",
+    "telephone": "+33-3-28-53-48-68",
+    "priceRange": "€€",
+    "founder": {
+      "@type": "Person",
+      "name": "David Vanmarcke"
+    },
+    "foundingDate": "2005",
+    "numberOfEmployees": 12,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lille",
+      "addressRegion": "Hauts-de-France",
+      "postalCode": "59000",
+      "addressCountry": "FR"
+    },
+    "areaServed": [
+      { "@type": "Place", "name": "Lille" },
+      { "@type": "Place", "name": "Villeneuve-d'Ascq" },
+      { "@type": "Place", "name": "La Madeleine" },
+      { "@type": "Place", "name": "Wambrechies" },
+      { "@type": "Place", "name": "Lambersart" },
+      { "@type": "Place", "name": "Bondues" }
+    ],
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 50.6292,
+      "longitude": 3.0573
+    },
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.6292,
+        "longitude": 3.0573
+      },
+      "geoRadius": 30000
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+33-3-28-53-48-68",
+        "contactType": "customer service",
+        "areaServed": "FR",
+        "availableLanguage": ["fr"]
+      }
+    ],
+    "hasCredential": [
+      { "@type": "EducationalOccupationalCredential", "name": "RGE (Reconnu Garant de l'Environnement)" },
+      { "@type": "EducationalOccupationalCredential", "name": "Qualibat" },
+      { "@type": "EducationalOccupationalCredential", "name": "QualiPAC" },
+      { "@type": "EducationalOccupationalCredential", "name": "Professionnel du Gaz (PG)" }
+    ],
+    "knowsAbout": [
+      "Installation, entretien et dépannage de chaudières",
+      "Pompes à chaleur et chauffe-eau",
+      "Plomberie : fuites, cumulus, canalisations",
+      "Serrurerie : ouverture de porte, changement de cylindre",
+      "Vitrerie : remplacement de petites vitres cassées"
+    ],
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+    "sameAs": [],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Nos services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Chauffage — installation, entretien, dépannage",
+          "itemOffered": { "@type": "Service", "serviceType": "Chauffage" }
+        },
+        {
+          "@type": "Offer",
+          "name": "Plomberie — fuites, cumulus, canalisations",
+          "itemOffered": { "@type": "Service", "serviceType": "Plomberie" }
+        },
+        {
+          "@type": "Offer",
+          "name": "Serrurerie — ouverture de porte, barillet",
+          "itemOffered": { "@type": "Service", "serviceType": "Serrurerie" }
+        },
+        {
+          "@type": "Offer",
+          "name": "Vitrerie — remplacement de vitres",
+          "itemOffered": { "@type": "Service", "serviceType": "Vitrerie" }
+        }
+      ]
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    ],
+    "acceptsReservations": "false"
+  };
 
   return (
     <>
-      <Helmet>
-        <title>Mon p'tit Dépanneur à Lille — Chauffage, Plomberie, Serrurerie</title>
-        <meta name="description" content="Mon p'tit Dépanneur, artisans à Lille depuis 20 ans : chauffage, plomberie, serrurerie, vitrerie. 12 experts, agréés assurances. Devis clair, intervention rapide." />
-        <link rel="canonical" href="https://www.monptitdepanneur.fr/entreprise" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "@id": "https://www.monptitdepanneur.fr/#entreprise",
-            "name": "Mon p'tit Dépanneur",
-            "url": "https://www.monptitdepanneur.fr/",
-            "description": "Artisans à Lille depuis 20 ans : chauffage (installation, entretien, dépannage), plomberie (fuites, cumulus), serrurerie (ouverture, barillet), vitrerie (remplacement). 12 experts, agréés par de nombreuses assurances.",
-            "slogan": "Une équipe d'artisans à votre service",
-            "logo": "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp",
-            "image": "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp",
-            "telephone": "+33-3-28-53-48-68",
-            "priceRange": "€€",
-            "founder": {
-              "@type": "Person",
-              "name": "David Vanmarcke"
-            },
-            "foundingDate": "2005",
-            "numberOfEmployees": 12,
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Lille",
-              "addressRegion": "Hauts-de-France",
-              "postalCode": "59000",
-              "addressCountry": "FR"
-            },
-            "areaServed": [
-              { "@type": "Place", "name": "Lille" },
-              { "@type": "Place", "name": "Villeneuve-d'Ascq" },
-              { "@type": "Place", "name": "La Madeleine" },
-              { "@type": "Place", "name": "Wambrechies" },
-              { "@type": "Place", "name": "Lambersart" },
-              { "@type": "Place", "name": "Bondues" }
-            ],
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 50.6292,
-              "longitude": 3.0573
-            },
-            "serviceArea": {
-              "@type": "GeoCircle",
-              "geoMidpoint": {
-                "@type": "GeoCoordinates",
-                "latitude": 50.6292,
-                "longitude": 3.0573
-              },
-              "geoRadius": 30000
-            },
-            "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "telephone": "+33-3-28-53-48-68",
-                "contactType": "customer service",
-                "areaServed": "FR",
-                "availableLanguage": ["fr"]
-              }
-            ],
-            "hasCredential": [
-              { "@type": "EducationalOccupationalCredential", "name": "RGE (Reconnu Garant de l'Environnement)" },
-              { "@type": "EducationalOccupationalCredential", "name": "Qualibat" },
-              { "@type": "EducationalOccupationalCredential", "name": "QualiPAC" },
-              { "@type": "EducationalOccupationalCredential", "name": "Professionnel du Gaz (PG)" }
-            ],
-            "knowsAbout": [
-              "Installation, entretien et dépannage de chaudières",
-              "Pompes à chaleur et chauffe-eau",
-              "Plomberie : fuites, cumulus, canalisations",
-              "Serrurerie : ouverture de porte, changement de cylindre",
-              "Vitrerie : remplacement de petites vitres cassées"
-            ],
-            "currenciesAccepted": "EUR",
-            "paymentAccepted": "Cash, Credit Card, Bank Transfer",
-            "sameAs": [],
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Nos services",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "name": "Chauffage — installation, entretien, dépannage",
-                  "itemOffered": { "@type": "Service", "serviceType": "Chauffage" }
-                },
-                {
-                  "@type": "Offer",
-                  "name": "Plomberie — fuites, cumulus, canalisations",
-                  "itemOffered": { "@type": "Service", "serviceType": "Plomberie" }
-                },
-                {
-                  "@type": "Offer",
-                  "name": "Serrurerie — ouverture de porte, barillet",
-                  "itemOffered": { "@type": "Service", "serviceType": "Serrurerie" }
-                },
-                {
-                  "@type": "Offer",
-                  "name": "Vitrerie — remplacement de vitres",
-                  "itemOffered": { "@type": "Service", "serviceType": "Vitrerie" }
-                }
-              ]
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-                "opens": "08:00",
-                "closes": "18:00"
-              }
-            ],
-            "acceptsReservations": "false"
-          })}
-        </script>
-      </Helmet>
+      <SEOHead
+        title="Mon p'tit Dépanneur à Lille — Chauffage, Plomberie, Serrurerie"
+        description="Mon p'tit Dépanneur, artisans à Lille depuis 20 ans : chauffage, plomberie, serrurerie, vitrerie. 12 experts, agréés assurances. Devis clair, intervention rapide."
+        canonical="/entreprise"
+        keywords="artisan lille, chauffagiste lille, plombier lille, entreprise dépannage lille"
+        jsonLd={companyJsonLd}
+      />
 
       <Header />
       

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import Header from "@/components/layout/Header";
 import Hero from "@/components/sections/Hero";
 import ContactFormSection from "@/components/sections/ContactFormSection";
@@ -8,16 +7,17 @@ import ContactMap from "@/components/sections/ContactMap";
 import { CtaBlock } from "@/components/sections/CtaBlock";
 import Footer from "@/components/layout/Footer";
 import { FixedCallButton } from "@/components/widgets/FixedCallButton";
+import { SEOHead } from "@/components/seo/SEOHead";
 
 const Contact = () => {
   return (
     <>
-      <Helmet>
-        <title>Comment contacter Mon p'tit Dépanneur ? (Mail et téléphone)</title>
-        <meta name="description" content="Contactez facilement Mon p'tit Dépanneur à Lille : téléphone 03 28 53 48 68, email ou formulaire en ligne. Devis gratuit et intervention rapide en moins d'1h." />
-        <meta name="keywords" content="contact, plombier lille, chauffagiste lille, devis gratuit, dépanneur lille" />
-        <link rel="canonical" href="https://www.monptitdepanneur.fr/contact" />
-      </Helmet>
+      <SEOHead
+        title="Comment contacter Mon p'tit Dépanneur ? (Mail et téléphone)"
+        description="Contactez facilement Mon p'tit Dépanneur à Lille : téléphone 03 28 53 48 68, email ou formulaire en ligne. Devis gratuit et intervention rapide en moins d'1h."
+        canonical="/contact"
+        keywords="contact, plombier lille, chauffagiste lille, devis gratuit, dépanneur lille"
+      />
       
       <div className="min-h-screen">
         <Header />

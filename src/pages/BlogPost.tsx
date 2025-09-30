@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import { Helmet } from "react-helmet";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -22,6 +21,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { BlogPostFaqs } from "@/components/sections/BlogPostFaqs";
 import { FixedCallButton } from "@/components/widgets/FixedCallButton";
+import { SEOHead } from "@/components/seo/SEOHead";
+import { generateBlogPostJsonLd } from "@/utils/jsonld";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -659,20 +660,26 @@ const BlogPost = () => {
   };
 
   const faqSchema = getFaqSchema(post.slug);
+  
+  // Generate Article JSON-LD
+  const articleJsonLd = generateBlogPostJsonLd(post);
+  
+  // Combine FAQ and Article schemas
+  const combinedJsonLd = faqSchema ? [articleJsonLd, faqSchema] : articleJsonLd;
 
   return (
     <>
       <Header />
-      <Helmet>
-        <title>{post.title}</title>
-        <meta name="description" content={post.excerpt || ""} />
-        <link rel="canonical" href={`https://www.monptitdepanneur.fr/carnet/${post.slug}`} />
-        {faqSchema && (
-          <script type="application/ld+json">
-            {JSON.stringify(faqSchema)}
-          </script>
-        )}
-      </Helmet>
+      <SEOHead
+        title={post.meta_title || post.title}
+        description={post.meta_description || post.excerpt || ""}
+        canonical={`/carnet/${post.slug}`}
+        ogType="article"
+        ogImage={post.cover_image_url || undefined}
+        publishedTime={post.published_at || undefined}
+        modifiedTime={post.updated_at}
+        jsonLd={combinedJsonLd}
+      />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-visible pt-28 pb-20">

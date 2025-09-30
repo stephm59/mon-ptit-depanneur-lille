@@ -14,10 +14,19 @@ import Testimonials from "@/components/sections/Testimonials";
 import { HomeServices } from "@/components/sections/HomeServices";
 import Footer from "@/components/layout/Footer";
 import { FixedCallButton } from "@/components/widgets/FixedCallButton";
+import { SEOHead } from "@/components/seo/SEOHead";
+import { generateHomeJsonLd } from "@/utils/jsonld";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Mon p'tit Dépanneur : Chauffagiste, Serrurier, Plombier (Lille)"
+        description="Une chaudière à changer ? Une serrure à remplacer ? Une fuite d'eau à réparer ? Pour toute urgence : Mon p'tit Dépanneur (03 28 53 48 68)"
+        canonical="/"
+        keywords="plombier lille, chauffagiste lille, serrurier lille, dépannage lille, pompe à chaleur lille"
+        jsonLd={generateHomeJsonLd()}
+      />
       <Header />
       <main>
         <Hero />
