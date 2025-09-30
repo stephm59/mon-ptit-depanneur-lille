@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import emailjs from "@emailjs/browser";
+import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -70,10 +71,37 @@ export const ContactForm = ({
     try {
       if (!formRef.current) return;
 
-      await emailjs.sendForm(
+      const formData = new FormData(formRef.current);
+      let fileUrl = null;
+
+      // Upload file to Supabase Storage if present
+      const file = formData.get('my_file') as File;
+      if (file && file.size > 0) {
+        const fileName = `${Date.now()}-${file.name}`;
+        const { data: uploadData, error: uploadError } = await supabase.storage
+          .from('contact-attachments')
+          .upload(fileName, file);
+
+        if (uploadError) {
+          console.error('File upload error:', uploadError);
+        } else {
+          fileUrl = `${supabase.storage.from('contact-attachments').getPublicUrl(fileName).data.publicUrl}`;
+        }
+      }
+
+      // Send email with EmailJS
+      const templateParams = {
+        from_name: `${formData.get('firstName')} ${formData.get('lastName')}`,
+        from_email: formData.get('from_email'),
+        phone: formData.get('phone'),
+        message: formData.get('message'),
+        file_url: fileUrl || 'Aucune pièce jointe',
+      };
+
+      await emailjs.send(
         'service_5uollxl',
         'template_5n8krc1',
-        formRef.current
+        templateParams
       );
       
       toast({
@@ -82,6 +110,7 @@ export const ContactForm = ({
       });
       
       form.reset();
+      if (formRef.current) formRef.current.reset();
       onClose();
     } catch (error) {
       console.error('EmailJS Error:', error);
