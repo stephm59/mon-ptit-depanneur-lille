@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -50,6 +50,7 @@ export const ContactForm = ({
 }: ContactFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
   
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -62,22 +63,17 @@ export const ContactForm = ({
     },
   });
 
-  const onSubmit = async (values: ContactFormValues) => {
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setIsSubmitting(true);
     
     try {
-      const templateParams = {
-        from_name: `${values.firstName} ${values.lastName}`,
-        from_email: values.email,
-        phone: values.phone,
-        message: values.message,
-        hasAttachment: values.file ? 'Oui (fichier joint non transmis par email)' : 'Non',
-      };
+      if (!formRef.current) return;
 
-      await emailjs.send(
+      await emailjs.sendForm(
         'service_5uollxl',
         'template_5n8krc1',
-        templateParams
+        formRef.current
       );
       
       toast({
@@ -129,7 +125,7 @@ export const ContactForm = ({
         </DialogHeader>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 pt-4">
+          <form ref={formRef} onSubmit={onSubmit} className="space-y-6 pt-4">
             {/* Prénom et Nom */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <FormField
@@ -140,6 +136,7 @@ export const ContactForm = ({
                     <FormLabel className="text-foreground font-medium">Prénom *</FormLabel>
                     <FormControl>
                       <Input 
+                        name="firstName"
                         placeholder="Votre prénom" 
                         className="bg-background border-input focus:border-primary focus:ring-primary"
                         {...field} 
@@ -158,6 +155,7 @@ export const ContactForm = ({
                     <FormLabel className="text-foreground font-medium">Nom *</FormLabel>
                     <FormControl>
                       <Input 
+                        name="lastName"
                         placeholder="Votre nom" 
                         className="bg-background border-input focus:border-primary focus:ring-primary"
                         {...field} 
@@ -182,6 +180,7 @@ export const ContactForm = ({
                     </FormLabel>
                     <FormControl>
                       <Input 
+                        name="from_email"
                         type="email" 
                         placeholder="votre@email.com" 
                         className="bg-background border-input focus:border-primary focus:ring-primary"
@@ -204,6 +203,7 @@ export const ContactForm = ({
                     </FormLabel>
                     <FormControl>
                       <Input 
+                        name="phone"
                         type="tel" 
                         placeholder="06 12 34 56 78" 
                         className="bg-background border-input focus:border-primary focus:ring-primary"
@@ -225,6 +225,7 @@ export const ContactForm = ({
                   <FormLabel className="text-foreground font-medium">Message *</FormLabel>
                   <FormControl>
                     <Textarea 
+                      name="message"
                       placeholder="Décrivez votre projet, le type d'intervention souhaité, vos besoins spécifiques..."
                       className="bg-background border-input focus:border-primary focus:ring-primary min-h-[100px] resize-none"
                       {...field} 
@@ -244,6 +245,7 @@ export const ContactForm = ({
               <div className="border-2 border-dashed border-input rounded-lg p-4 hover:border-primary/50 transition-colors">
                 <input
                   type="file"
+                  name="my_file"
                   accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
                   onChange={handleFileChange}
                   className="w-full text-sm text-muted-foreground file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-secondary file:text-foreground hover:file:bg-secondary/80"
