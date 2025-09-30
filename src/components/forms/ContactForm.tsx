@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import emailjs from "@emailjs/browser";
-import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -22,7 +21,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, Upload, Send } from "lucide-react";
+import { Phone, Mail, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const contactFormSchema = z.object({
@@ -31,7 +30,6 @@ const contactFormSchema = z.object({
   email: z.string().email("Veuillez saisir une adresse email valide"),
   phone: z.string().min(10, "Veuillez saisir un numéro de téléphone valide"),
   message: z.string().min(10, "Votre message doit contenir au moins 10 caractères"),
-  file: z.instanceof(File).optional(),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -71,37 +69,10 @@ export const ContactForm = ({
     try {
       if (!formRef.current) return;
 
-      const formData = new FormData(formRef.current);
-      let fileUrl = null;
-
-      // Upload file to Supabase Storage if present
-      const file = formData.get('my_file') as File;
-      if (file && file.size > 0) {
-        const fileName = `${Date.now()}-${file.name}`;
-        const { data: uploadData, error: uploadError } = await supabase.storage
-          .from('contact-attachments')
-          .upload(fileName, file);
-
-        if (uploadError) {
-          console.error('File upload error:', uploadError);
-        } else {
-          fileUrl = `${supabase.storage.from('contact-attachments').getPublicUrl(fileName).data.publicUrl}`;
-        }
-      }
-
-      // Send email with EmailJS
-      const templateParams = {
-        from_name: `${formData.get('firstName')} ${formData.get('lastName')}`,
-        from_email: formData.get('from_email'),
-        phone: formData.get('phone'),
-        message: formData.get('message'),
-        file_url: fileUrl || 'Aucune pièce jointe',
-      };
-
-      await emailjs.send(
+      await emailjs.sendForm(
         'service_5uollxl',
         'template_5n8krc1',
-        templateParams
+        formRef.current
       );
       
       toast({
@@ -110,7 +81,6 @@ export const ContactForm = ({
       });
       
       form.reset();
-      if (formRef.current) formRef.current.reset();
       onClose();
     } catch (error) {
       console.error('EmailJS Error:', error);
@@ -121,22 +91,6 @@ export const ContactForm = ({
       });
     } finally {
       setIsSubmitting(false);
-    }
-  };
-
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      // Vérifier la taille du fichier (max 10MB)
-      if (file.size > 10 * 1024 * 1024) {
-        toast({
-          title: "Fichier trop volumineux",
-          description: "Le fichier ne doit pas dépasser 10 MB.",
-          variant: "destructive",
-        });
-        return;
-      }
-      form.setValue("file", file);
     }
   };
 
@@ -264,26 +218,6 @@ export const ContactForm = ({
                 </FormItem>
               )}
             />
-
-            {/* Upload de fichier */}
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-foreground flex items-center gap-1">
-                <Upload className="w-4 h-4" />
-                Pièce jointe (optionnel)
-              </label>
-              <div className="border-2 border-dashed border-input rounded-lg p-4 hover:border-primary/50 transition-colors">
-                <input
-                  type="file"
-                  name="my_file"
-                  accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                  onChange={handleFileChange}
-                  className="w-full text-sm text-muted-foreground file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-secondary file:text-foreground hover:file:bg-secondary/80"
-                />
-                <p className="text-xs text-muted-foreground mt-2">
-                  Formats acceptés : PDF, DOC, DOCX, JPG, PNG (max. 10 MB)
-                </p>
-              </div>
-            </div>
 
             {/* Boutons */}
             <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-border">
