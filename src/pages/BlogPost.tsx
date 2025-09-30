@@ -57,7 +57,8 @@ const BlogPost = () => {
   const bathroomArticleSlugs = [
     'renover-salle-bains-douche-baignoire',
     'choisir-toilettes',
-    'comment-choisir-colonne-douche'
+    'comment-choisir-colonne-douche',
+    'gain-place-salle-de-bains'
   ];
   
   // Articles liés à la serrurerie
@@ -806,7 +807,7 @@ const BlogPost = () => {
                     serrurier préféré à Lille
                   </Link>
                 </>
-              ) : post.slug === 'renover-salle-bains-douche-baignoire' || post.slug === 'comment-choisir-colonne-douche' || post.slug === 'choisir-toilettes' ? (
+              ) : post.slug === 'renover-salle-bains-douche-baignoire' || post.slug === 'comment-choisir-colonne-douche' || post.slug === 'choisir-toilettes' || post.slug === 'gain-place-salle-de-bains' ? (
                 <>
                   spécialiste en{' '}
                   <Link 
