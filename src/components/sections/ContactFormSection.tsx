@@ -58,7 +58,7 @@ const ContactFormSection = () => {
       };
 
       await emailjs.send(
-        'service_3ja2w6x',
+        'service_5uollxl',
         'template_5n8krc1',
         templateParams
       );
