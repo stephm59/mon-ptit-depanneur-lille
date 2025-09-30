@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -65,8 +66,21 @@ export const ContactForm = ({
     setIsSubmitting(true);
     
     try {
-      // Simuler l'envoi du formulaire
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const templateParams = {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+        phone: values.phone,
+        message: values.message,
+        hasAttachment: values.file ? 'Oui (fichier joint non transmis par email)' : 'Non',
+      };
+
+      await emailjs.send(
+        'service_3ja2w6x',
+        'template_5n8krc1',
+        templateParams,
+        'JWcps7Vj8BkvDAzsc'
+      );
       
       toast({
         title: "Demande envoyée avec succès !",
@@ -76,9 +90,10 @@ export const ContactForm = ({
       form.reset();
       onClose();
     } catch (error) {
+      console.error('EmailJS Error:', error);
       toast({
-        title: "Erreur",
-        description: "Une erreur s'est produite. Veuillez réessayer.",
+        title: "Erreur d'envoi",
+        description: "Impossible d'envoyer votre message. Veuillez réessayer ou nous appeler directement.",
         variant: "destructive",
       });
     } finally {
