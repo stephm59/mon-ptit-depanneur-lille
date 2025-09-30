@@ -49,9 +49,8 @@ const ContactFormSection = () => {
     
     try {
       const templateParams = {
-        firstName: values.firstName,
-        lastName: values.lastName,
-        email: values.email,
+        from_name: `${values.firstName} ${values.lastName}`,
+        from_email: values.email,
         phone: values.phone,
         message: values.message,
         hasAttachment: values.file ? 'Oui (fichier joint non transmis par email)' : 'Non',
