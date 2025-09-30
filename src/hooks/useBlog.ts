@@ -87,7 +87,7 @@ export const useRelatedBlogPosts = (serviceId?: string | null, currentSlug?: str
       // Ajouter la propriété isPopular et trier pour mettre les populaires en premier
       relatedPosts = relatedPosts.map(post => ({
         ...post,
-        isPopular: isPopularPost(post.title)
+        isPopular: isPopularPost(post.title, post.slug)
       })).sort((a, b) => {
         // Les articles populaires d'abord
         if (a.isPopular && !b.isPopular) return -1;
@@ -147,13 +147,22 @@ const POPULAR_POST_KEYWORDS = [
   "mitigeur simple",
   "thermostatique",
   "chasse d'eau ne fonctionne",
-  "code erreur",
-  "chaudière",
+  "code erreur chaudière",
   "serrure de porte",
   "mitigeur fonctionnel"
 ];
 
-const isPopularPost = (title: string): boolean => {
+// Articles à exclure du statut "populaire" 
+const EXCLUDED_FROM_POPULAR = [
+  "code-erreur-clim-premiers-reflexes"
+];
+
+const isPopularPost = (title: string, slug?: string): boolean => {
+  // Exclure certains articles du statut "populaire"
+  if (slug && EXCLUDED_FROM_POPULAR.includes(slug)) {
+    return false;
+  }
+  
   const titleLower = title.toLowerCase();
   return POPULAR_POST_KEYWORDS.some(keyword => 
     titleLower.includes(keyword.toLowerCase())
@@ -197,7 +206,7 @@ export const useFilteredBlogPosts = (searchTerm: string = "", serviceId: string 
       // Ajouter la propriété isPopular et trier pour mettre les populaires en premier
       posts = posts.map(post => ({
         ...post,
-        isPopular: isPopularPost(post.title)
+        isPopular: isPopularPost(post.title, post.slug)
       })).sort((a, b) => {
         // Les articles populaires d'abord
         if (a.isPopular && !b.isPopular) return -1;
