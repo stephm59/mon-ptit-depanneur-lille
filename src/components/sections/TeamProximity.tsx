@@ -17,7 +17,7 @@ const TeamProximity = () => {
                 <img 
                   src="https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/photo-equipe.webp"
                   alt="Équipe Mon p'tit Dépanneur"
-                  className="w-full h-auto rounded-2xl shadow-lg"
+                  className="w-auto max-w-full h-auto rounded-2xl shadow-lg"
                   loading="lazy"
                 />
               </div>
