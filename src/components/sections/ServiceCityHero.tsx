@@ -1,7 +1,6 @@
 import { Star, Clock, Shield, Wrench, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import heroBackground from "@/assets/hero-background.jpg";
 import { HERO_VIDEO_URL } from "@/config/media";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { useContactForm } from "@/hooks/useContactForm";
@@ -60,7 +59,6 @@ export const ServiceCityHero = ({ page }: ServiceCityHeroProps) => {
             loop
             muted
             playsInline
-            poster={heroBackground}
             preload="metadata"
             aria-hidden="true"
           />
