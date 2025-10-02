@@ -2,6 +2,8 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLegalModal } from "@/hooks/useLegalModal";
 import { LegalModal } from "@/components/modals/LegalModal";
+import { useContactForm } from "@/hooks/useContactForm";
+import { ContactForm } from "@/components/forms/ContactForm";
 
 // Google Badge Styles
 const googleBadgeStyles = `
@@ -17,6 +19,7 @@ const googleBadgeStyles = `
 
 const Footer = () => {
   const { isOpen, openModal, closeModal } = useLegalModal();
+  const { isOpen: isContactFormOpen, openForm, closeForm } = useContactForm();
   // Function to generate URL from service name that matches UniversalRouter patterns
   const generateServiceUrl = (serviceName: string) => {
     // Extract service type and city from the service name
@@ -198,10 +201,10 @@ const Footer = () => {
                 <Phone className="w-5 h-5" />
                 03 28 53 48 68
               </a>
-              <a href="mailto:contact@monptitdepanneur.fr" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors">
+              <button onClick={openForm} className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors cursor-pointer">
                 <Mail className="w-5 h-5" />
-                contact@monptitdepanneur.fr
-              </a>
+                Contactez-nous
+              </button>
               <div className="flex items-start gap-3 text-gray-300">
                 <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />
                 <div>
@@ -354,6 +357,12 @@ const Footer = () => {
       </div>
       
       <LegalModal isOpen={isOpen} onClose={closeModal} />
+      <ContactForm 
+        isOpen={isContactFormOpen} 
+        onClose={closeForm}
+        title="Contactez-nous"
+        description="Posez-nous votre question ou demandez un devis gratuit. Nous vous répondons rapidement !"
+      />
       </footer>
     </>
   );
