@@ -18,7 +18,7 @@ const About = () => {
           isVisible && "animate"
         )}
       >
-        <div className="flex flex-col lg:flex-row gap-8 items-start max-w-6xl mx-auto">
+        <div className="flex flex-col lg:flex-row gap-8 items-center lg:items-start max-w-6xl mx-auto">
           {/* Video Section */}
           <div className="flex-shrink-0 flex justify-center lg:justify-start">
             <div className="relative">
