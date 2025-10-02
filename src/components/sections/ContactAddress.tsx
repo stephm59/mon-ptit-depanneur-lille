@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const ContactAddress = () => {
@@ -14,12 +14,6 @@ const ContactAddress = () => {
       title: "Téléphone",
       details: ["03 28 53 48 68"],
       color: "text-accent"
-    },
-    {
-      icon: Mail,
-      title: "Email", 
-      details: ["contact@monptitdepanneur.fr"],
-      color: "text-success"
     },
     {
       icon: Clock,
@@ -43,7 +37,7 @@ const ContactAddress = () => {
         </div>
 
         {/* Contact Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {contactInfo.map((info, index) => (
             <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-8">
