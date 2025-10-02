@@ -13,7 +13,7 @@ const Sitemap = () => {
     { title: "Contact", path: "/contact", icon: MessageSquare },
     { title: "L'entreprise", path: "/entreprise", icon: Briefcase },
     { title: "Avis clients", path: "/avis", icon: Star },
-    { title: "Blog - Carnet de bord", path: "/carnet-de-bord", icon: FileText },
+    { title: "Blog - Carnet de bord", path: "/carnet", icon: FileText },
   ];
 
   if (error) {
@@ -140,7 +140,7 @@ const Sitemap = () => {
                     return (
                       <Link
                         key={post.slug}
-                        to={`/carnet-de-bord/${post.slug}`}
+                        to={`/carnet/${post.slug}`}
                         className="p-3 rounded-lg border border-border hover:border-primary hover:bg-accent transition-all text-sm"
                       >
                         {title}
