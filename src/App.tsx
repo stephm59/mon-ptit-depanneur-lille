@@ -17,7 +17,6 @@ import MentionsLegales from "./pages/MentionsLegales";
 import Avis from "./pages/Avis";
 import NotFound from "./pages/NotFound";
 import Sitemap from "./pages/Sitemap";
-import SitemapXmlRedirect from "./pages/SitemapXmlRedirect";
 
 const queryClient = new QueryClient();
 
@@ -44,8 +43,7 @@ const App = () => (
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/carnet" element={<BlogCarnet />} />
             <Route path="/carnet/:slug" element={<BlogPost />} />
-            <Route path="/sitemap" element={<Sitemap />} />
-            <Route path="/sitemap.xml" element={<SitemapXmlRedirect />} />
+          <Route path="/sitemap" element={<Sitemap />} />
               
               {/* Redirections des anciennes URLs vers les nouvelles */}
               <Route path="/choisir-adoucisseur-eau" element={<Navigate to="/carnet/choisir-adoucisseur-eau" replace />} />
