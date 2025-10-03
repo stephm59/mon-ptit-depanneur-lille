@@ -44,10 +44,6 @@ const App = () => (
             <Route path="/carnet" element={<BlogCarnet />} />
             <Route path="/carnet/:slug" element={<BlogPost />} />
             <Route path="/sitemap" element={<Sitemap />} />
-            <Route 
-              path="/sitemap.xml" 
-              element={<Navigate to="https://bpwqdkznbmqwvvxpthhl.supabase.co/functions/v1/generate-sitemap" replace />} 
-            />
               
               {/* Redirections des anciennes URLs vers les nouvelles */}
               <Route path="/choisir-adoucisseur-eau" element={<Navigate to="/carnet/choisir-adoucisseur-eau" replace />} />
