@@ -84,6 +84,8 @@ const App = () => (
               <Route path="/fuite-chez-moi" element={<Navigate to="/carnet/detecter-fuite-eau-maison" replace />} />
               <Route path="/lecture-compteur-eau" element={<Navigate to="/carnet/lecture-compteur-eau" replace />} />
               <Route path="/carnet/remplacement-chaudiere-pac-etapes-delais" element={<Navigate to="/carnet/remplacer-chaudiere-par-pompe-chaleur" replace />} />
+              <Route path="/comment-retourner-un-pene-demi-tour" element={<Navigate to="/carnet/comment-retourner-un-pene-demi-tour" replace />} />
+              <Route path="/comment-retourner-un-pene-demi-tour/" element={<Navigate to="/carnet/comment-retourner-un-pene-demi-tour" replace />} />
               
               {/* Redirections des anciennes pages générales */}
               <Route path="/accueil/" element={<Navigate to="/" replace />} />
