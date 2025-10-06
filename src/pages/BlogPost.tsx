@@ -550,6 +550,63 @@ const BlogPost = () => {
       };
     }
     
+    if (slug === "comment-retourner-un-pene-demi-tour") {
+      return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Comment savoir si mon pêne est réversible ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La plupart des serrures modernes l'indiquent (notice, fiche produit). Si vous voyez un petit ergot près du pêne ou un trou de manœuvre sur la têtière, c'est généralement réversible."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Je n'arrive pas à faire pivoter le pêne : normal ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, certains modèles nécessitent de tirer légèrement le pêne pour libérer un verrou interne avant de le tourner à 180°. Sur d'autres, il faut retirer une goupille."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Le pêne frotte après remontage, que faire ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Contrôlez l'alignement de la gâche et le jeu de la porte. Un léger réglage vertical ou une cale mince derrière la gâche suffit souvent."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Puis-je graisser au WD-40 ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Évitez en lubrification permanente : préférez un lubrifiant sec ou au PTFE. Le WD-40 dépanne mais attire la poussière sur la durée."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Ma serrure n'est pas réversible. Je change quoi ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Remplacez par un modèle réversible aux mêmes cotes (entraxe, axe, têtière). Apportez l'ancienne en quincaillerie pour correspondance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Vous pouvez intervenir si je n'y arrive pas ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui. Nos dépanneurs interviennent rapidement pour diagnostiquer, retourner le pêne sans casse et vérifier l'alignement de la gâche. Devis clair et garantie main-d'œuvre."
+            }
+          }
+        ]
+      };
+    }
+    
     if (slug === "role-tuyauterie-plomberie") {
       return {
         "@context": "https://schema.org",
