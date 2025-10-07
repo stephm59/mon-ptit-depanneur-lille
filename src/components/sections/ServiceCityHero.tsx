@@ -86,9 +86,9 @@ export const ServiceCityHero = ({ page }: ServiceCityHeroProps) => {
                 Demander un devis
               </Button>
               <Button asChild variant="outline" size="lg" className="border-white text-white bg-transparent hover:bg-white/10 text-lg" aria-label="Appeler Mon p'tit Dépanneur">
-                <a href="tel:0328634868">
+                <a href="tel:0328534868">
                   <Phone className="w-6 h-6 text-white" />
-                  03 28 63 48 68
+                  03 28 53 48 68
                 </a>
               </Button>
             </div>

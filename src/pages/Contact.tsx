@@ -14,7 +14,7 @@ const Contact = () => {
     <>
       <SEOHead
         title="Comment contacter Mon p'tit Dépanneur ? (Mail et téléphone)"
-        description="Contactez facilement Mon p'tit Dépanneur à Lille : téléphone 03 28 63 48 68, email ou formulaire en ligne. Devis gratuit et intervention rapide en moins d'1h."
+        description="Contactez facilement Mon p'tit Dépanneur à Lille : téléphone 03 28 53 48 68, email ou formulaire en ligne. Devis gratuit et intervention rapide en moins d'1h."
         canonical="/contact"
         keywords="contact, plombier lille, chauffagiste lille, devis gratuit, dépanneur lille"
       />

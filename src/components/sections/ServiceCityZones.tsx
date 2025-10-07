@@ -49,7 +49,7 @@ export const ServiceCityZones = ({ zonesText, cityName }: ServiceCityZonesProps)
             <div className="text-muted-foreground">
               <p className="mb-2">Mon P'tit Dépanneur</p>
               <p className="mb-2">21 Rue Édouard Delesalle, 59000 Lille</p>
-              <p className="font-semibold text-primary">📞 03 28 63 48 68</p>
+              <p className="font-semibold text-primary">📞 03 28 53 48 68</p>
             </div>
           </div>
         </div>

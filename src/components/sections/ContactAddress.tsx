@@ -12,7 +12,7 @@ const ContactAddress = () => {
     {
       icon: Phone, 
       title: "Téléphone",
-      details: ["03 28 63 48 68"],
+      details: ["03 28 53 48 68"],
       color: "text-accent"
     },
     {

@@ -85,7 +85,7 @@ const Entreprise = () => {
     "slogan": "Une équipe d'artisans à votre service",
     "logo": "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp",
     "image": "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/logo-mon-ptit-depanneur-contour-blanc.webp",
-    "telephone": "+33-3-28-63-48-68",
+    "telephone": "+33-3-28-53-48-68",
     "priceRange": "€€",
     "founder": {
       "@type": "Person",
@@ -125,7 +125,7 @@ const Entreprise = () => {
     "contactPoint": [
       {
         "@type": "ContactPoint",
-        "telephone": "+33-3-28-63-48-68",
+        "telephone": "+33-3-28-53-48-68",
         "contactType": "customer service",
         "areaServed": "FR",
         "availableLanguage": ["fr"]
@@ -360,7 +360,7 @@ const Entreprise = () => {
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-6">Besoin d'un artisan de confiance ?</h2>
               <p className="text-xl mb-8">
-                👉 Contactez Mon p'tit Dépanneur au <strong>03 28 63 48 68</strong> ou via notre formulaire de contact
+                👉 Contactez Mon p'tit Dépanneur au <strong>03 28 53 48 68</strong> ou via notre formulaire de contact
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100">
@@ -369,9 +369,9 @@ const Entreprise = () => {
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="bg-primary border-2 border-white text-white hover:bg-primary/80 hover-scale transition-all duration-300">
-                  <a href="tel:0328636868">
+                  <a href="tel:0328534868">
                     <Phone className="w-5 h-5 mr-2" />
-                    03 28 63 48 68
+                    03 28 53 48 68
                   </a>
                 </Button>
               </div>

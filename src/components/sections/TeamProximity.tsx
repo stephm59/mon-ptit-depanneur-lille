@@ -49,9 +49,9 @@ const TeamProximity = () => {
                   size="lg" 
                   className="bg-accent text-white hover:bg-accent/90 font-bold px-8"
                 >
-                  <a href="tel:0328636868" className="inline-flex items-center gap-2">
+                  <a href="tel:0328534868" className="inline-flex items-center gap-2">
                     <Phone className="w-5 h-5" />
-                    03 28 63 48 68
+                    03 28 53 48 68
                   </a>
                 </Button>
               </div>

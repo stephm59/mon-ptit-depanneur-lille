@@ -189,7 +189,7 @@ export const generateServiceCityJsonLd = (
         "alternateName": "Mon petit dépanneur",
         "description": `Dépannage ${serviceName.toLowerCase()} ${cityName}`,
         "url": baseUrl,
-        "telephone": "03 28 63 48 68",
+        "telephone": "03 28 53 48 68",
         "priceRange": "€€",
         "address": {
           "@type": "PostalAddress",
@@ -290,7 +290,7 @@ export const generateHomeJsonLd = (baseUrl: string = "https://www.monptitdepanne
         "alternateName": "Mon petit dépanneur",
         "description": "Entreprise de dépannage et d'intervention rapide : chauffage, plomberie, pompe à chaleur sur Lille et sa métropole",
         "url": baseUrl,
-        "telephone": "03 28 63 48 68",
+        "telephone": "03 28 53 48 68",
         "priceRange": "€€",
         "address": {
           "@type": "PostalAddress",
