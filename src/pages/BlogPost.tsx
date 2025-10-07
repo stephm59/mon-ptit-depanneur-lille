@@ -315,7 +315,7 @@ const BlogPost = () => {
             "name": "Intervenez-vous rapidement à Lille et alentours ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Oui, Mon p'tit Dépanneur intervient rapidement à Lille et dans la métropole lilloise pour la recherche et la réparation de fuites. Pour une urgence, appelez le 03 28 53 48 68."
+              "text": "Oui, Mon p'tit Dépanneur intervient rapidement à Lille et dans la métropole lilloise pour la recherche et la réparation de fuites. Pour une urgence, appelez le 03 28 63 48 68."
             }
           }
         ]
@@ -763,7 +763,7 @@ const BlogPost = () => {
             </Button>
             <Button size="lg" variant="phone">
               <Phone className="mr-2 h-5 w-5" />
-              03 28 53 48 68
+              03 28 63 48 68
             </Button>
           </div>
 

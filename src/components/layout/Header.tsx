@@ -105,7 +105,7 @@ const Header = () => {
               </Button>
             </div>
             <a 
-              href="tel:0328534868" 
+              href="tel:0328636868" 
               className={cn(
                 "hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors shadow-lg h-10",
                 isScrolled 
@@ -115,7 +115,7 @@ const Header = () => {
               aria-label="Appeler Mon p'tit Dépanneur"
             >
               <Phone className="w-5 h-5" />
-              03 28 53 48 68
+              03 28 63 48 68
             </a>
 
             {/* Mobile menu button */}

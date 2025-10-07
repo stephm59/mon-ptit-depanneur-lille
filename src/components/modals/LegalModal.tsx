@@ -37,7 +37,7 @@ export const LegalModal = ({ isOpen, onClose }: LegalModalProps) => {
                 <p>21 rue Edouard Delesalle</p>
                 <p>59 000 Lille</p>
                 <p>contact@monptitdepanneur.fr</p>
-                <p>Tel. 03 28 53 48 68</p>
+                <p>Tel. 03 28 63 48 68</p>
                 <p className="mt-4"><strong>Directeur de publication :</strong> David Vanmarcke</p>
                 <p><strong>SIRET :</strong> 82804314100013</p>
                 <p><strong>CODE APE/NAF :</strong> 4322A</p>

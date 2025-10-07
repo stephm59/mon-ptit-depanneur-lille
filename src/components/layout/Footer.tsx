@@ -197,9 +197,9 @@ const Footer = () => {
           <div>
             <h4 className="text-xl font-bold text-white mb-6">Contact</h4>
             <div className="space-y-4">
-              <a href="tel:0328534868" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors">
+              <a href="tel:0328636868" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors">
                 <Phone className="w-5 h-5" />
-                03 28 53 48 68
+                03 28 63 48 68
               </a>
               <button onClick={openForm} className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors cursor-pointer">
                 <Mail className="w-5 h-5" />

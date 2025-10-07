@@ -22,7 +22,7 @@ const Index = () => {
     <div className="min-h-screen">
       <SEOHead
         title="Mon p'tit Dépanneur : Chauffagiste, Serrurier, Plombier (Lille)"
-        description="Une chaudière à changer ? Une serrure à remplacer ? Une fuite d'eau à réparer ? Pour toute urgence : Mon p'tit Dépanneur (03 28 53 48 68)"
+        description="Une chaudière à changer ? Une serrure à remplacer ? Une fuite d'eau à réparer ? Pour toute urgence : Mon p'tit Dépanneur (03 28 63 48 68)"
         canonical="/"
         keywords="plombier lille, chauffagiste lille, serrurier lille, dépannage lille, pompe à chaleur lille"
         jsonLd={generateHomeJsonLd()}

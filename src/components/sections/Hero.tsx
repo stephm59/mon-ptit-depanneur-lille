@@ -84,9 +84,9 @@ const Hero = ({ title, subtitle }: HeroProps = {}) => {
               Demander un devis
             </Button>
             <Button asChild variant="outline" size="lg" className="border-2 border-white text-white bg-black/20 hover:bg-white hover:text-primary transition-colors text-lg" aria-label="Appeler Mon p'tit Dépanneur">
-              <a href="tel:0328534868" className="flex items-center gap-3">
+              <a href="tel:0328636868" className="flex items-center gap-3">
                 <Phone className="w-5 h-5" />
-                03 28 53 48 68
+                03 28 63 48 68
               </a>
             </Button>
           </div>
