@@ -88,30 +88,34 @@ const App = () => (
               <Route path="/comment-retourner-un-pene-demi-tour/" element={<Navigate to="/carnet/comment-retourner-un-pene-demi-tour" replace />} />
               
               {/* Redirections articles de blog depuis _redirects */}
-              <Route path="/nettoyage-de-canalisation" element={<Navigate to="/carnet/deboucher-canalisation" replace />} />
-              <Route path="/nettoyage-de-canalisation/" element={<Navigate to="/carnet/deboucher-canalisation" replace />} />
+              <Route path="/nettoyage-de-canalisation" element={<Navigate to="/carnet/7-astuces-deboucher-canalisations" replace />} />
+              <Route path="/nettoyage-de-canalisation/" element={<Navigate to="/carnet/7-astuces-deboucher-canalisations" replace />} />
               <Route path="/regler-reducteur-pression/" element={<Navigate to="/carnet/regler-reducteur-pression" replace />} />
-              <Route path="/guide-systemes-plomberie/" element={<Navigate to="/carnet/systeme-plomberie" replace />} />
+              <Route path="/guide-systemes-plomberie/" element={<Navigate to="/carnet/guide-systemes-plomberie" replace />} />
               <Route path="/composant-serrure-porte/" element={<Navigate to="/carnet/composant-serrure-porte" replace />} />
               <Route path="/chauffe-eau/" element={<Navigate to="/carnet/chauffe-eau" replace />} />
               <Route path="/quel-cylindre-porte-entree/" element={<Navigate to="/carnet/quel-cylindre-porte-entree" replace />} />
-              <Route path="/code-erreur-chaudiere/" element={<Navigate to="/carnet/code-erreur-chaudiere" replace />} />
-              <Route path="/tuyauterie-role/" element={<Navigate to="/carnet/tuyauterie-role" replace />} />
-              <Route path="/evier-bouche" element={<Navigate to="/carnet/deboucher-canalisation" replace />} />
-              <Route path="/evier-bouche/" element={<Navigate to="/carnet/deboucher-canalisation" replace />} />
+              <Route path="/code-erreur-chaudiere/" element={<Navigate to="/carnet/code-erreur-chaudiere-signification" replace />} />
+              <Route path="/tuyauterie-role/" element={<Navigate to="/carnet/role-tuyauterie-plomberie" replace />} />
+              <Route path="/evier-bouche" element={<Navigate to="/carnet/7-astuces-deboucher-canalisations" replace />} />
+              <Route path="/evier-bouche/" element={<Navigate to="/carnet/7-astuces-deboucher-canalisations" replace />} />
               <Route path="/gaz-dans-vitrages-quelle-utilite/" element={<Navigate to="/carnet/gaz-dans-vitrages-quelle-utilite" replace />} />
               
               {/* Redirections pages service-ville depuis _redirects */}
               <Route path="/plomberie-lille" element={<Navigate to="/plombier-lille" replace />} />
               <Route path="/pompe-chaleur-lille" element={<Navigate to="/pompe-a-chaleur-lille" replace />} />
-              <Route path="/plombier-wasquehal/" element={<Navigate to="/plomberie-wasquehal" replace />} />
-              <Route path="/serrurier-hellemmes" element={<Navigate to="/serrurerie-hellemmes" replace />} />
-              <Route path="/serrurier-hellemmes/" element={<Navigate to="/serrurerie-hellemmes" replace />} />
+              <Route path="/plombier-wasquehal/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plomberie-wasquehal" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plomberie-wasquehal/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/serrurier-hellemmes" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-hellemmes/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurerie-hellemmes" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurerie-hellemmes/" element={<Navigate to="/serrurier-lille" replace />} />
               
               {/* Redirections pages auteur et pagination obsolètes depuis _redirects */}
               <Route path="/author/yamile/page/2/" element={<Navigate to="/carnet" replace />} />
               <Route path="/author/yamile/page/5/" element={<Navigate to="/carnet" replace />} />
-              <Route path="/lecture-compteur-eau/1000" element={<Navigate to="/carnet" replace />} />
+              <Route path="/lecture-compteur-eau/1000" element={<Navigate to="/carnet/lecture-compteur-eau" replace />} />
               
               {/* Redirections des anciennes pages générales */}
               <Route path="/accueil/" element={<Navigate to="/" replace />} />
