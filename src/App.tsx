@@ -90,7 +90,7 @@ const App = () => (
               {/* Redirections articles de blog depuis _redirects */}
               <Route path="/nettoyage-de-canalisation" element={<Navigate to="/carnet/deboucher-canalisation" replace />} />
               <Route path="/nettoyage-de-canalisation/" element={<Navigate to="/carnet/deboucher-canalisation" replace />} />
-              <Route path="/regler-reducteur-pression/" element={<Navigate to="/carnet/reducteur-pression" replace />} />
+              <Route path="/regler-reducteur-pression/" element={<Navigate to="/carnet/regler-reducteur-pression" replace />} />
               <Route path="/guide-systemes-plomberie/" element={<Navigate to="/carnet/systeme-plomberie" replace />} />
               <Route path="/composant-serrure-porte/" element={<Navigate to="/carnet/composant-serrure-porte" replace />} />
               <Route path="/chauffe-eau/" element={<Navigate to="/carnet/chauffe-eau" replace />} />
