@@ -1,3 +1,29 @@
 /sitemap_index.xml /sitemap.xml 301
 /comment-retourner-un-pene-demi-tour /carnet/comment-retourner-un-pene-demi-tour 301
 /comment-retourner-un-pene-demi-tour/ /carnet/comment-retourner-un-pene-demi-tour 301
+
+# Articles de blog
+/nettoyage-de-canalisation /carnet/deboucher-canalisation 301
+/nettoyage-de-canalisation/ /carnet/deboucher-canalisation 301
+/regler-reducteur-pression/ /carnet/reducteur-pression 301
+/guide-systemes-plomberie/ /carnet/systeme-plomberie 301
+/composant-serrure-porte/ /carnet/composant-serrure-porte 301
+/chauffe-eau/ /carnet/chauffe-eau 301
+/quel-cylindre-porte-entree/ /carnet/quel-cylindre-porte-entree 301
+/code-erreur-chaudiere/ /carnet/code-erreur-chaudiere 301
+/tuyauterie-role/ /carnet/tuyauterie-role 301
+/evier-bouche /carnet/deboucher-canalisation 301
+/evier-bouche/ /carnet/deboucher-canalisation 301
+/gaz-dans-vitrages-quelle-utilite/ /carnet/gaz-dans-vitrages-quelle-utilite 301
+
+# Pages service-ville
+/plomberie-lille /plomberie-lille 301
+/pompe-chaleur-lille /pompe-a-chaleur-lille 301
+/plombier-wasquehal/ /plomberie-wasquehal 301
+/serrurier-hellemmes /serrurerie-hellemmes 301
+/serrurier-hellemmes/ /serrurerie-hellemmes 301
+
+# Pages auteur et pagination obsolètes
+/author/yamile/page/2/ /carnet 301
+/author/yamile/page/5/ /carnet 301
+/lecture-compteur-eau/1000 /carnet 301
