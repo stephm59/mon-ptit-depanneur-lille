@@ -72,3 +72,9 @@
 
 # Feed RSS accueil obsolète
 /accueil/feed/ / 301
+
+# Pages service-ville supplémentaires vers pages principales
+/serrurier-lambersart/ /serrurier-lille 301
+/renovation-salle-de-bains-lomme/ /renovation-salle-de-bains-lille 301
+/chauffagiste-lambersart/ /chauffagiste-lille 301
+/vitrier-villeneuve-d-ascq/ /vitrier-lille 301
