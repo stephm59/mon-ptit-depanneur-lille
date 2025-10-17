@@ -52,3 +52,23 @@
 # Redirections marques serrurerie supplémentaires
 /serrurier-fichet-lille /serrurier-lille 301
 /serrurier-fichet-lille/ /serrurier-lille 301
+
+# Feeds RSS pages service-ville obsolètes
+/plombier-sainghin-en-weppes/feed/ /plombier-lille 301
+/plombier-fleurbaix/feed/ /plombier-lille 301
+/plombier-emmerin/feed/ /plombier-lille 301
+/plombier-wasquehal/feed/ /plombier-lille 301
+/plombier-villeneuve-d-ascq/feed/ /plombier-lille 301
+/plombier-lezennes/feed/ /plombier-lille 301
+/plombier-wavrin/feed/ /plombier-lille 301
+/plombier-wattignies/feed/ /plombier-lille 301
+/chauffagiste-lille/feed/ /chauffagiste-lille 301
+
+# Pages interventions obsolètes
+/interventions-serrurerie /serrurier-lille 301
+/interventions-serrurerie/ /serrurier-lille 301
+/interventions-plomberie /plombier-lille 301
+/interventions-plomberie/ /plombier-lille 301
+
+# Feed RSS accueil obsolète
+/accueil/feed/ / 301

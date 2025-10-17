@@ -137,6 +137,26 @@ const App = () => (
               {/* Redirections marques serrurerie supplémentaires */}
               <Route path="/serrurier-fichet-lille" element={<Navigate to="/serrurier-lille" replace />} />
               <Route path="/serrurier-fichet-lille/" element={<Navigate to="/serrurier-lille" replace />} />
+
+              {/* Feeds RSS pages service-ville obsolètes */}
+              <Route path="/plombier-sainghin-en-weppes/feed/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-fleurbaix/feed/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-emmerin/feed/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-wasquehal/feed/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-villeneuve-d-ascq/feed/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-lezennes/feed/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-wavrin/feed/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-wattignies/feed/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/chauffagiste-lille/feed/" element={<Navigate to="/chauffagiste-lille" replace />} />
+
+              {/* Pages interventions obsolètes */}
+              <Route path="/interventions-serrurerie" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/interventions-serrurerie/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/interventions-plomberie" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/interventions-plomberie/" element={<Navigate to="/plombier-lille" replace />} />
+
+              {/* Feed RSS accueil obsolète */}
+              <Route path="/accueil/feed/" element={<Navigate to="/" replace />} />
               
               {/* Redirections des anciennes pages générales */}
               <Route path="/accueil/" element={<Navigate to="/" replace />} />
