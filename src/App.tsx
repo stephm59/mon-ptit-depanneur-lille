@@ -159,9 +159,13 @@ const App = () => (
               <Route path="/accueil/feed/" element={<Navigate to="/" replace />} />
 
               {/* Pages service-ville supplémentaires vers pages principales */}
+              <Route path="/serrurier-lambersart" element={<Navigate to="/serrurier-lille" replace />} />
               <Route path="/serrurier-lambersart/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/renovation-salle-de-bains-lomme" element={<Navigate to="/renovation-salle-de-bains-lille" replace />} />
               <Route path="/renovation-salle-de-bains-lomme/" element={<Navigate to="/renovation-salle-de-bains-lille" replace />} />
+              <Route path="/chauffagiste-lambersart" element={<Navigate to="/chauffagiste-lille" replace />} />
               <Route path="/chauffagiste-lambersart/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/vitrier-villeneuve-d-ascq" element={<Navigate to="/vitrier-lille" replace />} />
               <Route path="/vitrier-villeneuve-d-ascq/" element={<Navigate to="/vitrier-lille" replace />} />
               
               {/* Redirections des anciennes pages générales */}
