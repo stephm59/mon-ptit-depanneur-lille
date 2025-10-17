@@ -117,6 +117,9 @@ const App = () => (
               <Route path="/author/yamile/page/5/" element={<Navigate to="/carnet" replace />} />
               <Route path="/author/yamile/feed/" element={<Navigate to="/" replace />} />
               <Route path="/lecture-compteur-eau/1000" element={<Navigate to="/carnet/lecture-compteur-eau" replace />} />
+              <Route path="/lecture-compteur-eau" element={<Navigate to="/carnet/lecture-compteur-eau" replace />} />
+              <Route path="/lecture-compteur-eau/" element={<Navigate to="/carnet/lecture-compteur-eau" replace />} />
+              <Route path="/lecture-compteur-eau//1000" element={<Navigate to="/carnet/lecture-compteur-eau" replace />} />
               
               {/* Redirections pages service-ville supplémentaires */}
               <Route path="/plombier-faches-thumesnil/" element={<Navigate to="/plombier-lille" replace />} />

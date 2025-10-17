@@ -32,6 +32,9 @@
 /author/yamile/page/5/ /carnet 301
 /author/yamile/feed/ / 301
 /lecture-compteur-eau/1000 /carnet/lecture-compteur-eau 301
+/lecture-compteur-eau /carnet/lecture-compteur-eau 301
+/lecture-compteur-eau/ /carnet/lecture-compteur-eau 301
+/lecture-compteur-eau//1000 /carnet/lecture-compteur-eau 301
 
 # Pages service-ville supplémentaires
 /plombier-faches-thumesnil/ /plombier-lille 301
