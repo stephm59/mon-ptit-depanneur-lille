@@ -30,4 +30,14 @@
 # Pages auteur et pagination obsolètes
 /author/yamile/page/2/ /carnet 301
 /author/yamile/page/5/ /carnet 301
+/author/yamile/feed/ / 301
 /lecture-compteur-eau/1000 /carnet/lecture-compteur-eau 301
+
+# Pages service-ville supplémentaires
+/plombier-faches-thumesnil/ /plombier-lille 301
+/serrurier-wasquehal-2/ /serrurier-lille 301
+/plombier-beaucamps-ligny/ /plombier-lille 301
+
+# Redirection blog vers carnet
+/blog /carnet 301
+/blog/ /carnet 301

@@ -115,7 +115,17 @@ const App = () => (
               {/* Redirections pages auteur et pagination obsolètes depuis _redirects */}
               <Route path="/author/yamile/page/2/" element={<Navigate to="/carnet" replace />} />
               <Route path="/author/yamile/page/5/" element={<Navigate to="/carnet" replace />} />
+              <Route path="/author/yamile/feed/" element={<Navigate to="/" replace />} />
               <Route path="/lecture-compteur-eau/1000" element={<Navigate to="/carnet/lecture-compteur-eau" replace />} />
+              
+              {/* Redirections pages service-ville supplémentaires */}
+              <Route path="/plombier-faches-thumesnil/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/serrurier-wasquehal-2/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/plombier-beaucamps-ligny/" element={<Navigate to="/plombier-lille" replace />} />
+              
+              {/* Redirection blog vers carnet */}
+              <Route path="/blog" element={<Navigate to="/carnet" replace />} />
+              <Route path="/blog/" element={<Navigate to="/carnet" replace />} />
               
               {/* Redirections des anciennes pages générales */}
               <Route path="/accueil/" element={<Navigate to="/" replace />} />
