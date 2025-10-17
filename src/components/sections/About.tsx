@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Wrench, Volume2, VolumeX } from "lucide-react";
-import { GENERAL_VIDEO_URL } from "@/config/media";
+import { GENERAL_VIDEO_URL, SERVICE_POSTER } from "@/config/media";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { cn } from "@/lib/utils";
+import { LazyVideo } from "@/components/ui/lazy-video";
 
 const About = () => {
   const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
@@ -22,32 +24,20 @@ const About = () => {
           {/* Video Section */}
           <div className="flex-shrink-0 flex justify-center lg:justify-start">
             <div className="relative">
-              <video
-                ref={(video) => {
-                  if (video) {
-                    video.muted = isMuted;
-                  }
-                }}
+              <LazyVideo
+                ref={videoRef}
+                src={GENERAL_VIDEO_URL}
+                poster={SERVICE_POSTER}
                 className="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-elevated"
                 style={{ objectPosition: 'center 25%' }}
-                src={GENERAL_VIDEO_URL}
                 autoPlay
                 loop
                 muted={isMuted}
                 playsInline
-                preload="metadata"
-                onLoadStart={() => console.log('Video loading started')}
-                onCanPlay={() => console.log('Video can play')}
-                onError={(e) => {
-                  console.error('Video failed to load:', e);
-                  // Fallback to a static image if video fails to load
-                  const target = e.currentTarget;
-                  target.style.display = 'none';
-                  const img = document.createElement('img');
-                  img.src = '/src/assets/logo-mon-ptit-depanneur.png';
-                  img.className = 'w-64 h-64 object-cover rounded-full border-4 border-primary shadow-elevated';
-                  img.alt = 'Mon p\'tit Dépanneur';
-                  target.parentNode?.appendChild(img);
+                onPlayClick={() => {
+                  if (videoRef.current) {
+                    videoRef.current.muted = isMuted;
+                  }
                 }}
               />
               

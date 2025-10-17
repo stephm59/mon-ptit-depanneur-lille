@@ -1,20 +1,21 @@
 import { Button } from "@/components/ui/button";
-import { HERO_VIDEO_URL } from "@/config/media";
+import { HERO_VIDEO_URL, HERO_POSTER } from "@/config/media";
+import { LazyVideo } from "@/components/ui/lazy-video";
 
 export const BlogCarnetHero = () => {
 
   return (
     <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
       {/* Background Video */}
-      <video
+      <LazyVideo
+        src={HERO_VIDEO_URL}
+        poster={HERO_POSTER}
         autoPlay
         loop
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover z-0"
-      >
-        <source src={HERO_VIDEO_URL} type="video/mp4" />
-      </video>
+      />
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60 z-10" />

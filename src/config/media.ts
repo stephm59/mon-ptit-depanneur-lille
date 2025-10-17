@@ -1,3 +1,4 @@
+// Video URLs
 export const HERO_VIDEO_URL = "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/home-hero.mp4";
 export const BUBBLE_VIDEO_URL = "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/video-david-home.mp4";
 export const PLUMBER_VIDEO_URL = "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/video-david-pombier.mp4";
@@ -8,3 +9,9 @@ export const LOCKSMITH_VIDEO_URL = "https://pub-ee5d8554679a4a23a82caac56686992a
 export const GLAZIER_VIDEO_URL = "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/video-david-vitre.mp4";
 export const BATHROOM_VIDEO_URL = "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/video-david-salle-bains.mp4";
 export const GENERAL_VIDEO_URL = "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/video-david-general.mp4";
+
+// Poster images (lightweight placeholders for mobile)
+export const HERO_POSTER = "https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/hero-poster.jpg";
+export const BUBBLE_POSTER = "/lovable-uploads/984ccede-5332-4fbb-988e-b50d67978d04.png";
+export const SERVICE_POSTER = "/lovable-uploads/984ccede-5332-4fbb-988e-b50d67978d04.png";
+export const MEDIA_COVERAGE_POSTER = "/lovable-uploads/984ccede-5332-4fbb-988e-b50d67978d04.png";

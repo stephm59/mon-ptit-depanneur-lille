@@ -141,6 +141,13 @@
     /* Optimize text rendering */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-display: swap;
+  }
+  
+  /* Font loading optimization */
+  @font-face {
+    font-family: system-ui;
+    font-display: swap;
   }
 
   /* Improve image loading performance */
