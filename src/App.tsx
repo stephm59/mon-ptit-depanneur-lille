@@ -169,12 +169,188 @@ const App = () => (
               <Route path="/vitrier-villeneuve-d-ascq/" element={<Navigate to="/vitrier-lille" replace />} />
               
               {/* Redirections des anciennes pages générales */}
+              <Route path="/accueil" element={<Navigate to="/" replace />} />
               <Route path="/accueil/" element={<Navigate to="/" replace />} />
+              <Route path="/services" element={<Navigate to="/" replace />} />
               <Route path="/services/" element={<Navigate to="/" replace />} />
+              <Route path="/nous-contacter" element={<Navigate to="/" replace />} />
               <Route path="/nous-contacter/" element={<Navigate to="/" replace />} />
+              <Route path="/plan-dacces" element={<Navigate to="/" replace />} />
               <Route path="/plan-dacces/" element={<Navigate to="/" replace />} />
-              
+              <Route path="/blog-2" element={<Navigate to="/carnet" replace />} />
               <Route path="/blog-2/" element={<Navigate to="/carnet" replace />} />
+
+              {/* URLs malformées */}
+              <Route path="/chauffagiste-lil" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-lil/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/plombier-" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier---lille" element={<Navigate to="/plombier-lille" replace />} />
+
+              {/* Services techniques spécifiques (versions sans trailing slash) */}
+              <Route path="/installation-serrure-lille" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/ouverture-porte-lille" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/blindage-porte-lille" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/changement-barillet-lille" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/detartrage-chaudiere-lille" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/depannage-chaudiere-lille" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/installation-chaudiere-lille" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/remplacement-chaudiere-lille" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/entretien-chaudiere-lille" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/reparation-chaudiere-lille" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/recherche-fuite-eau-lille" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/debouchage-canalisation-lille" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/degorgement-canalisation-lille" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/salle-bains-lille" element={<Navigate to="/renovation-salle-de-bains-lille" replace />} />
+              <Route path="/installation-robinet-thermostatique-lille" element={<Navigate to="/plombier-lille" replace />} />
+
+              {/* Marques (versions sans trailing slash) */}
+              <Route path="/serrurier-bricard-lille" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-iseo-lille" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-city-lille" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-vachette-lille" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/plombier-atlantic-lille" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-grohe-lille" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-porcher-lille" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-delabie-lille" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-geberit-lille" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-jacob-delafon-lille" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/chauffagiste-chappee-lille" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-saunier-duval-lille" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-vaillant-lille" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-viessman-lille" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-frisquet-lille" element={<Navigate to="/chauffagiste-lille" replace />} />
+
+              {/* Pages service-ville communes voisines - Plomberie */}
+              <Route path="/plombier-lambersart" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-lambersart/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-lomme" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-lomme/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-hellemmes" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-hellemmes/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-saint-andre-lez-lille" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-saint-andre-lez-lille/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-ronchin" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-ronchin/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-loos" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-loos/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-marcq-en-baroeul" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-marcq-en-baroeul/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-haubourdin" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-haubourdin/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-wambrechies" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-wambrechies/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-marquette-lez-lille" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-marquette-lez-lille/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-croix" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-croix/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-seclin" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-seclin/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-bondues" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-bondues/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-capinghem" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-capinghem/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-fournes-en-weppes" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-fournes-en-weppes/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-fleurbaix" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-fleurbaix/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-sainghin-en-weppes" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-sainghin-en-weppes/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-wavrin" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-wavrin/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-emmerin" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-emmerin/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-wattignies" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-wattignies/" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-lezennes" element={<Navigate to="/plombier-lille" replace />} />
+              <Route path="/plombier-lezennes/" element={<Navigate to="/plombier-lille" replace />} />
+
+              {/* Pages service-ville communes voisines - Serrurerie */}
+              <Route path="/serrurier-lomme" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-lomme/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-wambrechies" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-wambrechies/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-haubourdin" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-haubourdin/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-marcq-en-baroeul" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-marcq-en-baroeul/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-la-madeleine" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-la-madeleine/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-marquette-lez-lille" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-marquette-lez-lille/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-croix" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-croix/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-loos" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-loos/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-seclin" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-seclin/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-wattignies" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-wattignies/" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-lille-fives" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-lille-fives/" element={<Navigate to="/serrurier-lille" replace />} />
+
+              {/* Pages service-ville communes voisines - Chauffagiste */}
+              <Route path="/chauffagiste-lomme" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-lomme/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-hellemmes" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-hellemmes/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-loos" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-loos/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-ronchin" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-ronchin/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-haubourdin" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-haubourdin/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-seclin" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-seclin/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-bondues" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-bondues/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-wattignies" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-wattignies/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-marcq-en-baroeul" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-marcq-en-baroeul/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-villeneuve-dascq" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-villeneuve-dascq/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-wasquehal" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-wasquehal/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-lompret" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-lompret/" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-wambrechies" element={<Navigate to="/chauffagiste-lille" replace />} />
+              <Route path="/chauffagiste-wambrechies/" element={<Navigate to="/chauffagiste-lille" replace />} />
+
+              {/* Pages service-ville communes voisines - Vitrerie */}
+              <Route path="/vitrier-hellemmes" element={<Navigate to="/vitrier-lille" replace />} />
+              <Route path="/vitrier-hellemmes/" element={<Navigate to="/vitrier-lille" replace />} />
+              <Route path="/vitrier-ronchin" element={<Navigate to="/vitrier-lille" replace />} />
+              <Route path="/vitrier-ronchin/" element={<Navigate to="/vitrier-lille" replace />} />
+              <Route path="/vitrier-croix" element={<Navigate to="/vitrier-lille" replace />} />
+              <Route path="/vitrier-croix/" element={<Navigate to="/vitrier-lille" replace />} />
+              <Route path="/vitrier-villeneuve-dascq" element={<Navigate to="/vitrier-lille" replace />} />
+              <Route path="/vitrier-villeneuve-dascq/" element={<Navigate to="/vitrier-lille" replace />} />
+
+              {/* URLs variantes mobiles obsolètes */}
+              <Route path="/mobile/plombier-bondues" element={<Navigate to="/plombier-lille" replace />} />
+
+              {/* Articles de blog obsolètes (versions sans trailing slash) */}
+              <Route path="/comment-retourner-un-pene-demi-tour" element={<Navigate to="/carnet/comment-retourner-un-pene-demi-tour" replace />} />
+              <Route path="/fuite-chez-moi" element={<Navigate to="/carnet/prevenir-fuite-eau" replace />} />
+              <Route path="/fuite-chez-moi/" element={<Navigate to="/carnet/prevenir-fuite-eau" replace />} />
+              <Route path="/different-types-serrures" element={<Navigate to="/carnet/composant-serrure-porte" replace />} />
+              <Route path="/different-types-serrures/" element={<Navigate to="/carnet/composant-serrure-porte" replace />} />
+              <Route path="/guide-entretien-ballon-eau-chaude" element={<Navigate to="/carnet/choisir-chauffe-eau" replace />} />
+              <Route path="/guide-entretien-ballon-eau-chaude/" element={<Navigate to="/carnet/choisir-chauffe-eau" replace />} />
+              <Route path="/mitigeur-panne" element={<Navigate to="/carnet/guide-systemes-plomberie" replace />} />
+              <Route path="/mitigeur-panne/" element={<Navigate to="/carnet/guide-systemes-plomberie" replace />} />
+              <Route path="/vanne" element={<Navigate to="/carnet/guide-systemes-plomberie" replace />} />
+              <Route path="/vanne/" element={<Navigate to="/carnet/guide-systemes-plomberie" replace />} />
+              <Route path="/mitigeurs" element={<Navigate to="/carnet/guide-systemes-plomberie" replace />} />
+              <Route path="/mitigeurs/" element={<Navigate to="/carnet/guide-systemes-plomberie" replace />} />
+              <Route path="/cintrage" element={<Navigate to="/carnet/types-tuyauterie" replace />} />
+              <Route path="/cintrage/" element={<Navigate to="/carnet/types-tuyauterie" replace />} />
+              <Route path="/au-secours-ma-chasse-deau-ne-fonctionne-plus" element={<Navigate to="/carnet/chasse-eau-ne-fonctionne-plus" replace />} />
+              <Route path="/au-secours-ma-chasse-deau-ne-fonctionne-plus/" element={<Navigate to="/carnet/chasse-eau-ne-fonctionne-plus" replace />} />
+              <Route path="/fuite-du-groupe-de-securite-de-votre-chauffe-eau-pas-de-panique" element={<Navigate to="/carnet/reparer-fuite-eau" replace />} />
+              <Route path="/fuite-du-groupe-de-securite-de-votre-chauffe-eau-pas-de-panique/" element={<Navigate to="/carnet/reparer-fuite-eau" replace />} />
+              <Route path="/variation-temperatures-plomberie" element={<Navigate to="/carnet/variation-temperatures-plomberie" replace />} />
+              <Route path="/variation-temperatures-plomberie/" element={<Navigate to="/carnet/variation-temperatures-plomberie" replace />} />
               <Route path="/gallery/" element={<Navigate to="/avis" replace />} />
               <Route path="/mentions-legales/" element={<Navigate to="/mentions-legales" replace />} />
               

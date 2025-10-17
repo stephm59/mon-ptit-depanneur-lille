@@ -82,3 +82,183 @@
 /chauffagiste-lambersart/ /chauffagiste-lille 301
 /vitrier-villeneuve-d-ascq /vitrier-lille 301
 /vitrier-villeneuve-d-ascq/ /vitrier-lille 301
+
+# Redirections des anciennes pages générales
+/accueil / 301
+/services / 301
+/nous-contacter / 301
+/plan-dacces / 301
+/plan-dacces/ / 301
+/blog-2 /carnet 301
+
+# URLs malformées
+/chauffagiste-lil /chauffagiste-lille 301
+/chauffagiste-lil/ /chauffagiste-lille 301
+/plombier- /plombier-lille 301
+/plombier---lille /plombier-lille 301
+
+# Services techniques spécifiques (versions sans trailing slash)
+/installation-serrure-lille /serrurier-lille 301
+/ouverture-porte-lille /serrurier-lille 301
+/blindage-porte-lille /serrurier-lille 301
+/changement-barillet-lille /serrurier-lille 301
+/detartrage-chaudiere-lille /chauffagiste-lille 301
+/depannage-chaudiere-lille /chauffagiste-lille 301
+/installation-chaudiere-lille /chauffagiste-lille 301
+/remplacement-chaudiere-lille /chauffagiste-lille 301
+/entretien-chaudiere-lille /chauffagiste-lille 301
+/reparation-chaudiere-lille /chauffagiste-lille 301
+/recherche-fuite-eau-lille /plombier-lille 301
+/debouchage-canalisation-lille /plombier-lille 301
+/degorgement-canalisation-lille /plombier-lille 301
+/salle-bains-lille /renovation-salle-de-bains-lille 301
+/installation-robinet-thermostatique-lille /plombier-lille 301
+
+# Marques (versions sans trailing slash)
+/serrurier-bricard-lille /serrurier-lille 301
+/serrurier-iseo-lille /serrurier-lille 301
+/serrurier-city-lille /serrurier-lille 301
+/serrurier-vachette-lille /serrurier-lille 301
+/plombier-atlantic-lille /plombier-lille 301
+/plombier-grohe-lille /plombier-lille 301
+/plombier-porcher-lille /plombier-lille 301
+/plombier-delabie-lille /plombier-lille 301
+/plombier-geberit-lille /plombier-lille 301
+/plombier-jacob-delafon-lille /plombier-lille 301
+/chauffagiste-chappee-lille /chauffagiste-lille 301
+/chauffagiste-saunier-duval-lille /chauffagiste-lille 301
+/chauffagiste-vaillant-lille /chauffagiste-lille 301
+/chauffagiste-viessman-lille /chauffagiste-lille 301
+/chauffagiste-frisquet-lille /chauffagiste-lille 301
+
+# Pages service-ville communes voisines - Plomberie
+/plombier-lambersart /plombier-lille 301
+/plombier-lambersart/ /plombier-lille 301
+/plombier-lomme /plombier-lille 301
+/plombier-lomme/ /plombier-lille 301
+/plombier-hellemmes /plombier-lille 301
+/plombier-hellemmes/ /plombier-lille 301
+/plombier-saint-andre-lez-lille /plombier-lille 301
+/plombier-saint-andre-lez-lille/ /plombier-lille 301
+/plombier-ronchin /plombier-lille 301
+/plombier-ronchin/ /plombier-lille 301
+/plombier-loos /plombier-lille 301
+/plombier-loos/ /plombier-lille 301
+/plombier-marcq-en-baroeul /plombier-lille 301
+/plombier-marcq-en-baroeul/ /plombier-lille 301
+/plombier-haubourdin /plombier-lille 301
+/plombier-haubourdin/ /plombier-lille 301
+/plombier-wambrechies /plombier-lille 301
+/plombier-wambrechies/ /plombier-lille 301
+/plombier-marquette-lez-lille /plombier-lille 301
+/plombier-marquette-lez-lille/ /plombier-lille 301
+/plombier-croix /plombier-lille 301
+/plombier-croix/ /plombier-lille 301
+/plombier-seclin /plombier-lille 301
+/plombier-seclin/ /plombier-lille 301
+/plombier-bondues /plombier-lille 301
+/plombier-bondues/ /plombier-lille 301
+/plombier-capinghem /plombier-lille 301
+/plombier-capinghem/ /plombier-lille 301
+/plombier-fournes-en-weppes /plombier-lille 301
+/plombier-fournes-en-weppes/ /plombier-lille 301
+/plombier-fleurbaix /plombier-lille 301
+/plombier-fleurbaix/ /plombier-lille 301
+/plombier-sainghin-en-weppes /plombier-lille 301
+/plombier-sainghin-en-weppes/ /plombier-lille 301
+/plombier-wavrin /plombier-lille 301
+/plombier-wavrin/ /plombier-lille 301
+/plombier-emmerin /plombier-lille 301
+/plombier-emmerin/ /plombier-lille 301
+/plombier-wattignies /plombier-lille 301
+/plombier-wattignies/ /plombier-lille 301
+/plombier-lezennes /plombier-lille 301
+/plombier-lezennes/ /plombier-lille 301
+
+# Pages service-ville communes voisines - Serrurerie
+/serrurier-lomme /serrurier-lille 301
+/serrurier-lomme/ /serrurier-lille 301
+/serrurier-wambrechies /serrurier-lille 301
+/serrurier-wambrechies/ /serrurier-lille 301
+/serrurier-haubourdin /serrurier-lille 301
+/serrurier-haubourdin/ /serrurier-lille 301
+/serrurier-marcq-en-baroeul /serrurier-lille 301
+/serrurier-marcq-en-baroeul/ /serrurier-lille 301
+/serrurier-la-madeleine /serrurier-lille 301
+/serrurier-la-madeleine/ /serrurier-lille 301
+/serrurier-marquette-lez-lille /serrurier-lille 301
+/serrurier-marquette-lez-lille/ /serrurier-lille 301
+/serrurier-croix /serrurier-lille 301
+/serrurier-croix/ /serrurier-lille 301
+/serrurier-loos /serrurier-lille 301
+/serrurier-loos/ /serrurier-lille 301
+/serrurier-seclin /serrurier-lille 301
+/serrurier-seclin/ /serrurier-lille 301
+/serrurier-wattignies /serrurier-lille 301
+/serrurier-wattignies/ /serrurier-lille 301
+/serrurier-lille-fives /serrurier-lille 301
+/serrurier-lille-fives/ /serrurier-lille 301
+
+# Pages service-ville communes voisines - Chauffagiste
+/chauffagiste-lomme /chauffagiste-lille 301
+/chauffagiste-lomme/ /chauffagiste-lille 301
+/chauffagiste-hellemmes /chauffagiste-lille 301
+/chauffagiste-hellemmes/ /chauffagiste-lille 301
+/chauffagiste-loos /chauffagiste-lille 301
+/chauffagiste-loos/ /chauffagiste-lille 301
+/chauffagiste-ronchin /chauffagiste-lille 301
+/chauffagiste-ronchin/ /chauffagiste-lille 301
+/chauffagiste-haubourdin /chauffagiste-lille 301
+/chauffagiste-haubourdin/ /chauffagiste-lille 301
+/chauffagiste-seclin /chauffagiste-lille 301
+/chauffagiste-seclin/ /chauffagiste-lille 301
+/chauffagiste-bondues /chauffagiste-lille 301
+/chauffagiste-bondues/ /chauffagiste-lille 301
+/chauffagiste-wattignies /chauffagiste-lille 301
+/chauffagiste-wattignies/ /chauffagiste-lille 301
+/chauffagiste-marcq-en-baroeul /chauffagiste-lille 301
+/chauffagiste-marcq-en-baroeul/ /chauffagiste-lille 301
+/chauffagiste-villeneuve-dascq /chauffagiste-lille 301
+/chauffagiste-villeneuve-dascq/ /chauffagiste-lille 301
+/chauffagiste-wasquehal /chauffagiste-lille 301
+/chauffagiste-wasquehal/ /chauffagiste-lille 301
+/chauffagiste-lompret /chauffagiste-lille 301
+/chauffagiste-lompret/ /chauffagiste-lille 301
+/chauffagiste-wambrechies /chauffagiste-lille 301
+/chauffagiste-wambrechies/ /chauffagiste-lille 301
+
+# Pages service-ville communes voisines - Vitrerie
+/vitrier-hellemmes /vitrier-lille 301
+/vitrier-hellemmes/ /vitrier-lille 301
+/vitrier-ronchin /vitrier-lille 301
+/vitrier-ronchin/ /vitrier-lille 301
+/vitrier-croix /vitrier-lille 301
+/vitrier-croix/ /vitrier-lille 301
+/vitrier-villeneuve-dascq /vitrier-lille 301
+/vitrier-villeneuve-dascq/ /vitrier-lille 301
+
+# URLs variantes mobiles obsolètes
+/mobile/plombier-bondues /plombier-lille 301
+
+# Articles de blog obsolètes (versions sans trailing slash)
+/comment-retourner-un-pene-demi-tour /carnet/comment-retourner-un-pene-demi-tour 301
+/fuite-chez-moi /carnet/prevenir-fuite-eau 301
+/fuite-chez-moi/ /carnet/prevenir-fuite-eau 301
+/different-types-serrures /carnet/composant-serrure-porte 301
+/different-types-serrures/ /carnet/composant-serrure-porte 301
+/guide-entretien-ballon-eau-chaude /carnet/choisir-chauffe-eau 301
+/guide-entretien-ballon-eau-chaude/ /carnet/choisir-chauffe-eau 301
+/mitigeur-panne /carnet/guide-systemes-plomberie 301
+/mitigeur-panne/ /carnet/guide-systemes-plomberie 301
+/vanne /carnet/guide-systemes-plomberie 301
+/vanne/ /carnet/guide-systemes-plomberie 301
+/mitigeurs /carnet/guide-systemes-plomberie 301
+/mitigeurs/ /carnet/guide-systemes-plomberie 301
+/cintrage /carnet/types-tuyauterie 301
+/cintrage/ /carnet/types-tuyauterie 301
+/au-secours-ma-chasse-deau-ne-fonctionne-plus /carnet/chasse-eau-ne-fonctionne-plus 301
+/au-secours-ma-chasse-deau-ne-fonctionne-plus/ /carnet/chasse-eau-ne-fonctionne-plus 301
+/fuite-du-groupe-de-securite-de-votre-chauffe-eau-pas-de-panique /carnet/reparer-fuite-eau 301
+/fuite-du-groupe-de-securite-de-votre-chauffe-eau-pas-de-panique/ /carnet/reparer-fuite-eau 301
+/variation-temperatures-plomberie /carnet/variation-temperatures-plomberie 301
+/variation-temperatures-plomberie/ /carnet/variation-temperatures-plomberie 301
