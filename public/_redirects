@@ -41,3 +41,11 @@
 # Redirection blog vers carnet
 /blog /carnet 301
 /blog/ /carnet 301
+
+# URLs WordPress obsolètes
+/contact/* / 301
+/wp-content/* / 301
+
+# Redirections marques serrurerie supplémentaires
+/serrurier-fichet-lille /serrurier-lille 301
+/serrurier-fichet-lille/ /serrurier-lille 301

@@ -127,6 +127,14 @@ const App = () => (
               <Route path="/blog" element={<Navigate to="/carnet" replace />} />
               <Route path="/blog/" element={<Navigate to="/carnet" replace />} />
               
+              {/* Redirections WordPress obsolètes */}
+              <Route path="/contact/*" element={<Navigate to="/" replace />} />
+              <Route path="/wp-content/*" element={<Navigate to="/" replace />} />
+              
+              {/* Redirections marques serrurerie supplémentaires */}
+              <Route path="/serrurier-fichet-lille" element={<Navigate to="/serrurier-lille" replace />} />
+              <Route path="/serrurier-fichet-lille/" element={<Navigate to="/serrurier-lille" replace />} />
+              
               {/* Redirections des anciennes pages générales */}
               <Route path="/accueil/" element={<Navigate to="/" replace />} />
               <Route path="/services/" element={<Navigate to="/" replace />} />
