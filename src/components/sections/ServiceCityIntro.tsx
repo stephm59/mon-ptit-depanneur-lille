@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { Wrench, Volume2, VolumeX } from "lucide-react";
 import { BUBBLE_VIDEO_URL, PLUMBER_VIDEO_URL, HEATING_VIDEO_URL, CLIMATISATION_VIDEO_URL, HEAT_PUMP_VIDEO_URL, LOCKSMITH_VIDEO_URL, GLAZIER_VIDEO_URL, BATHROOM_VIDEO_URL, SERVICE_POSTER } from "@/config/media";
 import { Button } from "@/components/ui/button";
-import { LazyVideo } from "@/components/ui/lazy-video";
+
 
 interface ServiceCityIntroProps {
   page: {
@@ -53,7 +53,7 @@ export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
           {/* Video Section */}
           <div className="flex-shrink-0 flex justify-center lg:justify-start">
             <div className="relative">
-              <LazyVideo
+              <video
                 ref={videoRef}
                 src={videoUrl}
                 poster={SERVICE_POSTER}
@@ -63,12 +63,10 @@ export const ServiceCityIntro = ({ page }: ServiceCityIntroProps) => {
                 loop
                 muted={isMuted}
                 playsInline
-                onPlayClick={() => {
-                  if (videoRef.current) {
-                    videoRef.current.muted = isMuted;
-                  }
-                }}
-              />
+                preload="metadata"
+              >
+                <source src={videoUrl} type="video/mp4" />
+              </video>
               
               {/* Sound control button */}
               <Button

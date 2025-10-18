@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { useContactForm } from "@/hooks/useContactForm";
 import { MEDIA_COVERAGE_POSTER } from "@/config/media";
-import { LazyVideo } from "@/components/ui/lazy-video";
+
 
 const MediaCoverage = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -30,18 +30,15 @@ const MediaCoverage = () => {
           <div className="relative">
             <div className="relative bg-white rounded-2xl p-2 shadow-elevated">
               <div className="relative">
-                <LazyVideo
+                <video
                   ref={videoRef}
                   src="https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/video-entretien-chaudiere.mp4"
                   poster={MEDIA_COVERAGE_POSTER}
                   className="w-full h-auto rounded-xl object-cover"
-                  onPlayClick={() => {
-                    if (videoRef.current) {
-                      videoRef.current.play();
-                      setIsPlaying(true);
-                    }
-                  }}
-                />
+                  preload="metadata"
+                >
+                  <source src="https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/video-entretien-chaudiere.mp4" type="video/mp4" />
+                </video>
                 {/* Play/Pause Button Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <button 

@@ -4,7 +4,7 @@ import { GENERAL_VIDEO_URL, SERVICE_POSTER } from "@/config/media";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { cn } from "@/lib/utils";
-import { LazyVideo } from "@/components/ui/lazy-video";
+
 
 const About = () => {
   const [isMuted, setIsMuted] = useState(true);
@@ -24,7 +24,7 @@ const About = () => {
           {/* Video Section */}
           <div className="flex-shrink-0 flex justify-center lg:justify-start">
             <div className="relative">
-              <LazyVideo
+              <video
                 ref={videoRef}
                 src={GENERAL_VIDEO_URL}
                 poster={SERVICE_POSTER}
@@ -34,12 +34,10 @@ const About = () => {
                 loop
                 muted={isMuted}
                 playsInline
-                onPlayClick={() => {
-                  if (videoRef.current) {
-                    videoRef.current.muted = isMuted;
-                  }
-                }}
-              />
+                preload="metadata"
+              >
+                <source src={GENERAL_VIDEO_URL} type="video/mp4" />
+              </video>
               
               {/* Sound control button */}
               <Button

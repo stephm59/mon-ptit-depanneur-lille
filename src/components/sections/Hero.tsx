@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { HERO_VIDEO_URL, HERO_POSTER } from "@/config/media";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { useContactForm } from "@/hooks/useContactForm";
-import { LazyVideo } from "@/components/ui/lazy-video";
+
 
 interface HeroProps {
   title?: string;
@@ -45,7 +45,7 @@ const Hero = ({ title, subtitle }: HeroProps = {}) => {
     <section className="relative min-h-[50vh] flex items-center overflow-visible pt-20 pb-20">
       {/* Background video */}
       <div className="absolute inset-0">
-        <LazyVideo
+        <video
           src={HERO_VIDEO_URL}
           poster={HERO_POSTER}
           className="w-full h-full object-cover"
@@ -53,8 +53,11 @@ const Hero = ({ title, subtitle }: HeroProps = {}) => {
           loop
           muted
           playsInline
+          preload="metadata"
           aria-hidden="true"
-        />
+        >
+          <source src={HERO_VIDEO_URL} type="video/mp4" />
+        </video>
       </div>
       {/* Overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/20" />
