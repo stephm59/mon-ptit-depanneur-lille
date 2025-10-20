@@ -114,6 +114,26 @@
 /salle-bains-lille /renovation-salle-de-bains-lille 301
 /installation-robinet-thermostatique-lille /plombier-lille 301
 
+# Article blog raccord diélectrique
+/raccord-dielectrique /carnet/raccord-dielectrique 301
+/raccord-dielectrique/ /carnet/raccord-dielectrique 301
+
+# Pompe à chaleur Haubourdin
+/pompe-chaleur-haubourdin /pompe-a-chaleur-lille 301
+/pompe-chaleur-haubourdin/ /pompe-a-chaleur-lille 301
+
+# Serrurier Marquette variante
+/serrurier-marquette-lez-lille-2 /serrurier-lille 301
+/serrurier-marquette-lez-lille-2/ /serrurier-lille 301
+
+# Feed salle de bains
+/salle-bains-lille/feed /renovation-salle-de-bains-lille 301
+/salle-bains-lille/feed/ /renovation-salle-de-bains-lille 301
+
+# Article pompe à chaleur avantages/inconvénients
+/avantages-inconvenients-pompe-chaleur /carnet/avantages-inconvenients-pompe-chaleur 301
+/avantages-inconvenients-pompe-chaleur/ /carnet/avantages-inconvenients-pompe-chaleur 301
+
 # Marques (versions sans trailing slash)
 /serrurier-bricard-lille /serrurier-lille 301
 /serrurier-iseo-lille /serrurier-lille 301
