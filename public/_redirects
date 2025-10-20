@@ -44,6 +44,7 @@
 # Redirection blog vers carnet
 /blog /carnet 301
 /blog/ /carnet 301
+/blog/page/* /carnet 301
 
 # URLs WordPress obsolètes
 /contact/* / 301
@@ -63,12 +64,16 @@
 /plombier-wavrin/feed/ /plombier-lille 301
 /plombier-wattignies/feed/ /plombier-lille 301
 /chauffagiste-lille/feed/ /chauffagiste-lille 301
+/category/serrurerie/feed/ /carnet 301
+/category/*/feed/ /carnet 301
 
 # Pages interventions obsolètes
 /interventions-serrurerie /serrurier-lille 301
 /interventions-serrurerie/ /serrurier-lille 301
 /interventions-plomberie /plombier-lille 301
 /interventions-plomberie/ /plombier-lille 301
+/interventions-chauffagerie /chauffagiste-lille 301
+/interventions-chauffagerie/ /chauffagiste-lille 301
 
 # Feed RSS accueil obsolète
 /accueil/feed/ / 301
@@ -218,6 +223,10 @@
 /serrurier-wattignies/ /serrurier-lille 301
 /serrurier-lille-fives /serrurier-lille 301
 /serrurier-lille-fives/ /serrurier-lille 301
+/serrurier-faches-thumesnil /serrurier-lille 301
+/serrurier-faches-thumesnil/ /serrurier-lille 301
+/serrurier-englos /serrurier-lille 301
+/serrurier-englos/ /serrurier-lille 301
 
 # Pages service-ville communes voisines - Chauffagiste
 /chauffagiste-lomme /chauffagiste-lille 301

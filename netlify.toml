@@ -1,0 +1,12 @@
+# Forcer la redirection vers www
+[[redirects]]
+  from = "http://monptitdepanneur.fr/*"
+  to = "https://www.monptitdepanneur.fr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://monptitdepanneur.fr/*"
+  to = "https://www.monptitdepanneur.fr/:splat"
+  status = 301
+  force = true
