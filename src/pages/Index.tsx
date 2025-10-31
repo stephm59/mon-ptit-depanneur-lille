@@ -25,6 +25,7 @@ const Index = () => {
         description="Une chaudière à changer ? Une serrure à remplacer ? Une fuite d'eau à réparer ? Pour toute urgence : Mon p'tit Dépanneur (03 28 53 48 68)"
         canonical="/"
         keywords="plombier lille, chauffagiste lille, serrurier lille, dépannage lille, pompe à chaleur lille"
+        ogImage="https://pub-ee5d8554679a4a23a82caac56686992a.r2.dev/mpd-photo-equipe.webp"
         jsonLd={generateHomeJsonLd()}
       />
       <Header />
