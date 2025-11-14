@@ -2,6 +2,9 @@
 http://monptitdepanneur.fr/* https://www.monptitdepanneur.fr/:splat 301!
 https://monptitdepanneur.fr/* https://www.monptitdepanneur.fr/:splat 301!
 
+# Pages HTML statiques
+/plombier-lille /plombier-lille.html 200
+
 # Redirections SEO existantes
 /sitemap_index.xml /sitemap.xml 301
 /comment-retourner-un-pene-demi-tour /carnet/comment-retourner-un-pene-demi-tour 301
