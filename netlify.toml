@@ -1,21 +1,2 @@
-# Forcer la redirection vers www
-[[redirects]]
-  from = "http://monptitdepanneur.fr/*"
-  to = "https://www.monptitdepanneur.fr/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://monptitdepanneur.fr/*"
-  to = "https://www.monptitdepanneur.fr/:splat"
-  status = 301
-  force = true
-
-# Prerendering pour les crawlers (bots SEO et réseaux sociaux)
-[[redirects]]
-  from = "/*"
-  to = "https://service.prerender.io/https://www.monptitdepanneur.fr/:splat"
-  status = 200
-  force = false
-  headers = {X-Prerender-Token = "1y1Q0unTDJdVoZAexohu"}
-  conditions = {User-Agent = ["googlebot", "bingbot", "yandex", "baiduspider", "facebookexternalhit", "twitterbot", "rogerbot", "linkedinbot", "embedly", "quora link preview", "showyoubot", "outbrain", "pinterest/0.", "developers.google.com/+/web/snippet", "slackbot", "vkShare", "W3C_Validator", "redditbot", "Applebot", "WhatsApp", "flipboard", "tumblr", "bitlybot", "SkypeUriPreview", "nuzzel", "Discordbot", "Google Page Speed", "x-bufferbot", "Qwantify", "Bitrix link preview", "XING-contenttabreceiver", "Chrome-Lighthouse", "TelegramBot", "SemrushBot", "DotBot", "Screaming Frog", "AhrefsBot", "MJ12bot"]}
+# Note: Les redirections sont maintenant gérées dans public/_redirects
+# Ce fichier ne sert plus que pour la documentation
