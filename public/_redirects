@@ -1,3 +1,11 @@
+# Redirections www (priorité haute)
+http://monptitdepanneur.fr/* https://www.monptitdepanneur.fr/:splat 301!
+https://monptitdepanneur.fr/* https://www.monptitdepanneur.fr/:splat 301!
+
+# Prerendering pour les crawlers SEO
+/* https://service.prerender.io/https://www.monptitdepanneur.fr/:splat 200! User-Agent=googlebot,bingbot,yandex,baiduspider,facebookexternalhit,twitterbot,rogerbot,linkedinbot,embedly,showyoubot,outbrain,slackbot,redditbot,applebot,whatsapp,flipboard,tumblr,bitlybot,nuzzel,discordbot,qwantify,telegrambot,semrushbot,dotbot,ahrefsbot,mj12bot X-Prerender-Token=1y1Q0unTDJdVoZAexohu
+
+# Redirections SEO existantes
 /sitemap_index.xml /sitemap.xml 301
 /comment-retourner-un-pene-demi-tour /carnet/comment-retourner-un-pene-demi-tour 301
 /comment-retourner-un-pene-demi-tour/ /carnet/comment-retourner-un-pene-demi-tour 301
