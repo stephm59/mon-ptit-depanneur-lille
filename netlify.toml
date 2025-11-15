@@ -1,17 +1,2 @@
-# Configuration des Edge Functions
-[[edge_functions]]
-  path = "/*"
-  function = "prerender"
-
-# Redirections www (backup si _redirects ne fonctionne pas)
-[[redirects]]
-  from = "http://monptitdepanneur.fr/*"
-  to = "https://www.monptitdepanneur.fr/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://monptitdepanneur.fr/*"
-  to = "https://www.monptitdepanneur.fr/:splat"
-  status = 301
-  force = true
+# Note: Les redirections sont maintenant gérées dans public/_redirects
+# Ce fichier ne sert plus que pour la documentation

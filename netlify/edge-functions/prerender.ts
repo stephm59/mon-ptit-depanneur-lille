@@ -1,4 +1,4 @@
-import type { Context } from "@netlify/edge-functions";
+import type { Context } from "https://edge.netlify.com";
 
 const PRERENDER_TOKEN = "1y1Q0unTDJdVoZAexohu";
 const BOT_USER_AGENTS = [
