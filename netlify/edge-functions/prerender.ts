@@ -8,7 +8,7 @@ const BOT_USER_AGENTS = [
   "redditbot", "applebot", "whatsapp", "flipboard",
   "tumblr", "bitlybot", "nuzzel", "discordbot",
   "qwantify", "telegrambot", "semrushbot", "dotbot",
-  "ahrefsbot", "mj12bot", "screaming frog"
+  "ahrefsbot", "mj12bot", "screaming frog", "prerender"
 ];
 
 export default async (request: Request, context: Context) => {
@@ -39,9 +39,12 @@ export default async (request: Request, context: Context) => {
     
     console.log(`[Prerender] Response status: ${response.status}`);
     
+    const headers = new Headers(response.headers);
+    headers.set("X-Prerender", "1");
+    
     return new Response(response.body, {
       status: response.status,
-      headers: response.headers
+      headers: headers
     });
   } catch (error) {
     console.error("[Prerender] Error:", error);

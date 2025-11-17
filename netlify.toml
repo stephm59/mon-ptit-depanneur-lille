@@ -1,2 +1,6 @@
 # Note: Les redirections sont maintenant gérées dans public/_redirects
-# Ce fichier ne sert plus que pour la documentation
+# Ce fichier configure aussi les Edge Functions
+
+[[edge_functions]]
+  function = "prerender"
+  path = "/*"
