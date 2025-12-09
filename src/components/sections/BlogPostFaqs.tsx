@@ -4,19 +4,18 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { useServiceCityFaqs } from "@/hooks/useServiceCityPage";
-import { useBlogPostFaqs } from "@/hooks/useBlog";
+import { useBlogPostFaqs, useServiceGenericFaqs } from "@/hooks/useBlog";
 
 interface BlogPostFaqsProps {
-  serviceId?: string;
+  serviceId?: string | null;
   blogPostId?: string;
 }
 
 export function BlogPostFaqs({ serviceId, blogPostId }: BlogPostFaqsProps) {
-  const { data: serviceFaqs, isLoading: serviceLoading } = useServiceCityFaqs(serviceId, null);
   const { data: blogFaqs, isLoading: blogLoading } = useBlogPostFaqs(blogPostId);
+  const { data: serviceFaqs, isLoading: serviceLoading } = useServiceGenericFaqs(serviceId);
   
-  // Use blog post FAQs if available, otherwise fall back to service FAQs
+  // Use blog post FAQs if available, otherwise fall back to generic service FAQs
   const faqs = blogFaqs && blogFaqs.length > 0 ? blogFaqs : serviceFaqs;
   const isLoading = blogLoading || serviceLoading;
 

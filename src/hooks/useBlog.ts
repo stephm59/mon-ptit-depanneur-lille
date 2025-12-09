@@ -238,3 +238,23 @@ export const useBlogPostFaqs = (blogPostId?: string) => {
     enabled: !!blogPostId,
   });
 };
+
+export const useServiceGenericFaqs = (serviceId?: string | null) => {
+  return useQuery({
+    queryKey: ["serviceGenericFaqs", serviceId],
+    queryFn: async () => {
+      if (!serviceId) return [];
+      
+      const { data, error } = await supabase
+        .from("service_faqs_generic")
+        .select("*")
+        .eq("service_id", serviceId)
+        .eq("published", true)
+        .order("position", { ascending: true });
+
+      if (error) throw error;
+      return data || [];
+    },
+    enabled: !!serviceId,
+  });
+};
