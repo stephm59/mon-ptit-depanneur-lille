@@ -296,3 +296,6 @@ https://monptitdepanneur.fr/* https://www.monptitdepanneur.fr/:splat 301!
 /fuite-du-groupe-de-securite-de-votre-chauffe-eau-pas-de-panique/ /carnet/reparer-fuite-eau 301
 /variation-temperatures-plomberie /carnet/variation-temperatures-plomberie 301
 /variation-temperatures-plomberie/ /carnet/variation-temperatures-plomberie 301
+
+# SPA fallback — doit rester en dernière ligne
+/* /index.html 200
